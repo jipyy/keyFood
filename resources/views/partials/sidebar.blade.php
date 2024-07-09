@@ -1,8 +1,9 @@
+
 <nav class="sidebar close">
     <header>
         <div class="image-text">
             <span class="image">
-                <img src="{{ asset('public/img/logo.jpg') }}" alt="logo">
+                <img src="{{ asset('../img/logo.png') }}" alt="logo">
             </span>
 
             <div class="text-header-text">
@@ -16,12 +17,12 @@
     <div class="menu-bar">
         <div class="menu">
 
-            <a href="">
+            
                 <li class="search-box">
                     <i class="bx bx-search icon"></i>
-                    <input type="search" placeholder="search..">
+                    <input type="search" placeholder="Search..">
                 </li>
-            </a>
+            
 
             <ul class="menu-links">
                 <li class="nav-link">
@@ -79,6 +80,4 @@
     </div>
 </nav>
 
-<script src="sidebar.js">
 
-</script>

@@ -36,7 +36,6 @@ body.dark{
     --primary-color-light: #3A3B3C;
     --toggle-color: #fff;
     --text-color: #ccc;
-
 }
 
 /* Sidebar */
@@ -49,7 +48,7 @@ body.dark{
     font-size: 16px;
     font-weight: 500;
     color: var(--text-color);
-    transition: var(--tran-04);
+    transition: var(--tran-03);
     white-space: nowrap;
     opacity: 1;
 }
@@ -226,8 +225,12 @@ body.dark .menu-bar .mode i.moon{
     opacity: 0;
 }
  
-.sidebar .close header .toggle{
+.sidebar.close header .toggle{
     transform: translateY(-50%) rotate(180deg);
+}
+
+.sidebar.close .text-header-text{
+    opacity: 0;
 }
 
 body.dark .sidebar header .toggle{
