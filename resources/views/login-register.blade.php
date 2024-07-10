@@ -6,7 +6,7 @@
   <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
   <link rel="stylesheet" href="{{ asset('../css/style-login.css') }}">
-  <title>Sign in & Sign up Form</title>
+  <title>Sign in / Sign up</title>
 </head>
 
 <body>
