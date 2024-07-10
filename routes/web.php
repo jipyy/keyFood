@@ -7,3 +7,9 @@ Route::get('/', function () {
         "title" => "Home"
     ]);
 });
+
+Route::get('/login', function (){
+    return view('login-register', [
+        "title" => "login-register"
+    ]);
+});
