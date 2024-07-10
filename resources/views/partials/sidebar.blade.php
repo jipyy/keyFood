@@ -39,7 +39,7 @@
                 </li>
                 <li class="nav-link">
                     <a href="">
-                        <i class="bx bx-home-alt icon"></i>
+                        <i class='bx bx-store icon'></i>
                         <span class="text nav-text">Stores</span>
                     </a>
                 </li>
