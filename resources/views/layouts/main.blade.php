@@ -10,15 +10,17 @@
     <link rel="stylesheet" href="{{ asset('../css/home.css') }}">
 
     <link rel="icon" type="image/x-icon" href="{{ asset('../img/logos.svg') }}">
-    <title>KeyFood | </title>
+    <title>KeyFood | {{ $title }} </title>
     {{-- ini diatas, disebelah dikasih title statis --}}
 </head>
 
 <body>
     @include('partials.sidebar')
 
-    @yield('container')
-    
+    <div class="container">
+        @yield('container')
+    </div>
+ 
     @include('partials.footer')
 </body>
 <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>

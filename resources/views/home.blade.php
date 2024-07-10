@@ -1,4 +1,4 @@
-@extends('layouts/main')
+@extends('layouts.main')
 @section('container')
     <div class="container mt-4">
         <div class="slider">
@@ -30,9 +30,8 @@
 
             </div>
             <div class="arow">
-                <button id="prev">
-                    << /button>
-                        <button id="next">></button>
+                <button id="prev"><</button>
+                <button id="next">></button>
             </div>
         </div>
     @endsection
