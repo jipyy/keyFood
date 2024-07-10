@@ -12,7 +12,7 @@
             </div>
         </div>
 
-        <i class="bx bx-chevron-right toggle"></i>
+        <i class="bx bx-chevron-left toggle"></i>
     </header>
     <div class="menu-bar">
         <div class="menu">
@@ -25,7 +25,7 @@
             
 
             <ul class="menu-links">
-                <li class="nav-link">
+                <li class="nav-link active">
                     <a href="">
                         <i class="bx bx-home-alt icon"></i>
                         <span class="text nav-text">Home</span>
