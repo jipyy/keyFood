@@ -1,4 +1,4 @@
-{{-- <x-guest-layout>
+<x-guest-layout>
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
@@ -49,9 +49,9 @@
             </x-primary-button>
         </div>
     </form>
-</x-guest-layout> --}}
+</x-guest-layout>
 
-<form action="#" class="sign-up-form">
+{{-- <form action="#" class="sign-up-form">
     <h2 class="title">
       <img src="img/regis.svg" style="max-width: 150px; align-items: center;" alt="">
     </h2>
@@ -83,4 +83,4 @@
         <i class="fab fa-linkedin-in"></i>
       </a>
     </div>
-  </form>
+  </form> --}}

@@ -1,4 +1,4 @@
-{{-- <x-guest-layout>
+<x-guest-layout>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
@@ -44,9 +44,9 @@
             </x-primary-button>
         </div>
     </form>
-</x-guest-layout> --}}
+</x-guest-layout>
 
-<div class="container">
+{{-- <div class="container">
     <div class="forms-container">
       <div class="signin-signup">
         <form action="#" class="sign-in-form">
@@ -77,4 +77,4 @@
               <i class="fab fa-linkedin-in"></i>
             </a>
           </div>
-        </form>
+        </form> --}}
