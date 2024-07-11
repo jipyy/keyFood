@@ -60,11 +60,21 @@
 
         <div class="bottom-content">
             <li class="">
-                <a href="">
+                <a href="{{ route('logout') }}">
                     <i class="bx bx-log-out icon"></i>
+                    @csrf
                     <span class="text nav-text">Logout</span>
                 </a>
             </li>
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+
+                <x-dropdown-link :href="route('logout')"
+                        onclick="event.preventDefault();
+                                    this.closest('form').submit();">
+                    {{ __('Log Out') }}
+                </x-dropdown-link>
+            </form>
 
             <li class="mode">
                <div class="moon-sun">
