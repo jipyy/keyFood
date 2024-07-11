@@ -7,7 +7,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::view('/home', 'home')->name('home');
+
+Route::view('/B-login-register', 'B-login-register')->name('B-login-register');
 
 Route::get('/home', function () {
     return view('home');
