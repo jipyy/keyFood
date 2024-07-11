@@ -18,7 +18,6 @@ header nav ul {
     position: relative;
     background-color: #17232A;
     background-image: radial-gradient(#fff3, transparent 50%);
-    margin-top: -50px;
 }
 
 .slider .list {

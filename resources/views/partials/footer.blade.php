@@ -29,13 +29,13 @@
                     <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Our Company</h2>
                     <ul class="text-gray-500 dark:text-gray-400 font-medium">
                         <li class="mb-4">
-                            <a href="https://github.com/themesberg/flowbite" class="hover:underline ">KeyFood Company, <br> Keandra Regency, Cirebon,<br>  Jawa Barat, Indonesia<br> 45611</a>
+                            <a href="https://maps.app.goo.gl/jPYA3x3XgB3pXWSYA" class="hover:underline ">KeyFood Company, <br> Keandra Regency, Cirebon,<br>  Jawa Barat, Indonesia<br> 45611</a>
                         </li>
                         <li class="mb-4">
-                            <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">keyfood @gmail.com</a>
+                            <a href="mailto:andikasupriyadi27@gmail.com" class="hover:underline">keyfood @gmail.com</a>
                         </li>
                         <li>
-                            <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">+62 812 3456 7890</a>
+                            <a href="https://wa.me/6281224265685" class="hover:underline">+62-812-3456-7890</a>
                         </li>
                     </ul>
                 </div>
