@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{{ asset('../css/home.css') }}">
 
     <link rel="icon" type="image/x-icon" href="{{ asset('../img/logos.svg') }}">
-    <title>KeyFood | {{ $title }} </title>
+    {{-- <title>KeyFood | {{ $title }} </title> --}}
     {{-- ini diatas, disebelah dikasih title statis --}}
 </head>
 
