@@ -233,7 +233,7 @@ header nav ul {
     padding: 1em;
 }
 
-.icon {
+.icons {
     font-size: 1.5em;
     padding: .5em;
     margin: .5em;
@@ -256,13 +256,13 @@ header nav ul {
         padding: 0.5em;
     }
 
-    .icon {
+    .icons {
         font-size: 1.25em; /* Sedikit lebih besar dari sebelumnya */
         padding: .5em;
         margin: .5em;
     }
 
-    .active {
+    .actives {
         transform: scale(1.25) translateY(-1em);
     }
 }
@@ -273,13 +273,13 @@ header nav ul {
         padding: 0.5em;
     }
 
-    .icon {
+    .icons {
         font-size: 1.25em; /* Ukuran font tetap konsisten untuk layar < 500px */
         padding: .4em;
         margin: .4em;
     }
 
-    .active {
+    .actives {
         transform: scale(1.25) translateY(-1em);
     }
 }
@@ -289,13 +289,13 @@ header nav ul {
         padding: 0.5em;
     }
 
-    .icon {
+    .icons {
         font-size: 1em; /* Sedikit lebih kecil untuk layar yang sangat kecil */
         padding: .4em;
         margin: .4em;
     }
 
-    .active {
+    .actives {
         transform: scale(1.15) translateY(-0.8em);
     }
 }
@@ -305,13 +305,13 @@ header nav ul {
         padding: 0.5em;
     }
 
-    .icon {
+    .icons {
         font-size: 0.8em; /* Lebih kecil untuk layar yang sangat kecil */
         padding: .3em;
         margin: .3em;
     }
 
-    .active {
+    .actives {
         transform: scale(1.1) translateY(-0.6em);
     }
 }
