@@ -5,15 +5,28 @@
     </h2>
     <div class="input-field">
       <i class="fas fa-user"></i>
-      <input type="text" placeholder="Username" name="name" required />
+      <input type="text" id="name" placeholder="Username" name="name" value="{{ old('name') }}" required />
+      {{-- <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" /> --}}
     </div>
     <div class="input-field">
       <i class="fas fa-envelope"></i>
-      <input type="email" placeholder="Email" name="email" required />
+      <input type="email" id="email" placeholder="Email" name="email" value="{{ old('email') }}" required />
+      {{-- <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" /> --}}
     </div>
     <div class="input-field">
       <i class="fas fa-lock"></i>
-      <input type="password" placeholder="Password" name="password" required />
+      <input type="password" id="password" placeholder="Password" name="password" required />
+      {{-- <x-text-input id="password" class="block mt-1 w-full"
+                            type="password"
+                            name="password"
+                            required autocomplete="new-password" /> --}}
+    </div>
+    <div class="input-field">
+      <i class="fas fa-lock"></i>
+      <input id="password_confirmation" type="password" placeholder="Password" name="password_confirmation" required />
+      {{-- <x-text-input id="password_confirmation" class="block mt-1 w-full"
+                            type="password"
+                            name="password_confirmation" required autocomplete="new-password" /> --}}
     </div>
     <input type="submit" class="btn" value="Sign up" />
     <p class="social-text">Or Sign up with social platforms</p>
@@ -37,7 +50,7 @@
 
   {{-- Ini adalah form bawaan laravel breeze --}}
 
-<x-guest-layout>
+{{-- <x-guest-layout>
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
@@ -46,7 +59,7 @@
             <x-input-label for="name" :value="__('Name')" />
             <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
-        </div>
+          </div>
 
         <!-- Email Address -->
         <div class="mt-4">
@@ -88,4 +101,4 @@
             </x-primary-button>
         </div>
     </form>
-</x-guest-layout>
+</x-guest-layout> --}}
