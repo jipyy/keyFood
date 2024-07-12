@@ -34,6 +34,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//batas andika
+
 // <<<<<<< HEAD
 
 // Route::view('/home', 'home')->name('home');
@@ -45,12 +47,11 @@ Route::get('/home', function () {
     return view('home');
 })->middleware(['auth', 'verified'])->name('home');
 
-//bawaaan breeze
-// =======
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
-// >>>>>>> 8e30752d7c85bcbba34962433871e1b895b94226
+
+// Route::get('/', function () {
+//     return view('');
+// })->middleware(['auth', 'verified'])->name('');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
