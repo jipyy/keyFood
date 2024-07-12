@@ -267,6 +267,23 @@ header nav ul {
     }
 }
 
+@media (max-width: 500px) {
+    .bottom-bar {
+        margin-top: auto; /* Letaknya akan di bagian bawah */
+        padding: 0.5em;
+    }
+
+    .icon {
+        font-size: 1.25em; /* Ukuran font tetap konsisten untuk layar < 500px */
+        padding: .4em;
+        margin: .4em;
+    }
+
+    .active {
+        transform: scale(1.25) translateY(-1em);
+    }
+}
+
 @media (max-width: 400px) {
     .bottom-bar {
         padding: 0.5em;
