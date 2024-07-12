@@ -29,7 +29,7 @@ modeSwitch.addEventListener("click", ()=>{
 function change(item){
     const buttons = document.querySelectorAll('ion-icon');
     buttons.forEach(function(obj){
-        obj.classList.remove("active");
+        obj.classList.remove("actives");
     });
-    item.classList.add("active");
+    item.classList.add("actives");
 }
