@@ -21,7 +21,6 @@
        @include('auth.login')
 
        @include('auth.register')
-
       </div>
     </div>
 
