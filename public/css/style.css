@@ -42,7 +42,14 @@ body.dark{
 
 /* Sidebar */
 
-@media (max-width: 700px) {
+@media (max-width: 800px) {
+    body{
+        margin-left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: var(--body-color);
+        transition: var(--tran-05);
+    }
     .sidebar {
         display: none;
     }
