@@ -1,4 +1,3 @@
-
     <div class="bottom-bar">
       <ion-icon name="home-outline" class="icon" onclick="change(this)">
       </ion-icon>
