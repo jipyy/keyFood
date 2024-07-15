@@ -44,13 +44,13 @@
                     </a>
                 </li>
                 <li class="nav-link">
-                    <a href="">
+                    <a href="{{ route('admin.products.index') }}">
                         <i class="bx bx-bar-chart-alt-2 icon"></i>
                         <span class="text nav-text">Product</span>
                     </a>
                 </li>
                 <li class="nav-link">
-                    <a href="">
+                    <a href="{{ route('admin.products_orders.index') }}">
                         <i class='bx bx-store icon'></i>
                         <span class="text nav-text">Stores</span>
                     </a>
