@@ -18,7 +18,6 @@ header nav ul {
     position: relative;
     background-color: #17232A;
     background-image: radial-gradient(#fff3, transparent 50%);
-    margin-top: -50px;
 }
 
 .slider .list {
@@ -215,5 +214,111 @@ header nav ul {
 
     .circle span {
         font-size: xx-small;
+    }
+}
+
+
+/* ini bot bar */
+
+.bottom-bar {
+    width: 90%;
+    background-color: #eee;
+    position: fixed; /* Tetap di bagian bawah meskipun di-scroll */
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    text-align: center;
+    max-width: 30em;
+    border-radius: 20px 20px 0 0;
+    padding: 1em;
+}
+
+.icons {
+    font-size: 1.5em;
+    padding: .5em;
+    margin: .5em;
+    margin-top: 0;
+    transition: .5s ease-in-out;
+    border-radius: 100%;
+    border: 7px solid #eee;
+}
+
+.actives {
+    transform: scale(1.25) translateY(-1em);
+    background: linear-gradient(135deg, #23f, #6589ff);
+    border: 7px solid #dcdcdc;
+    color: white;
+}
+
+/* Media Queries untuk Mobile Responsiveness */
+@media (max-width: 600px) {
+    .bottom-bar {
+        padding: 0.5em;
+    }
+
+    .icons {
+        font-size: 1.25em; /* Sedikit lebih besar dari sebelumnya */
+        padding: .5em;
+        margin: .5em;
+    }
+
+    .actives {
+        transform: scale(1.25) translateY(-1em);
+    }
+}
+
+@media (max-width: 500px) {
+    .bottom-bar {
+        margin-top: auto; /* Letaknya akan di bagian bawah */
+        padding: 0.5em;
+    }
+
+    .icons {
+        font-size: 1.25em; /* Ukuran font tetap konsisten untuk layar < 500px */
+        padding: .4em;
+        margin: .4em;
+    }
+
+    .actives {
+        transform: scale(1.25) translateY(-1em);
+    }
+}
+
+@media (max-width: 400px) {
+    .bottom-bar {
+        padding: 0.5em;
+    }
+
+    .icons {
+        font-size: 1em; /* Sedikit lebih kecil untuk layar yang sangat kecil */
+        padding: .4em;
+        margin: .4em;
+    }
+
+    .actives {
+        transform: scale(1.15) translateY(-0.8em);
+    }
+}
+
+@media (max-width: 300px) {
+    .bottom-bar {
+        padding: 0.5em;
+    }
+
+    .icons {
+        font-size: 0.8em; /* Lebih kecil untuk layar yang sangat kecil */
+        padding: .3em;
+        margin: .3em;
+    }
+
+    .actives {
+        transform: scale(1.1) translateY(-0.6em);
+    }
+}
+
+/* Media Query untuk menyembunyikan bottom-bar saat width > 900px */
+@media (min-width: 1110px) {
+    .bottom-bar {
+        display: none;
     }
 }

@@ -42,6 +42,46 @@ body.dark{
 
 /* Sidebar */
 
+@media (max-width: 800px) {
+    body{
+        margin-left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: var(--body-color);
+        transition: var(--tran-05);
+    }
+    .sidebar {
+        display: none;
+    }
+    .sidebar.close{
+        display: none;
+
+    }
+    .sidebar.text{
+        display: none;
+    }
+    .sidebar .search-box{
+        display: none;
+
+    }
+    .menu-bar{
+        display: none;
+    }
+    .nav-link.active{
+        display: none;
+    }
+    .nav-link{
+        display: none;
+
+    }
+    .bottom-content{
+        display: none;
+    }
+    .header-text{
+        display: none;
+    }
+}
+
 .sidebar.close{
     width: 88px;
 }
@@ -171,6 +211,12 @@ header .image-text .header-text{
     text-decoration: none;
     border-radius: 6px;
     transition: var(--tran-04);
+}
+
+.sidebar form {
+    display: flex;
+    width: 100%;
+    height: 100%;
 }
 
 .search-box input{
