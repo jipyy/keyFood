@@ -86,7 +86,7 @@
     <div class="panels-container">
       <div class="panel left-panel">
         <div class="content">
-          <h3>New here ?</h3>
+          <h3>New here ?</h3>a
           <p>
             Baru di sini? Selamat datang! Mari buat akun dan mulai perjalanan kuliner Anda.
           </p>
