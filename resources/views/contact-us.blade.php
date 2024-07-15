@@ -15,7 +15,7 @@
             <!-- form -->
             <div class="contact form">
                 <h3>What's your problem?
-                <form action="">
+                <form action="mailto:andikasupriyadi27@gmail.com" method="POST">
                     <div class="formBox">
                         <div class="row50">
                             <div class="inputBox">
