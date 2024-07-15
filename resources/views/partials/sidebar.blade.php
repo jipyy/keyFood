@@ -58,13 +58,13 @@
                 </li>
                 <li class="nav-link">
                     <a href="">
-                        <i class="bx bx-home-alt icon"></i>
-                        <span class="text nav-text">Categories</span>
+                        <i class='bx bx-user icon'></i>
+                        <span class="text nav-text">My Profile</span>
                     </a>
                 </li>
                 <li class="nav-link">
                     <a href="">
-                        <i class="bx bx-home-alt icon"></i>
+                        <i class='bx bx-bell icon'></i>
                         <span class="text nav-text">Notifications</span>
                     </a>
                 </li>

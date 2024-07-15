@@ -217,8 +217,21 @@ header nav ul {
     }
 }
 
+.footer{
+    background-color: #ffffff;
+}
+
+body.dark .footer{
+    background-color: #1f1f1f;
+}
 
 /* ini bot bar */
+
+body.dark .bottom-bar{
+    background-color: #1f1f1f;
+    color: #ffff;
+}
+
 
 .bottom-bar {
     width: 90%;
@@ -317,8 +330,61 @@ header nav ul {
 }
 
 /* Media Query untuk menyembunyikan bottom-bar saat width > 900px */
-@media (min-width: 1110px) {
+@media (min-width: 860px) {
     .bottom-bar {
         display: none;
     }
 }
+
+
+/* ini profile */
+
+
+#dropdown {
+    position: fixed;
+    z-index: 990;
+    top: 30px;
+    right: 30px;
+  }
+
+  @media (min-width: 850px) {
+    #dropdown {
+      position: fixed;
+      z-index: 990;
+      top: 30px;
+      right: 30px;
+      display: none;
+    }
+  }
+
+    @media (max-width: 768px) {
+      #dropdown {
+        position: fixed;
+        z-index: 990;
+        top: 20px;
+        right: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #dropdown {
+        position: fixed;
+        z-index: 990;
+        top: 15px;
+        right: 15px;
+      }
+    }
+
+    body.dark .bg-slate-900{
+            background-color: #1a202c;
+    }
+    body.dark .text-slate-100{ 
+            color: #cbd5e0;
+    }
+    body.dark .hover\:bg-slate-800:hover{
+            background-color: #2d3748;
+    }
+    body.dark .ring-slate-100 {
+            border-color: #e2e8f0;
+    }
+    
