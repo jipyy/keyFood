@@ -65,6 +65,12 @@
                     </a>
                 </li>
                 <li class="nav-link">
+                    <a href="{{ route('admin.categories.index') }}">
+                        <i class='bx bx-store icon'></i>
+                        <span class="text nav-text">Categories</span>
+                    </a>
+                </li>
+                <li class="nav-link">
                     <a href="">
                         <i class='bx bx-user icon'></i>
                         <span class="text nav-text">My Profile</span>

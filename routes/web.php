@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\ProductOrderController;
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductOrderController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 Route::get('/', function () {
@@ -69,6 +70,7 @@ require __DIR__.'/auth.php';
 Route::prefix('admin')->name('admin.')->group(function(){
     Route::resource('products', ProductController::class);
     Route::resource('products_orders', ProductOrderController::class);
+    Route::resource('categories', CategoryController::class);
 });
 
 Route::get('/dashboard', function () {
