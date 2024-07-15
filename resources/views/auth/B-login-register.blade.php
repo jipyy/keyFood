@@ -15,38 +15,7 @@
       background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></dotlottie-player>
   </div>
 
-  <div class="container">
-    <div class="forms-container">
-      <div class="signin-signup">
-        <form action="#" class="sign-in-form">
-          <h2 class="title">
-            <img src="img/login.svg" style="width: 150px; align-items: center;" alt="">
-          </h2>
-          <div class="input-field">
-            <i class="fas fa-envelope"></i>
-            <input type="email" placeholder="Email" name="email" />
-          </div>
-          <div class="input-field">
-            <i class="fas fa-lock"></i>
-            <input type="password" placeholder="Password" />
-          </div>
-          <input type="submit" value="Login" class="btn solid" />
-          <p class="social-text">Or Sign in with social platforms</p>
-          <div class="social-media">
-            <a href="#" class="social-icon">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="#" class="social-icon">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a href="#" class="social-icon">
-              <i class="fab fa-google"></i>
-            </a>
-            <a href="#" class="social-icon">
-              <i class="fab fa-linkedin-in"></i>
-            </a>
-          </div>
-        </form>
+        @include('login')
 
         @include('register')
       </div>
@@ -55,7 +24,7 @@
     <div class="panels-container">
       <div class="panel left-panel">
         <div class="content">
-          <h3>New here ?</h3>a
+          <h3>New here ?</h3>
           <p>
             Baru di sini? Selamat datang! Mari buat akun dan mulai perjalanan kuliner Anda.
           </p>

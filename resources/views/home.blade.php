@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('container')
-    <div class="container mt-4">
+    {{-- <div class="container mt-4">
         <div class="slider">
 
             <div class="list">
@@ -30,8 +30,11 @@
 
             </div>
             <div class="arow">
-                <button id="prev"><</button>
-                <button id="next">></button>
+                <button id="prev">
+                    < </button>
+                        <button id="next">></button>
             </div>
         </div>
-    @endsection
+
+    </div> --}}
+@endsection
