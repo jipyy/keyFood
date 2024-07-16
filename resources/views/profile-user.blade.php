@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,75 +11,84 @@
     <!---font awesome cdn for font icons---->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 </head>
+
 <body>
-   <div class="container-profile">
-      <div class="profile-card"> 
-         <button onclick="history.back()">
-            <i class="fa-solid fa-arrow-left back"></i>
-         </button>
+    <div class="container-profile">
+        <div class="profile-card">
+            <button onclick="history.back()">
+                <i class="fa-solid fa-arrow-left back"></i>
+            </button>
             <div class="profile-pic">
                 <img src="{{ asset('img/1.png') }}" alt="user avatar">
             </div>
 
             <div class="profile-details">
-                 <div class="intro">
-                    <h2>{{ Auth::user()->name }}</h2>
-                    <h4>Buyer</h4>
+                <div class="intro">
+                    @if (Auth::check())
+                        <h2>{{ Auth::user()->name }}</h2>
+                        @if (Auth::user()->hasRole('admin'))
+                            <h4>Admin</h4>
+                        @elseif (Auth::user()->hasRole('seller'))
+                            <h4>Seller</h4>
+                        @elseif (Auth::user()->hasRole('buyer'))
+                            <h4>Buyer</h4>
+                        @endif
+                    @endif
                     <div class="social">
                         <a href="#"><i class="fab fa-facebook" style="color:var(--blue)"></i></a>
-                        <a href="#"><i class="fab fa-twitter"  style="color:var(--skyblue)"></i></a>
-                        <a href="#"><i class="fab fa-dribbble"  style="color:var(--dark-pink)"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"  style="color:var(--light-blue)"></i></a>
+                        <a href="#"><i class="fab fa-twitter" style="color:var(--skyblue)"></i></a>
+                        <a href="#"><i class="fab fa-dribbble" style="color:var(--dark-pink)"></i></a>
+                        <a href="#"><i class="fab fa-linkedin" style="color:var(--light-blue)"></i></a>
                     </div>
-                 </div>
+                </div>
 
-                 <div class="contact-info">
+                <div class="contact-info">
                     <div class="row">
-                         <div class="icon">
-                            <i class="fa fa-phone"  style="color:var(--dark-magenta)"></i>
-                         </div>
-                         <div class="content">
+                        <div class="icon">
+                            <i class="fa fa-phone" style="color:var(--dark-magenta)"></i>
+                        </div>
+                        <div class="content">
                             <span>Phone</span>
                             <h5>+{{ Auth::user()->name }}</h5>
-                         </div>
+                        </div>
                     </div>
 
                     <div class="row">
                         <div class="icon">
-                           <i class="fa fa-envelope-open"  style="color:var(--light-green)"></i>
+                            <i class="fa fa-envelope-open" style="color:var(--light-green)"></i>
                         </div>
                         <div class="content">
-                           <span>Email</span>
-                           <h5>{{ Auth::user()->email }}</h5>
+                            <span>Email</span>
+                            <h5>{{ Auth::user()->email }}</h5>
                         </div>
-                   </div>
-    
-                   <div class="row">
-                    <div class="icon">
-                       <i class="fa fa-map-marker"  style="color:var(--light-purple)"></i>
                     </div>
-                    <div class="content">
-                       <span>Location</span>
-                       <h5>{{ Auth::user()->name }}</h5>
+
+                    <div class="row">
+                        <div class="icon">
+                            <i class="fa fa-map-marker" style="color:var(--light-purple)"></i>
+                        </div>
+                        <div class="content">
+                            <span>Location</span>
+                            <h5>{{ Auth::user()->name }}</h5>
+                        </div>
                     </div>
-                 </div>
 
+                </div>
+                <button class="download-btn"> <i class="fa fa-edit"></i> Edit Profile</button>
             </div>
-               <button class="download-btn"> <i class="fa fa-edit"></i> Edit Profile</button>
-            </div>
-       </div>
+        </div>
 
-       <!----about section ----->
-       <!-- <div class="about">
+        <!----about section ----->
+        <!-- <div class="about">
            <h1>Profile User</h1>
 
-           <p> I'm Creative Director and UI/UX Designer from Sydney, Australia,  
-            working in web development and print media.I enjoy turning complex problems into simple, 
+           <p> I'm Creative Director and UI/UX Designer from Sydney, Australia,
+            working in web development and print media.I enjoy turning complex problems into simple,
             beautiful and intuitive designs.
           </p>
 
           <p>
-            My aim is to bring across your message and identity in the most creative way. 
+            My aim is to bring across your message and identity in the most creative way.
             I created web design for many famous brand companies.
           </p>
           <h2>What I Do !!!</h2>
@@ -124,6 +134,7 @@
             </div>
           </div>
        </div> -->
-   </div>
+    </div>
 </body>
+
 </html>
