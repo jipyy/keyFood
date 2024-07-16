@@ -65,7 +65,7 @@
                     </a>
                 </li>
                 <li class="nav-link">
-                    <a href="">
+                    <a href="/profile-user">
                         <i class='bx bx-user icon'></i>
                         <span class="text nav-text">My Profile</span>
                     </a>
