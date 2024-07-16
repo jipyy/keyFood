@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Categories') }}
+            {{ __('Users') }}
         </h2>
     </x-slot>
 
@@ -19,21 +19,20 @@
                     </ul>
                 </div>
                 @endif
-                <a href="{{ route('admin.categories.create') }}" class="border rounded-xl w-fit py-3 px-5 bg-indigo-950 text-white">
-                    Add New Category
+                <a href="{{ route('admin.users.create') }}" class="border rounded-xl w-fit py-3 px-5 bg-indigo-950 text-white">
+                    Add New User
                 </a>
-                @forelse($categories as $category)
-                <div class="item-category flex flex-row justify-between items-center">
-                    <img src="{{ asset($category->icon) }}" class="h-[100px] w-auto" alt="{{ $category->name }}">
+                @forelse($users as $user)
+                <div class="item-user flex flex-row justify-between items-center">
                     <div>
-                        <h3>{{ $category->name }}</h3>
-                        <p>{{ $category->slug }}</p>
+                        <h3>{{ $user->name }}</h3>
+                        <p>{{ $user->email }}</p>
                     </div>
                     <div class="flex flex-row gap-x-3">
-                        <a href="{{ route('admin.categories.edit', $category) }}" class="py-3 px-5 border rounded-xl bg-indigo-500 text-white">
+                        <a href="{{ route('admin.users.edit', $user) }}" class="py-3 px-5 border rounded-xl bg-indigo-500 text-white">
                             Edit
                         </a>
-                        <form method="POST" action="{{ route('admin.categories.destroy', $category) }}">
+                        <form method="POST" action="{{ route('admin.users.destroy', $user) }}">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="py-3 px-5 mr-5 border rounded-xl bg-red-500 text-white">
@@ -43,7 +42,7 @@
                     </div>
                 </div>
                 @empty
-                <p>No categories available</p>
+                <p>No users available</p>
                 @endforelse
             </div>
         </div>
