@@ -34,22 +34,22 @@ Route::get('/register', function() {
 Route::post('/register', [RegisteredUserController::class, 'store'])->middleware('guest');
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 //batas andika
 
 // <<<<<<< HEAD
 
-// Route::view('/home', 'home')->name('home');
+Route::view('/home', 'home')->name('home');
 
 // Route::view('/B-login-register', 'B-login-register')->name('B-login-register');
 
 
-Route::get('/home', function () {
-    return view('home');
-})->middleware(['auth', 'verified'])->name('home');
+// Route::get('/home', function () {
+//     return view('home');
+// })->middleware(['auth', 'verified'])->name('home');
 
 
 // Route::get('/', function () {

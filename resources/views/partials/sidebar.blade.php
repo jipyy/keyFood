@@ -12,14 +12,13 @@
             <div class="text-header-text">
                 <span class="name"></span>
                 <span class="email">
-                    <a href="/login">
-                        <button
-                            class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800">
-                            <span
-                                class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-                                Login
+                    <a href="/log-reg">
+                        <button class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800">
+                            <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                            Login
                             </span>
-                        </button>
+                            <div>{{ Auth::user()->name }}</div>
+                            </button>
                     </a>
                 </span>
             </div>
@@ -58,13 +57,13 @@
                 </li>
                 <li class="nav-link">
                     <a href="">
-                        <i class="bx bx-home-alt icon"></i>
-                        <span class="text nav-text">Categories</span>
+                        <i class='bx bx-user icon'></i>
+                        <span class="text nav-text">My Profile</span>
                     </a>
                 </li>
                 <li class="nav-link">
                     <a href="">
-                        <i class="bx bx-home-alt icon"></i>
+                        <i class='bx bx-bell icon'></i>
                         <span class="text nav-text">Notifications</span>
                     </a>
                 </li>

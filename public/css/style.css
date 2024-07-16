@@ -8,7 +8,7 @@
 }
 
 :root{
-    --body-color: #D3D3D3;
+    --body-color: #ffff;
     --sidebar-color: #ffff;
     --primary-color: #0000ff;
     --primary-color-light: #f6f5ff;
@@ -25,7 +25,7 @@
 
 body{
     margin-left: 88px;
-    width: 100vw;
+    width: calc(100vw - 126px);
     height: 100vh;
     background: var(--body-color);
     transition: var(--tran-05);
@@ -42,7 +42,87 @@ body.dark{
 
 /* Sidebar */
 
+@media (max-width: 700px) {
+    body{
+        margin-left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: var(--body-color);
+        transition: var(--tran-05);
+    }
+    .sidebar {
+        display: none;
+    }
+    .sidebar.close{
+        display: none;
+
+    }
+    .sidebar.text{
+        display: none;
+    }
+    .sidebar .search-box{
+        display: none;
+
+    }
+    .menu-bar{
+        display: none;
+    }
+    .nav-link.active{
+        display: none;
+    }
+    .nav-link{
+        display: none;
+
+    }
+    .bottom-content{
+        display: none;
+    }
+    .header-text{
+        display: none;
+    }
+}
+
 @media (max-width: 800px) {
+    body{
+        margin-left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: var(--body-color);
+        transition: var(--tran-05);
+    }
+    .sidebar {
+        display: none;
+    }
+    .sidebar.close{
+        display: none;
+
+    }
+    .sidebar.text{
+        display: none;
+    }
+    .sidebar .search-box{
+        display: none;
+
+    }
+    .menu-bar{
+        display: none;
+    }
+    .nav-link.active{
+        display: none;
+    }
+    .nav-link{
+        display: none;
+
+    }
+    .bottom-content{
+        display: none;
+    }
+    .header-text{
+        display: none;
+    }
+}
+
+@media (max-width: 850px) {
     body{
         margin-left: 0;
         width: 100vw;
@@ -303,6 +383,99 @@ body.dark .sidebar header .toggle{
 
 body.dark .sidebar .text-header-text{
     color: var(--text-color);
+}
+
+@media (min-width: 764px) {
+    .container{
+        max-width: 764px;
+    }
+}
+
+@media (min-width: 800px) {
+    .container{
+        max-width: 800px;
+    }
+}
+
+@media (min-width: 995px) {
+    .container{
+        max-width: 995px;
+    }
+}
+
+@media (min-width: 1000px) {
+    .container{
+        max-width: 1000px;
+    }
+}
+
+@media (min-width: 1100px) {
+    .container{
+        max-width: 1100px;
+    }
+}
+
+@media (min-width: 1270px) {
+    .container{
+        max-width: 1270px;
+    }
+}
+
+@media (min-width: 1300px) {
+    .container{
+        max-width: 1300px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .container{
+        max-width: 1400px;
+    }
+}
+
+@media (min-width: 1500px) {
+    .container{
+        max-width: 1500px;
+    }
+}
+
+@media (min-width: 1665px) {
+    .container{
+        max-width: 1665px;
+    }
+}
+
+@media (min-width: 1700px) {
+    .container{
+        max-width: 1700px;
+    }
+}
+
+@media (min-width: 1800px) {
+    .container{
+        max-width: 1800px;
+    }
+}
+
+@media (min-width: 1900px) {
+    .container{
+        max-width: 1900px;
+    }
+}
+
+@media (min-width: 2000px) {
+    .container{
+        max-width: 2000px;
+    }
+}
+
+body.dark .container{
+    color: var(#18191A);
+    background: #18191A;
+}
+
+.body.dark .home{
+    color: var(--body-color);
 }
 
 .menu-bar .mode .toggle-switch{
