@@ -22,6 +22,11 @@ Route::get('/contact-us', function() {
     return view('contact-us');
 });
 
+
+Route::get('/faq', function() {
+    return view('faq');
+});
+
 Route::post('/login', [AuthenticatedSessionController::class, 'store'])->middleware('guest');
 
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->middleware('auth')->name('logout');

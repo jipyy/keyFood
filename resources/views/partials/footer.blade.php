@@ -15,10 +15,10 @@
                             <a href="https://flowbite.com/" class="hover:underline">About Us</a>
                         </li>
                         <li class="mb-4">
-                            <a href="/contact-us" class="hover:underline">Customer Service</a>
+                            <a href="/contact-us" class="hover:underline">Contact Us</a>
                         </li>
                         <li class="mb-4">
-                            <a href="#" class="hover:underline">Privacy Policy</a>
+                            <a href="/faq" class="hover:underline">FAQ</a>
                         </li>
                         <li>
                             <a href="#" class="hover:underline">Terms &amp; Conditions</a>
