@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 // Custom login and registration form route
