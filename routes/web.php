@@ -26,10 +26,6 @@ Route::get('/contact-us', function() {
     return view('contact-us');
 });
 
-Route::get('/profile-user', function() {
-    return view('profile-user');
-});
-
 Route::post('/login', [AuthenticatedSessionController::class, 'store'])->middleware('guest');
 
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->middleware('auth')->name('logout');
@@ -76,7 +72,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 require __DIR__.'/auth.php';
- 
+
 Route::prefix('admin')->name('admin.')->group(function(){
     Route::resource('products', ProductController::class);
     Route::resource('products_orders', ProductOrderController::class);
