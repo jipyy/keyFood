@@ -18,6 +18,10 @@ Route::get('/login', function() {
     return view('auth.log-reg');
 })->middleware('guest')->name('login');
 
+Route::get('/contact-us', function() {
+    return view('contact-us');
+});
+
 Route::post('/login', [AuthenticatedSessionController::class, 'store'])->middleware('guest');
 
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->middleware('auth')->name('logout');

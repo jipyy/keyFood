@@ -1,11 +1,11 @@
 <div x-data="{ isOpen: false }" @click.away="isOpen = false" class="relative inline-block" id="dropdown">
     <!-- Dropdown Button -->
     <button
-      class="flex h-12 w-12 items-center justify-center rounded-lg bg-slate-900 text-slate-100 ring-slate-100 transition hover:shadow-md hover:ring-2 overflow-hidden"
-      @click="isOpen = !isOpen">
-      <img class="w-full object-cover"
-        src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?crop=top&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=100&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY2Mjk2MTgwNw&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=100"
-        alt="Profile">
+        class="flex h-12 w-12 items-center justify-center rounded-lg bg-slate-900 text-slate-100 ring-slate-100 transition hover:shadow-md hover:ring-2 overflow-hidden"
+        @click="isOpen = !isOpen">
+        <img class="w-full object-cover"
+            src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?crop=top&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=100&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY2Mjk2MTgwNw&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=100"
+            alt="Profile">
     </button>
 
     <!-- Dropdown Menu -->
@@ -19,8 +19,7 @@
         </div>
         <div>
           <div class="flex gap-1 text-sm font-semibold">
-            <span><div>{{ Auth::user()->name }}</div>
-              </span>
+            <span>Mickey Mouse</span>
             <span class="text-sky-400" style="color: aqua;">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                 stroke="currentColor" class="h-5 w-5">
@@ -30,7 +29,7 @@
               </svg>
             </span>
           </div>
-          <div class="text-xs text-slate-400"><div>{{ Auth::user()->email }}</div></div>
+          <div class="text-xs text-slate-400">mickey@mouse.com</div>
         </div>
       </div>
       <div class="border-t border-slate-500/30"></div>

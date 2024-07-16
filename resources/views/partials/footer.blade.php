@@ -15,7 +15,7 @@
                             <a href="https://flowbite.com/" class="hover:underline">About Us</a>
                         </li>
                         <li class="mb-4">
-                            <a href="https://tailwindcss.com/" class="hover:underline">Customer Service</a>
+                            <a href="/contact-us" class="hover:underline">Customer Service</a>
                         </li>
                         <li class="mb-4">
                             <a href="#" class="hover:underline">Privacy Policy</a>
