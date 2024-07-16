@@ -7,6 +7,8 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductOrderController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\CategoryController;
+
 Route::get('/', function () {
     return view('home');
 });
@@ -36,28 +38,33 @@ Route::get('/register', function() {
 
 Route::post('/register', [RegisteredUserController::class, 'store'])->middleware('guest');
 
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 //batas andika
 
 // <<<<<<< HEAD
 
 Route::view('/home', 'home')->name('home');
 
+
+//ABAIKAN COMENT TP JGN DI HAPUS
+
 // Route::view('/B-login-register', 'B-login-register')->name('B-login-register');
-
-
 // Route::get('/home', function () {
 //     return view('home');
 // })->middleware(['auth', 'verified'])->name('home');
-
-
 // Route::get('/', function () {
 //     return view('');
 // })->middleware(['auth', 'verified'])->name('');
+
+
+// ROUTE SELLER PAGE
+Route::prefix('seller')->name('seller.')->group(function(){
+    Route::resource('products', ProductController::class)->middleware('role:seller');
+});
+
+// ROUTE ADMIN  PAGE
+Route::prefix('admin')->name('admin.')->group(function(){
+    Route::resource('categories', CategoryController::class)->middleware('role:admin');
+});
 
 
 Route::middleware('auth')->group(function () {
@@ -71,6 +78,11 @@ Route::prefix('admin')->name('admin.')->group(function(){
     Route::resource('products', ProductController::class);
     Route::resource('products_orders', ProductOrderController::class);
     Route::resource('categories', CategoryController::class);
+});
+
+Route::prefix('seller')->name('seller.')->group(function(){
+    Route::resource('products', ProductController::class);
+    Route::resource('products_orders', ProductOrderController::class);
 });
 
 Route::get('/dashboard', function () {
