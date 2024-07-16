@@ -11,6 +11,9 @@
     <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+
     <link rel="stylesheet" href="{{ asset('../css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('../css/home.css') }}">
     <link rel="stylesheet" href="{{ asset('../css/load.css') }}">
@@ -29,14 +32,16 @@
             autoplay></dotlottie-player>
     </div>
     @include('partials.sidebar')
-
+    
     <div class="container">
+        @include('partials.profile')
         @yield('container')
     </div>
 
     @include('partials.footer')
     @include('partials.bot-bar')
 </body>
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@2.x.x/dist/alpine.min.js" defer></script>
 <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
 <script src="{{ asset('../js/sidebar.js') }}"></script>

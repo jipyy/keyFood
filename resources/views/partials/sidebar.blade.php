@@ -1,4 +1,3 @@
-
 <nav class="sidebar close">
     <header>
         <div class="image-text">
@@ -30,12 +29,12 @@
     <div class="menu-bar">
         <div class="menu">
 
-            
-                <li class="search-box">
-                    <i class="bx bx-search icon"></i>
-                    <input type="search" placeholder="Search..">
-                </li>
-            
+
+            <li class="search-box">
+                <i class="bx bx-search icon"></i>
+                <input type="search" placeholder="Search..">
+            </li>
+
 
             <ul class="menu-links">
                 <li class="nav-link active">
@@ -58,13 +57,13 @@
                 </li>
                 <li class="nav-link">
                     <a href="">
-                        <i class="bx bx-home-alt icon"></i>
-                        <span class="text nav-text">Categories</span>
+                        <i class='bx bx-user icon'></i>
+                        <span class="text nav-text">My Profile</span>
                     </a>
                 </li>
                 <li class="nav-link">
                     <a href="">
-                        <i class="bx bx-home-alt icon"></i>
+                        <i class='bx bx-bell icon'></i>
                         <span class="text nav-text">Notifications</span>
                     </a>
                 </li>
@@ -73,34 +72,28 @@
 
         <div class="bottom-content">
             <li class="">
-                <a href="{{ route('logout') }}">
-                    <i class="bx bx-log-out icon"></i>
+                <form method="POST" action="{{ route('logout') }}" style="display: flex">
                     @csrf
-                    <span class="text nav-text">Logout</span>
-                </a>
-            </li>
-            <form method="POST" action="{{ route('logout') }}">
-                @csrf
-
-                <x-dropdown-link :href="route('logout')"
+                    <a href="/logout"
                         onclick="event.preventDefault();
-                                    this.closest('form').submit();">
-                    {{ __('Log Out') }}
-                </x-dropdown-link>
+                            this.closest('form').submit();">
+                        <i class="bx bx-log-out icon"></i>
+                        @csrf
+                        <span class="text nav-text">Logout</span>
+                    </a>
+            </li>
             </form>
 
             <li class="mode">
-               <div class="moon-sun">
-                <i class="bx bx-moon icon moon"></i>
-                <i class="bx bx-sun icon sun"></i>
-               </div>
-               <span class="mode-text text">Dark  Mode</span>
-               <div class="toggle-switch">
-                <span class="switch"></span>
-               </div>
+                <div class="moon-sun">
+                    <i class="bx bx-moon icon moon"></i>
+                    <i class="bx bx-sun icon sun"></i>
+                </div>
+                <span class="mode-text text">Dark Mode</span>
+                <div class="toggle-switch">
+                    <span class="switch"></span>
+                </div>
             </li>
         </div>
     </div>
 </nav>
-
-

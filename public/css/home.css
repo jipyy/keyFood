@@ -217,8 +217,21 @@ header nav ul {
     }
 }
 
+.footer{
+    background-color: #ffffff;
+}
+
+body.dark .footer{
+    background-color: #1f1f1f;
+}
 
 /* ini bot bar */
+
+body.dark .bottom-bar{
+    background-color: #1f1f1f;
+    color: #ffff;
+}
+
 
 .bottom-bar {
     width: 90%;
@@ -233,7 +246,7 @@ header nav ul {
     padding: 1em;
 }
 
-.icon {
+.icons {
     font-size: 1.5em;
     padding: .5em;
     margin: .5em;
@@ -256,13 +269,13 @@ header nav ul {
         padding: 0.5em;
     }
 
-    .icon {
+    .icons {
         font-size: 1.25em; /* Sedikit lebih besar dari sebelumnya */
         padding: .5em;
         margin: .5em;
     }
 
-    .active {
+    .actives {
         transform: scale(1.25) translateY(-1em);
     }
 }
@@ -273,13 +286,13 @@ header nav ul {
         padding: 0.5em;
     }
 
-    .icon {
+    .icons {
         font-size: 1.25em; /* Ukuran font tetap konsisten untuk layar < 500px */
         padding: .4em;
         margin: .4em;
     }
 
-    .active {
+    .actives {
         transform: scale(1.25) translateY(-1em);
     }
 }
@@ -289,13 +302,13 @@ header nav ul {
         padding: 0.5em;
     }
 
-    .icon {
+    .icons {
         font-size: 1em; /* Sedikit lebih kecil untuk layar yang sangat kecil */
         padding: .4em;
         margin: .4em;
     }
 
-    .active {
+    .actives {
         transform: scale(1.15) translateY(-0.8em);
     }
 }
@@ -305,20 +318,73 @@ header nav ul {
         padding: 0.5em;
     }
 
-    .icon {
+    .icons {
         font-size: 0.8em; /* Lebih kecil untuk layar yang sangat kecil */
         padding: .3em;
         margin: .3em;
     }
 
-    .active {
+    .actives {
         transform: scale(1.1) translateY(-0.6em);
     }
 }
 
 /* Media Query untuk menyembunyikan bottom-bar saat width > 900px */
-@media (min-width: 1110px) {
+@media (min-width: 860px) {
     .bottom-bar {
         display: none;
     }
 }
+
+
+/* ini profile */
+
+
+#dropdown {
+    position: fixed;
+    z-index: 990;
+    top: 30px;
+    right: 30px;
+  }
+
+  @media (min-width: 850px) {
+    #dropdown {
+      position: fixed;
+      z-index: 990;
+      top: 30px;
+      right: 30px;
+      display: none;
+    }
+  }
+
+    @media (max-width: 768px) {
+      #dropdown {
+        position: fixed;
+        z-index: 990;
+        top: 20px;
+        right: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #dropdown {
+        position: fixed;
+        z-index: 990;
+        top: 15px;
+        right: 15px;
+      }
+    }
+
+    body.dark .bg-slate-900{
+            background-color: #1a202c;
+    }
+    body.dark .text-slate-100{ 
+            color: #cbd5e0;
+    }
+    body.dark .hover\:bg-slate-800:hover{
+            background-color: #2d3748;
+    }
+    body.dark .ring-slate-100 {
+            border-color: #e2e8f0;
+    }
+    
