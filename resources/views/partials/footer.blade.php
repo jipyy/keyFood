@@ -12,10 +12,10 @@
                     <h2 class="mb-6 text-sm font-semibold text-gray-400 uppercase">Contact</h2>
                     <ul class="text-gray-500 font-medium">
                         <li class="mb-4">
-                            <a href="https://flowbite.com/" class="hover:underline">About Us</a>
+                            <a href="/contact-us" class="hover:underline">Contact Us</a>
                         </li>
                         <li class="mb-4">
-                            <a href="/contact-us" class="hover:underline">Customer Service</a>
+                            <a href="" class="hover:underline">Customer Service</a>
                         </li>
                         <li class="mb-4">
                             <a href="#" class="hover:underline">Privacy Policy</a>

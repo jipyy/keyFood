@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\ProductOrderController;
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductOrderController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\CategoryController;
@@ -24,6 +25,10 @@ Route::get('/login', function() {
 
 Route::get('/contact-us', function() {
     return view('contact-us');
+});
+
+Route::get('/profile-user', function() {
+    return view('profile-user');
 });
 
 Route::post('/login', [AuthenticatedSessionController::class, 'store'])->middleware('guest');
@@ -76,6 +81,7 @@ require __DIR__.'/auth.php';
 Route::prefix('admin')->name('admin.')->group(function(){
     Route::resource('products', ProductController::class);
     Route::resource('products_orders', ProductOrderController::class);
+    Route::resource('categories', CategoryController::class);
 });
 
 Route::prefix('seller')->name('seller.')->group(function(){
