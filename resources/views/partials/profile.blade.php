@@ -19,7 +19,8 @@
         </div>
         <div>
           <div class="flex gap-1 text-sm font-semibold">
-            <span>Mickey Mouse</span>
+            <span><div>{{ Auth::user()->name }}</div>
+              </span>
             <span class="text-sky-400" style="color: aqua;">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                 stroke="currentColor" class="h-5 w-5">
@@ -29,7 +30,7 @@
               </svg>
             </span>
           </div>
-          <div class="text-xs text-slate-400">mickey@mouse.com</div>
+          <div class="text-xs text-slate-400"><div>{{ Auth::user()->email }}</div></div>
         </div>
       </div>
       <div class="border-t border-slate-500/30"></div>

@@ -18,6 +18,7 @@
                             Login
                             </span>
                             <div>{{ Auth::user()->name }}</div>
+                            <div>{{ Auth::user()->email }}</div>
                             </button>
                     </a>
                 </span>
