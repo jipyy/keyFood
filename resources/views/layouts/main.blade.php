@@ -33,7 +33,7 @@
             autoplay></dotlottie-player>
     </div>
     @include('partials.sidebar')
-    
+
     <div class="container">
         @include('partials.profile')
         @yield('container')
