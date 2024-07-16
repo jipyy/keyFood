@@ -5,24 +5,32 @@
                 <img src="{{ asset('../img/logo.png') }}" alt="logo">
             </span>
 
-            <div class="text-header-text hidden">
-                <span class="name">KeyFood</span>
-                <span class="email">Keyfood@gmail.com</span>
-            </div>
             <div class="text-header-text">
-                <span class="name"></span>
-                <span class="email">
-                    <a href="/log-reg">
-                        <button class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800">
-                            <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-                            Login
-                            </span>
-                            <div>{{ Auth::user()->name }}</div>
-                            <div>{{ Auth::user()->email }}</div>
+                @if (Auth::check())
+                    <span class="name">
+                        <div>{{ Auth::user()->name }}</div>
+
+                    </span>
+                    <span class="email">
+                        <div>{{ Auth::user()->email }}</div>
+
+                    </span>
+                @else
+                    <span class="email">
+                        <a href="/log-reg">
+                            <button
+                                class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800">
+                                <span
+                                    class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                                    Login
+                                </span>
+
                             </button>
-                    </a>
-                </span>
+                        </a>
+                    </span>
+                @endif
             </div>
+        </div>
         </div>
 
         <i class="bx bx-chevron-left toggle"></i>
@@ -36,7 +44,6 @@
                 <input type="search" placeholder="Search..">
             </li>
 
-
             <ul class="menu-links">
                 <li class="nav-link active">
                     <a href="">
@@ -44,46 +51,113 @@
                         <span class="text nav-text">Home</span>
                     </a>
                 </li>
+                @if (Auth::check())
+
+                    @if (Auth::user()->hasRole('admin'))
+                        <li class="nav-link">
+                            <a href="{{ route('admin.products.index') }}">
+                                <i class="bx bx-bar-chart-alt-2 icon"></i>
+                                <span class="text nav-text">Product</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-link">
+                            <a href="{{ route('admin.products_orders.index') }}">
+                                <i class='bx bx-store icon'></i>
+                                <span class="text nav-text">Stores</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-link">
+                            <a href="{{ route('admin.categories.index') }}">
+                                <i class='bx bx-store icon'></i>
+                                <span class="text nav-text">Categories</span>
+                            </a>
+                        </li>
+                    @elseif (Auth::user()->hasRole('seller'))
+                        <li class="nav-link">
+                            <a href="/products-sell">
+                                <i class="bx bx-bar-chart-alt-2 icon"></i>
+                                <span class="text nav-text">Product</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-link">
+                            <a href="/store-sell">
+                                <i class='bx bx-store icon'></i>
+                                <span class="text nav-text">Stores</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-link">
+                            <a href="/categories-sell">
+                                <i class='bx bx-store icon'></i>
+                                <span class="text nav-text">Categories</span>
+                            </a>
+                        </li>
+
+                        @else
+                        <li class="nav-link">
+                            <a href="/products">
+                                <i class="bx bx-bar-chart-alt-2 icon"></i>
+                                <span class="text nav-text">Product</span>
+                            </a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="/store">
+                                <i class='bx bx-store icon'></i>
+                                <span class="text nav-text">Stores</span>
+                            </a>
+                        </li>
+        
+                        <li class="nav-link">
+                            <a href="/categories">
+                                <i class='bx bx-store icon'></i>
+                                <span class="text nav-text">Categories</span>
+                            </a>
+                        </li>
+                    @endif
+                @endif
+
                 <li class="nav-link">
-                    <a href="">
-                        <i class="bx bx-bar-chart-alt-2 icon"></i>
-                        <span class="text nav-text">Product</span>
-                    </a>
-                </li>
-                <li class="nav-link">
-                    <a href="">
-                        <i class='bx bx-store icon'></i>
-                        <span class="text nav-text">Stores</span>
-                    </a>
-                </li>
-                <li class="nav-link">
-                    <a href="">
+                    <a href="/profile-user">
                         <i class='bx bx-user icon'></i>
                         <span class="text nav-text">My Profile</span>
                     </a>
                 </li>
-                <li class="nav-link">
-                    <a href="">
-                        <i class='bx bx-bell icon'></i>
-                        <span class="text nav-text">Notifications</span>
-                    </a>
-                </li>
             </ul>
+
         </div>
 
         <div class="bottom-content">
-            <li class="">
-                <form method="POST" action="{{ route('logout') }}" style="display: flex">
-                    @csrf
-                    <a href="/logout"
-                        onclick="event.preventDefault();
-                            this.closest('form').submit();">
-                        <i class="bx bx-log-out icon"></i>
+            @if (Auth::check())
+                <li class="">
+                    <form method="POST" action="{{ route('logout') }}" style="display: flex">
                         @csrf
-                        <span class="text nav-text">Logout</span>
-                    </a>
-            </li>
-            </form>
+                        <a href="/logout"
+                            onclick="event.preventDefault();
+                this.closest('form').submit();">
+                            <i class="bx bx-log-out icon"></i>
+                            <span class="text nav-text">Logout</span>
+                        </a>
+                    </form>
+                </li>
+            @else
+                <div class="hidden">
+                    <li>
+                        <form method="POST" action="{{ route('logout') }}" style="display: flex">
+                            @csrf
+                            <a href="/logout"
+                                onclick="event.preventDefault();
+                this.closest('form').submit();">
+                                <i class="bx bx-log-out icon"></i>
+                                <span class="text nav-text">Logout</span>
+                            </a>
+                        </form>
+                    </li>
+                </div>
+            @endif
+
 
             <li class="mode">
                 <div class="moon-sun">
