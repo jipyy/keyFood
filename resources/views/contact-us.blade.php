@@ -20,22 +20,22 @@
                         <div class="row50">
                             <div class="inputBox">
                                 <span>First Name</span>
-                                <input type="text" placeholder="Joko">
+                                <input type="text" placeholder="first name">
                             </div>
                             <div class="inputBox">
                                 <span>Last Name</span>
-                                <input type="text" placeholder="Utep">
+                                <input type="text" placeholder="last name">
                             </div>
                         </div>
 
                         <div class="row50">
                             <div class="inputBox">
                                 <span>Email</span>
-                                <input type="text" placeholder="jokobodong@gmail.com">
+                                <input type="text" placeholder="yourgmail@gmail.com">
                             </div>
                             <div class="inputBox">
                                 <span>Mobile</span>
-                                <input type="text" placeholder="+90 987 456 6666">
+                                <input type="text" placeholder="+62 123 456 7890">
                             </div>
                         </div>
                         <div class="row100">

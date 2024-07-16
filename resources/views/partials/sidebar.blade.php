@@ -44,7 +44,6 @@
                 <input type="search" placeholder="Search..">
             </li>
 
-
             <ul class="menu-links">
                 <li class="nav-link active">
                     <a href="">
@@ -52,41 +51,115 @@
                         <span class="text nav-text">Home</span>
                     </a>
                 </li>
-                <li class="nav-link">
-                    <a href="{{ route('admin.products.index') }}">
-                        <i class="bx bx-bar-chart-alt-2 icon"></i>
-                        <span class="text nav-text">Product</span>
-                    </a>
-                </li>
-                <li class="nav-link">
-                    <a href="{{ route('admin.products_orders.index') }}">
-                        <i class='bx bx-store icon'></i>
-                        <span class="text nav-text">Stores</span>
-                    </a>
-                </li>
-                <li class="nav-link">
-                    <a href="{{ route('admin.categories.index') }}">
-                        <i class='bx bx-store icon'></i>
-                        <span class="text nav-text">Categories</span>
-                    </a>
-                </li>
-                <li class="nav-link">
-                    <a href="">
-                        <i class='bx bx-user icon'></i>
-                        <span class="text nav-text">My Profile</span>
-                    </a>
-                </li>
-                <li class="nav-link">
-                    <a href="">
-                        <i class='bx bx-bell icon'></i>
-                        <span class="text nav-text">Notifications</span>
-                    </a>
-                </li>
+                @if (Auth::check())
+                    @if (Auth::user()->hasRole('admin'))
+                        <li class="nav-link">
+                            <a href="{{ route('admin.products.index') }}">
+                                <i class="bx bx-bar-chart-alt-2 icon"></i>
+                                <span class="text nav-text">Product</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-link">
+                            <a href="{{ route('admin.products_orders.index') }}">
+                                <i class='bx bx-store icon'></i>
+                                <span class="text nav-text">Stores</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-link">
+                            <a href="{{ route('admin.categories.index') }}">
+                                <i class='bx bx-store icon'></i>
+                                <span class="text nav-text">Categories</span>
+                            </a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="/profile-user">
+                                <i class='bx bx-user icon'></i>
+                                <span class="text nav-text">My Profile</span>
+                            </a>
+                        </li>
+                    @elseif (Auth::user()->hasRole('seller'))
+                        <li class="nav-link">
+                            <a href="/products-sell">
+                                <i class="bx bx-bar-chart-alt-2 icon"></i>
+                                <span class="text nav-text">Product</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-link">
+                            <a href="/store-sell">
+                                <i class='bx bx-store icon'></i>
+                                <span class="text nav-text">Stores</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-link">
+                            <a href="/categories-sell">
+                                <i class='bx bx-store icon'></i>
+                                <span class="text nav-text">Categories</span>
+                            </a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="/profile-user">
+                                <i class='bx bx-user icon'></i>
+                                <span class="text nav-text">My Profile</span>
+                            </a>
+                        </li>
+                    @else
+                        <li class="nav-link">
+                            <a href="/products">
+                                <i class="bx bx-bar-chart-alt-2 icon"></i>
+                                <span class="text nav-text">Product</span>
+                            </a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="/store">
+                                <i class='bx bx-store icon'></i>
+                                <span class="text nav-text">Stores</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-link">
+                            <a href="/categories">
+                                <i class='bx bx-store icon'></i>
+                                <span class="text nav-text">Categories</span>
+                            </a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="/profile-user">
+                                <i class='bx bx-user icon'></i>
+                                <span class="text nav-text">My Profile</span>
+                            </a>
+                        </li>
+                    @endif
+                @else
+                    <li class="nav-link">
+                        <a href="/products">
+                            <i class="bx bx-bar-chart-alt-2 icon"></i>
+                            <span class="text nav-text">Product</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="/store">
+                            <i class='bx bx-store icon'></i>
+                            <span class="text nav-text">Stores</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="/categories">
+                            <i class='bx bx-store icon'></i>
+                            <span class="text nav-text">Categories</span>
+                        </a>
+                    </li>
+                @endif
             </ul>
+
         </div>
 
-        <div class="bottom-content">
-            @if (Auth::check())
+        @if (Auth::check())
+            <div class="bottom-content">
                 <li class="">
                     <form method="POST" action="{{ route('logout') }}" style="display: flex">
                         @csrf
@@ -99,32 +172,32 @@
                     </form>
                 </li>
             @else
-            <div class="hidden">
-                <li>
-                    <form method="POST" action="{{ route('logout') }}" style="display: flex">
-                        @csrf
-                        <a href="/logout"
-                            onclick="event.preventDefault();
+                <div class="hidden">
+                    <li>
+                        <form method="POST" action="{{ route('logout') }}" style="display: flex">
+                            @csrf
+                            <a href="/logout"
+                                onclick="event.preventDefault();
                 this.closest('form').submit();">
-                            <i class="bx bx-log-out icon"></i>
-                            <span class="text nav-text">Logout</span>
-                        </a>
-                    </form>
-                </li>
+                                <i class="bx bx-log-out icon"></i>
+                                <span class="text nav-text">Logout</span>
+                            </a>
+                        </form>
+                    </li>
+                </div>
+        @endif
+
+
+        <li class="mode">
+            <div class="moon-sun">
+                <i class="bx bx-moon icon moon"></i>
+                <i class="bx bx-sun icon sun"></i>
             </div>
-            @endif
-
-
-            <li class="mode">
-                <div class="moon-sun">
-                    <i class="bx bx-moon icon moon"></i>
-                    <i class="bx bx-sun icon sun"></i>
-                </div>
-                <span class="mode-text text">Dark Mode</span>
-                <div class="toggle-switch">
-                    <span class="switch"></span>
-                </div>
-            </li>
-        </div>
+            <span class="mode-text text">Dark Mode</span>
+            <div class="toggle-switch">
+                <span class="switch"></span>
+            </div>
+        </li>
+    </div>
     </div>
 </nav>
