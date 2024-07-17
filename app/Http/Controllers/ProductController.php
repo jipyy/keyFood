@@ -101,7 +101,7 @@ class ProductController extends Controller
             'price' => ['required', 'integer', 'min:0'],
             'slug' => ['required', 'string', 'max:65535'],
         ]);
-
+    
         DB::beginTransaction();
         try {
             if ($request->hasFile('photo')) {
@@ -115,15 +115,15 @@ class ProductController extends Controller
             return redirect()->route('seller.products.index')->with('success', 'Product updated successfully');
         } catch (\Exception $e) {
             DB::rollBack();
-
+    
             $error = ValidationException::withMessages([
                 'system_error' => ['System error! ' . $e->getMessage()]
             ]);
-
+    
             throw $error;
         }
     }
-
+    
     /**
      * Remove the specified resource from storage.
      */
