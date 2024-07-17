@@ -42,3 +42,33 @@ textCircle.forEach((value, key) => {
     newSpan.style.setProperty('--rotate', rotateThisSpan + 'deg');
     circle.appendChild(newSpan); 
 });
+
+    function openProfile(){
+        document.getElementById('dropdown').style.display = 'none';
+        document.getElementById('profileCard').style.display = 'flex'
+    }
+
+    function hideProfile() {
+        const screenWidth = window.innerWidth;
+        const dropdown = document.getElementById('dropdown');
+        const profileCard = document.getElementById('profileCard');
+      
+        if (screenWidth > 850) {
+          dropdown.style.display = 'none';
+          profileCard.style.display = 'none';
+        } else {
+          dropdown.style.display = 'flex';
+          profileCard.style.display = 'none';
+        }
+      }
+      
+      window.addEventListener('resize', () => {
+        const screenWidth = window.innerWidth;
+        const dropdown = document.getElementById('dropdown');
+        const profileCard = document.getElementById('profileCard');
+      
+        if (screenWidth > 850) {
+          dropdown.style.display = 'none';
+          profileCard.style.display = 'none';
+        }
+      });

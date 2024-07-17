@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductOrderController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
@@ -25,6 +24,20 @@ Route::get('/login', function() {
 
 Route::get('/contact-us', function() {
     return view('contact-us');
+});
+Route::get('/faq', function() {
+    return view('faq');
+});
+Route::get('/product-slider', function() {
+    return view('product-slider');
+});
+
+Route::get('/edit-profile', function() {
+    return view('edit-profile');
+});
+
+Route::get('/profile-user', function() {
+    return view('/profile-user');
 });
 
 Route::post('/login', [AuthenticatedSessionController::class, 'store'])->middleware('guest');

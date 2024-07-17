@@ -74,7 +74,7 @@
                             </a>
                         </li>
                         <li class="nav-link">
-                            <a href="/profile-user">
+                            <a href="#" onclick="openProfile()">
                                 <i class='bx bx-user icon'></i>
                                 <span class="text nav-text">My Profile</span>
                             </a>
@@ -101,7 +101,7 @@
                             </a>
                         </li>
                         <li class="nav-link">
-                            <a href="/profile-user">
+                            <a href="#" onclick="openProfile()">
                                 <i class='bx bx-user icon'></i>
                                 <span class="text nav-text">My Profile</span>
                             </a>
@@ -127,7 +127,7 @@
                             </a>
                         </li>
                         <li class="nav-link">
-                            <a href="/profile-user">
+                            <a href="#" onclick="openProfile()">
                                 <i class='bx bx-user icon'></i>
                                 <span class="text nav-text">My Profile</span>
                             </a>
