@@ -1,12 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProductOrderController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
-use App\Http\Controllers\CategoryController;
 
 Route::get('/', function () {
     return view('home');
@@ -30,6 +30,14 @@ Route::get('/faq', function() {
 });
 Route::get('/product-slider', function() {
     return view('product-slider');
+});
+
+Route::get('/edit-profile', function() {
+    return view('edit-profile');
+});
+
+Route::get('/profile-user', function() {
+    return view('/profile-user');
 });
 
 Route::post('/login', [AuthenticatedSessionController::class, 'store'])->middleware('guest');
@@ -83,6 +91,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
     Route::resource('products', ProductController::class);
     Route::resource('products_orders', ProductOrderController::class);
     Route::resource('categories', CategoryController::class);
+    Route::resource('users', UserController::class);
 });
 
 Route::prefix('seller')->name('seller.')->group(function(){

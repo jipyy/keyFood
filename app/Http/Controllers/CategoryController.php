@@ -30,7 +30,7 @@ class CategoryController extends Controller
         if ($request->hasFile('icon')) {
             $icon = $request->file('icon');
             $iconPath = 'category_icons/' . time() . '_' . $icon->getClientOriginalName();
-            $icon->move(public_path('admin.category_icons'), $iconPath);
+            $icon->move(public_path('category_icons'), $iconPath);
         }
 
         Category::create([

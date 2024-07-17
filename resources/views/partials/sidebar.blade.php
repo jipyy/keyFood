@@ -52,7 +52,6 @@
                     </a>
                 </li>
                 @if (Auth::check())
-
                     @if (Auth::user()->hasRole('admin'))
                         <li class="nav-link">
                             <a href="{{ route('admin.products.index') }}">
@@ -72,6 +71,12 @@
                             <a href="{{ route('admin.categories.index') }}">
                                 <i class='bx bx-store icon'></i>
                                 <span class="text nav-text">Categories</span>
+                            </a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="#" onclick="openProfile()">
+                                <i class='bx bx-user icon'></i>
+                                <span class="text nav-text">My Profile</span>
                             </a>
                         </li>
                     @elseif (Auth::user()->hasRole('seller'))
@@ -95,8 +100,13 @@
                                 <span class="text nav-text">Categories</span>
                             </a>
                         </li>
-
-                        @else
+                        <li class="nav-link">
+                            <a href="#" onclick="openProfile()">
+                                <i class='bx bx-user icon'></i>
+                                <span class="text nav-text">My Profile</span>
+                            </a>
+                        </li>
+                    @else
                         <li class="nav-link">
                             <a href="/products">
                                 <i class="bx bx-bar-chart-alt-2 icon"></i>
@@ -109,28 +119,47 @@
                                 <span class="text nav-text">Stores</span>
                             </a>
                         </li>
-        
+
                         <li class="nav-link">
                             <a href="/categories">
                                 <i class='bx bx-store icon'></i>
                                 <span class="text nav-text">Categories</span>
                             </a>
                         </li>
+                        <li class="nav-link">
+                            <a href="#" onclick="openProfile()">
+                                <i class='bx bx-user icon'></i>
+                                <span class="text nav-text">My Profile</span>
+                            </a>
+                        </li>
                     @endif
-                @endif
+                @else
+                    <li class="nav-link">
+                        <a href="/products">
+                            <i class="bx bx-bar-chart-alt-2 icon"></i>
+                            <span class="text nav-text">Product</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="/store">
+                            <i class='bx bx-store icon'></i>
+                            <span class="text nav-text">Stores</span>
+                        </a>
+                    </li>
 
-                <li class="nav-link">
-                    <a href="/profile-user">
-                        <i class='bx bx-user icon'></i>
-                        <span class="text nav-text">My Profile</span>
-                    </a>
-                </li>
+                    <li class="nav-link">
+                        <a href="/categories">
+                            <i class='bx bx-store icon'></i>
+                            <span class="text nav-text">Categories</span>
+                        </a>
+                    </li>
+                @endif
             </ul>
 
         </div>
 
-        <div class="bottom-content">
-            @if (Auth::check())
+        @if (Auth::check())
+            <div class="bottom-content">
                 <li class="">
                     <form method="POST" action="{{ route('logout') }}" style="display: flex">
                         @csrf
@@ -156,19 +185,19 @@
                         </form>
                     </li>
                 </div>
-            @endif
+        @endif
 
 
-            <li class="mode">
-                <div class="moon-sun">
-                    <i class="bx bx-moon icon moon"></i>
-                    <i class="bx bx-sun icon sun"></i>
-                </div>
-                <span class="mode-text text">Dark Mode</span>
-                <div class="toggle-switch">
-                    <span class="switch"></span>
-                </div>
-            </li>
-        </div>
+        <li class="mode">
+            <div class="moon-sun">
+                <i class="bx bx-moon icon moon"></i>
+                <i class="bx bx-sun icon sun"></i>
+            </div>
+            <span class="mode-text text">Dark Mode</span>
+            <div class="toggle-switch">
+                <span class="switch"></span>
+            </div>
+        </li>
+    </div>
     </div>
 </nav>
