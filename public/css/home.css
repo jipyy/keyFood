@@ -339,23 +339,20 @@ body.dark .bottom-bar{
 
 /* ini profile */
 
-
 #dropdown {
     position: fixed;
     z-index: 990;
     top: 30px;
     right: 30px;
-  }
+    display: none;
+}
 
-  @media (min-width: 850px) {
+@media (max-width: 849px) {
     #dropdown {
-      position: fixed;
-      z-index: 990;
-      top: 30px;
-      right: 30px;
-      display: none;
+        display: flex;
     }
-  }
+}
+
 
     @media (max-width: 768px) {
       #dropdown {

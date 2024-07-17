@@ -26,6 +26,10 @@ Route::get('/contact-us', function() {
     return view('contact-us');
 });
 
+Route::get('/profile-user', function() {
+    return view('/profile-user');
+});
+
 Route::post('/login', [AuthenticatedSessionController::class, 'store'])->middleware('guest');
 
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->middleware('auth')->name('logout');

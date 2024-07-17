@@ -10,10 +10,12 @@
     <link href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css" rel="stylesheet" />
     <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 
+    <link rel="stylesheet" href="{{ asset('../css/profile.css') }}">
     <link rel="stylesheet" href="{{ asset('../css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('../css/home.css') }}">
     <link rel="stylesheet" href="{{ asset('../css/load.css') }}">

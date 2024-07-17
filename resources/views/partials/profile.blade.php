@@ -1,4 +1,4 @@
-<div x-data="{ isOpen: false }" @click.away="isOpen = false" class="relative inline-block" id="dropdown">
+<div x-data="{ isOpen: false }" @click.away="isOpen = false" class="relative inline-block" id="dropdown" class="hidden">
     <!-- Dropdown Button -->
     <button
         class="flex h-12 w-12 items-center justify-center rounded-lg bg-slate-900 text-slate-100 ring-slate-100 transition hover:shadow-md hover:ring-2 overflow-hidden"
@@ -49,14 +49,15 @@
                 </div>
                 <div class="border-t border-slate-500/30"></div>
                 <div class="flex flex-col">
-                    <a href="/profile-user" class="flex items-center gap-3 rounded-md py-2 px-3 hover:bg-slate-800">
+                    <button onclick="openProfile()"
+                        class="flex items-center gap-3 rounded-md py-2 px-3 hover:bg-slate-800">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5">
                             <path fill-rule="evenodd"
                                 d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z"
                                 clip-rule="evenodd"></path>
                         </svg>
                         <span>Profile</span>
-                    </a>
+                    </button>
                     <a href="#" class="flex items-center gap-3 rounded-md py-2 px-3 hover:bg-slate-800">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5">
                             <path fill-rule="evenodd"
@@ -89,5 +90,66 @@
                 </button>
             </a>
         @endif
+    </div>
+</div>
+
+<div class="container-profile" id="profileCard">
+    <div class="profile-card">
+        <button onclick="hideProfile()">
+            <i class="fa-solid fa-arrow-left back"></i>
+        </button>
+        <div class="profile-pic">
+            <img src="{{ asset('img/1.png') }}" alt="user avatar">
+        </div>
+        <div class="profile-details">
+            <div class="intro">
+                @if (Auth::check())
+                    <h2>{{ Auth::user()->name }}</h2>
+                    @if (Auth::user()->hasRole('admin'))
+                        <h4>Admin</h4>
+                    @elseif (Auth::user()->hasRole('seller'))
+                        <h4>Seller</h4>
+                    @elseif (Auth::user()->hasRole('buyer'))
+                        <h4>Buyer</h4>
+                    @endif
+                @endif
+                <div class="social">
+                    <a href="#"><i class="fab fa-facebook" style="color:var(--blue)"></i></a>
+                    <a href="#"><i class="fab fa-twitter" style="color:var(--skyblue)"></i></a>
+                    <a href="#"><i class="fab fa-dribbble" style="color:var(--dark-pink)"></i></a>
+                    <a href="#"><i class="fab fa-linkedin" style="color:var(--light-blue)"></i></a>
+                </div>
+            </div>
+            <div class="contact-info">
+                <div class="row">
+                    <div class="icon">
+                        <i class="fa fa-phone" style="color:var(--dark-magenta)"></i>
+                    </div>
+                    <div class="content">
+                        <span>Phone</span>
+                        <h5>+{{ Auth::user()->name }}</h5> <!-- Assuming there is a phone attribute -->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="icon">
+                        <i class="fa fa-envelope-open" style="color:var(--light-green)"></i>
+                    </div>
+                    <div class="content">
+                        <span>Email</span>
+                        <h5>{{ Auth::user()->email }}</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="icon">
+                        <i class="fa fa-map-marker" style="color:var(--light-purple)"></i>
+                    </div>
+                    <div class="content">
+                        <span>Location</span>
+                        <h5>{{ Auth::user()->name }}</h5> <!-- Assuming there is a location attribute -->
+                    </div>
+                </div>
+            </div>
+            <button class="download-btn"> <i class="fa fa-edit"></i> Edit Profile</button>
+        </div>
     </div>
 </div>
