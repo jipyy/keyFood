@@ -128,18 +128,29 @@ class ProductController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(Product $product)
-    {
-        try{
-            $product->delete();
-            return redirect()->route('seller.products.index')->with('success', 'Product deleted successfully');
+{
+    DB::beginTransaction();
+    try {
+        // Hapus file gambar dari direktori
+        $photoPath = public_path($product->photo);
+        if (file_exists($photoPath)) {
+            unlink($photoPath);
         }
-        catch (\Exception $e) {
-           
-            $error = ValidationException::withMessages([
-                'system_error' => ['System error! ' . $e->getMessage()]
-            ]);
 
-            throw $error;
-        }
+        // Hapus produk dari database
+        $product->delete();
+
+        DB::commit();
+        return redirect()->route('seller.products.index')->with('success', 'Product deleted successfully');
+    } catch (\Exception $e) {
+        DB::rollBack();
+
+        $error = ValidationException::withMessages([
+            'system_error' => ['System error! ' . $e->getMessage()]
+        ]);
+
+        throw $error;
     }
+}
+
 }
