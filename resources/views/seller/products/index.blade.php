@@ -24,11 +24,11 @@
                 </a>
                 @forelse($products as $product)
                 <div class="item-product flex flex-row justify-between items-center">
-                    <img src="{{ Storage::url($product->photo) }}" class="h-[100px] w-auto" alt="{{ $product->name }}">
+                    <img src="{{ asset($product->photo) }}" class="h-[100px] w-auto" alt="{{ $product->name }}">
                     <div>
                         <h3>{{ $product->name }}</h3>
                         <p>{{ $product->category->name }}</p>
-                        {{-- <p>{{ $product->creator->name }}</p> --}}
+                        <p>{{ $product->creator->name }}</p>
                     </div>
                     <div>
                         <p>Rp {{ number_format($product->price, 0, ',', '.') }}</p>
@@ -53,8 +53,3 @@
         </div>
     </div>
 </x-app-layout>
-
-
-
-
-

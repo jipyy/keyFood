@@ -6,8 +6,6 @@ use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-
-use function Pest\Laravel\get;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
@@ -52,8 +50,8 @@ class ProductController extends Controller
         DB::beginTransaction();
         try {
             if ($request->hasFile('photo')) {
-                $photoPath = $request->file('photo')->store('products_photo', 'public');
-                $validate['photo'] = $photoPath;
+                $photoPath = $request->file('photo')->move(public_path('products_photo'), $request->file('photo')->getClientOriginalName());
+                $validate['photo'] = 'products_photo/' . $request->file('photo')->getClientOriginalName();
             }
             $validate['slug'] = Str::slug($request->name);
             $validate['creator_id'] = Auth::id();
@@ -107,14 +105,14 @@ class ProductController extends Controller
         DB::beginTransaction();
         try {
             if ($request->hasFile('photo')) {
-                $photoPath = $request->file('photo')->store('products_photo', 'public');
-                $validate['photo'] = $photoPath;
+                $photoPath = $request->file('photo')->move(public_path('products_photo'), $request->file('photo')->getClientOriginalName());
+                $validate['photo'] = 'products_photo/' . $request->file('photo')->getClientOriginalName();
             }
             $validate['slug'] = Str::slug($request->name);
             $validate['creator_id'] = Auth::id();
             $product->update($validate);
             DB::commit();
-            return redirect()->route('seller.products.index')->with('success', 'Product created successfully');
+            return redirect()->route('seller.products.index')->with('success', 'Product updated successfully');
         } catch (\Exception $e) {
             DB::rollBack();
 

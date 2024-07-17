@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('photo');
             $table->unsignedBigInteger('price');
             $table->foreignId('category_id')->constrained()->onDelete('cascade');
-            // $table->foreignId('users_id')->constrained()->onDelete('cascade');
+            $table->foreignId('creator_id')->constrained('users')->onDelete('cascade'); // Menambahkan kolom creator_id
             $table->timestamps();
         });
     }
