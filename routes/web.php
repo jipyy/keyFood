@@ -27,6 +27,10 @@ Route::get('/contact-us', function() {
     return view('contact-us');
 });
 
+Route::get('/edit-profile', function() {
+    return view('edit-profile');
+});
+
 Route::get('/profile-user', function() {
     return view('/profile-user');
 });
