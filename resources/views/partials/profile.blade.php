@@ -127,7 +127,7 @@
                     </div>
                     <div class="content">
                         <span>Phone</span>
-                        <h5>+{{ Auth::user()->name }}</h5> <!-- Assuming there is a phone attribute -->
+                        <h5>+{{ Auth::user()->name ?? 'Guest' }}</h5> <!-- Assuming there is a phone attribute -->
                     </div>
                 </div>
                 <div class="row">
@@ -136,7 +136,7 @@
                     </div>
                     <div class="content">
                         <span>Email</span>
-                        <h5>{{ Auth::user()->email }}</h5>
+                        <h5>{{ Auth::user()->email ?? 'Guest' }}</h5>
                     </div>
                 </div>
                 <div class="row">
@@ -145,7 +145,7 @@
                     </div>
                     <div class="content">
                         <span>Location</span>
-                        <h5>{{ Auth::user()->name }}</h5> <!-- Assuming there is a location attribute -->
+                        <h5>{{ Auth::user()->name ?? 'Guest' }}</h5> <!-- Assuming there is a location attribute -->
                     </div>
                 </div>
             </div>
