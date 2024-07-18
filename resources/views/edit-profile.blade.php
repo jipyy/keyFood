@@ -16,13 +16,13 @@
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <link rel="stylesheet" href="{{ asset('./css/edit-p.css') }}">
-    <title>Input Image With Preview Image</title>
+    <title>Edit Profile</title>
 </head>
 
 <body>
 
     <div class="container">
-        <input type="file" id="file" accept="image/*" hidden>
+        <input type="file" id="file" hidden>
         <div class="img-area" data-img="">
             <i class='bx bxs-cloud-upload icon'></i>
             <h3>Upload Image</h3>
@@ -32,7 +32,7 @@
         <br>
         <br>
 
-        <form class="max-w-md mx-auto">
+        <form class="max-w-lg mx-auto">
             <div class="relative z-0 w-full mb-5 group">
                 <input type="email" name="floating_email" id="floating_email"
                     class="block py-2.5 px-0 w-full text-sm text-gray-200 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"

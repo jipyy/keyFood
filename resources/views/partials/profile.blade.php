@@ -99,7 +99,7 @@
             <i class="fa-solid fa-arrow-left back"></i>
         </button>
         <div class="profile-pic">
-            <img src="{{ asset('img/1.png') }}" alt="user avatar">
+            <img src="{{ asset('img/' . (Auth::user()->img ?? 'guest.png')) }}" alt="user avatar">
         </div>
         <div class="profile-details">
             <div class="intro">
@@ -127,7 +127,7 @@
                     </div>
                     <div class="content">
                         <span>Phone</span>
-                        <h5>+{{ Auth::user()->name ?? 'Guest' }}</h5> <!-- Assuming there is a phone attribute -->
+                        <h5>+{{ Auth::user()->phone ?? 'Guest' }}</h5> <!-- Assuming there is a phone attribute -->
                     </div>
                 </div>
                 <div class="row">
@@ -145,11 +145,13 @@
                     </div>
                     <div class="content">
                         <span>Location</span>
-                        <h5>{{ Auth::user()->name ?? 'Guest' }}</h5> <!-- Assuming there is a location attribute -->
+                        <h5>{{ Auth::user()->location ?? 'Guest' }}</h5> <!-- Assuming there is a location attribute -->
                     </div>
                 </div>
             </div>
-            <button class="download-btn"> <i class="fa fa-edit"></i> Edit Profile</button>
+            <a href="/edit-profile">
+                <button class="download-btn"><i class="fa fa-edit"></i> Edit Profile</button>
+            </a>
         </div>
     </div>
 </div>
