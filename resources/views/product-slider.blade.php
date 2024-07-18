@@ -1,175 +1,906 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="{{ asset('./css/product-slider.css') }}">
-</head>
-<body class="h-screen" bg-gray-100 flex items-center justify-center gap-10>
-
-    <div class="card">
-        <img class="w-full h-full object-cover" src="{{ asset('./img/headphone.jpg') }}" alt="">
-        <div class="p-5 flex flex-col gap-3">
-
-            {{-- badge --}}
-            <div class="fles items-center gap-2">
-                <span class="badge">stock ready</span>
-                <span class="badge">official store</span>
-            </div>
-
-            {{-- product title --}}
-            <h2 class="product-title" title="best headphone">best headphone</h2>
-
-            {{-- product price --}}
-            <div>
-                <span class="text-xl font-bold">
-                    Rp 100.000.000
+@extends('layouts.main')
+@section('container')
+    <div class="carousel">
+        <div class="card">
+            <img class="w-full h-full object-cover" src="{{ asset('./img/headphone.jpg') }}" alt="headphone">
+            <div class="p-5 flex flex-col gap-3">
+                {{-- badge --}}
+                <div class="flex items-center gap-2">
+                    <span class="badge">stock ready</span>
+                    <span class="badge">official store</span>
+                </div>
+                {{-- product title --}}
+                <h2 class="product-title" title="best headphone">best headphone</h2>
+                {{-- product price --}}
+                <div>
+                    <span class="text-xl font-bold">
+                        Rp 100.000.000
+                    </span>
+                    <div class="flex items-center gap-2 mt-1">
+                        <span class="text-sm line-through opacity-50">
+                            Rp 500.000
+                        </span>
+                        <span class="discount-percent">
+                            save 20%
+                        </span>
+                    </div>
+                </div>
+                {{-- product rating --}}
+                <span class="flex items-center mt-1">
+                    <img src="{{ asset('./img/star.svg') }}">
+                    <img src="{{ asset('./img/star.svg') }}">
+                    <img src="{{ asset('./img/star.svg') }}">
+                    <img src="{{ asset('./img/star-half-fill.svg') }}">
+                    <img src="{{ asset('./img/star-no-fill.svg') }}">
+                    <span class="text-xs ml-2 text-gray-500">
+                        20k reviews
+                    </span>
                 </span>
-                <div flex items-center gap-2 mt-1>
-                    <span class="text-sm line-through opacity-50">
-                        Rp 500.000
-                    </span>
-                    <span class="discount-percent">
-                        save 20%
-                    </span>
+                {{-- product action button --}}
+                <div class="mt-5 flex gap-2">
+                    <button class="button-primary">
+                        add to cart
+                    </button>
+                    <button class="button-icon">
+                        <img class="opacity-50" src="{{ asset('./img/love.svg') }}" alt="add to wishlist">
+                    </button>
+                    <button class="button-icon">
+                        <img class="opacity-50" src="{{ asset('./img/eye.svg') }}" alt="view details">
+                    </button>
                 </div>
             </div>
+        </div>
 
-            {{-- product rating --}}
-            <span class="flex items-center mt-1">
-                <img src="{{ asset('./img/star.svg') }}">
-                <img src="{{ asset('./img/star.svg') }}">
-                <img src="{{ asset('./img/star.svg') }}">
-                <img src="{{ asset('./img/star-half-fill.svg') }}">
-                <img src="{{ asset('./img/star-no-fill.svg') }}">
-                <span class="text-xs ml-2 text-gray-500">
-                    20k reviews
+        <div class="card">
+            <img class="w-full h-full object-cover" src="{{ asset('./img/shoes.jpg') }}" alt="shoes">
+            <div class="p-5 flex flex-col gap-3">
+                {{-- badge --}}
+                <div class="flex items-center gap-2">
+                    <span class="badge">stock ready</span>
+                    <span class="badge">official store</span>
+                </div>
+                {{-- product title --}}
+                <h2 class="product-title" title="best shoes">best shoes</h2>
+                {{-- product price --}}
+                <div>
+                    <span class="text-xl font-bold">
+                        Rp 100.000.000
+                    </span>
+                    <div class="flex items-center gap-2 mt-1">
+                        <span class="text-sm line-through opacity-50">
+                            Rp 500.000
+                        </span>
+                        <span class="discount-percent">
+                            save 20%
+                        </span>
+                    </div>
+                </div>
+                {{-- product rating --}}
+                <span class="flex items-center mt-1">
+                    <img src="{{ asset('./img/star.svg') }}">
+                    <img src="{{ asset('./img/star.svg') }}">
+                    <img src="{{ asset('./img/star.svg') }}">
+                    <img src="{{ asset('./img/star-half-fill.svg') }}">
+                    <img src="{{ asset('./img/star-no-fill.svg') }}">
+                    <span class="text-xs ml-2 text-gray-500">
+                        20k reviews
+                    </span>
                 </span>
-            </span>
+                {{-- product action button --}}
+                <div class="mt-5 flex gap-2">
+                    <button class="button-primary bg-red-500/80 hover:bg-red-500/90">
+                        add to cart
+                    </button>
+                    <button class="button-icon">
+                        <img class="opacity-50" src="{{ asset('./img/love.svg') }}" alt="add to wishlist">
+                    </button>
+                    <button class="button-icon">
+                        <img class="opacity-50" src="{{ asset('./img/eye.svg') }}" alt="view details">
+                    </button>
+                </div>
+            </div>
+        </div>
 
-            {{-- product action button --}}
-            <div class="mt-5 flex gap-2">
-                <button class="button-primary">
-                    add to cart
-                </button>
-                <button class="button-icon">
-                    <img class="opacity-50" src="{{ asset('./img/love.svg') }}" alt="add to wishlist">
-                </button><button class="button-icon">
-                    <img class="opacity-50" src="{{ asset('./img/eye.svg') }}" alt="add to wishlist">
-                </button>
+        <div class="card">
+            <img class="w-full h-full object-cover" src="{{ asset('./img/shoes.jpg') }}" alt="shoes">
+            <div class="p-5 flex flex-col gap-3">
+                {{-- badge --}}
+                <div class="flex items-center gap-2">
+                    <span class="badge">stock ready</span>
+                    <span class="badge">official store</span>
+                </div>
+                {{-- product title --}}
+                <h2 class="product-title" title="best shoes">best shoes</h2>
+                {{-- product price --}}
+                <div>
+                    <span class="text-xl font-bold">
+                        Rp 100.000.000
+                    </span>
+                    <div class="flex items-center gap-2 mt-1">
+                        <span class="text-sm line-through opacity-50">
+                            Rp 500.000
+                        </span>
+                        <span class="discount-percent">
+                            save 20%
+                        </span>
+                    </div>
+                </div>
+                {{-- product rating --}}
+                <span class="flex items-center mt-1">
+                    <img src="{{ asset('./img/star.svg') }}">
+                    <img src="{{ asset('./img/star.svg') }}">
+                    <img src="{{ asset('./img/star.svg') }}">
+                    <img src="{{ asset('./img/star-half-fill.svg') }}">
+                    <img src="{{ asset('./img/star-no-fill.svg') }}">
+                    <span class="text-xs ml-2 text-gray-500">
+                        20k reviews
+                    </span>
+                </span>
+                {{-- product action button --}}
+                <div class="mt-5 flex gap-2">
+                    <button class="button-primary bg-red-500/80 hover:bg-red-500/90">
+                        add to cart
+                    </button>
+                    <button class="button-icon">
+                        <img class="opacity-50" src="{{ asset('./img/love.svg') }}" alt="add to wishlist">
+                    </button>
+                    <button class="button-icon">
+                        <img class="opacity-50" src="{{ asset('./img/eye.svg') }}" alt="view details">
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img class="w-full h-full object-cover" src="{{ asset('./img/shoes.jpg') }}" alt="shoes">
+            <div class="p-5 flex flex-col gap-3">
+                {{-- badge --}}
+                <div class="flex items-center gap-2">
+                    <span class="badge">stock ready</span>
+                    <span class="badge">official store</span>
+                </div>
+                {{-- product title --}}
+                <h2 class="product-title" title="best shoes">best shoes</h2>
+                {{-- product price --}}
+                <div>
+                    <span class="text-xl font-bold">
+                        Rp 100.000.000
+                    </span>
+                    <div class="flex items-center gap-2 mt-1">
+                        <span class="text-sm line-through opacity-50">
+                            Rp 500.000
+                        </span>
+                        <span class="discount-percent">
+                            save 20%
+                        </span>
+                    </div>
+                </div>
+                {{-- product rating --}}
+                <span class="flex items-center mt-1">
+                    <img src="{{ asset('./img/star.svg') }}">
+                    <img src="{{ asset('./img/star.svg') }}">
+                    <img src="{{ asset('./img/star.svg') }}">
+                    <img src="{{ asset('./img/star-half-fill.svg') }}">
+                    <img src="{{ asset('./img/star-no-fill.svg') }}">
+                    <span class="text-xs ml-2 text-gray-500">
+                        20k reviews
+                    </span>
+                </span>
+                {{-- product action button --}}
+                <div class="mt-5 flex gap-2">
+                    <button class="button-primary bg-red-500/80 hover:bg-red-500/90">
+                        add to cart
+                    </button>
+                    <button class="button-icon">
+                        <img class="opacity-50" src="{{ asset('./img/love.svg') }}" alt="add to wishlist">
+                    </button>
+                    <button class="button-icon">
+                        <img class="opacity-50" src="{{ asset('./img/eye.svg') }}" alt="view details">
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img class="w-full h-full object-cover" src="{{ asset('./img/shoes.jpg') }}" alt="shoes">
+            <div class="p-5 flex flex-col gap-3">
+                {{-- badge --}}
+                <div class="flex items-center gap-2">
+                    <span class="badge">stock ready</span>
+                    <span class="badge">official store</span>
+                </div>
+                {{-- product title --}}
+                <h2 class="product-title" title="best shoes">best shoes</h2>
+                {{-- product price --}}
+                <div>
+                    <span class="text-xl font-bold">
+                        Rp 100.000.000
+                    </span>
+                    <div class="flex items-center gap-2 mt-1">
+                        <span class="text-sm line-through opacity-50">
+                            Rp 500.000
+                        </span>
+                        <span class="discount-percent">
+                            save 20%
+                        </span>
+                    </div>
+                </div>
+                {{-- product rating --}}
+                <span class="flex items-center mt-1">
+                    <img src="{{ asset('./img/star.svg') }}">
+                    <img src="{{ asset('./img/star.svg') }}">
+                    <img src="{{ asset('./img/star.svg') }}">
+                    <img src="{{ asset('./img/star-half-fill.svg') }}">
+                    <img src="{{ asset('./img/star-no-fill.svg') }}">
+                    <span class="text-xs ml-2 text-gray-500">
+                        20k reviews
+                    </span>
+                </span>
+                {{-- product action button --}}
+                <div class="mt-5 flex gap-2">
+                    <button class="button-primary bg-red-500/80 hover:bg-red-500/90">
+                        add to cart
+                    </button>
+                    <button class="button-icon">
+                        <img class="opacity-50" src="{{ asset('./img/love.svg') }}" alt="add to wishlist">
+                    </button>
+                    <button class="button-icon">
+                        <img class="opacity-50" src="{{ asset('./img/eye.svg') }}" alt="view details">
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img class="w-full h-full object-cover" src="{{ asset('./img/camera.jpg') }}" alt="camera">
+            <div class="p-5 flex flex-col gap-3">
+                {{-- badge --}}
+                <div class="flex items-center gap-2">
+                    <span class="badge">stock ready</span>
+                    <span class="badge">official store</span>
+                </div>
+                {{-- product title --}}
+                <h2 class="product-title text-blue-500" title="best camera">best camera</h2>
+                {{-- product price --}}
+                <div>
+                    <span class="text-xl font-bold">
+                        Rp 100.000.000
+                    </span>
+                    <div class="flex items-center gap-2 mt-1">
+                        <span class="text-sm line-through opacity-50">
+                            Rp 500.000
+                        </span>
+                        <span class="discount-percent">
+                            save 20%
+                        </span>
+                    </div>
+                </div>
+                {{-- product rating --}}
+                <span class="flex items-center mt-1">
+                    <img src="{{ asset('./img/star.svg') }}">
+                    <img src="{{ asset('./img/star.svg') }}">
+                    <img src="{{ asset('./img/star.svg') }}">
+                    <img src="{{ asset('./img/star-half-fill.svg') }}">
+                    <img src="{{ asset('./img/star-no-fill.svg') }}">
+                    <span class="text-xs ml-2 text-gray-500">
+                        20k reviews
+                    </span>
+                </span>
+                {{-- product action button --}}
+                <div class="mt-5 flex gap-2">
+                    <button class="button-primary bg-gray-500/80 hover:bg-gray-500/90">
+                        add to cart
+                    </button>
+                    <button class="button-icon">
+                        <img class="opacity-50" src="{{ asset('./img/love.svg') }}" alt="add to wishlist">
+                    </button>
+                    <button class="button-icon">
+                        <img class="opacity-50" src="{{ asset('./img/eye.svg') }}" alt="view details">
+                    </button>
+                </div>
             </div>
         </div>
     </div>
-
-    <div class="card">
-        <img class="w-full h-full object-cover" src="{{ asset('./img/shoes.jpg') }}" alt="shoes">
-        <div class="p-5 flex flex-col gap-3">
-
-            {{-- badge --}}
-            <div class="fles items-center gap-2">
-                <span class="badge">stock ready</span>
-                <span class="badge">official store</span>
-            </div>
-
-            {{-- product title --}}
-            <h2 class="product-title" title="best shoes">best shoes</h2>
-
-            {{-- product price --}}
-            <div>
-                <span class="text-xl font-bold">
-                    Rp 100.000.000
+    <div class="carousel">
+        <div class="card">
+            <img class="w-full h-full object-cover" src="{{ asset('./img/headphone.jpg') }}" alt="headphone">
+            <div class="p-5 flex flex-col gap-3">
+                {{-- badge --}}
+                <div class="flex items-center gap-2">
+                    <span class="badge">stock ready</span>
+                    <span class="badge">official store</span>
+                </div>
+                {{-- product title --}}
+                <h2 class="product-title" title="best headphone">best headphone</h2>
+                {{-- product price --}}
+                <div>
+                    <span class="text-xl font-bold">
+                        Rp 100.000.000
+                    </span>
+                    <div class="flex items-center gap-2 mt-1">
+                        <span class="text-sm line-through opacity-50">
+                            Rp 500.000
+                        </span>
+                        <span class="discount-percent">
+                            save 20%
+                        </span>
+                    </div>
+                </div>
+                {{-- product rating --}}
+                <span class="flex items-center mt-1">
+                    <img src="{{ asset('./img/star.svg') }}">
+                    <img src="{{ asset('./img/star.svg') }}">
+                    <img src="{{ asset('./img/star.svg') }}">
+                    <img src="{{ asset('./img/star-half-fill.svg') }}">
+                    <img src="{{ asset('./img/star-no-fill.svg') }}">
+                    <span class="text-xs ml-2 text-gray-500">
+                        20k reviews
+                    </span>
                 </span>
-                <div flex items-center gap-2 mt-1>
-                    <span class="text-sm line-through opacity-50">
-                        Rp 500.000
-                    </span>
-                    <span class="discount-percent">
-                        save 20%
-                    </span>
+                {{-- product action button --}}
+                <div class="mt-5 flex gap-2">
+                    <button class="button-primary">
+                        add to cart
+                    </button>
+                    <button class="button-icon">
+                        <img class="opacity-50" src="{{ asset('./img/love.svg') }}" alt="add to wishlist">
+                    </button>
+                    <button class="button-icon">
+                        <img class="opacity-50" src="{{ asset('./img/eye.svg') }}" alt="view details">
+                    </button>
                 </div>
             </div>
+        </div>
 
-            {{-- product rating --}}
-            <span class="flex items-center mt-1">
-                <img src="{{ asset('./img/star.svg') }}">
-                <img src="{{ asset('./img/star.svg') }}">
-                <img src="{{ asset('./img/star.svg') }}">
-                <img src="{{ asset('./img/star-half-fill.svg') }}">
-                <img src="{{ asset('./img/star-no-fill.svg') }}">
-                <span class="text-xs ml-2 text-gray-500">
-                    20k reviews
+        <div class="card">
+            <img class="w-full h-full object-cover" src="{{ asset('./img/shoes.jpg') }}" alt="shoes">
+            <div class="p-5 flex flex-col gap-3">
+                {{-- badge --}}
+                <div class="flex items-center gap-2">
+                    <span class="badge">stock ready</span>
+                    <span class="badge">official store</span>
+                </div>
+                {{-- product title --}}
+                <h2 class="product-title" title="best shoes">best shoes</h2>
+                {{-- product price --}}
+                <div>
+                    <span class="text-xl font-bold">
+                        Rp 100.000.000
+                    </span>
+                    <div class="flex items-center gap-2 mt-1">
+                        <span class="text-sm line-through opacity-50">
+                            Rp 500.000
+                        </span>
+                        <span class="discount-percent">
+                            save 20%
+                        </span>
+                    </div>
+                </div>
+                {{-- product rating --}}
+                <span class="flex items-center mt-1">
+                    <img src="{{ asset('./img/star.svg') }}">
+                    <img src="{{ asset('./img/star.svg') }}">
+                    <img src="{{ asset('./img/star.svg') }}">
+                    <img src="{{ asset('./img/star-half-fill.svg') }}">
+                    <img src="{{ asset('./img/star-no-fill.svg') }}">
+                    <span class="text-xs ml-2 text-gray-500">
+                        20k reviews
+                    </span>
                 </span>
-            </span>
+                {{-- product action button --}}
+                <div class="mt-5 flex gap-2">
+                    <button class="button-primary bg-red-500/80 hover:bg-red-500/90">
+                        add to cart
+                    </button>
+                    <button class="button-icon">
+                        <img class="opacity-50" src="{{ asset('./img/love.svg') }}" alt="add to wishlist">
+                    </button>
+                    <button class="button-icon">
+                        <img class="opacity-50" src="{{ asset('./img/eye.svg') }}" alt="view details">
+                    </button>
+                </div>
+            </div>
+        </div>
 
-            {{-- product action button --}}
-            <div class="mt-5 flex gap-2">
-                <button class="button-primary bg-red-500/80 hover:bg-red-500/90">
-                    add to cart
-                </button>
-                <button class="button-icon">
-                    <img class="opacity-50" src="{{ asset('./img/love.svg') }}" alt="add to wishlist">
-                </button><button class="button-icon">
-                    <img class="opacity-50" src="{{ asset('./img/eye.svg') }}" alt="add to wishlist">
-                </button>
+        <div class="card">
+            <img class="w-full h-full object-cover" src="{{ asset('./img/shoes.jpg') }}" alt="shoes">
+            <div class="p-5 flex flex-col gap-3">
+                {{-- badge --}}
+                <div class="flex items-center gap-2">
+                    <span class="badge">stock ready</span>
+                    <span class="badge">official store</span>
+                </div>
+                {{-- product title --}}
+                <h2 class="product-title" title="best shoes">best shoes</h2>
+                {{-- product price --}}
+                <div>
+                    <span class="text-xl font-bold">
+                        Rp 100.000.000
+                    </span>
+                    <div class="flex items-center gap-2 mt-1">
+                        <span class="text-sm line-through opacity-50">
+                            Rp 500.000
+                        </span>
+                        <span class="discount-percent">
+                            save 20%
+                        </span>
+                    </div>
+                </div>
+                {{-- product rating --}}
+                <span class="flex items-center mt-1">
+                    <img src="{{ asset('./img/star.svg') }}">
+                    <img src="{{ asset('./img/star.svg') }}">
+                    <img src="{{ asset('./img/star.svg') }}">
+                    <img src="{{ asset('./img/star-half-fill.svg') }}">
+                    <img src="{{ asset('./img/star-no-fill.svg') }}">
+                    <span class="text-xs ml-2 text-gray-500">
+                        20k reviews
+                    </span>
+                </span>
+                {{-- product action button --}}
+                <div class="mt-5 flex gap-2">
+                    <button class="button-primary bg-red-500/80 hover:bg-red-500/90">
+                        add to cart
+                    </button>
+                    <button class="button-icon">
+                        <img class="opacity-50" src="{{ asset('./img/love.svg') }}" alt="add to wishlist">
+                    </button>
+                    <button class="button-icon">
+                        <img class="opacity-50" src="{{ asset('./img/eye.svg') }}" alt="view details">
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img class="w-full h-full object-cover" src="{{ asset('./img/shoes.jpg') }}" alt="shoes">
+            <div class="p-5 flex flex-col gap-3">
+                {{-- badge --}}
+                <div class="flex items-center gap-2">
+                    <span class="badge">stock ready</span>
+                    <span class="badge">official store</span>
+                </div>
+                {{-- product title --}}
+                <h2 class="product-title" title="best shoes">best shoes</h2>
+                {{-- product price --}}
+                <div>
+                    <span class="text-xl font-bold">
+                        Rp 100.000.000
+                    </span>
+                    <div class="flex items-center gap-2 mt-1">
+                        <span class="text-sm line-through opacity-50">
+                            Rp 500.000
+                        </span>
+                        <span class="discount-percent">
+                            save 20%
+                        </span>
+                    </div>
+                </div>
+                {{-- product rating --}}
+                <span class="flex items-center mt-1">
+                    <img src="{{ asset('./img/star.svg') }}">
+                    <img src="{{ asset('./img/star.svg') }}">
+                    <img src="{{ asset('./img/star.svg') }}">
+                    <img src="{{ asset('./img/star-half-fill.svg') }}">
+                    <img src="{{ asset('./img/star-no-fill.svg') }}">
+                    <span class="text-xs ml-2 text-gray-500">
+                        20k reviews
+                    </span>
+                </span>
+                {{-- product action button --}}
+                <div class="mt-5 flex gap-2">
+                    <button class="button-primary bg-red-500/80 hover:bg-red-500/90">
+                        add to cart
+                    </button>
+                    <button class="button-icon">
+                        <img class="opacity-50" src="{{ asset('./img/love.svg') }}" alt="add to wishlist">
+                    </button>
+                    <button class="button-icon">
+                        <img class="opacity-50" src="{{ asset('./img/eye.svg') }}" alt="view details">
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img class="w-full h-full object-cover" src="{{ asset('./img/shoes.jpg') }}" alt="shoes">
+            <div class="p-5 flex flex-col gap-3">
+                {{-- badge --}}
+                <div class="flex items-center gap-2">
+                    <span class="badge">stock ready</span>
+                    <span class="badge">official store</span>
+                </div>
+                {{-- product title --}}
+                <h2 class="product-title" title="best shoes">best shoes</h2>
+                {{-- product price --}}
+                <div>
+                    <span class="text-xl font-bold">
+                        Rp 100.000.000
+                    </span>
+                    <div class="flex items-center gap-2 mt-1">
+                        <span class="text-sm line-through opacity-50">
+                            Rp 500.000
+                        </span>
+                        <span class="discount-percent">
+                            save 20%
+                        </span>
+                    </div>
+                </div>
+                {{-- product rating --}}
+                <span class="flex items-center mt-1">
+                    <img src="{{ asset('./img/star.svg') }}">
+                    <img src="{{ asset('./img/star.svg') }}">
+                    <img src="{{ asset('./img/star.svg') }}">
+                    <img src="{{ asset('./img/star-half-fill.svg') }}">
+                    <img src="{{ asset('./img/star-no-fill.svg') }}">
+                    <span class="text-xs ml-2 text-gray-500">
+                        20k reviews
+                    </span>
+                </span>
+                {{-- product action button --}}
+                <div class="mt-5 flex gap-2">
+                    <button class="button-primary bg-red-500/80 hover:bg-red-500/90">
+                        add to cart
+                    </button>
+                    <button class="button-icon">
+                        <img class="opacity-50" src="{{ asset('./img/love.svg') }}" alt="add to wishlist">
+                    </button>
+                    <button class="button-icon">
+                        <img class="opacity-50" src="{{ asset('./img/eye.svg') }}" alt="view details">
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img class="w-full h-full object-cover" src="{{ asset('./img/camera.jpg') }}" alt="camera">
+            <div class="p-5 flex flex-col gap-3">
+                {{-- badge --}}
+                <div class="flex items-center gap-2">
+                    <span class="badge">stock ready</span>
+                    <span class="badge">official store</span>
+                </div>
+                {{-- product title --}}
+                <h2 class="product-title text-blue-500" title="best camera">best camera</h2>
+                {{-- product price --}}
+                <div>
+                    <span class="text-xl font-bold">
+                        Rp 100.000.000
+                    </span>
+                    <div class="flex items-center gap-2 mt-1">
+                        <span class="text-sm line-through opacity-50">
+                            Rp 500.000
+                        </span>
+                        <span class="discount-percent">
+                            save 20%
+                        </span>
+                    </div>
+                </div>
+                {{-- product rating --}}
+                <span class="flex items-center mt-1">
+                    <img src="{{ asset('./img/star.svg') }}">
+                    <img src="{{ asset('./img/star.svg') }}">
+                    <img src="{{ asset('./img/star.svg') }}">
+                    <img src="{{ asset('./img/star-half-fill.svg') }}">
+                    <img src="{{ asset('./img/star-no-fill.svg') }}">
+                    <span class="text-xs ml-2 text-gray-500">
+                        20k reviews
+                    </span>
+                </span>
+                {{-- product action button --}}
+                <div class="mt-5 flex gap-2">
+                    <button class="button-primary bg-gray-500/80 hover:bg-gray-500/90">
+                        add to cart
+                    </button>
+                    <button class="button-icon">
+                        <img class="opacity-50" src="{{ asset('./img/love.svg') }}" alt="add to wishlist">
+                    </button>
+                    <button class="button-icon">
+                        <img class="opacity-50" src="{{ asset('./img/eye.svg') }}" alt="view details">
+                    </button>
+                </div>
             </div>
         </div>
     </div>
-
-    <div class="card">
-        <img class="w-full h-full object-cover" src="{{ asset('./img/camera.jpg') }}" alt="camera">
-        <div class="p-5 flex flex-col gap-3">
-
-            {{-- badge --}}
-            <div class="fles items-center gap-2">
-                <span class="badge">stock ready</span>
-                <span class="badge">official store</span>
-            </div>
-
-            {{-- product title --}}
-            <h2 class="product-title" title="best camera">best camera</h2>
-
-            {{-- product price --}}
-            <div>
-                <span class="text-xl font-bold">
-                    Rp 100.000.000
+    <div class="carousel">
+        <div class="card">
+            <img class="w-full h-full object-cover" src="{{ asset('./img/headphone.jpg') }}" alt="headphone">
+            <div class="p-5 flex flex-col gap-3">
+                {{-- badge --}}
+                <div class="flex items-center gap-2">
+                    <span class="badge">stock ready</span>
+                    <span class="badge">official store</span>
+                </div>
+                {{-- product title --}}
+                <h2 class="product-title" title="best headphone">best headphone</h2>
+                {{-- product price --}}
+                <div>
+                    <span class="text-xl font-bold">
+                        Rp 100.000.000
+                    </span>
+                    <div class="flex items-center gap-2 mt-1">
+                        <span class="text-sm line-through opacity-50">
+                            Rp 500.000
+                        </span>
+                        <span class="discount-percent">
+                            save 20%
+                        </span>
+                    </div>
+                </div>
+                {{-- product rating --}}
+                <span class="flex items-center mt-1">
+                    <img src="{{ asset('./img/star.svg') }}">
+                    <img src="{{ asset('./img/star.svg') }}">
+                    <img src="{{ asset('./img/star.svg') }}">
+                    <img src="{{ asset('./img/star-half-fill.svg') }}">
+                    <img src="{{ asset('./img/star-no-fill.svg') }}">
+                    <span class="text-xs ml-2 text-gray-500">
+                        20k reviews
+                    </span>
                 </span>
-                <div flex items-center gap-2 mt-1>
-                    <span class="text-sm line-through opacity-50">
-                        Rp 500.000
-                    </span>
-                    <span class="discount-percent">
-                        save 20%
-                    </span>
+                {{-- product action button --}}
+                <div class="mt-5 flex gap-2">
+                    <button class="button-primary">
+                        add to cart
+                    </button>
+                    <button class="button-icon">
+                        <img class="opacity-50" src="{{ asset('./img/love.svg') }}" alt="add to wishlist">
+                    </button>
+                    <button class="button-icon">
+                        <img class="opacity-50" src="{{ asset('./img/eye.svg') }}" alt="view details">
+                    </button>
                 </div>
             </div>
+        </div>
 
-            {{-- product rating --}}
-            <span class="flex items-center mt-1">
-                <img src="{{ asset('./img/star.svg') }}">
-                <img src="{{ asset('./img/star.svg') }}">
-                <img src="{{ asset('./img/star.svg') }}">
-                <img src="{{ asset('./img/star-half-fill.svg') }}">
-                <img src="{{ asset('./img/star-no-fill.svg') }}">
-                <span class="text-xs ml-2 text-gray-500">
-                    20k reviews
+        <div class="card">
+            <img class="w-full h-full object-cover" src="{{ asset('./img/shoes.jpg') }}" alt="shoes">
+            <div class="p-5 flex flex-col gap-3">
+                {{-- badge --}}
+                <div class="flex items-center gap-2">
+                    <span class="badge">stock ready</span>
+                    <span class="badge">official store</span>
+                </div>
+                {{-- product title --}}
+                <h2 class="product-title" title="best shoes">best shoes</h2>
+                {{-- product price --}}
+                <div>
+                    <span class="text-xl font-bold">
+                        Rp 100.000.000
+                    </span>
+                    <div class="flex items-center gap-2 mt-1">
+                        <span class="text-sm line-through opacity-50">
+                            Rp 500.000
+                        </span>
+                        <span class="discount-percent">
+                            save 20%
+                        </span>
+                    </div>
+                </div>
+                {{-- product rating --}}
+                <span class="flex items-center mt-1">
+                    <img src="{{ asset('./img/star.svg') }}">
+                    <img src="{{ asset('./img/star.svg') }}">
+                    <img src="{{ asset('./img/star.svg') }}">
+                    <img src="{{ asset('./img/star-half-fill.svg') }}">
+                    <img src="{{ asset('./img/star-no-fill.svg') }}">
+                    <span class="text-xs ml-2 text-gray-500">
+                        20k reviews
+                    </span>
                 </span>
-            </span>
+                {{-- product action button --}}
+                <div class="mt-5 flex gap-2">
+                    <button class="button-primary bg-red-500/80 hover:bg-red-500/90">
+                        add to cart
+                    </button>
+                    <button class="button-icon">
+                        <img class="opacity-50" src="{{ asset('./img/love.svg') }}" alt="add to wishlist">
+                    </button>
+                    <button class="button-icon">
+                        <img class="opacity-50" src="{{ asset('./img/eye.svg') }}" alt="view details">
+                    </button>
+                </div>
+            </div>
+        </div>
 
-            {{-- product action button --}}
-            <div class="mt-5 flex gap-2">
-                <button class="button-primary bg-gray-500/80 hover:bg-gray-500/90">
-                    add to cart
-                </button>
-                <button class="button-icon">
-                    <img class="opacity-50" src="{{ asset('./img/love.svg') }}" alt="add to wishlist">
-                </button><button class="button-icon">
-                    <img class="opacity-50" src="{{ asset('./img/eye.svg') }}" alt="add to wishlist">
-                </button>
+        <div class="card">
+            <img class="w-full h-full object-cover" src="{{ asset('./img/shoes.jpg') }}" alt="shoes">
+            <div class="p-5 flex flex-col gap-3">
+                {{-- badge --}}
+                <div class="flex items-center gap-2">
+                    <span class="badge">stock ready</span>
+                    <span class="badge">official store</span>
+                </div>
+                {{-- product title --}}
+                <h2 class="product-title" title="best shoes">best shoes</h2>
+                {{-- product price --}}
+                <div>
+                    <span class="text-xl font-bold">
+                        Rp 100.000.000
+                    </span>
+                    <div class="flex items-center gap-2 mt-1">
+                        <span class="text-sm line-through opacity-50">
+                            Rp 500.000
+                        </span>
+                        <span class="discount-percent">
+                            save 20%
+                        </span>
+                    </div>
+                </div>
+                {{-- product rating --}}
+                <span class="flex items-center mt-1">
+                    <img src="{{ asset('./img/star.svg') }}">
+                    <img src="{{ asset('./img/star.svg') }}">
+                    <img src="{{ asset('./img/star.svg') }}">
+                    <img src="{{ asset('./img/star-half-fill.svg') }}">
+                    <img src="{{ asset('./img/star-no-fill.svg') }}">
+                    <span class="text-xs ml-2 text-gray-500">
+                        20k reviews
+                    </span>
+                </span>
+                {{-- product action button --}}
+                <div class="mt-5 flex gap-2">
+                    <button class="button-primary bg-red-500/80 hover:bg-red-500/90">
+                        add to cart
+                    </button>
+                    <button class="button-icon">
+                        <img class="opacity-50" src="{{ asset('./img/love.svg') }}" alt="add to wishlist">
+                    </button>
+                    <button class="button-icon">
+                        <img class="opacity-50" src="{{ asset('./img/eye.svg') }}" alt="view details">
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img class="w-full h-full object-cover" src="{{ asset('./img/shoes.jpg') }}" alt="shoes">
+            <div class="p-5 flex flex-col gap-3">
+                {{-- badge --}}
+                <div class="flex items-center gap-2">
+                    <span class="badge">stock ready</span>
+                    <span class="badge">official store</span>
+                </div>
+                {{-- product title --}}
+                <h2 class="product-title" title="best shoes">best shoes</h2>
+                {{-- product price --}}
+                <div>
+                    <span class="text-xl font-bold">
+                        Rp 100.000.000
+                    </span>
+                    <div class="flex items-center gap-2 mt-1">
+                        <span class="text-sm line-through opacity-50">
+                            Rp 500.000
+                        </span>
+                        <span class="discount-percent">
+                            save 20%
+                        </span>
+                    </div>
+                </div>
+                {{-- product rating --}}
+                <span class="flex items-center mt-1">
+                    <img src="{{ asset('./img/star.svg') }}">
+                    <img src="{{ asset('./img/star.svg') }}">
+                    <img src="{{ asset('./img/star.svg') }}">
+                    <img src="{{ asset('./img/star-half-fill.svg') }}">
+                    <img src="{{ asset('./img/star-no-fill.svg') }}">
+                    <span class="text-xs ml-2 text-gray-500">
+                        20k reviews
+                    </span>
+                </span>
+                {{-- product action button --}}
+                <div class="mt-5 flex gap-2">
+                    <button class="button-primary bg-red-500/80 hover:bg-red-500/90">
+                        add to cart
+                    </button>
+                    <button class="button-icon">
+                        <img class="opacity-50" src="{{ asset('./img/love.svg') }}" alt="add to wishlist">
+                    </button>
+                    <button class="button-icon">
+                        <img class="opacity-50" src="{{ asset('./img/eye.svg') }}" alt="view details">
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img class="w-full h-full object-cover" src="{{ asset('./img/shoes.jpg') }}" alt="shoes">
+            <div class="p-5 flex flex-col gap-3">
+                {{-- badge --}}
+                <div class="flex items-center gap-2">
+                    <span class="badge">stock ready</span>
+                    <span class="badge">official store</span>
+                </div>
+                {{-- product title --}}
+                <h2 class="product-title" title="best shoes">best shoes</h2>
+                {{-- product price --}}
+                <div>
+                    <span class="text-xl font-bold">
+                        Rp 100.000.000
+                    </span>
+                    <div class="flex items-center gap-2 mt-1">
+                        <span class="text-sm line-through opacity-50">
+                            Rp 500.000
+                        </span>
+                        <span class="discount-percent">
+                            save 20%
+                        </span>
+                    </div>
+                </div>
+                {{-- product rating --}}
+                <span class="flex items-center mt-1">
+                    <img src="{{ asset('./img/star.svg') }}">
+                    <img src="{{ asset('./img/star.svg') }}">
+                    <img src="{{ asset('./img/star.svg') }}">
+                    <img src="{{ asset('./img/star-half-fill.svg') }}">
+                    <img src="{{ asset('./img/star-no-fill.svg') }}">
+                    <span class="text-xs ml-2 text-gray-500">
+                        20k reviews
+                    </span>
+                </span>
+                {{-- product action button --}}
+                <div class="mt-5 flex gap-2">
+                    <button class="button-primary bg-red-500/80 hover:bg-red-500/90">
+                        add to cart
+                    </button>
+                    <button class="button-icon">
+                        <img class="opacity-50" src="{{ asset('./img/love.svg') }}" alt="add to wishlist">
+                    </button>
+                    <button class="button-icon">
+                        <img class="opacity-50" src="{{ asset('./img/eye.svg') }}" alt="view details">
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img class="w-full h-full object-cover" src="{{ asset('./img/camera.jpg') }}" alt="camera">
+            <div class="p-5 flex flex-col gap-3">
+                {{-- badge --}}
+                <div class="flex items-center gap-2">
+                    <span class="badge">stock ready</span>
+                    <span class="badge">official store</span>
+                </div>
+                {{-- product title --}}
+                <h2 class="product-title text-blue-500" title="best camera">best camera</h2>
+                {{-- product price --}}
+                <div>
+                    <span class="text-xl font-bold">
+                        Rp 100.000.000
+                    </span>
+                    <div class="flex items-center gap-2 mt-1">
+                        <span class="text-sm line-through opacity-50">
+                            Rp 500.000
+                        </span>
+                        <span class="discount-percent">
+                            save 20%
+                        </span>
+                    </div>
+                </div>
+                {{-- product rating --}}
+                <span class="flex items-center mt-1">
+                    <img src="{{ asset('./img/star.svg') }}">
+                    <img src="{{ asset('./img/star.svg') }}">
+                    <img src="{{ asset('./img/star.svg') }}">
+                    <img src="{{ asset('./img/star-half-fill.svg') }}">
+                    <img src="{{ asset('./img/star-no-fill.svg') }}">
+                    <span class="text-xs ml-2 text-gray-500">
+                        20k reviews
+                    </span>
+                </span>
+                {{-- product action button --}}
+                <div class="mt-5 flex gap-2">
+                    <button class="button-primary bg-gray-500/80 hover:bg-gray-500/90">
+                        add to cart
+                    </button>
+                    <button class="button-icon">
+                        <img class="opacity-50" src="{{ asset('./img/love.svg') }}" alt="add to wishlist">
+                    </button>
+                    <button class="button-icon">
+                        <img class="opacity-50" src="{{ asset('./img/eye.svg') }}" alt="view details">
+                    </button>
+                </div>
             </div>
         </div>
     </div>
-
-</body>
-</html>
+@endsection
