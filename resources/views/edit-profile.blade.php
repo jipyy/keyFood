@@ -28,10 +28,9 @@
                 <h3>Upload Image</h3>
                 <p>Image size must be less than <span>2MB</span></p>
             </div>
-            <button class="select-image">Select Image</button>
+            <button class="select-image">Choose New Image</button>
             <br>
             <br>
-
             <form class="max-w-lg mx-auto">
                 <div class="relative z-0 w-full mb-5 group">
                     <input type="text" name="floating_name" id="floating_name"

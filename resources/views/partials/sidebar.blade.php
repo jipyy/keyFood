@@ -2,7 +2,7 @@
     <header>
         <div class="image-text">
             <span class="image">
-                <img src="{{ asset('../img/logo.png') }}" alt="logo">
+                <img src="{{ asset('img/' . (Auth::user()->img ?? 'guest.png')) }}" alt="logo">
             </span>
 
             <div class="text-header-text">
@@ -55,7 +55,7 @@
                     @if (Auth::user()->hasRole('admin'))
                         <li class="nav-link">
                             <a href="{{ route('admin.products.index') }}">
-                                <i class="bx bx-bar-chart-alt-2 icon"></i>
+                                <i class='bx bx-restaurant icon'></i>
                                 <span class="text nav-text">Product</span>
                             </a>
                         </li>
@@ -69,7 +69,7 @@
 
                         <li class="nav-link">
                             <a href="{{ route('admin.categories.index') }}">
-                                <i class='bx bx-store icon'></i>
+                                <i class='bx bx-bowl-hot icon'></i>
                                 <span class="text nav-text">Categories</span>
                             </a>
                         </li>
