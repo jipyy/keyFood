@@ -1,51 +1,168 @@
-body {
-    font-family: "Roboto", sans-serif;
-    background: #f9f9f9;
-}
-.card {
+/* Global styles */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  .carousel-container {
+    width: 100%;
+    overflow: hidden;
+    padding: 16px;
+  }
+
+  .carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    width: 100%;
+    height: 100%;
+  }
+
+  .carousel::-webkit-scrollbar {
+    display: none;
+  }
+
+  .card {
+    margin-top: 20px;
+    height: max-content;
+    width: 300px;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    flex: 0 0 auto;
+    margin-right: 16px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1),
+                0 1px 3px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease-in-out;
     background: #fff;
-    padding: 0px 0px;
-    margin: 15px 10px;
-    border-radius: 5px;
-    box-shadow: 0 15px 20px -15px rgb(0 0 0 / 73%);
-    transform: scale(1);
-    opacity: 1;
-    transition: all 0.3s;
-}
-.badge {
-    display: inline-block;
-    background-color: blue;
-    color: #fff;
-    padding: 3px 8px;
-    border-radius: 3px;
-    text-transform: uppercase;
-    font-size: 12px;
-    font-weight: 500;
-}
-.product-title {
-    font-size: 18px;
-    font-weight: bold;
-}
-.line-through {
-    text-decoration: line-through;
-}
-.button-primary {
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 15px;
-    border: none;
+    position: relative;
+  }
+
+  .card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 16px;
+    padding: 2px;
+    background: linear-gradient(45deg, #f3ec78, #af4261);
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+  }
+
+  .card:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2),
+                0 5px 6px rgba(0, 0, 0, 0.15);
+  }
+
+  .card img {
+    object-fit: cover;
+    height: 60%;
+    width: 100%;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+  }
+
+  .badge {
+    font-size: 0.625rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 9999px;
+    background-color: #4caf50;
+    color: white;
+  }
+
+  .product-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  .discount-percent {
+    font-size: 0.625rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 9999px;
+    background-color: #4caf50;
+    color: white;
+  }
+
+  .button-primary {
+    font-size: 0.875rem;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    background-color: #f1c40f;
+    color: white;
     cursor: pointer;
-    border-radius: 3px;
-    transition: background-color 0.3s;
-}
-.button-primary:hover {
-    background-color: #0056b3;
-}
-.button-icon {
-    background: none;
-    border: none;
+    transition: background-color 0.2s ease-in-out;
+  }
+
+  .button-primary:hover {
+    background-color: #e0b90f;
+  }
+
+  .button-icon {
+    font-size: 1.25rem;
+    padding: 0.5rem;
+    border-radius: 9999px;
+    background-color: #e0e0e0;
+    color: #666;
     cursor: pointer;
-}
-.button-icon img {
-    width: 20px;
-}
+    transition: background-color 0.2s ease-in-out;
+  }
+
+  .button-icon:hover {
+    background-color: #d1d1d1;
+  }
+
+  /* Responsive styles */
+
+  @media (max-width: 1200px) {
+    .carousel-container {
+      padding: 12px;
+    }
+
+    .card {
+      width: 250px;
+      margin-right: 12px;
+    }
+
+    .badge {
+      font-size: 0.5rem;
+      padding: 0.2rem 0.4rem;
+    }
+
+    .product-title {
+      font-size: 1.25rem;
+    }
+
+    .discount-percent {
+      font-size: 0.5rem;
+      padding: 0.2rem 0.4rem;
+    }
+
+    .button-primary {
+      font-size: 0.75rem;
+      padding: 0.4rem 0.8rem;
+    }
+
+    .button-icon {
+      font-size: 1rem;
+      padding: 0
+    }
+  }
