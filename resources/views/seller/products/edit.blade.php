@@ -26,12 +26,11 @@
                     <h1 class="text-indigo-950 text-3xl font-bold">Edit Product</h1>
 
                     <div class="mt-4">
-                        <x-input-label for="photo" :value="('existing photo')" />
-                        <img src="{{ Storage::url($product->photo) }}" class="h-[100px] w-auto" alt="{{ $product->name }}">
+                        <x-input-label for="photo" :value="('Existing Photo')" />
+                        <img src="{{ asset($product->photo) }}" class="h-[100px] w-auto" alt="{{ $product->name }}">
                         <x-text-input id="photo" class="block mt-1 w-full" type="file" name="photo" />
                         <x-input-error :messages="$errors->get('photo')" class="mt-2" />
                     </div>
-
 
                     <!-- Name -->
                     <div class="mt-4">
@@ -41,7 +40,7 @@
                     </div>
 
                     <div class="mt-4">
-                        <x-input-label for="price" :value="('price')" />
+                        <x-input-label for="price" :value="('Price')" />
                         <x-text-input value="{{ $product->price }}" id="price" class="block mt-1 w-full" type="number" name="price" required autofocus autocomplete="price" />
                         <x-input-error :messages="$errors->get('price')" class="mt-2" />
                     </div>
@@ -60,7 +59,7 @@
                     </div>
 
                     <div class="mt-4">
-                        <x-input-label for="slug" :value="('slug')" />
+                        <x-input-label for="slug" :value="('Slug')" />
                         <textarea name="slug" id="slug" class="w-full py-3 pl-5 border">{{ $product->slug }}</textarea>
                         <x-input-error :messages="$errors->get('slug')" class="mt-2" />
                     </div>
