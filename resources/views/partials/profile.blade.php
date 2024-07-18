@@ -4,7 +4,7 @@
         class="flex h-12 w-12 items-center justify-center rounded-lg bg-slate-900 text-slate-100 ring-slate-100 transition hover:shadow-md hover:ring-2 overflow-hidden"
         @click="isOpen = !isOpen">
         <img class="w-full object-cover"
-            src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?crop=top&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=100&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY2Mjk2MTgwNw&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=100"
+            src="{{ asset('img/' . (Auth::user()->img ?? 'guest.png')) }}"
             alt="Profile">
     </button>
 
@@ -18,7 +18,7 @@
                     <div
                         class="flex items-center justify-center rounded-lg h-12 w-12 overflow-hidden border-2 border-slate-600">
                         <img class="w-full object-cover"
-                            src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?crop=top&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;h=100&amp;ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY2Mjk2MTgwNw&amp;ixlib=rb-1.2.1&amp;q=80&amp;utm_campaign=api-credit&amp;utm_medium=referral&amp;utm_source=unsplash_source&amp;w=100"
+                            src="{{ asset('img/' . (Auth::user()->img ?? 'guest.png')) }}"
                             alt="Profile">
                     </div>
                     <div>
@@ -99,7 +99,7 @@
             <i class="fa-solid fa-arrow-left back"></i>
         </button>
         <div class="profile-pic">
-            <img src="{{ asset('img/1.png') }}" alt="user avatar">
+            <img src="{{ asset('img/' . (Auth::user()->img ?? 'guest.png')) }}" alt="user avatar">
         </div>
         <div class="profile-details">
             <div class="intro">
@@ -127,7 +127,7 @@
                     </div>
                     <div class="content">
                         <span>Phone</span>
-                        <h5>+{{ Auth::user()->name ?? 'Guest' }}</h5> <!-- Assuming there is a phone attribute -->
+                        <h5>+{{ Auth::user()->phone ?? 'Guest' }}</h5> <!-- Assuming there is a phone attribute -->
                     </div>
                 </div>
                 <div class="row">
@@ -145,11 +145,13 @@
                     </div>
                     <div class="content">
                         <span>Location</span>
-                        <h5>{{ Auth::user()->name ?? 'Guest' }}</h5> <!-- Assuming there is a location attribute -->
+                        <h5>{{ Auth::user()->location ?? 'Guest' }}</h5> <!-- Assuming there is a location attribute -->
                     </div>
                 </div>
             </div>
-            <button class="download-btn"> <i class="fa fa-edit"></i> Edit Profile</button>
+            <a href="/edit-profile">
+                <button class="download-btn"><i class="fa fa-edit"></i> Edit Profile</button>
+            </a>
         </div>
     </div>
 </div>
