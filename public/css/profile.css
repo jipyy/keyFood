@@ -101,6 +101,7 @@ body.dark .profile-card{
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
+    z-index: 99;
 }
 
 .profile-card .profile-pic{

@@ -1,7 +1,7 @@
 <div x-data="{ isOpen: false }" @click.away="isOpen = false" class="relative inline-block" id="dropdown" class="hidden">
     <!-- Dropdown Button -->
     <button
-        class="flex h-12 w-12 items-center justify-center rounded-lg bg-slate-900 text-slate-100 ring-slate-100 transition hover:shadow-md hover:ring-2 overflow-hidden"
+        class="fixed-button flex h-12 w-12 items-center justify-center rounded-lg bg-slate-900 text-slate-100 ring-slate-100 transition hover:shadow-md hover:ring-2 overflow-hidden"
         @click="isOpen = !isOpen">
         <img class="w-full object-cover"
             src="{{ asset('img/' . (Auth::user()->img ?? 'guest.png')) }}"
@@ -10,7 +10,7 @@
 
     <!-- Dropdown Menu -->
     <div x-show="isOpen"
-        class="absolute right-0 mt-3 flex w-60 flex-col gap-3 rounded-xl bg-slate-900 p-4 text-slate-100 shadow-lg">
+    class="absolute right-0 mt-3 flex w-60 flex-col gap-3 rounded-xl bg-slate-900 p-4 text-slate-100 shadow-lg">
 
         @if (Auth::check())
             <div class="dropdown-profile">
@@ -37,17 +37,7 @@
                     </div>
                 </div>
                 <div class="border-t border-slate-500/30"></div>
-                <div class="flex justify-around">
-                    <div class="flex flex-col items-center justify-center">
-                        <span class="text-3xl font-semibold">268</span>
-                        <span class="text-sm text-slate-400">Following</span>
-                    </div>
-                    <div class="flex flex-col items-center justify-center">
-                        <span class="text-3xl font-semibold">897</span>
-                        <span class="text-sm text-slate-400">Followers</span>
-                    </div>
-                </div>
-                <div class="border-t border-slate-500/30"></div>
+        
                 <div class="flex flex-col">
                     <button onclick="openProfile()"
                         class="flex items-center gap-3 rounded-md py-2 px-3 hover:bg-slate-800">

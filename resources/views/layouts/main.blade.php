@@ -36,7 +36,7 @@
     </div>
     @include('partials.sidebar')
 
-    <div class="container">
+    <div class="container" id="container">
         @include('partials.profile')
         @yield('container')
     </div>

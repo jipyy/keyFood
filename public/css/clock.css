@@ -44,7 +44,7 @@
 }
 
 /*========== Variables Dark theme ==========*/
-body.dark-theme {
+body.dark {
   --title-color: hsl(var(--hue-color), 12%, 95%);
   --text-color: hsl(var(--hue-color), 12%, 75%);
   --body-color: hsl(var(--hue-color), 10%, 16%);
@@ -67,14 +67,14 @@ body.dark-theme {
 }
 
 /*========== Box shadow Dark theme ==========*/
-.dark-theme .clock__circle {
+body.dark .clock__circle {
   box-shadow: 6px 6px 16px hsla(var(--hue-color), 8%, 12%, 1), 
               -6px -6px 16px hsla(var(--hue-color), 8%, 20%, 1), 
               inset -6px -6px 16px hsla(var(--hue-color), 8%, 20%, 1), 
               inset 6px 6px 12px hsla(var(--hue-color), 8%, 12%, 1);
 }
 
-.dark-theme .clock__theme {
+body.dark .clock__theme {
   box-shadow: inset -1px -1px 1px hsla(var(--hue-color), 8%, 20%, 1), 
               inset 1px 1px 1px hsla(var(--hue-color), 8%, 12%, 1);
 }
@@ -86,11 +86,6 @@ a {
 }
 
 /*=============== REUSABLE CSS CLASSES ===============*/
-.container {
-  max-width: 100%;
-  margin-left: var(--mb-1);
-  margin-right: var(--mb-1);
-}
 
 .grid {
   display: grid;
@@ -120,8 +115,10 @@ a {
 }
 
 .clock__content {
+    position: relative;
   align-self: center;
   row-gap: 3.5rem;
+  z-index: 1;
 }
 
 .clock__twelve, 
@@ -254,6 +251,13 @@ a {
   margin-left: var(--mb-0-25);
 }
 
+
+body.dark .clock__date{
+    text-align: center;
+    font-size: var(--small-font-size);
+    font-weight: var(--font-medium);
+    color: white;
+}
 .clock__date {
   text-align: center;
   font-size: var(--small-font-size);

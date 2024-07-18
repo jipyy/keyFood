@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('container')
-    <section class="clock container">
+    <section class="clock container" id="home">
         <div class="clock__container grid">
             <div class="clock__content grid">
                 <div class="clock__circle">
