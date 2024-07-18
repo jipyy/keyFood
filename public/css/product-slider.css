@@ -1,0 +1,51 @@
+body {
+    font-family: "Roboto", sans-serif;
+    background: #f9f9f9;
+}
+.card {
+    background: #fff;
+    padding: 0px 0px;
+    margin: 15px 10px;
+    border-radius: 5px;
+    box-shadow: 0 15px 20px -15px rgb(0 0 0 / 73%);
+    transform: scale(1);
+    opacity: 1;
+    transition: all 0.3s;
+}
+.badge {
+    display: inline-block;
+    background-color: blue;
+    color: #fff;
+    padding: 3px 8px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 500;
+}
+.product-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+.line-through {
+    text-decoration: line-through;
+}
+.button-primary {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background-color 0.3s;
+}
+.button-primary:hover {
+    background-color: #0056b3;
+}
+.button-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.button-icon img {
+    width: 20px;
+}
