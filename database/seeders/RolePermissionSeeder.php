@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Spatie\Permission\Contracts\Role as ContractsRole;
 use Spatie\Permission\Models\Role;
 
 class RolePermissionSeeder extends Seeder
@@ -15,17 +16,17 @@ class RolePermissionSeeder extends Seeder
     public function run(): void
     {
         //
-        $adminRole = Role::create([
-            'name' => 'admin',
-        ]);
+        // $adminRole = Role::create([
+        //     'name' => 'admin',
+        // ]);
 
-        $sellerRole = Role::create([
-            'name' => 'seller',
-        ]);
+        // $sellerRole = Role::create([
+        //     'name' => 'seller',
+        // ]);
 
-        $buyerRole = Role::create([
-            'name' => 'buyer',
-        ]);
+        // $buyerRole = Role::create([
+        //     'name' => 'buyer',
+        // ]);
 
         $user = User::create([
             'name' => 'admin',
@@ -33,6 +34,25 @@ class RolePermissionSeeder extends Seeder
             'password' => bcrypt('admin123admin'),
         ]);
 
-        $user->assignRole($adminRole);
+    
+
+
+        //LETSSSS GOOOOOOOOOO
+
+        Role::updateOrCreate(
+            ['name' => 'admin',],
+            ['name' => 'admin',]
+        );
+
+        Role::updateOrCreate(
+            ['name' => 'seller',],
+            ['name' => 'seller',]
+        );
+        
+        Role::updateOrCreate(
+            ['name' => 'buyer',],
+            ['name' => 'buyer',]
+        );
+        
     }
 }

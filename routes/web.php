@@ -63,11 +63,20 @@ Route::view('/home', 'home')->name('home');
 // ROUTE SELLER PAGE
 Route::prefix('seller')->name('seller.')->group(function(){
     Route::resource('products', ProductController::class)->middleware('role:seller');
+
+    Route::resource('products', ProductController::class)->middleware('role:seller');
+    Route::resource('products_orders', ProductOrderController::class);
 });
 
 // ROUTE ADMIN  PAGE
 Route::prefix('admin')->name('admin.')->group(function(){
     Route::resource('categories', CategoryController::class)->middleware('role:admin');
+
+    Route::resource('products', ProductController::class);
+    Route::resource('products_orders', ProductOrderController::class);
+    Route::resource('categories', CategoryController::class)->middleware('role:admin');
+    Route::resource('users', UserController::class);
+    
 });
 
 
@@ -78,17 +87,20 @@ Route::middleware('auth')->group(function () {
 });
 require __DIR__.'/auth.php';
 
-Route::prefix('admin')->name('admin.')->group(function(){
-    Route::resource('products', ProductController::class);
-    Route::resource('products_orders', ProductOrderController::class);
-    Route::resource('categories', CategoryController::class);
-    Route::resource('users', UserController::class);
-});
 
-Route::prefix('seller')->name('seller.')->group(function(){
-    Route::resource('products', ProductController::class);
-    Route::resource('products_orders', ProductOrderController::class);
-});
+//JAGAN DI HAPUS
+
+// Route::prefix('admin')->name('admin.')->group(function(){
+//     Route::resource('products', ProductController::class);
+//     Route::resource('products_orders', ProductOrderController::class);
+//     Route::resource('categories', CategoryController::class);
+//     Route::resource('users', UserController::class);
+// });
+
+// Route::prefix('seller')->name('seller.')->group(function(){
+//     Route::resource('products', ProductController::class);
+//     Route::resource('products_orders', ProductOrderController::class);
+// });
 
 Route::get('/dashboard', function () {
     return 'This is the dashboard route.';
