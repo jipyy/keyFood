@@ -6,6 +6,23 @@
     padding: 0;
   }
 
+  .ecommerce-header {
+    display: flex;
+    align-items: center;
+    padding: 1.25rem;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-container {
+    padding: 1.25rem;
+    background-color: #f9f9f9;
+}
+
+.rounded-full {
+    border-radius: 50%;
+}
+
   .carousel-container {
     width: 100%;
     overflow: hidden;
@@ -130,6 +147,10 @@
     background-color: #d1d1d1;
   }
 
+  .product-title.text-blue-500 {
+    color: black !important;
+}
+
   /* Responsive styles */
 
   @media (max-width: 1200px) {
@@ -138,7 +159,7 @@
     }
 
     .card {
-      width: 250px;
+      width: 202px;
       margin-right: 12px;
     }
 
