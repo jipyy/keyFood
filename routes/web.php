@@ -74,7 +74,7 @@ Route::view('/home', 'home')->name('home');
 Route::prefix('seller')->name('seller.')->group(function(){
     Route::resource('products', ProductController::class)->middleware('role:seller');
 
-    Route::resource('products', ProductController::class)->middleware('role:seller');
+    // Route::resource('products', ProductController::class)->middleware('role:seller');
     Route::resource('products_orders', ProductOrderController::class);
 });
 
@@ -84,7 +84,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
 
     Route::resource('products', ProductController::class);
     Route::resource('products_orders', ProductOrderController::class);
-    Route::resource('categories', CategoryController::class)->middleware('role:admin');
+    // Route::resource('categories', CategoryController::class)->middleware('role:admin');
     Route::resource('users', UserController::class);
     
 });
