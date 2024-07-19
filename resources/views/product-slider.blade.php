@@ -57,13 +57,6 @@
                 </div>
             </div>
         </div>
-        <div id="popup" class="popup">
-            <div class="popup-content">
-                <span class="close-btn">&times;</span>
-                <h2>Product Details</h2>
-                <p>Here are the details of the product...</p>
-            </div>
-        </div>
 
         <div class="card">
             <img class="w-full h-full object-cover" src="{{ asset('./img/shoes.jpg') }}" alt="shoes">
@@ -274,7 +267,7 @@
                     <span class="badge">official store</span>
                 </div>
                 {{-- product title --}}
-                <h2 class="product-title text-blue-500" title="best camera">best camera</h2>
+                <h2 class="product-title" title="best camera">best camera</h2>
                 {{-- product price --}}
                 <div>
                     <span class="text-xl font-bold">
@@ -583,7 +576,7 @@
                     <span class="badge">official store</span>
                 </div>
                 {{-- product title --}}
-                <h2 class="product-title text-blue-500" title="best camera">best camera</h2>
+                <h2 class="product-title" title="best camera">best camera</h2>
                 {{-- product price --}}
                 <div>
                     <span class="text-xl font-bold">
