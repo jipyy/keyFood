@@ -79,7 +79,7 @@ setInterval(clockText, 1000) // 1000 = 1s
 
 /*==================== DARK/LIGHT THEME ====================*/
 const themeButton = document.getElementById('theme-button')
-const darkTheme = 'dark-theme'
+const darkTheme = 'dark'
 const iconTheme = 'bxs-sun'
 
 // Previously selected topic (if user selected)
