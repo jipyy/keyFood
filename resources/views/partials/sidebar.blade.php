@@ -81,7 +81,7 @@
                         </li>
                     @elseif (Auth::user()->hasRole('seller'))
                         <li class="nav-link">
-                            <a href="/products-sell">
+                            <a href="/product-slider-sell">
                                 <i class="bx bx-restaurant icon"></i>
                                 <span class="text nav-text">Product</span>
                             </a>
@@ -108,7 +108,7 @@
                         </li>
                     @else
                         <li class="nav-link">
-                            <a href="/products">
+                            <a href="/product-slider">
                                 <i class="bx bx-restaurant icon"></i>
                                 <span class="text nav-text">Product</span>
                             </a>
@@ -135,7 +135,7 @@
                     @endif
                 @else
                     <li class="nav-link">
-                        <a href="/products">
+                        <a href="/product-slider">
                             <i class="bx bx-restaurant icon"></i>
                             <span class="text nav-text">Product</span>
                         </a>

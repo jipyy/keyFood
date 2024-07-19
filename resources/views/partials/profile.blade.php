@@ -1,7 +1,7 @@
 <div x-data="{ isOpen: false }" @click.away="isOpen = false" class="relative inline-block" id="dropdown" class="hidden">
     <!-- Dropdown Button -->
     <button
-        class="flex h-12 w-12 items-center justify-center rounded-lg bg-slate-900 text-slate-100 ring-slate-100 transition hover:shadow-md hover:ring-2 overflow-hidden"
+        class="fixed-button flex h-12 w-12 items-center justify-center rounded-lg bg-slate-900 text-slate-100 ring-slate-100 transition hover:shadow-md hover:ring-2 overflow-hidden"
         @click="isOpen = !isOpen">
         <img class="w-full object-cover"
             src="{{ asset('img/' . (Auth::user()->img ?? 'guest.png')) }}"
