@@ -13,7 +13,7 @@ class CategoryController extends Controller
         $categories = Category::all();
         // return view('admin.categories.index', compact('categories'));
         if(auth()->user()->can('categories')){
-            return view('admin.categories.index');
+            return view('admin.categories.index', compact('categories'));
         }
        
             return abort(403);
