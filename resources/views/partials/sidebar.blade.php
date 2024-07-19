@@ -82,7 +82,7 @@
                     @elseif (Auth::user()->hasRole('seller'))
                         <li class="nav-link">
                             <a href="/products-sell">
-                                <i class="bx bx-bar-chart-alt-2 icon"></i>
+                                <i class="bx bx-restaurant icon"></i>
                                 <span class="text nav-text">Product</span>
                             </a>
                         </li>
@@ -96,7 +96,7 @@
 
                         <li class="nav-link">
                             <a href="/categories-sell">
-                                <i class='bx bx-store icon'></i>
+                                <i class='bx bx-bowl-hot icon'></i>
                                 <span class="text nav-text">Categories</span>
                             </a>
                         </li>
@@ -109,7 +109,7 @@
                     @else
                         <li class="nav-link">
                             <a href="/products">
-                                <i class="bx bx-bar-chart-alt-2 icon"></i>
+                                <i class="bx bx-restaurant icon"></i>
                                 <span class="text nav-text">Product</span>
                             </a>
                         </li>
@@ -122,7 +122,7 @@
 
                         <li class="nav-link">
                             <a href="/categories">
-                                <i class='bx bx-store icon'></i>
+                                <i class='bx bx-bowl-hot icon'></i>
                                 <span class="text nav-text">Categories</span>
                             </a>
                         </li>
@@ -136,7 +136,7 @@
                 @else
                     <li class="nav-link">
                         <a href="/products">
-                            <i class="bx bx-bar-chart-alt-2 icon"></i>
+                            <i class="bx bx-restaurant icon"></i>
                             <span class="text nav-text">Product</span>
                         </a>
                     </li>

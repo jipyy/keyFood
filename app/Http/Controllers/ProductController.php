@@ -17,10 +17,15 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::where('creator_id', Auth::id())->get();
-        return view('seller.products.index', [
-            'products' => $products
-        ]);
+        // $products = Product::where('creator_id', Auth::id())->get();
+        // return view('seller.products.index', [
+        //     'products' => $products
+        // ]);
+        if(auth()->user()->can('productCRUD')){
+            return view('seller.products.index');
+        }
+       
+            return abort(403);
     }
 
     /**
