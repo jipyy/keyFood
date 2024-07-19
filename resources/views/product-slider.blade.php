@@ -1,10 +1,12 @@
 @extends('layouts.main')
 @section('container')
 <div>
+    {{-- header --}}
     <div class="ecommerce-header flex items-center p-5 bg-white shadow">
         <img src="{{ asset('./img/logo-store.jpg') }}" alt="Store Logo" class="h-10 w-10 mr-3 rounded-full">
         <h1 class="text-2xl font-bold">Nama Toko Anda</h1>
     </div>
+    {{-- crousel --}}
     <div class="carousel">
         <div class="card">
             <img class="w-full h-full object-cover" src="{{ asset('./img/headphone.jpg') }}" alt="headphone">
@@ -53,6 +55,13 @@
                         <img class="opacity-50" src="{{ asset('./img/eye.svg') }}" alt="view details">
                     </button>
                 </div>
+            </div>
+        </div>
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <span class="close-btn">&times;</span>
+                <h2>Product Details</h2>
+                <p>Here are the details of the product...</p>
             </div>
         </div>
 
@@ -308,10 +317,12 @@
     </div>
 </div>
 <div>
+    {{-- header --}}
     <div class="ecommerce-header flex items-center p-5 bg-white shadow">
         <img src="{{ asset('./img/logo-store.jpg') }}" alt="Store Logo" class="h-10 w-10 mr-3 rounded-full">
         <h1 class="text-2xl font-bold">Nama Toko Anda</h1>
     </div>
+    {{-- crousel --}}
     <div class="carousel">
         <div class="card">
             <img class="w-full h-full object-cover" src="{{ asset('./img/headphone.jpg') }}" alt="headphone">
