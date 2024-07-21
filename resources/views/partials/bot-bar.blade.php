@@ -1,4 +1,4 @@
-<div class="bottom-bar">
+<div class="bottom-bar" id="bottom-bar">
   <a href="/product-slider">
       <ion-icon name="fast-food-outline" class="{{ Request::is('product-slider') ? 'icons actives' : 'icons' }}" onclick="change(this)"></ion-icon>
   </a>
@@ -11,7 +11,7 @@
   <a href="/categories">
       <ion-icon name="restaurant-outline" class="{{ Request::is('categories') ? 'icons actives' : 'icons' }}" onclick="change(this)"></ion-icon>
   </a>
-  <a href="/image-gallery">
-      <ion-icon name="image-outline" class="{{ Request::is('image-gallery') ? 'icons actives' : 'icons' }}" onclick="change(this)"></ion-icon>
+  <a href="#">
+    <ion-icon name="chevron-back-outline" class="icons" onclick="window.history.back()"></ion-icon>
   </a>
 </div>
