@@ -1,7 +1,5 @@
 @extends('layouts.main')
 @section('container')
-
-
     <section class="clock container" id="home">
         <div class="clock__container grid">
             <div class="clock__content grid">
@@ -40,45 +38,69 @@
         </div>
     </section>
 
-    <div class="box">
+    <div class="box" id="rounded-rect">
         <div class="content">
-            
+
             <br><br><br>
-           <br><br><br><br><br><br>
+            <br><br><br><br><br><br>
             <h1>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, alias quae. Suscipit libero, natus, at consequatur culpa corporis minima sint est fuga vel sapiente provident neque illo aliquid soluta expedita?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, alias quae. Suscipit libero, natus, at
+                consequatur culpa corporis minima sint est fuga vel sapiente provident neque illo aliquid soluta expedita?
 
             </h1>
             <br><br><br>
             <h1>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus voluptas excepturi harum enim nisi facere consequatur, vitae cum quasi in, rerum aliquid asperiores. Amet magni ipsum animi ex corrupti aperiam.
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus voluptas excepturi harum enim nisi
+                facere consequatur, vitae cum quasi in, rerum aliquid asperiores. Amet magni ipsum animi ex corrupti
+                aperiam.
             </h1>
             <h1>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, alias quae. Suscipit libero, natus, at consequatur culpa corporis minima sint est fuga vel sapiente provident neque illo aliquid soluta expedita?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, alias quae. Suscipit libero, natus, at
+                consequatur culpa corporis minima sint est fuga vel sapiente provident neque illo aliquid soluta expedita?
 
             </h1>
             <br><br><br>
             <h1>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus voluptas excepturi harum enim nisi facere consequatur, vitae cum quasi in, rerum aliquid asperiores. Amet magni ipsum animi ex corrupti aperiam.
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus voluptas excepturi harum enim nisi
+                facere consequatur, vitae cum quasi in, rerum aliquid asperiores. Amet magni ipsum animi ex corrupti
+                aperiam.
             </h1>
             <h1>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, alias quae. Suscipit libero, natus, at consequatur culpa corporis minima sint est fuga vel sapiente provident neque illo aliquid soluta expedita?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, alias quae. Suscipit libero, natus, at
+                consequatur culpa corporis minima sint est fuga vel sapiente provident neque illo aliquid soluta expedita?
 
             </h1>
             <br><br><br>
             <h1>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus voluptas excepturi harum enim nisi facere consequatur, vitae cum quasi in, rerum aliquid asperiores. Amet magni ipsum animi ex corrupti aperiam.
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus voluptas excepturi harum enim nisi
+                facere consequatur, vitae cum quasi in, rerum aliquid asperiores. Amet magni ipsum animi ex corrupti
+                aperiam.
             </h1>
             <h1>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, alias quae. Suscipit libero, natus, at consequatur culpa corporis minima sint est fuga vel sapiente provident neque illo aliquid soluta expedita?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, alias quae. Suscipit libero, natus, at
+                consequatur culpa corporis minima sint est fuga vel sapiente provident neque illo aliquid soluta expedita?
 
             </h1>
             <br><br><br>
             <h1>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus voluptas excepturi harum enim nisi facere consequatur, vitae cum quasi in, rerum aliquid asperiores. Amet magni ipsum animi ex corrupti aperiam.
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus voluptas excepturi harum enim nisi
+                facere consequatur, vitae cum quasi in, rerum aliquid asperiores. Amet magni ipsum animi ex corrupti
+                aperiam.
             </h1>
         </div>
     </div>
+
+
+    {{-- <script>
+        let rounded = document.getElementById('rounded-rect');
+        window.addEventListener('scroll', () => {
+            let value = window.scrollY;
+            rounded.style.top = 20 + 'px';
+        })
+    </script> --}}
+
+
+
     {{-- <div class="container mt-4">
         <div class="slider">
 

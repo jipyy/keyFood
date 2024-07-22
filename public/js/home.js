@@ -75,3 +75,7 @@ textCircle.forEach((value, key) => {
           profileCard.style.display = 'none';
         }
       });
+
+
+
+
