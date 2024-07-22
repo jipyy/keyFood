@@ -99,7 +99,7 @@
                         <h4>Admin</h4>
                     @elseif (Auth::user()->hasRole('seller'))
                         <h4>Seller</h4>
-                    @elseif (Auth::user()->hasRole('buyer'))
+                    @else
                         <h4>Buyer</h4>
                     @endif
                 @endif
