@@ -28,9 +28,14 @@ body.dark .ecommerce-header {
 
 .ecommerce-header img {
     margin-right: 1rem;
+    transition: transform 0.3s ease; /* Menambahkan transisi untuk transformasi */
 }
 
-body.dark .ecommerce-header h1{
+.ecommerce-header img:hover {
+    transform: scale(1.2); /* Efek zoom */
+}
+
+body.dark .ecommerce-header h1 {
     color: #ffff;
 }
 

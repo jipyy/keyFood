@@ -3,8 +3,13 @@
 <div>
     {{-- header --}}
     <div class="ecommerce-header flex items-center p-5 bg-white shadow">
-        <img src="{{ asset('./img/logo-store.jpg') }}" alt="Store Logo" class="h-10 w-10 mr-3 rounded-full">
-        <h1 class="text-2xl font-bold">Nama Toko Anda</h1>
+        <a href="halaman-toko.bladde.php">
+            <img src="{{ asset('./img/logo-store.jpg') }}" alt="Store Logo" class="h-10 w-10 mr-3 rounded-full">
+        </a>
+        <div>
+            <h1 class="text-2xl font-bold">Nama Toko Anda</h1>
+            <p class="store-address">Jl. Contoh Alamat No. 123, Kota, Negara</p>
+        </div>
     </div>
     {{-- crousel --}}
     <div class="carousel">
@@ -312,8 +317,13 @@
 <div>
     {{-- header --}}
     <div class="ecommerce-header flex items-center p-5 bg-white shadow">
-        <img src="{{ asset('./img/logo-store.jpg') }}" alt="Store Logo" class="h-10 w-10 mr-3 rounded-full">
-        <h1 class="text-2xl font-bold">Nama Toko Anda</h1>
+        <a href="URL_Halaman_Tujuan">
+            <img src="{{ asset('./img/logo-store.jpg') }}" alt="Store Logo" class="h-10 w-10 mr-3 rounded-full">
+        </a>
+        <div>
+            <h1 class="text-2xl font-bold">Nama Toko Anda</h1>
+            <p class="store-address">Jl. Contoh Alamat No. 123, Kota, Negara</p>
+        </div>
     </div>
     {{-- crousel --}}
     <div class="carousel">
