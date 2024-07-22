@@ -7,6 +7,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProductOrderController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\Auth\SocialiteController;
 use App\Http\Controllers\CategoryController;
 
 Route::get('/', function () {
@@ -115,3 +116,24 @@ require __DIR__.'/auth.php';
 Route::get('/dashboard', function () {
     return 'This is the dashboard route.';
 })->name('dashboard');
+
+
+// ROUTES GOOGLE
+
+// Route::get('/auth/redirect', [SocialiteController::class, 'redirect']);
+// Route::get('/auth/google/callback', [SocialiteController::class, 'callback']);
+
+// Route::get('auth/google', [AuthenticatedSessionController::class, 'redirectToGoogle']);
+// Route::get('auth/google/callback', [AuthenticatedSessionController::class, 'handleGoogleCallback']);
+
+Route::group(['middleware' => ['guest']], function () {
+    Route::get('auth/google', [AuthenticatedSessionController::class, 'redirectToGoogle']);
+    Route::get('auth/google/callback', [AuthenticatedSessionController::class, 'handleGoogleCallback']);
+});
+
+
+//  ruote untuk memeriksa sesi
+Route::get('/test-session', function () {
+    session(['test' => 'value']);
+    return session('test');
+});
