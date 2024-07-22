@@ -88,7 +88,7 @@ body.dark .profile-card{
 }
 
 .profile-card{
-    background: grey;
+    background: #f0f0f0;
     width: 100%;
     max-width: 1000px;
     padding: 3rem;
