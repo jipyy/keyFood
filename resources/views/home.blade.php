@@ -91,13 +91,15 @@
 
 
 
-    {{-- <script>
-        let rounded = document.getElementById('rounded-rect');
-        window.addEventListener('scroll', () => {
-            let value = window.scrollY;
-            rounded.style.top = 20 + 'px';
+    <script>
+        document.addEventListener('scroll' , () => {
+            let clock = document.getElementById('clock');
+            let scrollValue = window.scrollY;
+            console.log(scrollValue);
+
+            clock.style.top = scrollValue + 'px';
         })
-    </script> --}}
+    </script>
 
 
 

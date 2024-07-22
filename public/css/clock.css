@@ -329,62 +329,19 @@ body.dark .content {
 
 /* BOX */
 
-/* @media (min-width : 400px) {
-  .box {
-
-    margin-top: 800px;
-    }
-
-    body.dark .box {
-        margin-top: 800px;
-
-  }
-} */
-
-/* @media (max-width:768px) {
-  .box {
-
-    margin-top: 900px;
-  }
-
-  body.dark .box {
-    margin-top: 900px;
-    background-color: #1f1f1f;
-
-  }
-} */
-
-
-@media (min-width:400px) {
-  .clock__container {
-    margin-top: -40px;
-  }
-
-  .box {
-
-    margin-top: 700px;
-  }
-
-  body.dark .box {
-    background-color: #1f1f1f;
-    margin-top: 700px;
-
-  }
-}
-
 @media (max-width: 768px) {
   .box {
     background: white;
     border-top-left-radius: 5%;
     border-top-right-radius: 5%;
-    margin-top: 750px;
+    margin-top: 650px;
   }
 
   body.dark .box {
     background-color: #1f1f1f;
     border-top-left-radius: 5%;
     border-top-right-radius: 5%;
-    margin-top: 750px;
+    margin-top: 650px;
 
   }
 
@@ -399,12 +356,12 @@ body.dark .content {
 @media (min-width:1024px) {
 
   .box {
-    margin-top: 750px;
+    margin-top: 600px;
   }
 
   body.dark .box {
     background-color: #1f1f1f;
-    margin-top: 750px;
+    margin-top: 600px;
 
   }
 }
