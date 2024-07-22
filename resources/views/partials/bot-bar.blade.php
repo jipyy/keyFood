@@ -1,4 +1,4 @@
-<div class="bottom-bar">
+<div class="bottom-bar" id="bottom-bar">
   <a href="/product-slider">
       <ion-icon name="fast-food-outline" class="{{ Request::is('product-slider') ? 'icons actives' : 'icons' }}" onclick="change(this)"></ion-icon>
   </a>

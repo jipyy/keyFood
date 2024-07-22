@@ -234,6 +234,7 @@ body.dark .bottom-bar{
 
 
 .bottom-bar {
+    z-index: 99;
     width: 90%;
     background-color: #eee;
     position: fixed; /* Tetap di bagian bawah meskipun di-scroll */
