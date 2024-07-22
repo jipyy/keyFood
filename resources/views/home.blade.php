@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('container')
     <section class="clock container" id="home">
-        <div class="clock__container grid">
+        <div class="clock__container grid" id="clock">
             <div class="clock__content grid">
                 <div class="clock__circle">
                     <span class="clock__twelve"></span>
@@ -36,9 +36,9 @@
                 </div>
             </div>
         </div>
-    </section>
+    
 
-    <div class="box" id="rounded-rect">
+    <div class="box" id="rounded-rect" id="box">
         <div class="content">
 
             <br><br><br>
@@ -90,14 +90,22 @@
         </div>
     </div>
 
+</section>
+    <script>
+        document.addEventListener('scroll', () => {
+            let clock = document.getElementById('clock');
+            let scrollValue = window.scrollY;
+            console.log(scrollValue);
 
-    {{-- <script>
-        let rounded = document.getElementById('rounded-rect');
-        window.addEventListener('scroll', () => {
-            let value = window.scrollY;
-            rounded.style.top = 20 + 'px';
-        })
-    </script> --}}
+
+            clock.style.top = scrollValue*1.1 + 'px';
+
+            // clock.style.transform = `translateY(${scrollValue * 0.5}px)`;
+
+
+
+        } )
+    </script>
 
 
 
