@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="{{ asset('../css/load.css') }}">
     <link rel="stylesheet" href="{{ asset('../../css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('../../css/clock.css') }}">
+    <link rel="stylesheet" href="{{ asset('../../css/halaman-toko.css') }}">
+
 
     <link rel="stylesheet" href="{{ asset('../../css/product-slider.css') }}">
     <link rel="icon" type="image/x-icon" href="{{ asset('../img/logos.svg') }}">

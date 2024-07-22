@@ -4,7 +4,7 @@
     <div>
         {{-- header --}}
         <div class="ecommerce-header flex items-center p-5 bg-white shadow">
-            <a href="halaman-toko.bladde.php">
+            <a href="/detailed-store">
                 <img src="{{ asset('./img/logo-store.jpg') }}" alt="Store Logo" class="h-10 w-10 mr-3 rounded-full">
             </a>
             <div>
