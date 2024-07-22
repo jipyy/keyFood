@@ -6,11 +6,11 @@
     </h2>
     <div class="input-field">
       <i class="fas fa-envelope"></i>
-      <input type="email" id="email" placeholder="Email" name="email" value="{{ old('email') }}" required />
+      <input type="email" id="email" placeholder="Email" name="email" value="{{ old('email') }}" style="background: transparent" required />
     </div>
     <div class="input-field">
       <i class="fas fa-lock"></i>
-      <input type="password" id="password" placeholder="Password" name="password" required />
+      <input type="password" id="password" placeholder="Password" name="password" style="background: transparent" required />
     </div>
     <input type="submit" value="Login" class="btn solid" />
     <p class="social-text">Or Sign in with social platforms</p>

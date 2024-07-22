@@ -42,6 +42,10 @@ Route::get('/profile-user', function() {
     return view('/profile-user');
 });
 
+Route::get('/detailed-store', function() {
+    return view('halaman-toko');
+});
+
 Route::post('/login', [AuthenticatedSessionController::class, 'store'])->middleware('guest');
 
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->middleware('auth')->name('logout');
