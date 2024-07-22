@@ -36,76 +36,68 @@
                 </div>
             </div>
         </div>
+        <div class="box" id="rounded-rect">
+            <div class="content">
     
-
-    <div class="box" id="rounded-rect" id="box">
-        <div class="content">
-
-            <br><br><br>
-            <br><br><br><br><br><br>
-            <h1>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, alias quae. Suscipit libero, natus, at
-                consequatur culpa corporis minima sint est fuga vel sapiente provident neque illo aliquid soluta expedita?
-
-            </h1>
-            <br><br><br>
-            <h1>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus voluptas excepturi harum enim nisi
-                facere consequatur, vitae cum quasi in, rerum aliquid asperiores. Amet magni ipsum animi ex corrupti
-                aperiam.
-            </h1>
-            <h1>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, alias quae. Suscipit libero, natus, at
-                consequatur culpa corporis minima sint est fuga vel sapiente provident neque illo aliquid soluta expedita?
-
-            </h1>
-            <br><br><br>
-            <h1>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus voluptas excepturi harum enim nisi
-                facere consequatur, vitae cum quasi in, rerum aliquid asperiores. Amet magni ipsum animi ex corrupti
-                aperiam.
-            </h1>
-            <h1>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, alias quae. Suscipit libero, natus, at
-                consequatur culpa corporis minima sint est fuga vel sapiente provident neque illo aliquid soluta expedita?
-
-            </h1>
-            <br><br><br>
-            <h1>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus voluptas excepturi harum enim nisi
-                facere consequatur, vitae cum quasi in, rerum aliquid asperiores. Amet magni ipsum animi ex corrupti
-                aperiam.
-            </h1>
-            <h1>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, alias quae. Suscipit libero, natus, at
-                consequatur culpa corporis minima sint est fuga vel sapiente provident neque illo aliquid soluta expedita?
-
-            </h1>
-            <br><br><br>
-            <h1>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus voluptas excepturi harum enim nisi
-                facere consequatur, vitae cum quasi in, rerum aliquid asperiores. Amet magni ipsum animi ex corrupti
-                aperiam.
-            </h1>
+                <br><br><br>
+                <br><br><br><br><br><br>
+                <h1>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, alias quae. Suscipit libero, natus, at
+                    consequatur culpa corporis minima sint est fuga vel sapiente provident neque illo aliquid soluta expedita?
+    
+                </h1>
+                <br><br><br>
+                <h1>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus voluptas excepturi harum enim nisi
+                    facere consequatur, vitae cum quasi in, rerum aliquid asperiores. Amet magni ipsum animi ex corrupti
+                    aperiam.
+                </h1>
+                <h1>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, alias quae. Suscipit libero, natus, at
+                    consequatur culpa corporis minima sint est fuga vel sapiente provident neque illo aliquid soluta expedita?
+    
+                </h1>
+                <br><br><br>
+                <h1>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus voluptas excepturi harum enim nisi
+                    facere consequatur, vitae cum quasi in, rerum aliquid asperiores. Amet magni ipsum animi ex corrupti
+                    aperiam.
+                </h1>
+                <h1>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, alias quae. Suscipit libero, natus, at
+                    consequatur culpa corporis minima sint est fuga vel sapiente provident neque illo aliquid soluta expedita?
+    
+                </h1>
+                <br><br><br>
+                <h1>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus voluptas excepturi harum enim nisi
+                    facere consequatur, vitae cum quasi in, rerum aliquid asperiores. Amet magni ipsum animi ex corrupti
+                    aperiam.
+                </h1>
+                <h1>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, alias quae. Suscipit libero, natus, at
+                    consequatur culpa corporis minima sint est fuga vel sapiente provident neque illo aliquid soluta expedita?
+    
+                </h1>
+                <br><br><br>
+                <h1>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus voluptas excepturi harum enim nisi
+                    facere consequatur, vitae cum quasi in, rerum aliquid asperiores. Amet magni ipsum animi ex corrupti
+                    aperiam.
+                </h1>
+            </div>
         </div>
-    </div>
-
-</section>
-    <script>
-        document.addEventListener('scroll', () => {
-            let clock = document.getElementById('clock');
-            let scrollValue = window.scrollY;
-            console.log(scrollValue);
-
-
-            clock.style.top = scrollValue*1.1 + 'px';
-
-            // clock.style.transform = `translateY(${scrollValue * 0.5}px)`;
+    </section>
 
 
 
-        } )
-    </script>
+    {{-- <script>
+        let rounded = document.getElementById('rounded-rect');
+        window.addEventListener('scroll', () => {
+            let value = window.scrollY;
+            rounded.style.top = 20 + 'px';
+        })
+    </script> --}}
 
 
 
