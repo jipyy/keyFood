@@ -172,7 +172,7 @@ body.dark .product-price-container .text-xl {
     position: relative;
   }
 
-  .card::before {
+  /* .card::before {
     content: "";
     position: absolute;
     top: 0;
@@ -187,7 +187,7 @@ body.dark .product-price-container .text-xl {
       linear-gradient(#fff 0 0);
     -webkit-mask-composite: destination-out;
     mask-composite: exclude;
-  }
+  } */
 
   .card:hover {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4),
