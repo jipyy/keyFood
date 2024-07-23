@@ -295,3 +295,37 @@ body.dark .product-price-container .text-xl {
       padding: 0
     }
   }
+
+  svg{
+    width: 30px;
+}
+
+  header{
+    height: 60px;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+.icon-cart{
+    position: relative;
+}
+.icon-cart span{
+    position: absolute;
+    background-color: red;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: #fff;
+    top: 50%;
+    right: -30px;
+}
+.title{
+  margin-left: 25px;
+    font-size:xx-large;
+}
+
