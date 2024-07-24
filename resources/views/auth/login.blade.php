@@ -21,7 +21,7 @@
       <a href="#" class="social-icon">
         <i class="fab fa-twitter"></i>
       </a>
-      <a href="auth/google" class="social-icon">
+      <a href="{{ url('auth/google') }}" class="social-icon">
         <i class="fab fa-google"></i>
       </a>
       <a href="#" class="social-icon">

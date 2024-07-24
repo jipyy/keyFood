@@ -32,6 +32,9 @@ class RolePermissionSeeder extends Seeder
             'name' => 'admin',
             'email' => 'admin@gmail.com',
             'password' => bcrypt('admin123admin'),
+            'google_id' => 'google_id',
+            'google_token' => 'google_token',
+            'google_refresh_token' => 'google_refresh_token',
         ]);
 
     

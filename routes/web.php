@@ -4,11 +4,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\ProductOrderController;
+use App\Http\Controllers\Auth\SocialiteController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
-use App\Http\Controllers\Auth\SocialiteController;
-use App\Http\Controllers\CategoryController;
 
 Route::get('/', function () {
     return view('home');
@@ -95,11 +96,11 @@ Route::prefix('admin')->name('admin.')->group(function(){
 });
 
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+// Route::middleware('auth')->group(function () {
+//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+// });
 require __DIR__.'/auth.php';
 
 
@@ -127,17 +128,22 @@ Route::get('/dashboard', function () {
 // Route::get('/auth/redirect', [SocialiteController::class, 'redirect']);
 // Route::get('/auth/google/callback', [SocialiteController::class, 'callback']);
 
-// Route::get('auth/google', [AuthenticatedSessionController::class, 'redirectToGoogle']);
-// Route::get('auth/google/callback', [AuthenticatedSessionController::class, 'handleGoogleCallback']);
+Route::get('auth/google', [AuthenticatedSessionController::class, 'redirectToGoogle']);
+Route::get('auth/google/callback', [AuthenticatedSessionController::class, 'handleGoogleCallback']);
 
-Route::group(['middleware' => ['guest']], function () {
-    Route::get('auth/google', [AuthenticatedSessionController::class, 'redirectToGoogle']);
-    Route::get('auth/google/callback', [AuthenticatedSessionController::class, 'handleGoogleCallback']);
-});
+// Route::group(['middleware' => ['guest']], function () {
+//     Route::get('auth/google', [AuthenticatedSessionController::class, 'redirectToGoogle']);
+//     Route::get('auth/google/callback', [AuthenticatedSessionController::class, 'handleGoogleCallback']);
+// });
 
 
 //  ruote untuk memeriksa sesi
 Route::get('/test-session', function () {
     session(['test' => 'value']);
     return session('test');
+});
+Route::middleware(['auth'])->group(function () {
+    Route::get('/edit-profile', [UserProfileController::class, 'edit'])->name('profile.edit');
+    Route::post('/edit-profile', [UserProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/edit-profile', [UserProfileController::class, 'destroy'])->name('profile.destroy');
 });
