@@ -153,6 +153,10 @@ body.dark .product-price-container .text-xl {
     font-weight: bold;
 }
 
+.text-xl
+{
+    color: #000000;
+}
 
   .card {
     margin-top: 20px;

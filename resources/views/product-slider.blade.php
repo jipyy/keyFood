@@ -63,7 +63,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <div class="card">
                 <img class="w-full h-full object-cover" src="{{ asset('./img/shoes.jpg') }}" alt="shoes">
                 <div class="p-5 flex flex-col gap-3">
@@ -113,7 +113,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <div class="card">
                 <img class="w-full h-full object-cover" src="{{ asset('./img/shoes.jpg') }}" alt="shoes">
                 <div class="p-5 flex flex-col gap-3">
@@ -163,7 +163,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <div class="card">
                 <img class="w-full h-full object-cover" src="{{ asset('./img/shoes.jpg') }}" alt="shoes">
                 <div class="p-5 flex flex-col gap-3">
@@ -213,7 +213,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <div class="card">
                 <img class="w-full h-full object-cover" src="{{ asset('./img/shoes.jpg') }}" alt="shoes">
                 <div class="p-5 flex flex-col gap-3">
@@ -263,7 +263,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <div class="card">
                 <img class="w-full h-full object-cover" src="{{ asset('./img/camera.jpg') }}" alt="camera">
                 <div class="p-5 flex flex-col gap-3">
@@ -314,8 +314,7 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div>
+        
         {{-- header --}}
         <div class="ecommerce-header flex items-center p-5 bg-white shadow">
             <a href="URL_Halaman_Tujuan">
@@ -377,7 +376,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <div class="card">
                 <img class="w-full h-full object-cover" src="{{ asset('./img/shoes.jpg') }}" alt="shoes">
                 <div class="p-5 flex flex-col gap-3">
@@ -427,7 +426,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <div class="card">
                 <img class="w-full h-full object-cover" src="{{ asset('./img/shoes.jpg') }}" alt="shoes">
                 <div class="p-5 flex flex-col gap-3">
@@ -477,7 +476,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <div class="card">
                 <img class="w-full h-full object-cover" src="{{ asset('./img/shoes.jpg') }}" alt="shoes">
                 <div class="p-5 flex flex-col gap-3">
@@ -527,7 +526,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <div class="card">
                 <img class="w-full h-full object-cover" src="{{ asset('./img/shoes.jpg') }}" alt="shoes">
                 <div class="p-5 flex flex-col gap-3">
@@ -577,7 +576,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <div class="card">
                 <img class="w-full h-full object-cover" src="{{ asset('./img/camera.jpg') }}" alt="camera">
                 <div class="p-5 flex flex-col gap-3">
