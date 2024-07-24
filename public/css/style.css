@@ -267,6 +267,10 @@ header .image-text .header-text{
     font-style: var(--sidebar-color);
 }
 
+body.dark .nav-link.active{
+    background: var(--body-color);
+}
+
 .nav-link.active .icon{
     color: white;
 }
@@ -275,7 +279,7 @@ header .image-text .header-text{
 .sidebar header .toggle{
     position: absolute;
     top: 50%;
-    right: -25px;
+    right: -30px;
     transform: translateY(-50%);
     height: 25px;
     width: 25px;
@@ -313,12 +317,17 @@ header .image-text .header-text{
     border-radius: 6px;
     font-size: 16px;
     font-weight: 500;
-    background: var(--primary-color-light);
+    background: var(--body-color);
     transition: var(--tran-05);
+    color: black;
+}
+
+body.dark .search-box input{
+    color: lightgray;
 }
 
 .sidebar .search-box{
-    background: var(--primary-color-light);
+    background: var(--body-color);
     border-radius: 6px;
     transition: var(--tran-05);
 }
