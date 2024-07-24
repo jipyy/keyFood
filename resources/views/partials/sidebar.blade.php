@@ -2,7 +2,7 @@
     <header>
         <div class="image-text">
             <span class="image">
-                <img src="{{ asset('img/' . (Auth::user()->img ?? 'guest.png')) }}" alt="logo">
+                <img src="{{ asset((Auth::user()->img ?? '../img/guest.png')) }}" alt="logo">
             </span>
 
             <div class="text-header-text">
