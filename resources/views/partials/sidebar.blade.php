@@ -7,14 +7,16 @@
 
             <div class="text-header-text">
                 @if (Auth::check())
-                    <span class="name">
-                        <div>{{ Auth::user()->name }}</div>
-
-                    </span>
-                    <span class="email">
-                        <div>{{ Auth::user()->email }}</div>
-
-                    </span>
+                <span class="name">
+                    <div>
+                        {{ strlen(Auth::user()->name) > 16 ? substr(Auth::user()->name, 0, 16) . '...' : Auth::user()->name }}
+                    </div>
+                </span>
+                <span class="email">
+                    <div>
+                        {{ strlen(Auth::user()->email) > 16 ? substr(Auth::user()->email, 0, 16) . '...' : Auth::user()->email }}
+                    </div>
+                </span>
                 @else
                     <span class="email">
                         <a href="/log-reg">
@@ -45,7 +47,7 @@
             </li>
 
             <ul class="menu-links">
-                <li class="{{ Request::is('home') ? 'nav-link active' : 'nav-link' }}{{ Request::is('home') ? 'nav-link active' : 'nav-link' }}">
+                <li class="{{ Request::is('home') ? 'nav-link active' : 'nav-link' }}">
                     <a href="/home">
                         <i class="bx bx-home-alt icon"></i>
                         <span class="text nav-text">Home</span>

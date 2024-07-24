@@ -94,6 +94,7 @@ a {
 
 /*=============== CLOCK ===============*/
 .clock__container {
+  margin-top: 60px;
   height: 100vh;
   width: 100%;
   position: absolute;
@@ -269,6 +270,7 @@ body.dark .clock__date {
   text-align: center;
   font-size: var(--small-font-size);
   font-weight: var(--font-medium);
+  color: black;
 }
 
 
@@ -287,6 +289,7 @@ body.dark .clock__date {
 
 .content {
   gap: 60px;
+  color: black;
 }
 
 
@@ -304,6 +307,7 @@ body.dark .box {
 }
 
 body.dark .content {
+  color: white;
   gap: 60px;
 }
 
@@ -358,6 +362,7 @@ body.dark .content {
 
   .box {
     margin-top: 600px;
+    background-color: #fff;
   }
 
   body.dark .box {

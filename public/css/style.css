@@ -194,17 +194,19 @@ body.dark{
     margin-top: -10px;
 }
 
-.sidebar{
+.sidebar {
     position: fixed;
     top: 0;
     left: 0;
     height: 100%;
     width: 250px;
     padding: 10px 14px;
-    background: var(--sidebar-color);
+    background: var(--primary-color-light);
     transition: var(--tran-05);
     z-index: 100;
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3); /* Shadow on the right side */
 }
+
 
 .sidebar .menu{
     margin-top: 20px;
@@ -265,6 +267,10 @@ header .image-text .header-text{
     font-style: var(--sidebar-color);
 }
 
+.nav-link.active .icon{
+    color: white;
+}
+
 
 .sidebar header .toggle{
     position: absolute;
@@ -320,6 +326,7 @@ header .image-text .header-text{
 .sidebar li a:hover{
     background: var(--primary-color);
 }
+
 
 .sidebar li a:hover .icon,
 .sidebar li a:hover .text{
@@ -380,9 +387,12 @@ body.dark .menu-bar .mode i.moon{
 body.dark .sidebar header .toggle{
     color: var(--text-color);
 }
+.sidebar .text-header-text{
+    color: black;
+}
 
 body.dark .sidebar .text-header-text{
-    color: var(--text-color);
+    color: lightgray;
 }
 
 @media (min-width: 764px) {

@@ -29,10 +29,10 @@
                             <span class="text-xl font-bold">
                                 Rp 100.000.000
                             </span>
-                            
+
                         </div>
                         {{-- product rating --}}
-                        
+
                         {{-- product action button --}}
                         <div class="mt-5 flex gap-2">
                             <button class="button-primary">
@@ -63,10 +63,10 @@
                             <span class="text-xl font-bold">
                                 Rp 100.000.000
                             </span>
-                            
+
                         </div>
                         {{-- product rating --}}
-                        
+
                         {{-- product action button --}}
                         <div class="mt-5 flex gap-2">
                             <button class="button-primary" id="add-to-cart">
@@ -97,10 +97,10 @@
                             <span class="text-xl font-bold">
                                 Rp 100.000.000
                             </span>
-                            
+
                         </div>
                         {{-- product rating --}}
-                        
+
                         {{-- product action button --}}
                         <div class="mt-5 flex gap-2">
                             <button class="button-primary" id="add-to-cart">
@@ -131,10 +131,10 @@
                             <span class="text-xl font-bold">
                                 Rp 100.000.000
                             </span>
-                            
+
                         </div>
                         {{-- product rating --}}
-                        
+
                         {{-- product action button --}}
                         <div class="mt-5 flex gap-2">
                             <button class="button-primary" id="add-to-cart">
@@ -165,10 +165,10 @@
                             <span class="text-xl font-bold">
                                 Rp 100.000.000
                             </span>
-                            
+
                         </div>
                         {{-- product rating --}}
-                        
+
                         {{-- product action button --}}
                         <div class="mt-5 flex gap-2">
                             <button class="button-primary" id="add-to-cart">
@@ -199,10 +199,10 @@
                             <span class="text-xl font-bold">
                                 Rp 100.000.000
                             </span>
-                            
+
                         </div>
                         {{-- product rating --}}
-                        
+
                         {{-- product action button --}}
                         <div class="mt-5 flex gap-2">
                             <button class="button-primary" id="add-to-cart">
@@ -239,10 +239,10 @@
                             <span class="text-xl font-bold">
                                 Rp 100.000.000
                             </span>
-                            
+
                         </div>
                         {{-- product rating --}}
-                        
+
                         {{-- product action button --}}
                         <div class="mt-5 flex gap-2">
                             <button class="button-primary">
@@ -273,10 +273,10 @@
                             <span class="text-xl font-bold">
                                 Rp 100.000.000
                             </span>
-                            
+
                         </div>
                         {{-- product rating --}}
-                        
+
                         {{-- product action button --}}
                         <div class="mt-5 flex gap-2">
                             <button class="button-primary" id="add-to-cart">
@@ -307,10 +307,10 @@
                             <span class="text-xl font-bold">
                                 Rp 100.000.000
                             </span>
-                            
+
                         </div>
                         {{-- product rating --}}
-                        
+
                         {{-- product action button --}}
                         <div class="mt-5 flex gap-2">
                             <button class="button-primary" id="add-to-cart">
@@ -341,10 +341,10 @@
                             <span class="text-xl font-bold">
                                 Rp 100.000.000
                             </span>
-                            
+
                         </div>
                         {{-- product rating --}}
-                        
+
                         {{-- product action button --}}
                         <div class="mt-5 flex gap-2">
                             <button class="button-primary" id="add-to-cart">
@@ -375,10 +375,10 @@
                             <span class="text-xl font-bold">
                                 Rp 100.000.000
                             </span>
-                            
+
                         </div>
                         {{-- product rating --}}
-                        
+
                         {{-- product action button --}}
                         <div class="mt-5 flex gap-2">
                             <button class="button-primary" id="add-to-cart">
@@ -409,10 +409,10 @@
                             <span class="text-xl font-bold">
                                 Rp 100.000.000
                             </span>
-                            
+
                         </div>
                         {{-- product rating --}}
-                        
+
                         {{-- product action button --}}
                         <div class="mt-5 flex gap-2">
                             <button class="button-primary" id="add-to-cart">
@@ -426,7 +426,7 @@
                             </button>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
