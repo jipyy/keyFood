@@ -7,14 +7,16 @@
 
             <div class="text-header-text">
                 @if (Auth::check())
-                    <span class="name">
-                        <div>{{ Auth::user()->name }}</div>
-
-                    </span>
-                    <span class="email">
-                        <div>{{ Auth::user()->email }}</div>
-
-                    </span>
+                <span class="name">
+                    <div>
+                        {{ strlen(Auth::user()->name) > 16 ? substr(Auth::user()->name, 0, 16) . '...' : Auth::user()->name }}
+                    </div>
+                </span>
+                <span class="email">
+                    <div>
+                        {{ strlen(Auth::user()->email) > 16 ? substr(Auth::user()->email, 0, 16) . '...' : Auth::user()->email }}
+                    </div>
+                </span>
                 @else
                     <span class="email">
                         <a href="/log-reg">

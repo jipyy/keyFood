@@ -52,6 +52,8 @@
 <script src="{{ asset('../js/home.js') }}"></script>
 <script src="{{ asset('../js/load.js') }}"></script>
 <script src="{{ asset('../js/clock.js') }}"></script>
+<script src="{{ asset('../js/product.js') }}"></script>
+
 
 
 
