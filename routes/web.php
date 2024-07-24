@@ -143,7 +143,8 @@ Route::get('/test-session', function () {
     return session('test');
 });
 Route::middleware(['auth'])->group(function () {
-    Route::get('/edit-profile', [UserProfileController::class, 'edit'])->name('profile.edit');
+    Route::get('/user-edit-profile', [UserProfileController::class, 'edit'])->name('coba.edit');
+    // Route::get('/edit-profile', [UserProfileController::class, 'edit'])->name('profile.edit');
     Route::post('/edit-profile', [UserProfileController::class, 'update'])->name('profile.update');
     Route::delete('/edit-profile', [UserProfileController::class, 'destroy'])->name('profile.destroy');
 });

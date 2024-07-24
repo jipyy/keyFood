@@ -143,8 +143,11 @@
                 </div>
             </div>
             <a href="{{ route('profile.edit') }}">
-                <button class="download-btn"><i class="fa fa-edit"></i> Edit Profile</button>
+                <button class="download-btn"><i class="fa fa-edit"></i> Edit Profile123</button>
             </a>
+            {{-- <a href="{{ route('coba.edit') }}">
+                <button class="download-btn"><i class="fa fa-edit"></i> Edit Profile123</button>
+            </a> --}}
         </div>
     </div>
 </div>
