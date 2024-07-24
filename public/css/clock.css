@@ -328,6 +328,9 @@ body.dark .content {
     margin-right: auto;
   }
 
+  .clock__theme{
+    display: none;
+  }
   .clock__logo {
     margin-bottom: 3rem;
   }
@@ -339,15 +342,15 @@ body.dark .content {
 @media (max-width: 768px) {
   .box {
     background: white;
-    border-top-left-radius: 100px;
-    border-top-right-radius: 100px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
     margin-top: 650px;
   }
 
   body.dark .box {
     background-color: #1f1f1f;
-    border-top-left-radius: 5%;
-    border-top-right-radius: 5%;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
     margin-top: 650px;
 
   }
