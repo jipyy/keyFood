@@ -10,7 +10,8 @@ class UserProfileController extends Controller
 {
     public function edit()
     {
-        return view('profile.edit', [
+        // dd('dftyuheth');
+        return view('edit-profile', [
             'user' => Auth::user()
         ]);
     }
