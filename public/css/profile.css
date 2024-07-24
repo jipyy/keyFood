@@ -107,7 +107,7 @@ body.dark .profile-card{
 .profile-card .profile-pic{
     margin-top: 15px;
     overflow: hidden;
-    max-width: 400px;
+    max-width: 300px;
 }
 
 body.dark .profile-card .profile-pic img {
