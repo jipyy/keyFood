@@ -7,7 +7,7 @@
     </button>
 
     <!-- Dropdown Menu -->
-    <div x-show="isOpen"
+    <div x-show="isOpen" id="opened"
         class="absolute right-0 mt-3 flex w-60 flex-col gap-3 rounded-xl bg-slate-900 p-4 text-slate-100 shadow-lg">
 
         @if (Auth::check())
@@ -18,7 +18,7 @@
                         <img class="w-full object-cover" src="{{ asset('img/' . (Auth::user()->img ?? 'guest.png')) }}"
                             alt="Profile">
                     </div>
-                    <div>
+                    <div style="width: 100%">
                         <div class="flex gap-1 text-sm font-semibold">
                             <span>
                                 {{ strlen(Auth::user()->name) > 16 ? substr(Auth::user()->name, 0, 16) . '...' : Auth::user()->name }}

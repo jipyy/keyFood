@@ -356,6 +356,17 @@ body.dark .icons{
     top: 30px;
     right: 30px;
     display: none;
+    border-radius: 20px;
+}
+
+#opened{
+    background: white;
+    color: #000;
+}
+
+body.dark #opened{
+    background: #1f1f1f;
+    color: lightgray;
 }
 
 @media (min-width: 850px) {

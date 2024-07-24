@@ -127,7 +127,7 @@ body.dark .profile-card .profile-pic img:hover {
 }
 
 .profile-card .profile-pic img:hover {
-    border-color: white;
+    border-color: var(--light-blue);
 }
 
 img{

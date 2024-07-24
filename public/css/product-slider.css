@@ -306,7 +306,7 @@ body.dark .product-price-container .text-xl {
 
   header{
     height: 60px;
-    width: 90%;
+    width: 95%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -350,3 +350,18 @@ color: #fff;
     font-size:xx-large;
 }
 
+@media(max-width: 500px) {
+  header{
+    width: 75%;
+  }
+}
+@media(max-width: 600px) {
+  header{
+    width: 75%;
+  }
+}
+@media(max-width: 700px) {
+  header{
+    width: 75%;
+  }
+}

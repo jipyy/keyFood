@@ -239,8 +239,9 @@ body.dark{
 }
 
 .sidebar .image-text img{
-    width: 40px;
-    border-radius: 6px;
+    border: 3px solid var(--primary-color);
+    width: 50px;
+    border-radius: 10px;
 }
 
 .sidebar header .image-text{
