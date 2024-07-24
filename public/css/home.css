@@ -350,14 +350,36 @@ body.dark .icons{
 
 /* ini profile */
 
-#dropdown {
+@keyframes borderFade {
+    0% {
+      border-color: var(--primary-color);
+    }
+    25%{
+      border-color: lightblue;
+
+    }
+    50% {
+        border-color: rgb(134, 216, 134);
+    }
+    75% {
+        border-color: lightblue;
+    }
+    100% {
+      border-color: var(--primary-color);
+    }
+  }
+  
+  #dropdown {
     position: fixed;
     z-index: 990;
     top: 30px;
     right: 30px;
     display: none;
-    border-radius: 20px;
-}
+    border-radius: 10px;
+    border: 3px solid var(--primary-color);
+    animation: borderFade 2s infinite;
+  }
+  
 
 #opened{
     background: white;

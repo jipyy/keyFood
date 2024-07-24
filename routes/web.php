@@ -21,29 +21,29 @@ Route::get('/log-reg', function () {
 })->name('log-reg');
 
 // Authentication Routes
-Route::get('/login', function() {
+Route::get('/login', function () {
     return view('auth.log-reg');
 })->middleware('guest')->name('login');
 
-Route::get('/contact-us', function() {
+Route::get('/contact-us', function () {
     return view('contact-us');
 });
-Route::get('/faq', function() {
+Route::get('/faq', function () {
     return view('faq');
 });
-Route::get('/product-slider', function() {
+Route::get('/product-slider', function () {
     return view('product-slider');
 });
 
-Route::get('/edit-profile', function() {
+Route::get('/edit-profile', function () {
     return view('edit-profile');
 });
 
-Route::get('/profile-user', function() {
+Route::get('/profile-user', function () {
     return view('/profile-user');
 });
 
-Route::get('/detailed-store', function() {
+Route::get('/detailed-store', function () {
     return view('halaman-toko');
 });
 
@@ -52,7 +52,7 @@ Route::post('/login', [AuthenticatedSessionController::class, 'store'])->middlew
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->middleware('auth')->name('logout');
 
 // Registration Routes
-Route::get('/register', function() {
+Route::get('/register', function () {
     return view('auth.log-reg');
 })->middleware('guest')->name('register');
 
@@ -77,7 +77,7 @@ Route::view('/home', 'home')->name('home');
 
 
 // ROUTE SELLER PAGE
-Route::prefix('seller')->name('seller.')->group(function(){
+Route::prefix('seller')->name('seller.')->group(function () {
     Route::resource('products', ProductController::class)->middleware('role:seller');
 
     // Route::resource('products', ProductController::class)->middleware('role:seller');
@@ -85,14 +85,13 @@ Route::prefix('seller')->name('seller.')->group(function(){
 });
 
 // ROUTE ADMIN  PAGE
-Route::prefix('admin')->name('admin.')->group(function(){
+Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('categories', CategoryController::class)->middleware('role:admin');
 
     Route::resource('products', ProductController::class);
     Route::resource('products_orders', ProductOrderController::class);
     // Route::resource('categories', CategoryController::class)->middleware('role:admin');
     Route::resource('users', UserController::class);
-    
 });
 
 
@@ -101,7 +100,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
 //     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
 //     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 // });
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 
 //JAGAN DI HAPUS
@@ -144,7 +143,7 @@ Route::get('/test-session', function () {
 });
 Route::middleware(['auth'])->group(function () {
     Route::get('/user-edit-profile', [UserProfileController::class, 'edit'])->name('coba.edit');
-    // Route::get('/edit-profile', [UserProfileController::class, 'edit'])->name('profile.edit');
+    Route::get('/edit-profile', [UserProfileController::class, 'edit'])->name('profile.edit');
     Route::post('/edit-profile', [UserProfileController::class, 'update'])->name('profile.update');
     Route::delete('/edit-profile', [UserProfileController::class, 'destroy'])->name('profile.destroy');
 });

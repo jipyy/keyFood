@@ -238,11 +238,32 @@ body.dark{
     position: relative;
 }
 
-.sidebar .image-text img{
-    border: 3px solid var(--primary-color);
+@keyframes borderFade {
+    0% {
+      border-color: var(--primary-color);
+    }
+    25%{
+      border-color: lightblue;
+
+    }
+    50% {
+        border-color: rgb(134, 216, 134);
+    }
+    75% {
+        border-color: lightblue;
+    }
+    100% {
+      border-color: var(--primary-color);
+    }
+  }
+  
+  .sidebar .image-text img {
+    border: 2.5px solid var(--primary-color);
     width: 50px;
     border-radius: 10px;
-}
+    animation: borderFade 3s infinite;
+  }
+  
 
 .sidebar header .image-text{
     display: flex;
