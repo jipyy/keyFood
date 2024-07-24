@@ -260,6 +260,12 @@ body.dark .bottom-bar{
     transition: .5s ease-in-out;
     border-radius: 100%;
     border: 7px solid #eee;
+    color: black;
+}
+
+body.dark .icons{
+    color: white;
+    border: 7px solid #1f1f1f;
 }
 
 .actives {
@@ -268,7 +274,6 @@ body.dark .bottom-bar{
     border: 7px solid #dcdcdc;
     color: white;
 }
-
 /* Media Queries untuk Mobile Responsiveness */
 @media (max-width: 600px) {
     .bottom-bar {

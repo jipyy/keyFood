@@ -47,7 +47,7 @@
             </li>
 
             <ul class="menu-links">
-                <li class="{{ Request::is('home') ? 'nav-link active' : 'nav-link' }}{{ Request::is('home') ? 'nav-link active' : 'nav-link' }}">
+                <li class="{{ Request::is('home') ? 'nav-link active' : 'nav-link' }}">
                     <a href="/home">
                         <i class="bx bx-home-alt icon"></i>
                         <span class="text nav-text">Home</span>
