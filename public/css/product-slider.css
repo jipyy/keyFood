@@ -312,6 +312,23 @@ body.dark .product-price-container .text-xl {
     align-items: center;
     padding: 20px 0;
 }
+
+header .title{
+  color: #000000;
+}
+
+header .icon-cart{
+color: black;
+}
+
+body.dark header .title{
+  color: #fff;
+}
+
+body.dark header .icon-cart{
+color: #fff;
+}
+
 .icon-cart{
     position: relative;
 }
