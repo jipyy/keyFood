@@ -16,6 +16,10 @@
   /* Pastikan preloader di atas konten lainnya */
 }
 
+body.dark #preloader{
+  background-color: rgb(43, 43, 43);
+}
+
 #container {
   display: none;
   /* Sembunyikan konten saat preloader aktif */

@@ -22,9 +22,8 @@ body {
 	background: white;
 }
 
-
 .container {
-	max-width: 900px;
+	/* max-width: 900px; */
 	width: 100%;
 	background: rgb(255, 255, 255);
 	padding: 30px;
@@ -112,3 +111,12 @@ button{
 .select-image:hover {
 	background: var(--dark-blue);
 }
+
+/* @media (max-width: 1200px){
+	.input-image{
+		display: block;
+		width: 50%;
+		align-items: center;
+		justify-content: center;
+	}
+} */

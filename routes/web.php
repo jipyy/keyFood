@@ -39,6 +39,10 @@ Route::get('/edit-profile', function () {
     return view('edit-profile');
 });
 
+Route::get('/stores', function () {
+    return view('stores');
+});
+
 Route::get('/profile-user', function () {
     return view('/profile-user');
 });

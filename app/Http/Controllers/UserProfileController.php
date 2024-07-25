@@ -35,13 +35,14 @@ class UserProfileController extends Controller
         $user->last_name = $request->input('last_name');
         $user->phone = $request->input('phone');
         $user->location = $request->input('location');
+        $user->img = $request->input('img');
 
         if ($request->filled('password')) {
             $user->password = Hash::make($request->input('password'));
         }
 
         if ($request->hasFile('img')) {
-            $path = $request->file('img')->store('public/images');
+            $path = $request->file('img')->store('public/img');
             $user->img = $path;
         }
 
