@@ -35,6 +35,7 @@ class UserProfileController extends Controller
         $user->last_name = $request->input('last_name');
         $user->phone = $request->input('phone');
         $user->location = $request->input('location');
+        $user->img = $request->input('img');
 
         if ($request->filled('password')) {
             $user->password = Hash::make($request->input('password'));
@@ -47,7 +48,7 @@ class UserProfileController extends Controller
 
         $user->save();
 
-        return redirect('/home')->with('success', 'Profile updated successfully.');
+        return redirect()->back()->with('success', 'Profile updated successfully.');
     }
 
     public function destroy()
