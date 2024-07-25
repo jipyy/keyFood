@@ -11,10 +11,47 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Validator;
 
 class AuthenticatedSessionController extends Controller
 {
     /**
+     * Display the login view.
+     */
+    // public function create(): View
+    // {
+    //     return view('auth.login');
+    // }
+
+    // /**
+    //  * Handle an incoming authentication request.
+    //  */
+    // public function store(LoginRequest $request): RedirectResponse
+    // {
+    //     // dd('login');
+    //     $request->authenticate();
+
+    //     $request->session()->regenerate();
+
+    //     return redirect()->intended(route('home', absolute: false));
+    // }
+
+    // /**
+    //  * Destroy an authenticated session.
+    //  */
+    // public function destroy(Request $request): RedirectResponse
+    // {
+    //     Auth::guard('web')->logout();
+
+    //     $request->session()->invalidate();
+
+    //     $request->session()->regenerateToken();
+
+    //     return redirect('/');
+    // }
+
+
+     /**
      * Display the login view.
      */
     public function create(): View
@@ -27,12 +64,39 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-        // dd('login');
-        $request->authenticate();
+        $credentials = $request->only('email', 'password');
 
+        // Validasi Email
+        $validator = Validator::make($credentials, [
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            // Jika validasi email atau password gagal
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        // Cek apakah email ada di database
+        $user = User::where('email', $credentials['email'])->first();
+
+        if (!$user) {
+            // Jika email tidak ditemukan
+            return redirect()->back()->withErrors([
+                'email' => 'Email tidak ditemukan.',
+            ])->withInput();
+        }
+
+        if (!Auth::attempt($credentials)) {
+            // Jika email ditemukan tetapi password salah
+            return redirect()->back()->withErrors([
+                'password' => 'Password salah.',
+            ])->withInput();
+        }     
+
+        // Jika email dan password benar
         $request->session()->regenerate();
-
-        return redirect()->intended(route('home', absolute: false));
+        return redirect()->intended(route('home'));
     }
 
     /**
