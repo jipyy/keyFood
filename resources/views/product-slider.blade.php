@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('container')
-            <section id="page">
+            <section id="home">
                 <header>
                     <div class="title">PRODUCT LIST</div>
                     <div class="icon-cart">

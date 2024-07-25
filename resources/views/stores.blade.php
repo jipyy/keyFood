@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('container')
 
-<section id="page">
+<section id="home">
     
     <div class="contain">
         <form class="search-bar">
