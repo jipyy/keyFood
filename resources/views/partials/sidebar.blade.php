@@ -115,8 +115,8 @@
                                 <span class="text nav-text">Product</span>
                             </a>
                         </li>
-                        <li class="{{ Request::is('store') ? 'nav-link active' : 'nav-link' }}">
-                            <a href="/store">
+                        <li class="{{ Request::is('stores') ? 'nav-link active' : 'nav-link' }}">
+                            <a href="/stores">
                                 <i class='bx bx-store icon'></i>
                                 <span class="text nav-text">Stores</span>
                             </a>
@@ -142,8 +142,8 @@
                             <span class="text nav-text">Product</span>
                         </a>
                     </li>
-                    <li class="{{ Request::is('store') ? 'nav-link active' : 'nav-link' }}">
-                        <a href="/store">
+                    <li class="{{ Request::is('stores') ? 'nav-link active' : 'nav-link' }}">
+                        <a href="/stores">
                             <i class='bx bx-store icon'></i>
                             <span class="text nav-text">Stores</span>
                         </a>
