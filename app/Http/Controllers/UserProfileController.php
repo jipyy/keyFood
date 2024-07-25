@@ -10,7 +10,8 @@ class UserProfileController extends Controller
 {
     public function edit()
     {
-        return view('profile.edit', [
+        // dd('dftyuheth');
+        return view('edit-profile', [
             'user' => Auth::user()
         ]);
     }
@@ -40,13 +41,13 @@ class UserProfileController extends Controller
         }
 
         if ($request->hasFile('img')) {
-            $path = $request->file('img')->store('public/images');
+            $path = $request->file('img')->store('public/img');
             $user->img = $path;
         }
 
         $user->save();
 
-        return redirect()->back()->with('success', 'Profile updated successfully.');
+        return redirect('/home')->with('success', 'Profile updated successfully.');
     }
 
     public function destroy()

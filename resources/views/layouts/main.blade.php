@@ -11,7 +11,10 @@
     <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-    
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+
 
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
@@ -24,6 +27,10 @@
     <link rel="stylesheet" href="{{ asset('../../css/clock.css') }}">
     <link rel="stylesheet" href="{{ asset('../../css/halaman-toko.css') }}">
     <link rel="stylesheet" href="{{ asset('../../css/product-slider.css') }}">
+    <link rel="stylesheet" href="{{ asset('../../css/stores.css') }}">
+    <link rel="stylesheet" href="{{ asset('../../css/home-container.css') }}">
+
+
     <link rel="icon" type="image/x-icon" href="{{ asset('../img/logos.svg') }}">
     {{-- <title>KeyFood | {{ $title }} </title> --}}
     {{-- ini diatas, disebelah dikasih title statis --}}
@@ -48,11 +55,16 @@
 <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.x.x/dist/alpine.min.js" defer></script>
 <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
+<script src="https://unpkg.com/scrollreveal"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
 <script src="{{ asset('../js/sidebar.js') }}"></script>
 <script src="{{ asset('../js/home.js') }}"></script>
 <script src="{{ asset('../js/load.js') }}"></script>
 <script src="{{ asset('../js/clock.js') }}"></script>
 <script src="{{ asset('../js/product.js') }}"></script>
+<script src="{{ asset('../js/home-container.js') }}"></script>
+
 
 
 

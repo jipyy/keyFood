@@ -7,7 +7,7 @@
     </button>
 
     <!-- Dropdown Menu -->
-    <div x-show="isOpen"
+    <div x-show="isOpen" id="opened"
         class="absolute right-0 mt-3 flex w-60 flex-col gap-3 rounded-xl bg-slate-900 p-4 text-slate-100 shadow-lg">
 
         @if (Auth::check())
@@ -18,7 +18,7 @@
                         <img class="w-full object-cover" src="{{ asset('img/' . (Auth::user()->img ?? 'guest.png')) }}"
                             alt="Profile">
                     </div>
-                    <div>
+                    <div style="width: 100%">
                         <div class="flex gap-1 text-sm font-semibold">
                             <span>
                                 {{ strlen(Auth::user()->name) > 16 ? substr(Auth::user()->name, 0, 16) . '...' : Auth::user()->name }}
@@ -145,6 +145,17 @@
             <a href="{{ route('profile.edit') }}">
                 <button class="download-btn"><i class="fa fa-edit"></i> Edit Profile</button>
             </a>
+            <form action="{{ route('profile.destroy') }}" method="POST" class="mt-6">
+                @csrf
+                @method('DELETE')
+                <button type="submit"
+                    class="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
+                    Delete Account
+                </button>
+            </form>
+            {{-- <a href="{{ route('coba.edit') }}">
+                <button class="download-btn"><i class="fa fa-edit"></i> Edit Profile123</button>
+            </a> --}}
         </div>
     </div>
 </div>

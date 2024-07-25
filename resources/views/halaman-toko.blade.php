@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('container')
-    <section id="home">
+    <section id="page">
         <div class="store-header">
             <div class="store-info">
                 <img src="{{ asset('img/shoes.jpg') }}" alt="logo toko" class="store-logo">

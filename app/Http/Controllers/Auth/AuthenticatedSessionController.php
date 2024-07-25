@@ -60,7 +60,7 @@ class AuthenticatedSessionController extends Controller
             $user = Socialite::driver('google')->stateless()->user();
             // Mencari pengguna berdasarkan google_id
             $existingUser = User::where('google_id', $user->id)->first();
-    
+
             if ($existingUser) {
                 // Jika pengguna ada, login
                 Auth::login($existingUser);
@@ -75,9 +75,9 @@ class AuthenticatedSessionController extends Controller
                     'email_verified_at' => now(),
                     // Tambahkan kolom lain yang diperlukan
                 ]);
-    
+
                 Auth::login($newUser);
-    
+
                 // Arahkan pengguna ke halaman yang diinginkan setelah login
                 return redirect()->intended('/home');
             }
@@ -86,6 +86,6 @@ class AuthenticatedSessionController extends Controller
             return redirect('/log-reg')->withErrors('Error: ' . $e->getMessage());
         }
     }
-    
-    
+
+
 }
