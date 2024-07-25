@@ -120,7 +120,7 @@
                     </div>
                     <div class="content">
                         <span>Phone</span>
-                        <h5>+{{ Auth::user()->phone ?? 'Guest' }}</h5> <!-- Assuming there is a phone attribute -->
+                        <h5>{{ Auth::user()->phone ?? 'Guest' }}</h5> <!-- Assuming there is a phone attribute -->
                     </div>
                 </div>
                 <div class="row">

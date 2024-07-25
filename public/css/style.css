@@ -386,6 +386,7 @@ body.dark .search-box input{
     position: relative;
     border-radius: 6px;
     background: var(--primary-color-light);
+    bottom: 15px;
 }
 
 .menu-bar .mode .moon-sun{
