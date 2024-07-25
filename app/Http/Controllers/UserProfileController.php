@@ -42,8 +42,10 @@ class UserProfileController extends Controller
         }
 
         if ($request->hasFile('img')) {
-            $path = $request->file('img')->store('public/img');
-            $user->img = $path;
+            $file = $request->file('img');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('img'), $filename);
+            $user->img = 'img/' . $filename;
         }
 
         $user->save();
