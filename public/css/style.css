@@ -260,9 +260,11 @@ body.dark{
   .sidebar .image-text img {
     border: 2.5px solid var(--primary-color);
     width: 50px;
+    height: 50px;
     border-radius: 10px;
     animation: borderFade 3s infinite;
-  }
+}
+
   
 
 .sidebar header .image-text{
