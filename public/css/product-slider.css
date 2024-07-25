@@ -139,7 +139,7 @@ body.dark .card:hover {
     font-size: 1.125rem; /* Adjusted font size */
     font-weight: bold;
     margin-bottom: 0.75rem; /* Adjusted margin for spacing */
-    color: #0000;
+    /* color: #0000; */
 }
 
 body.dark .price {
