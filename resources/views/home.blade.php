@@ -41,7 +41,7 @@
         <div class="content">
             <section class="section__container header__container" id="home">
                 <div class="header__image">
-                    <img src="{{ asset('../img/header.png') }}" alt="header" />
+                    <img src="{{ asset('../img/header.png') }}" alt="header "  class="header-img"/>
                 </div>
                 <div class="header__content">
                     <h1>Meet, Eat & Enjoy The <span>True Taste</span>.</h1>
@@ -66,7 +66,7 @@
                 </p>
                 <div class="special__grid">
                     <div class="special__card">
-                        <img src="{{ asset('../img/special-1.png') }}" alt="special" />
+                        <img src="{{ asset('../img/special-1.png') }}" alt="special"  class="header-img"/>
                         <h4>Chicken Veg Curry</h4>
                         <p>
                             Diced chicken simmered in aromatic curry sauce with mixed veggies
@@ -85,7 +85,7 @@
                         </div>
                     </div>
                     <div class="special__card">
-                        <img src="{{ asset('../img/special-2.png') }}" alt="special" />
+                        <img src="{{ asset('../img/special-2.png') }}" alt="special" class="header-img" />
                         <h4>Chicken Veg Stir-Fry</h4>
                         <p>
                             Tender chicken strips wok-tossed with a colorful array of fresh
@@ -104,7 +104,7 @@
                         </div>
                     </div>
                     <div class="special__card">
-                        <img src="{{ asset('../img/special-3.png') }}" alt="special" />
+                        <img src="{{ asset('../img/special-3.png') }}" alt="special" class="header-img" />
                         <h4>Chicken Veg Pasta</h4>
                         <p>
                             Al dente pasta tossed with chicken strips and a mix of vibrant
@@ -128,7 +128,7 @@
 
             <section class="section__container explore__container">
                 <div class="explore__image">
-                    <img src="{{ asset('../img/explore.png') }}" alt="explore" />
+                    <img src="{{ asset('../img/explore.png') }}" alt="explore" class="header-img" />
                 </div>
                 <div class="explore__content">
                     <h1 class="section__header">We Serve Healthy & Tasty Food</h1>
@@ -191,7 +191,7 @@
                 <img src="{{ asset('../img/topping.png') }}" alt="topping" class="chef__bg" />
                 <div class="section__container chef__container">
                     <div class="chef__image">
-                        <img src="{{ asset('../img/chef.png') }}" alt="chef" />
+                        <img src="{{ asset('../img/chef.png') }}" alt="chef" class="header-img" />
                     </div>
                     <div class="chef__content">
                         <h2 class="section__header">Cooked By The Best Chefs In The World</h2>
@@ -238,7 +238,7 @@
                                         FoodMan's culinary expertise never fails to impress! Every
                                         dish is a masterpiece, bursting with flavor and freshness.
                                     </p>
-                                    <img src="{{ asset('../img/client-1.jpg') }}" alt="client" />
+                                    <img src="{{ asset('../img/client-1.jpg') }}" alt="client"  class="header-img"/>
                                     <h4>David Lee</h4>
                                     <h5>Business Executive</h5>
                                 </div>
