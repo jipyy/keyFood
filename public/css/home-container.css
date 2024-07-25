@@ -11,7 +11,7 @@
 }
 
 .section__container {
-  max-width: var(--max-width);
+  /* max-width: var(--max-width);   */
   margin: auto;
   padding: 5rem 1rem;
 }
@@ -23,6 +23,7 @@
   line-height: 3rem;
   color: var(--text-dark);
   text-align: center;
+
 }
 
 .section__description {
@@ -80,8 +81,10 @@ body {
 
 .header__container {
   display: grid;
-  gap: 2rem;
   overflow: hidden;
+  border-top-left-radius: 20%;
+  border-top-right-radius: 20%;
+
 }
 
 .header__image img {
@@ -114,6 +117,10 @@ body {
   max-width: 600px;
   margin-inline: auto;
 }
+
+/* #special{
+  width: 100%;
+} */
 
 .special__grid {
   margin-top: 4rem;
