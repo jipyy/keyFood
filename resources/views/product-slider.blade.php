@@ -32,6 +32,10 @@
                     </div>
                 @endforeach
             </div>
+            <div class="pagination">
+                {{-- Menampilkan link pagination --}}
+                {{ $products->links() }}
+            </div>
         </section>
     </section>
 @endsection
