@@ -515,7 +515,7 @@ body.dark .container{
     background: #18191A;
 }
 
-.body.dark .home{
+body.dark .home{
     color: var(--body-color);
 }
 

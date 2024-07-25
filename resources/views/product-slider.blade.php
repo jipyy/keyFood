@@ -131,6 +131,126 @@
                             </div>
                         </div>
                     </div>
+                    <div class="card">
+                        <img class="w-full h-full object-cover" src="img/headphone.jpg" alt="headphone">
+                        <div class="p-3 flex flex-col gap-2">
+                            <div class="flex items-center gap-1">
+                                <span class="badge">stock ready</span>
+                                <span class="badge">official store</span>
+                            </div>
+                            <h2 class="product-title" title="best headphone">headphone</h2>
+                            <div class="price">Rp 100.000.000</div> <!-- Updated element -->
+                            <div class="mt-3 flex gap-1 isi">
+                                <button class="button-primary">add to cart</button>
+                                <button class="button-icon small-button">
+                                    <img class="icon-small" src="img/love.svg" alt="add to wishlist">
+                                </button>
+                                <button class="button-icon small-button">
+                                    <img class="icon-small" src="img/eye.svg" alt="view details">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img class="w-full h-full object-cover" src="img/headphone.jpg" alt="headphone">
+                        <div class="p-3 flex flex-col gap-2">
+                            <div class="flex items-center gap-1">
+                                <span class="badge">stock ready</span>
+                                <span class="badge">official store</span>
+                            </div>
+                            <h2 class="product-title" title="best headphone">headphone</h2>
+                            <div class="price">Rp 100.000.000</div> <!-- Updated element -->
+                            <div class="mt-3 flex gap-1 isi">
+                                <button class="button-primary">add to cart</button>
+                                <button class="button-icon small-button">
+                                    <img class="icon-small" src="img/love.svg" alt="add to wishlist">
+                                </button>
+                                <button class="button-icon small-button">
+                                    <img class="icon-small" src="img/eye.svg" alt="view details">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img class="w-full h-full object-cover" src="img/headphone.jpg" alt="headphone">
+                        <div class="p-3 flex flex-col gap-2">
+                            <div class="flex items-center gap-1">
+                                <span class="badge">stock ready</span>
+                                <span class="badge">official store</span>
+                            </div>
+                            <h2 class="product-title" title="best headphone">headphone</h2>
+                            <div class="price">Rp 100.000.000</div> <!-- Updated element -->
+                            <div class="mt-3 flex gap-1 isi">
+                                <button class="button-primary">add to cart</button>
+                                <button class="button-icon small-button">
+                                    <img class="icon-small" src="img/love.svg" alt="add to wishlist">
+                                </button>
+                                <button class="button-icon small-button">
+                                    <img class="icon-small" src="img/eye.svg" alt="view details">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img class="w-full h-full object-cover" src="img/headphone.jpg" alt="headphone">
+                        <div class="p-3 flex flex-col gap-2">
+                            <div class="flex items-center gap-1">
+                                <span class="badge">stock ready</span>
+                                <span class="badge">official store</span>
+                            </div>
+                            <h2 class="product-title" title="best headphone">headphone</h2>
+                            <div class="price">Rp 100.000.000</div> <!-- Updated element -->
+                            <div class="mt-3 flex gap-1 isi">
+                                <button class="button-primary">add to cart</button>
+                                <button class="button-icon small-button">
+                                    <img class="icon-small" src="img/love.svg" alt="add to wishlist">
+                                </button>
+                                <button class="button-icon small-button">
+                                    <img class="icon-small" src="img/eye.svg" alt="view details">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img class="w-full h-full object-cover" src="img/headphone.jpg" alt="headphone">
+                        <div class="p-3 flex flex-col gap-2">
+                            <div class="flex items-center gap-1">
+                                <span class="badge">stock ready</span>
+                                <span class="badge">official store</span>
+                            </div>
+                            <h2 class="product-title" title="best headphone">headphone</h2>
+                            <div class="price">Rp 100.000.000</div> <!-- Updated element -->
+                            <div class="mt-3 flex gap-1 isi">
+                                <button class="button-primary">add to cart</button>
+                                <button class="button-icon small-button">
+                                    <img class="icon-small" src="img/love.svg" alt="add to wishlist">
+                                </button>
+                                <button class="button-icon small-button">
+                                    <img class="icon-small" src="img/eye.svg" alt="view details">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img class="w-full h-full object-cover" src="img/headphone.jpg" alt="headphone">
+                        <div class="p-3 flex flex-col gap-2">
+                            <div class="flex items-center gap-1">
+                                <span class="badge">stock ready</span>
+                                <span class="badge">official store</span>
+                            </div>
+                            <h2 class="product-title" title="best headphone">headphone</h2>
+                            <div class="price">Rp 100.000.000</div> <!-- Updated element -->
+                            <div class="mt-3 flex gap-1 isi">
+                                <button class="button-primary">add to cart</button>
+                                <button class="button-icon small-button">
+                                    <img class="icon-small" src="img/love.svg" alt="add to wishlist">
+                                </button>
+                                <button class="button-icon small-button">
+                                    <img class="icon-small" src="img/eye.svg" alt="view details">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
         </div>
