@@ -177,6 +177,14 @@ body.dark .category-heading span,
                 0 16px 24px rgba(0, 0, 0, 0.1); /* Elevated shadow effect */
     transform: translateY(-10px); /* Lift the box up slightly */
 }
+.showall.active span{
+    color: #202020;
+    font-weight: 500;
+}
+body.dark .showall.active span{
+    color: #fafafa;
+    font-weight: 500;
+}
 body.dark .category-box.active {
     border: 3px solid gold; /* Change border color to gold when active */
     box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1), 

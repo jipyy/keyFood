@@ -11,6 +11,45 @@
                 <span>0</span>
             </div>
         </header>
+        <section id="popular-bundle-pack">
+            <!--heading-------------->
+            <div class="product-heading">
+                <h3>Popular Bundle Pack</h3>
+            </div>
+            <!--box-container------>
+            <div class="product-container">
+                <!--box---------->
+                <div class="product-box">
+                    <img alt="pack" src="{{ asset('img/pack1.png') }}">
+                    <strong>Big Pack</strong>
+                    <span class="quantity">Lemone, Tamato, Patato,+4</span>
+                    <span class="price">9$</span>
+                    <!--cart-btn------->
+                    <a href="#" class="cart-btn">
+                        <i class="fas fa-shopping-bag"></i> Add Cart
+                    </a>
+                    <!--like-btn------->
+                    <a href="#" class="like-btn">
+                        <i class="far fa-heart"></i>
+                    </a>
+                </div>
+                <!--box---------->
+                <div class="product-box">
+                    <img alt="apple" src="{{ asset('img/pack2.jpg') }}">
+                    <strong>Large Pack</strong>
+                    <span class="quantity">Lemone, Tamato, Patato,+2</span>
+                    <span class="price">5$</span>
+                    <!--cart-btn------->
+                    <a href="#" class="cart-btn">
+                        <i class="fas fa-shopping-bag"></i> Add Cart
+                    </a>
+                    <!--like-btn------->
+                    <a href="#" class="like-btn">
+                        <i class="far fa-heart"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
         <div class="grid-container">
             @foreach ($products as $product)
                 <div class="card">

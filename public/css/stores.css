@@ -76,11 +76,7 @@ body.dark .user-description-s {
 }
 
 @media (max-width: 768px) {
-    #visit{
-        height: 50%;
-        width: 50%;
-        font-size: 30px;
-    }
+    #stores
     .user-s {
         margin: 10px 15px;
     }
@@ -109,11 +105,6 @@ body.dark .user-description-s {
 }
 
 @media (max-width: 480px) {
-    #visit{
-        width: 30%;
-        height: 30%;
-        font-size: 15px;
-    }
     .user-s {
         margin: 5px 10px;
     }

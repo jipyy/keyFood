@@ -27,12 +27,12 @@
             <!--heading---------------->
             <div class="category-heading">
                 <h2>Kategori</h2>
-                <span>Semua</span>
+                <a href="#" class="showall"><span>Semua</span></a>
             </div>
             <!--box-container---------->
             <div class="category-container">
                 <!--box---------------->
-                <a href="#" class="category-box active">
+                <a href="#" class="category-box">
                     <img alt="Fish" src="{{ asset('img/icons/cookies.png') }}">
                     <span>Makanan Manis</span>
                 </a>

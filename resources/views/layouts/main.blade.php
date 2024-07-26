@@ -60,6 +60,7 @@
 <script src="https://unpkg.com/scrollreveal"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
+<script src="{{ asset('../js/stores.js') }}"></script>
 <script src="{{ asset('../js/categories.js') }}"></script>
 <script src="{{ asset('../js/sidebar.js') }}"></script>
 <script src="{{ asset('../js/home.js') }}"></script>
