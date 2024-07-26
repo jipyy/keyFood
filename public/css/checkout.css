@@ -168,17 +168,11 @@ main .checkout-details .checkout-details-inner .checkout-shipping p, main .check
 }
 
 @media screen and (max-width: 1024px) {
-    body{
-        width: 80%;
-   }
      main {
         column-gap: 70px;
    }
 }
 @media screen and (max-width: 768px) {
-     body{
-        width: 92%;
-   }
      main {
         flex-direction: column-reverse;
         height: auto;
