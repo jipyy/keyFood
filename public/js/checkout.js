@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function removeEmptyCards() {
-        document.querySelectorAll('.card').forEach(card => {
+        document.querySelectorAll('.card-product').forEach(card => {
             const countSpan = card.querySelector('.count');
             if (countSpan) {
                 const count = parseInt(countSpan.getAttribute('data-count'), 10);
