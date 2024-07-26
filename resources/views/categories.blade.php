@@ -4,7 +4,7 @@
         <section id="search-banner">
             <!--bg--------->
             <img alt="bg" class="bg-1" src="{{ asset('img/bg-1.png') }}">
-            <img alt="bg-2" class="bg-2" src="{{ asset('img/bg-2.png') }}">
+            <img alt="bg-2" class="bg-2" src="{{ asset('img/topping.png') }}">
             <!--text------->
             <div class="search-banner-text">
                 <h1>Pesan Makananmu Sekarang!</h1>
@@ -50,6 +50,11 @@
                 <a href="#" class="category-box">
                     <img alt="Fish" src="{{ asset('img/icons/salty-food.png') }}">
                     <span>Makanan Asin</span>
+                </a>
+                <!--box---------------->
+                <a href="#" class="category-box">
+                    <img alt="Fish" src="{{ asset('img/icons/fruit.png') }}">
+                    <span>Buah-buahan</span>
                 </a>
             </div>
 
