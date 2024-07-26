@@ -31,8 +31,10 @@ Route::get('/contact-us', function () {
 Route::get('/faq', function () {
     return view('faq');
 });
-Route::get('/product-slider', function () {
-    return view('product-slider');
+Route::get('/product-slider', [ProductController::class, 'showProductSlider']);
+
+Route::get('/categories', function () {
+    return view('categories');
 });
 
 Route::get('/edit-profile', function () {
@@ -116,10 +118,10 @@ require __DIR__ . '/auth.php';
 //     Route::resource('users', UserController::class);
 // });
 
-// Route::prefix('seller')->name('seller.')->group(function(){
-//     Route::resource('products', ProductController::class);
-//     Route::resource('products_orders', ProductOrderController::class);
-// });
+Route::prefix('seller')->name('seller.')->group(function(){
+    Route::resource('products', ProductController::class);
+    Route::resource('products_orders', ProductOrderController::class);
+});
 
 Route::get('/dashboard', function () {
     return 'This is the dashboard route.';

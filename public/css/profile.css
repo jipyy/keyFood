@@ -87,7 +87,7 @@ body.dark .profile-card{
     flex-direction: column;
 }
 
-.profile-card{
+.profile-card {
     background: #f0f0f0;
     width: 100%;
     max-width: 1000px;
@@ -95,14 +95,20 @@ body.dark .profile-card{
     border-radius: 10px;
     min-height: 800px;
     position: relative;
-    color:#111;
+    color: #111;
     margin: 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
     z-index: 99;
+    box-shadow: 
+        0 4px 8px rgba(0, 0, 0, 0.1),
+        0 8px 16px rgba(0, 0, 0, 0.1),
+        0 16px 24px rgba(0, 0, 0, 0.1),
+        0 24px 32px rgba(0, 0, 0, 0.1);
 }
+
 
 .profile-card .profile-pic{
     margin-top: 15px;

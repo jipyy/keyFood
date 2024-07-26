@@ -74,9 +74,10 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Product $product)
+    public function showProductSlider()
     {
-        //
+        $products = Product::all()->shuffle();
+        return view('product-slider', compact('products'));
     }
 
     /**
