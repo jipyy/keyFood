@@ -47,6 +47,10 @@
                     <span>Sayur-sayuran</span>
                 </a>
                 <!--box---------------->
+                <a href="#" class="category-box">
+                    <img alt="Fish" src="{{ asset('img/icons/salty-food.png') }}">
+                    <span>Makanan Asin</span>
+                </a>
             </div>
 
         </section>
