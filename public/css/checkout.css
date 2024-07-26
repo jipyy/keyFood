@@ -14,6 +14,7 @@ main {
 }
 main .checkout-form {
     width: 50%;
+    margin-left: 20px;
 }
 
 main .checkout-form form .form-control {
@@ -83,11 +84,15 @@ main .checkout-form form .form-control-btn button {
 
 main .checkout-details {
     width: 40%;
+    
 }
 main .checkout-details .checkout-details-inner {
     background: #f2f2f2;
     border-radius: 10px;
     padding: 20px;
+    margin-right: 10px;
+ 
+  
 }
 main .checkout-details .checkout-details-inner .checkout-lists {
     display: flex;
@@ -95,39 +100,39 @@ main .checkout-details .checkout-details-inner .checkout-lists {
     row-gap: 15px;
     margin-bottom: 40px;
 }
-main .checkout-details .checkout-details-inner .checkout-lists .card {
+main .checkout-details .checkout-details-inner .checkout-lists .card-product {
     width: 100%;
     display: flex;
     column-gap: 15px;
 }
-main .checkout-details .checkout-details-inner .checkout-lists .card .card-image {
+main .checkout-details .checkout-details-inner .checkout-lists .card-product .card-image {
     width: 35%;
 }
-main .checkout-details .checkout-details-inner .checkout-lists .card .card-image img {
+main .checkout-details .checkout-details-inner .checkout-lists .card-product .card-image img {
     width: 100%;
     object-fit: fill;
     border-radius: 10px;
 }
-main .checkout-details .checkout-details-inner .checkout-lists .card .card-details {
+main .checkout-details .checkout-details-inner .checkout-lists .card-product .card-details {
     display: flex;
     flex-direction: column;
 }
-main .checkout-details .checkout-details-inner .checkout-lists .card .card-details .card-name {
+main .checkout-details .checkout-details-inner .checkout-lists .card-product .card-details .card-name {
     font-size: 15px;
     font-weight: bold;
 }
-main .checkout-details .checkout-details-inner .checkout-lists .card .card-details .card-price {
+main .checkout-details .checkout-details-inner .checkout-lists .card-product .card-details .card-price {
     font-size: 15px;
     font-weight: bold;
     color: #f2994a;
     margin-top: 5px;
 }
-main .checkout-details .checkout-details-inner .checkout-lists .card .card-details .card-price span {
+main .checkout-details .checkout-details-inner .checkout-lists .card-product .card-details .card-price span {
     color: #4e5150;
     text-decoration: line-through;
     margin-left: 10px;
 }
-main .checkout-details .checkout-details-inner .checkout-lists .card .card-details .card-wheel {
+main .checkout-details .checkout-details-inner .checkout-lists .card-product .card-details .card-wheel {
     margin-top: 17px;
     border: 0.2px solid #4e5150 85;
     width: 90px;
@@ -137,7 +142,7 @@ main .checkout-details .checkout-details-inner .checkout-lists .card .card-detai
     display: flex;
     justify-content: space-between;
 }
-main .checkout-details .checkout-details-inner .checkout-lists .card .card-details .card-wheel button {
+main .checkout-details .checkout-details-inner .checkout-lists .card-product .card-details .card-wheel button {
     background: rgb(78, 78, 78);
     color: rgb(255, 255, 255);
     width: 15px;
@@ -179,11 +184,14 @@ main .checkout-details .checkout-details-inner .checkout-shipping p, main .check
         margin-bottom: 50px;
    }
      main .checkout-form {
-        width: 100%;
+        width: 90%;
         margin-top: 35px;
+        margin-left: 25px;
    }
      main .checkout-details {
-        width: 100%;
+        width: 95%;
+        margin-left: 10px;
+        
    }
      footer {
         height: 10%;
