@@ -17,15 +17,12 @@ class ProductController extends Controller
      */
     public function index()
     {
-        // $products = Product::where('creator_id', Auth::id())->get();
-        // return view('seller.products.index', [
-        //     'products' => $products
-        // ]);
-        if(auth()->user()->can('productCRUD')){
-            return view('seller.products.index');
+        if (auth()->user()->can('productCRUD')) {
+            $products = Product::where('creator_id', Auth::id())->get();
+            return view('seller.products.index', compact('products'));
         }
-       
-            return abort(403);
+
+        return abort(403);
     }
 
     /**
@@ -106,7 +103,7 @@ class ProductController extends Controller
             'price' => ['required', 'integer', 'min:0'],
             'slug' => ['required', 'string', 'max:65535'],
         ]);
-    
+
         DB::beginTransaction();
         try {
             if ($request->hasFile('photo')) {
@@ -120,42 +117,41 @@ class ProductController extends Controller
             return redirect()->route('seller.products.index')->with('success', 'Product updated successfully');
         } catch (\Exception $e) {
             DB::rollBack();
-    
+
             $error = ValidationException::withMessages([
                 'system_error' => ['System error! ' . $e->getMessage()]
             ]);
-    
+
             throw $error;
         }
     }
-    
+
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Product $product)
-{
-    DB::beginTransaction();
-    try {
-        // Hapus file gambar dari direktori
-        $photoPath = public_path($product->photo);
-        if (file_exists($photoPath)) {
-            unlink($photoPath);
+    {
+        DB::beginTransaction();
+        try {
+            // Hapus file gambar dari direktori
+            $photoPath = public_path($product->photo);
+            if (file_exists($photoPath)) {
+                unlink($photoPath);
+            }
+
+            // Hapus produk dari database
+            $product->delete();
+
+            DB::commit();
+            return redirect()->route('seller.products.index')->with('success', 'Product deleted successfully');
+        } catch (\Exception $e) {
+            DB::rollBack();
+
+            $error = ValidationException::withMessages([
+                'system_error' => ['System error! ' . $e->getMessage()]
+            ]);
+
+            throw $error;
         }
-
-        // Hapus produk dari database
-        $product->delete();
-
-        DB::commit();
-        return redirect()->route('seller.products.index')->with('success', 'Product deleted successfully');
-    } catch (\Exception $e) {
-        DB::rollBack();
-
-        $error = ValidationException::withMessages([
-            'system_error' => ['System error! ' . $e->getMessage()]
-        ]);
-
-        throw $error;
     }
-}
-
 }
