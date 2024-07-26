@@ -76,6 +76,7 @@ body.dark .user-description-s {
 }
 
 @media (max-width: 768px) {
+    #stores
     .user-s {
         margin: 10px 15px;
     }

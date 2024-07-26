@@ -41,10 +41,10 @@
         <div class="content">
             <section class="section__container header__container" id="home">
                 <div class="header__image">
-                    <img src="{{ asset('../img/header.png') }}" alt="header "  class="header-img"/>
+                    <img src="{{ asset('../img/5.png') }}" alt="header "  class="header-img"/>
                 </div>
                 <div class="header__content">
-                    <h1>Meet, Eat & Enjoy The <span>True Taste</span>.</h1>
+                    <h1>Beli, Makan & Nikmati <span>Makanan Terbaik</span>.</h1>
                     <p class="section__description">
                         Discover the true essence of culinary delight as you meet, eat, and
                         savor the authentic flavors that define our passion for food.

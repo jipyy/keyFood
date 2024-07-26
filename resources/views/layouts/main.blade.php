@@ -29,6 +29,8 @@
     <link rel="stylesheet" href="{{ asset('../../css/product-slider.css') }}">
     <link rel="stylesheet" href="{{ asset('../../css/stores.css') }}">
     <link rel="stylesheet" href="{{ asset('../../css/home-container.css') }}">
+    <link rel="stylesheet" href="{{ asset('../../css/categories.css') }}">
+
 
 
     <link rel="icon" type="image/x-icon" href="{{ asset('../img/logos.svg') }}">
@@ -58,6 +60,8 @@
 <script src="https://unpkg.com/scrollreveal"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
+<script src="{{ asset('../js/stores.js') }}"></script>
+<script src="{{ asset('../js/categories.js') }}"></script>
 <script src="{{ asset('../js/sidebar.js') }}"></script>
 <script src="{{ asset('../js/home.js') }}"></script>
 <script src="{{ asset('../js/load.js') }}"></script>

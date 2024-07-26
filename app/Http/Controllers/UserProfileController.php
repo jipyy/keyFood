@@ -50,7 +50,7 @@ class UserProfileController extends Controller
 
         $user->save();
 
-        return redirect('/home')->back()->with('success', 'Profile updated successfully.');
+        return redirect('/home')->with('success', 'Profile updated successfully.');
     }
 
     public function destroy()

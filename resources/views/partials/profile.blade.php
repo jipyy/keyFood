@@ -3,7 +3,7 @@
     <button
         class="fixed-button flex h-12 w-12 items-center justify-center rounded-lg bg-slate-900 text-slate-100 ring-slate-100 transition hover:shadow-md hover:ring-2 overflow-hidden"
         @click="isOpen = !isOpen">
-        <img class="w-full object-cover" src="{{ asset((Auth::user()->img ?? './img/guest.png')) }}" alt="Profile">
+        <img class="w-full object-cover" src="{{ asset(Auth::user()->img ?? './img/guest.png') }}" alt="Profile">
     </button>
 
     <!-- Dropdown Menu -->
@@ -15,7 +15,7 @@
                 <div class="flex gap-3 items-center">
                     <div
                         class="flex items-center justify-center rounded-lg h-12 w-12 overflow-hidden border-2 border-slate-600">
-                        <img class="w-full object-cover" src="{{ asset((Auth::user()->img ?? './img/guest.png')) }}"
+                        <img class="w-full object-cover" src="{{ asset(Auth::user()->img ?? './img/guest.png') }}"
                             alt="Profile">
                     </div>
                     <div style="width: 100%">
@@ -58,17 +58,22 @@
                         <span>Help Center</span>
                     </a>
                 </div>
-                <a href="/logout">
-                    <button
-                        class="flex justify-center gap-3 rounded-md bg-red-600 py-2 px-3 font-semibold hover:bg-red-500 focus:ring-2 focus:ring-red-400">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6">
-                            <path fill-rule="evenodd"
-                                d="M7.5 3.75A1.5 1.5 0 006 5.25v13.5a1.5 1.5 0 001.5 1.5h6a1.5 1.5 0 001.5-1.5V15a.75.75 0 011.5 0v3.75a3 3 0 01-3 3h-6a3 3 0 01-3-3V5.25a3 3 0 013-3h6a3 3 0 013 3V9A.75.75 0 0115 9V5.25a1.5 1.5 0 00-1.5-1.5h-6zm10.72 4.72a.75.75 0 011.06 0l3 3a.75.75 0 010 1.06l-3 3a.75.75 0 11-1.06-1.06l1.72-1.72H9a.75.75 0 010-1.5h10.94l-1.72-1.72a.75.75 0 010-1.06z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                        <span>Logout</span>
-                    </button>
-                </a>
+                <form method="POST" action="{{ route('logout') }}" style="display: flex">
+                    @csrf
+                    <a href="/logout" onclick="event.preventDefault();
+            this.closest('form').submit();">
+                        <button
+                            class="flex justify-center gap-3 rounded-md bg-red-600 py-2 px-3 font-semibold hover:bg-red-500 focus:ring-2 focus:ring-red-400">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                class="h-6 w-6">
+                                <path fill-rule="evenodd"
+                                    d="M7.5 3.75A1.5 1.5 0 006 5.25v13.5a1.5 1.5 0 001.5 1.5h6a1.5 1.5 0 001.5-1.5V15a.75.75 0 011.5 0v3.75a3 3 0 01-3 3h-6a3 3 0 01-3-3V5.25a3 3 0 013-3h6a3 3 0 013 3V9A.75.75 0 0115 9V5.25a1.5 1.5 0 00-1.5-1.5h-6zm10.72 4.72a.75.75 0 011.06 0l3 3a.75.75 0 010 1.06l-3 3a.75.75 0 11-1.06-1.06l1.72-1.72H9a.75.75 0 010-1.5h10.94l-1.72-1.72a.75.75 0 010-1.06z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Logout</span>
+                        </button>
+                    </a>
+                </form>
             </div>
         @else
             <p>You Haven't Login,</p>
@@ -92,7 +97,7 @@
             <i class="fa-solid fa-arrow-left back"></i>
         </button>
         <div class="profile-pic">
-            <img src="{{ asset((Auth::user()->img ?? '../img/guest.png')) }}" alt="user avatar">
+            <img src="{{ asset(Auth::user()->img ?? '../img/guest.png') }}" alt="user avatar">
         </div>
         <div class="profile-details">
             <div class="intro">
@@ -120,7 +125,7 @@
                     </div>
                     <div class="content">
                         <span>Phone</span>
-                        <h5>+{{ Auth::user()->phone ?? 'Guest' }}</h5> <!-- Assuming there is a phone attribute -->
+                        <h5>{{ Auth::user()->phone ?? 'Guest' }}</h5> <!-- Assuming there is a phone attribute -->
                     </div>
                 </div>
                 <div class="row">
@@ -145,14 +150,48 @@
             <a href="{{ route('profile.edit') }}">
                 <button class="download-btn"><i class="fa fa-edit"></i> Edit Profile</button>
             </a>
-            <form action="{{ route('profile.destroy') }}" method="POST" class="mt-6">
-                @csrf
-                @method('DELETE')
-                <button type="submit"
-                    class="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
-                    Delete Account
-                </button>
-            </form>
+            <button type="button" data-modal-target="popup-modal" data-modal-toggle="popup-modal"
+                class="text-white mt-3 bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
+                Delete Account
+            </button>
+            <div id="popup-modal" tabindex="-1"
+                class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                <div class="relative p-4 w-full max-w-md max-h-full">
+                    <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                        <button type="button"
+                            class="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                            data-modal-hide="popup-modal">
+                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 14 14">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                            </svg>
+                            <span class="sr-only">Close modal</span>
+                        </button>
+                        <div class="p-4 md:p-5 text-center">
+                            <svg class="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                            </svg>
+                            <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Are you sure you want
+                                to delete your account?</h3>
+                            <form action="{{ route('profile.destroy') }}" method="POST" class="mt-6">
+                                @csrf
+                                @method('DELETE')
+                                <button data-modal-hide="popup-modal" type="submit"
+                                    class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center">
+                                    Yes, I'm sure
+                                </button>
+                            </form>
+                            <button data-modal-hide="popup-modal" type="button"
+                                class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">No,
+                                cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>

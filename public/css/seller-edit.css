@@ -1,4 +1,13 @@
+/* Global styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
+body {
+    font-family: Arial, sans-serif;
+}
 
 header {
     height: 60px;
@@ -7,7 +16,6 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px 0;
-    margin-top: 15px;
 }
 
 header .title {
@@ -16,52 +24,40 @@ header .title {
     color: #000000;
 }
 
-header .icon-cart {
-    color: black;
-    position: relative;
-    margin-right: 50px;
-}
-
-body.dark header .title {
-    margin-left: 25px;
-    font-size: xx-large;
-    color: #ffff;
-}
-
-body.dark header .icon-cart {
-    color: #ffff;
-    position: relative;
-}
-
-header .icon-cart span {
-    position: absolute;
-    background-color: red;
-    width: 20px;
-    height: 20px;
+header .add-product {
     display: flex;
-    justify-content: center;
     align-items: center;
-    border-radius: 50%;
-    color: #ffff;
-    top: -10px;
-    right: -10px;
+}
+
+header .button-add {
+    padding: 10px 20px;
+    margin-top: 8px;
+    font-size: 16px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+header .button-add:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+header .button-add:active {
+    background-color: #3e8e41;
+    transform: scale(1);
 }
 
 .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Adjusted min-width for a more compact layout */
     gap: 16px;
-    padding: 1rem;
+    padding: 1.25rem;
     background-color: #f9f9f9;
-    justify-content: center;
-}
-
-body.dark .grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Adjusted min-width for a more compact layout */
-    gap: 16px;
-    padding: 1rem;
-    background-color: #0000;
     justify-content: center;
 }
 
@@ -77,34 +73,11 @@ body.dark .grid-container {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
     background: #fff;
     transition: box-shadow 0.3s ease-in-out;
-}
-
-body.dark .card {
-    max-width: 220px; /* Reduced max-width for a more compact card */
-    min-height: 350px;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1), 0 1px 3px rgba(255, 255, 255, 1);
-    background: #0000;
-    transition: box-shadow 0.3s ease-in-out;
+    margin-bottom: 15px;
 }
 
 .card:hover {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-body.dark .card {
-    max-width: 220px; /* Reduced max-width for a more compact card */
-    min-height: 350px;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
-    background: rgb(45, 45, 45);
-    transition: box-shadow 0.3s ease-in-out;
-}
-
-body.dark .card:hover {
-    box-shadow: 0 5px 15px rgba(255, 255, 255, 1);
 }
 
 .card img {
@@ -141,14 +114,6 @@ body.dark .card:hover {
     font-size: 1.125rem; /* Adjusted font size */
     font-weight: bold;
     margin-bottom: 0.75rem; /* Adjusted margin for spacing */
-    /* color: #0000; */
-}
-
-body.dark .price {
-    font-size: 1.125rem; /* Adjusted font size */
-    font-weight: bold;
-    margin-bottom: 0.75rem; /* Adjusted margin for spacing */
-    color: #ffff;
 }
 
 .button-primary {
@@ -204,5 +169,31 @@ svg {
 
     .card {
         max-width: 100%; /* Full width on mobile */
+    }
+}
+
+@media (max-width: 420px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr); /* Two cards side by side */
+        gap: 8px; /* Adjusted gap for smaller screens */
+    }
+
+    header .title {
+        font-size: large; /* Adjust header title font size for very small mobile devices */
+    }
+}
+
+@media (max-width: 380px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr); /* Two cards side by side */
+        gap: 4px; /* Reduced gap for even smaller screens */
+    }
+
+    header .title {
+        font-size: medium; /* Further adjustment for very small mobile devices */
+    }
+
+    .card {
+        max-width: 100%;
     }
 }
