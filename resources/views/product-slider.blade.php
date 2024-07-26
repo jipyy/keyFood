@@ -11,68 +11,27 @@
                 <span>0</span>
             </div>
         </header>
+        <!-- Popular Bundle Pack Section -->
         <section id="popular-bundle-pack">
-            <!--heading-------------->
             <div class="product-heading">
                 <h3>Popular Bundle Pack</h3>
             </div>
-            <!--box-container------>
             <div class="product-container">
-                <!--box---------->
-                <div class="product-box">
-                    <img alt="pack" src="{{ asset('img/pack1.png') }}">
-                    <strong>Big Pack</strong>
-                    <span class="quantity">Lemone, Tamato, Patato,+4</span>
-                    <span class="price">9$</span>
-                    <!--cart-btn------->
-                    <a href="#" class="cart-btn">
-                        <i class="fas fa-shopping-bag"></i> Add Cart
-                    </a>
-                    <!--like-btn------->
-                    <a href="#" class="like-btn">
-                        <i class="far fa-heart"></i>
-                    </a>
-                </div>
-                <!--box---------->
-                <div class="product-box">
-                    <img alt="apple" src="{{ asset('img/pack2.jpg') }}">
-                    <strong>Large Pack</strong>
-                    <span class="quantity">Lemone, Tamato, Patato,+2</span>
-                    <span class="price">5$</span>
-                    <!--cart-btn------->
-                    <a href="#" class="cart-btn">
-                        <i class="fas fa-shopping-bag"></i> Add Cart
-                    </a>
-                    <!--like-btn------->
-                    <a href="#" class="like-btn">
-                        <i class="far fa-heart"></i>
-                    </a>
-                </div>
+                @foreach ($products as $product)
+                    <div class="product-box">
+                        <img alt="{{ $product->name }}" src="{{ asset($product->photo) }}">
+                        <strong>{{ $product->name }}</strong>
+                        <span class="quantity">Lemone, Tamato, Patato, +2</span>
+                        <span class="price">Rp {{ number_format($product->price, 0, ',', '.') }}</span>
+                        <a href="#" class="cart-btn">
+                            <i class="fas fa-shopping-bag"></i> Add Cart
+                        </a>
+                        <a href="#" class="like-btn">
+                            <i class="far fa-heart"></i>
+                        </a>
+                    </div>
+                @endforeach
             </div>
         </section>
-        <div class="grid-container">
-            @foreach ($products as $product)
-                <div class="card">
-                    <img class="w-full h-full object-cover" src="{{ asset($product->photo) }}" alt="{{ $product->name }}">
-                    <div class="p-3 flex flex-col gap-2">
-                        <div class="flex items-center gap-1">
-                            <span class="badge">stock ready</span>
-                            <span class="badge">official store</span>
-                        </div>
-                        <h2 class="product-title" title="{{ $product->name }}">{{ $product->name }}</h2>
-                        <div class="price">Rp {{ number_format($product->price, 0, ',', '.') }}</div>
-                        <div class="mt-3 flex gap-1 isi">
-                            <button class="button-primary">add to cart</button>
-                            <button class="button-icon small-button">
-                                <img class="icon-small" src="img/love.svg" alt="add to wishlist">
-                            </button>
-                            <button class="button-icon small-button">
-                                <img class="icon-small" src="img/eye.svg" alt="view details">
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-        </div>
     </section>
 @endsection
