@@ -31,6 +31,9 @@ Route::get('/contact-us', function () {
 Route::get('/faq', function () {
     return view('faq');
 });
+Route::get('/categories', function () {
+    return view('categories');
+});
 Route::get('/product-slider', function () {
     return view('product-slider');
 });
