@@ -18,7 +18,10 @@ class ProductController extends Controller
     public function index()
     {
         if (auth()->user()->can('productCRUD')) {
-            $products = Product::where('creator_id', Auth::id())->get();
+            // Mengambil 10 produk per halaman
+            $products = Product::where('creator_id', Auth::id())->paginate(2);
+
+            // Mengirim data produk ke view dengan pagination
             return view('seller.products.index', compact('products'));
         }
 
@@ -77,6 +80,7 @@ class ProductController extends Controller
     public function showProductSlider()
     {
         $products = Product::all()->shuffle();
+        $products = Product::paginate(5);
         return view('product-slider', compact('products'));
     }
 
