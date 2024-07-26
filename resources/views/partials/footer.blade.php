@@ -1,10 +1,24 @@
+{{-- <div>
+    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28"
+        preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+            <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+            <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+            <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+            <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+        </g>
+    </svg>
+</div> --}}
 <footer class="footer">
     <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div class="md:flex md:justify-between">
             <div class="mb-6 md:mb-0">
                 <a href="https://flowbite.com/" class="flex items-center">
-                    <img src="{{ asset('img/logos.svg') }}" class="h-8 me-3" alt="KeyFood Logo" />
                     <span class="self-center text-2xl font-semibold whitespace-nowrap text-gray-500">KeyFood</span>
+                    <img src="{{ asset('img/logos.svg') }}" class="h-8 me-2" alt="KeyFood Logo" />
                 </a>
             </div>
             <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-2">
@@ -29,7 +43,8 @@
                     <h2 class="mb-6 text-sm font-semibold text-gray-400 uppercase">Our Company</h2>
                     <ul class="text-gray-500 font-medium">
                         <li class="mb-4">
-                            <a href="https://maps.app.goo.gl/jPYA3x3XgB3pXWSYA" class="hover:underline ">KeyFood Company, <br> Keandra Regency, Cirebon,<br>  Jawa Barat, Indonesia<br> 45611</a>
+                            <a href="https://maps.app.goo.gl/jPYA3x3XgB3pXWSYA" class="hover:underline ">KeyFood
+                                Company, <br> Keandra Regency, Cirebon,<br> Jawa Barat, Indonesia<br> 45611</a>
                         </li>
                         <li class="mb-4">
                             <a href="mailto:andikasupriyadi27@gmail.com" class="hover:underline">keyfood @gmail.com</a>
@@ -94,4 +109,14 @@
             </div>
         </div>
     </div>
+    {{-- <div class="loop-wrapper">
+        <div class="mountain"></div>
+        <div class="hill"></div>
+        <div class="tree"></div>
+        <div class="tree"></div>
+        <div class="tree"></div>
+        <div class="rock"></div>
+        <div class="truck"></div>
+        <div class="wheels"></div>
+    </div> --}}
 </footer>

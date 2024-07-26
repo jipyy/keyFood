@@ -1,9 +1,9 @@
-<div x-data="{ isOpen: false }" @click.away="isOpen = false" class="relative inline-block" id="dropdown" class="hidden">
+<div x-data="{ isOpen: false }" @click.away="isOpen = false" class="relative inline-block" id="dropdown">
     <!-- Dropdown Button -->
     <button
         class="fixed-button flex h-12 w-12 items-center justify-center rounded-lg bg-slate-900 text-slate-100 ring-slate-100 transition hover:shadow-md hover:ring-2 overflow-hidden"
         @click="isOpen = !isOpen">
-        <img class="w-full object-cover" src="{{ asset('img/' . (Auth::user()->img ?? 'guest.png')) }}" alt="Profile">
+        <img class="w-full object-cover" src="{{ asset((Auth::user()->img ?? './img/guest.png')) }}" alt="Profile">
     </button>
 
     <!-- Dropdown Menu -->
@@ -15,7 +15,7 @@
                 <div class="flex gap-3 items-center">
                     <div
                         class="flex items-center justify-center rounded-lg h-12 w-12 overflow-hidden border-2 border-slate-600">
-                        <img class="w-full object-cover" src="{{ asset('img/' . (Auth::user()->img ?? 'guest.png')) }}"
+                        <img class="w-full object-cover" src="{{ asset((Auth::user()->img ?? './img/guest.png')) }}"
                             alt="Profile">
                     </div>
                     <div style="width: 100%">
@@ -92,7 +92,7 @@
             <i class="fa-solid fa-arrow-left back"></i>
         </button>
         <div class="profile-pic">
-            <img src="{{ asset('img/' . (Auth::user()->img ?? 'guest.png')) }}" alt="user avatar">
+            <img src="{{ asset((Auth::user()->img ?? '../img/guest.png')) }}" alt="user avatar">
         </div>
         <div class="profile-details">
             <div class="intro">
@@ -145,9 +145,14 @@
             <a href="{{ route('profile.edit') }}">
                 <button class="download-btn"><i class="fa fa-edit"></i> Edit Profile</button>
             </a>
-            {{-- <a href="{{ route('coba.edit') }}">
-                <button class="download-btn"><i class="fa fa-edit"></i> Edit Profile123</button>
-            </a> --}}
+            <form action="{{ route('profile.destroy') }}" method="POST" class="mt-6">
+                @csrf
+                @method('DELETE')
+                <button type="submit"
+                    class="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
+                    Delete Account
+                </button>
+            </form>
         </div>
     </div>
 </div>
