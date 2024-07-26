@@ -382,6 +382,10 @@ body.dark .search-box input{
     justify-content: space-between;
 }
 
+.logout{
+    margin-bottom: 30px;
+}
+
 .menu-bar .mode{
     position: relative;
     border-radius: 6px;

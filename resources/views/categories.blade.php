@@ -33,39 +33,20 @@
             <div class="category-container">
                 <!--box---------------->
                 <a href="#" class="category-box active">
-                    <img alt="Fish" src="{{ asset('img/fish.png') }}">
-                    <span>Fish & Meat</span>
+                    <img alt="Fish" src="{{ asset('img/icons/cookies.png') }}">
+                    <span>Makanan Manis</span>
                 </a>
                 <!--box---------------->
                 <a href="#" class="category-box">
-                    <img alt="Fish" src="{{ asset('img/Vegetables.png') }}">
-                    <span>Vegatbles</span>
+                    <img alt="Fish" src="{{ asset('img/icons/drink.png') }}">
+                    <span>Minuman</span>
                 </a>
                 <!--box---------------->
                 <a href="#" class="category-box">
-                    <img alt="Fish" src="{{ asset('img/medicine.png') }}">
-                    <span>Medicine</span>
+                    <img alt="Fish" src="{{ asset('img/icons/salad.png') }}">
+                    <span>Sayur-sayuran</span>
                 </a>
                 <!--box---------------->
-                <a href="#" class="category-box">
-                    <img alt="Fish" src="{{ asset('img/baby.png') }}">
-                    <span>Baby</span>
-                </a>
-                <!--box---------------->
-                <a href="#" class="category-box">
-                    <img alt="Fish" src="{{ asset('img/office.png') }}">
-                    <span>Office</span>
-                </a>
-                <!--box---------------->
-                <a href="#" class="category-box">
-                    <img alt="Fish" src="{{ asset('img/beauty.png') }}">
-                    <span>Beauty</span>
-                </a>
-                <!--box---------------->
-                <a href="#" class="category-box">
-                    <img alt="Fish" src="{{ asset('img/Gardening.png') }}">
-                    <span>Gardening</span>
-                </a>
             </div>
 
         </section>

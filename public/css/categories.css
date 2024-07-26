@@ -136,8 +136,8 @@ body.dark .search-boxs .search-btns{
     letter-spacing: 0.5px;
 }
 
-body.dark .category-heading h2,
-.product-heading h3,
+body.dark .category-heading h2, body.dark
+.product-heading h3, body.dark
 .partner-heading h3{
     color: #fafafa;
 }
@@ -146,6 +146,11 @@ body.dark .category-heading h2,
     color: #a7a7a7;
     font-weight: 400;
     letter-spacing: 1px;
+}
+
+body.dark .category-heading span,
+.product-heading span{
+    color: #393939;
 }
 .category-container{
     display: flex;

@@ -162,7 +162,7 @@
 
         @if (Auth::check())
             <div class="bottom-content">
-                <li class="">
+                <li class="logout">
                     <form method="POST" action="{{ route('logout') }}" style="display: flex">
                         @csrf
                         <a href="/logout"
