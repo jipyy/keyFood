@@ -332,7 +332,7 @@ body.dark .special__card img:hover{
   margin-inline: auto;
 }
 
-.chef__image::after {
+/* .chef__image::after {
   position: absolute;
   content: "";
   bottom: 0;
@@ -344,7 +344,7 @@ body.dark .special__card img:hover{
   background-color: var(--second-primary-color);
   border-radius: 100%;
   z-index: -1;
-}
+} */
 
 .chef__list {
   display: grid;

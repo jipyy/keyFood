@@ -112,11 +112,43 @@ button{
 	background: var(--dark-blue);
 }
 
-/* @media (max-width: 1200px){
-	.input-image{
-		display: block;
-		width: 50%;
-		align-items: center;
-		justify-content: center;
+/* Default styles for larger screens */
+.input-image {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 30%;
+	margin: 0 auto;
+  }
+  
+  .img-area {
+	text-align: center;
+  }
+  
+  .select-image {
+	margin-top: 10px;
+  }
+  
+  /* Medium screens (tablets) */
+  @media (max-width: 1200px) {
+	.input-image {
+	  width: 50%;
 	}
-} */
+  }
+  
+  /* Small screens (large phones) */
+  @media (max-width: 768px) {
+	.input-image {
+	  width: 70%;
+	}
+  }
+  
+  /* Extra small screens (small phones) */
+  @media (max-width: 480px) {
+	.input-image {
+	  width: 90%;
+	}
+  }
+  
+  

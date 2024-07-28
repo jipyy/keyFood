@@ -76,9 +76,9 @@
                     <a href="#" class="cart-btn">
                         <i class="fas fa-shopping-bag"></i> Add Cart
                     </a>
-                    <!--like-btn------->
-                    <a href="#" class="like-btn">
-                        <i class="far fa-heart"></i>
+                    <!--view-btn------->
+                    <a href="#" class="view-btn">
+                        <i class="far fa-eye"></i>
                     </a>
                 </div>
                 <!--box---------->
@@ -91,9 +91,9 @@
                     <a href="#" class="cart-btn">
                         <i class="fas fa-shopping-bag"></i> Add Cart
                     </a>
-                    <!--like-btn------->
-                    <a href="#" class="like-btn">
-                        <i class="far fa-heart"></i>
+                    <!--view-btn------->
+                    <a href="#" class="view-btn">
+                        <i class="far fa-eye"></i>
                     </a>
                 </div>
                 <!--box---------->
@@ -106,9 +106,9 @@
                     <a href="#" class="cart-btn">
                         <i class="fas fa-shopping-bag"></i> Add Cart
                     </a>
-                    <!--like-btn------->
-                    <a href="#" class="like-btn">
-                        <i class="far fa-heart"></i>
+                    <!--view-btn------->
+                    <a href="#" class="view-btn">
+                        <i class="far fa-eye"></i>
                     </a>
                 </div>
                 <!--box---------->
@@ -121,9 +121,9 @@
                     <a href="#" class="cart-btn">
                         <i class="fas fa-shopping-bag"></i> Add Cart
                     </a>
-                    <!--like-btn------->
-                    <a href="#" class="like-btn">
-                        <i class="far fa-heart"></i>
+                    <!--view-btn------->
+                    <a href="#" class="view-btn">
+                        <i class="far fa-eye"></i>
                     </a>
                 </div>
                 <!--box---------->
@@ -136,9 +136,9 @@
                     <a href="#" class="cart-btn">
                         <i class="fas fa-shopping-bag"></i> Add Cart
                     </a>
-                    <!--like-btn------->
-                    <a href="#" class="like-btn">
-                        <i class="far fa-heart"></i>
+                    <!--view-btn------->
+                    <a href="#" class="view-btn">
+                        <i class="far fa-eye"></i>
                     </a>
                 </div>
                 <!--box---------->
@@ -151,9 +151,9 @@
                     <a href="#" class="cart-btn">
                         <i class="fas fa-shopping-bag"></i> Add Cart
                     </a>
-                    <!--like-btn------->
-                    <a href="#" class="like-btn">
-                        <i class="far fa-heart"></i>
+                    <!--view-btn------->
+                    <a href="#" class="view-btn">
+                        <i class="far fa-eye"></i>
                     </a>
                 </div>
             </div>

@@ -1,8 +1,6 @@
 @extends('layouts.main')
 @section('container')
-    <header>
-        <h2>Checkout</h2>
-    </header>
+<section class="home" id="home">
     <main>
         <section class="checkout-form">
             <form action="#!" method="get">
@@ -114,4 +112,5 @@
         </section>
 
     </main>
+</section>
 @endsection
