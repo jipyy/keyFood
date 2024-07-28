@@ -79,10 +79,10 @@ class ProductController extends Controller
      */
     public function showProductSlider()
     {
-        $products = Product::all()->shuffle();
-        $products = Product::paginate(5);
+        $products = Product::inRandomOrder()->paginate(5);
         return view('product-slider', compact('products'));
     }
+
 
     /**
      * Show the form for editing the specified resource.
