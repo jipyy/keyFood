@@ -87,12 +87,8 @@
                             <li>1. Cari produk yang Anda inginkan.</li>
                             <li>2. Klik produk untuk melihat detailnya.</li>
                             <li>3. Klik "Tambah ke Keranjang" untuk memasukkan produk ke keranjang belanja Anda.</li>
-                            <li>4. Buka keranjang belanja Anda dan klik "Lanjutkan ke Pembayaran".</li>
-                            <li>5. Masukkan informasi pengiriman dan pilih metode pembayaran.</li>
-                            <li>6. Konfirmasi pesanan Anda.</li>
+                            <li>4. Buka keranjang belanja Anda dan klik "Checkout".</li>
                         </ul>
-
-
                     </p>
                 </div>
             </li>

@@ -1,8 +1,6 @@
 @extends('layouts.main')
 @section('container')
-    <header>
-        <h2>Checkout</h2>
-    </header>
+<section class="home" id="home">
     <main>
         <section class="checkout-form">
             <form action="#!" method="get">
@@ -78,7 +76,7 @@
         <section class="checkout-details">
             <div class="checkout-details-inner">
                 <div class="checkout-lists">
-                    <div class="card">
+                    <div class="card-product">
                         <div class="card-image"><img src="https://rvs-checkout-page.onrender.com/photo1.png" alt="">
                         </div>
                         <div class="card-details" data-counter-id="1">
@@ -91,7 +89,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card-product">
                         <div class="card-image"><img src="https://rvs-checkout-page.onrender.com/photo1.png" alt="">
                         </div>
                         <div class="card-details" data-counter-id="2">
@@ -114,4 +112,5 @@
         </section>
 
     </main>
+</section>
 @endsection

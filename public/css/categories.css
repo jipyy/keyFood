@@ -1,5 +1,5 @@
 /*==Search-Banner========================*/
-#search-banner{
+#search-banner{ 
     max-width: 1250px;
     height: 500px;
     border-radius: 30px;
@@ -301,7 +301,7 @@ body.dark .product-box .price{
     color: #ffffff;
     transition: all ease 0.3s;
 }
-.product-box .like-btn{
+.product-box .view-btn{
     position: absolute;
     right: 30px;
     top: 20px;
