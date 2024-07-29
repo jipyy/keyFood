@@ -24,7 +24,7 @@
 }
 
 body{
-    margin-left: 88px;
+    margin-left: 88px !important;
     /* width: calc(100vw - 120px); */
     height: 100vh;
     background: var(--body-color);

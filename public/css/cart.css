@@ -42,6 +42,7 @@
   background: #000;
 }
 .bottom-sheet .content {
+    margin-left: 90px;
     width: 100%;
     position: relative;
     background: rgba(255, 255, 255, 0.6); /* Semi-transparent background */
