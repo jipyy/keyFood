@@ -16,287 +16,105 @@
             </div>
         </div>
         <!-- produk produk -->
-        <div class="product-container">
-            <div class="card">
-                <img class="card-img" src="./img/headphone.jpg" alt="headphone">
-                <div class="card-content">
-                    <div class="badges">
-                        <span class="badge">stock ready</span>
-                        <span class="badge">official store</span>
-                    </div>
-                    <h2 class="product-title" title="best headphone">headphone</h2>
-                    <div class="product-price">
-                        <span class="current-price">Rp 100.000.000</span>
-                        <div class="price-details">
-                            <span class="old-price">Rp 500.000</span>
-                            <span class="discount-percent">save 20%</span>
-                        </div>
-                    </div>
-                    <div class="product-rating">
-                        <img src="./img/star.svg" alt="star">
-                        <img src="./img/star.svg" alt="star">
-                        <img src="./img/star.svg" alt="star">
-                        <img src="./img/star-half-fill.svg" alt="half star">
-                        <img src="./img/star-no-fill.svg" alt="no star">
-                        <span class="reviews">20k reviews</span>
-                    </div>
-                    <div class="product-actions">
-                        <button class="button-primary">add to cart</button>
-                        <button class="button-icon">
-                            <img src="./img/love.svg" alt="add to wishlist">
-                        </button>
-                        <button class="button-icon">
-                            <img src="./img/eye.svg" alt="view details">
-                        </button>
-                    </div>
+        <section id="popular-bundle-pack">
+            <!--heading-------------->
+            <div class="product-heading">
+                <h3>Popular Bundle Pack</h3>
+            </div>
+            <!--box-container------>
+            <div class="product-container">
+                <!--box---------->
+                <div class="product-box">
+                    <img alt="pack" src="{{ asset('img/pack1.png') }}">
+                    <strong>Big Pack</strong>
+                    <span class="quantity">Lemone, Tamato, Patato,+4</span>
+                    <span class="price">9$</span>
+                    <!--cart-btn------->
+                    <a href="#" class="cart-btn">
+                        <i class="fas fa-shopping-bag"></i> Add Cart
+                    </a>
+                    <!--view-btn------->
+                    <a href="#" class="view-btn">
+                        <i class="far fa-eye"></i>
+                    </a>
+                </div>
+                <!--box---------->
+                <div class="product-box">
+                    <img alt="apple" src="{{ asset('img/pack2.jpg') }}">
+                    <strong>Large Pack</strong>
+                    <span class="quantity">Lemone, Tamato, Patato,+2</span>
+                    <span class="price">5$</span>
+                    <!--cart-btn------->
+                    <a href="#" class="cart-btn">
+                        <i class="fas fa-shopping-bag"></i> Add Cart
+                    </a>
+                    <!--view-btn------->
+                    <a href="#" class="view-btn">
+                        <i class="far fa-eye"></i>
+                    </a>
+                </div>
+                <!--box---------->
+                <div class="product-box">
+                    <img alt="apple" src="{{ asset('img/pack3.png') }}">
+                    <strong>Small Pack</strong>
+                    <span class="quantity">Lemone, Tamato, Patato</span>
+                    <span class="price">3$</span>
+                    <!--cart-btn------->
+                    <a href="#" class="cart-btn">
+                        <i class="fas fa-shopping-bag"></i> Add Cart
+                    </a>
+                    <!--view-btn------->
+                    <a href="#" class="view-btn">
+                        <i class="far fa-eye"></i>
+                    </a>
+                </div>
+                <!--box---------->
+                <div class="product-box">
+                    <img alt="pack" src="{{ asset('img/pack1.png') }}">
+                    <strong>Big Pack</strong>
+                    <span class="quantity">Lemone, Tamato, Patato,+4</span>
+                    <span class="price">9$</span>
+                    <!--cart-btn------->
+                    <a href="#" class="cart-btn">
+                        <i class="fas fa-shopping-bag"></i> Add Cart
+                    </a>
+                    <!--view-btn------->
+                    <a href="#" class="view-btn">
+                        <i class="far fa-eye"></i>
+                    </a>
+                </div>
+                <!--box---------->
+                <div class="product-box">
+                    <img alt="apple" src="{{ asset('img/pack2.jpg') }}">
+                    <strong>Large Pack</strong>
+                    <span class="quantity">Lemone, Tamato, Patato,+2</span>
+                    <span class="price">5$</span>
+                    <!--cart-btn------->
+                    <a href="#" class="cart-btn">
+                        <i class="fas fa-shopping-bag"></i> Add Cart
+                    </a>
+                    <!--view-btn------->
+                    <a href="#" class="view-btn">
+                        <i class="far fa-eye"></i>
+                    </a>
+                </div>
+                <!--box---------->
+                <div class="product-box">
+                    <img alt="apple" src="{{ asset('img/pack3.png') }}">
+                    <strong>Small Pack</strong>
+                    <span class="quantity">Lemone, Tamato, Patato</span>
+                    <span class="price">3$</span>
+                    <!--cart-btn------->
+                    <a href="#" class="cart-btn">
+                        <i class="fas fa-shopping-bag"></i> Add Cart
+                    </a>
+                    <!--view-btn------->
+                    <a href="#" class="view-btn">
+                        <i class="far fa-eye"></i>
+                    </a>
                 </div>
             </div>
-
-            <div class="card">
-                <img class="card-img" src="./img/headphone.jpg" alt="headphone">
-                <div class="card-content">
-                    <div class="badges">
-                        <span class="badge">stock ready</span>
-                        <span class="badge">official store</span>
-                    </div>
-                    <h2 class="product-title" title="best headphone">headphone</h2>
-                    <div class="product-price">
-                        <span class="current-price">Rp 100.000.000</span>
-                        <div class="price-details">
-                            <span class="old-price">Rp 500.000</span>
-                            <span class="discount-percent">save 20%</span>
-                        </div>
-                    </div>
-                    <div class="product-rating">
-                        <img src="./img/star.svg" alt="star">
-                        <img src="./img/star.svg" alt="star">
-                        <img src="./img/star.svg" alt="star">
-                        <img src="./img/star-half-fill.svg" alt="half star">
-                        <img src="./img/star-no-fill.svg" alt="no star">
-                        <span class="reviews">20k reviews</span>
-                    </div>
-                    <div class="product-actions">
-                        <button class="button-primary">add to cart</button>
-                        <button class="button-icon">
-                            <img src="./img/love.svg" alt="add to wishlist">
-                        </button>
-                        <button class="button-icon">
-                            <img src="./img/eye.svg" alt="view details">
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <img class="card-img" src="./img/headphone.jpg" alt="headphone">
-                <div class="card-content">
-                    <div class="badges">
-                        <span class="badge">stock ready</span>
-                        <span class="badge">official store</span>
-                    </div>
-                    <h2 class="product-title" title="best headphone">headphone</h2>
-                    <div class="product-price">
-                        <span class="current-price">Rp 100.000.000</span>
-                        <div class="price-details">
-                            <span class="old-price">Rp 500.000</span>
-                            <span class="discount-percent">save 20%</span>
-                        </div>
-                    </div>
-                    <div class="product-rating">
-                        <img src="./img/star.svg" alt="star">
-                        <img src="./img/star.svg" alt="star">
-                        <img src="./img/star.svg" alt="star">
-                        <img src="./img/star-half-fill.svg" alt="half star">
-                        <img src="./img/star-no-fill.svg" alt="no star">
-                        <span class="reviews">20k reviews</span>
-                    </div>
-                    <div class="product-actions">
-                        <button class="button-primary">add to cart</button>
-                        <button class="button-icon">
-                            <img src="./img/love.svg" alt="add to wishlist">
-                        </button>
-                        <button class="button-icon">
-                            <img src="./img/eye.svg" alt="view details">
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <img class="card-img" src="./img/headphone.jpg" alt="headphone">
-                <div class="card-content">
-                    <div class="badges">
-                        <span class="badge">stock ready</span>
-                        <span class="badge">official store</span>
-                    </div>
-                    <h2 class="product-title" title="best headphone">headphone</h2>
-                    <div class="product-price">
-                        <span class="current-price">Rp 100.000.000</span>
-                        <div class="price-details">
-                            <span class="old-price">Rp 500.000</span>
-                            <span class="discount-percent">save 20%</span>
-                        </div>
-                    </div>
-                    <div class="product-rating">
-                        <img src="./img/star.svg" alt="star">
-                        <img src="./img/star.svg" alt="star">
-                        <img src="./img/star.svg" alt="star">
-                        <img src="./img/star-half-fill.svg" alt="half star">
-                        <img src="./img/star-no-fill.svg" alt="no star">
-                        <span class="reviews">20k reviews</span>
-                    </div>
-                    <div class="product-actions">
-                        <button class="button-primary">add to cart</button>
-                        <button class="button-icon">
-                            <img src="./img/love.svg" alt="add to wishlist">
-                        </button>
-                        <button class="button-icon">
-                            <img src="./img/eye.svg" alt="view details">
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <img class="card-img" src="./img/headphone.jpg" alt="headphone">
-                <div class="card-content">
-                    <div class="badges">
-                        <span class="badge">stock ready</span>
-                        <span class="badge">official store</span>
-                    </div>
-                    <h2 class="product-title" title="best headphone">headphone</h2>
-                    <div class="product-price">
-                        <span class="current-price">Rp 100.000.000</span>
-                        <div class="price-details">
-                            <span class="old-price">Rp 500.000</span>
-                            <span class="discount-percent">save 20%</span>
-                        </div>
-                    </div>
-                    <div class="product-rating">
-                        <img src="./img/star.svg" alt="star">
-                        <img src="./img/star.svg" alt="star">
-                        <img src="./img/star.svg" alt="star">
-                        <img src="./img/star-half-fill.svg" alt="half star">
-                        <img src="./img/star-no-fill.svg" alt="no star">
-                        <span class="reviews">20k reviews</span>
-                    </div>
-                    <div class="product-actions">
-                        <button class="button-primary">add to cart</button>
-                        <button class="button-icon">
-                            <img src="./img/love.svg" alt="add to wishlist">
-                        </button>
-                        <button class="button-icon">
-                            <img src="./img/eye.svg" alt="view details">
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <img class="card-img" src="./img/headphone.jpg" alt="headphone">
-                <div class="card-content">
-                    <div class="badges">
-                        <span class="badge">stock ready</span>
-                        <span class="badge">official store</span>
-                    </div>
-                    <h2 class="product-title" title="best headphone">headphone</h2>
-                    <div class="product-price">
-                        <span class="current-price">Rp 100.000.000</span>
-                        <div class="price-details">
-                            <span class="old-price">Rp 500.000</span>
-                            <span class="discount-percent">save 20%</span>
-                        </div>
-                    </div>
-                    <div class="product-rating">
-                        <img src="./img/star.svg" alt="star">
-                        <img src="./img/star.svg" alt="star">
-                        <img src="./img/star.svg" alt="star">
-                        <img src="./img/star-half-fill.svg" alt="half star">
-                        <img src="./img/star-no-fill.svg" alt="no star">
-                        <span class="reviews">20k reviews</span>
-                    </div>
-                    <div class="product-actions">
-                        <button class="button-primary">add to cart</button>
-                        <button class="button-icon">
-                            <img src="./img/love.svg" alt="add to wishlist">
-                        </button>
-                        <button class="button-icon">
-                            <img src="./img/eye.svg" alt="view details">
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <img class="card-img" src="./img/headphone.jpg" alt="headphone">
-                <div class="card-content">
-                    <div class="badges">
-                        <span class="badge">stock ready</span>
-                        <span class="badge">official store</span>
-                    </div>
-                    <h2 class="product-title" title="best headphone">headphone</h2>
-                    <div class="product-price">
-                        <span class="current-price">Rp 100.000.000</span>
-                        <div class="price-details">
-                            <span class="old-price">Rp 500.000</span>
-                            <span class="discount-percent">save 20%</span>
-                        </div>
-                    </div>
-                    <div class="product-rating">
-                        <img src="./img/star.svg" alt="star">
-                        <img src="./img/star.svg" alt="star">
-                        <img src="./img/star.svg" alt="star">
-                        <img src="./img/star-half-fill.svg" alt="half star">
-                        <img src="./img/star-no-fill.svg" alt="no star">
-                        <span class="reviews">20k reviews</span>
-                    </div>
-                    <div class="product-actions">
-                        <button class="button-primary">add to cart</button>
-                        <button class="button-icon">
-                            <img src="./img/love.svg" alt="add to wishlist">
-                        </button>
-                        <button class="button-icon">
-                            <img src="./img/eye.svg" alt="view details">
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <img class="card-img" src="./img/headphone.jpg" alt="headphone">
-                <div class="card-content">
-                    <div class="badges">
-                        <span class="badge">stock ready</span>
-                        <span class="badge">official store</span>
-                    </div>
-                    <h2 class="product-title" title="best headphone">headphone</h2>
-                    <div class="product-price">
-                        <span class="current-price">Rp 100.000.000</span>
-                        <div class="price-details">
-                            <span class="old-price">Rp 500.000</span>
-                            <span class="discount-percent">save 20%</span>
-                        </div>
-                    </div>
-                    <div class="product-rating">
-                        <img src="./img/star.svg" alt="star">
-                        <img src="./img/star.svg" alt="star">
-                        <img src="./img/star.svg" alt="star">
-                        <img src="./img/star-half-fill.svg" alt="half star">
-                        <img src="./img/star-no-fill.svg" alt="no star">
-                        <span class="reviews">20k reviews</span>
-                    </div>
-                    <div class="product-actions">
-                        <button class="button-primary">add to cart</button>
-                        <button class="button-icon">
-                            <img src="./img/love.svg" alt="add to wishlist">
-                        </button>
-                        <button class="button-icon">
-                            <img src="./img/eye.svg" alt="view details">
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
+        </section>
 
     </section>
 @endsection
