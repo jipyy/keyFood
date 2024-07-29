@@ -37,7 +37,7 @@
             </div>
         </div>
 
-        <div class="box" id="rounded-rect">
+        <div class="box-container" id="rounded-rect">
             <div class="content">
                 <section class="section__container header__container" id="home">
                     <div class="header__image">
