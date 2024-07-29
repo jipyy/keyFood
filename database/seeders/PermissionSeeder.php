@@ -26,7 +26,7 @@ class PermissionSeeder extends Seeder
             ['name' => 'seller',],
             ['name' => 'seller',]
         );
-        
+
         $buyerRole = Role::updateOrCreate(
             ['name' => 'buyer',],
             ['name' => 'buyer',]
@@ -54,7 +54,7 @@ class PermissionSeeder extends Seeder
 
 
 
-       
+
 
         $adminRole->givePermissionTo($permission);
         $adminRole->givePermissionTo($permission2);
@@ -62,7 +62,7 @@ class PermissionSeeder extends Seeder
         $sellerRole->givePermissionTo($permission4);
 
         //Menmbahkan manual kepada id user role tertentu
-        $user = User::find(1);
-        $user->assignRole($adminRole);
+        $user = User::find(2);
+        $user->assignRole($sellerRole);
     }
 }

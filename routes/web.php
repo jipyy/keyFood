@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\ProductOrderController;
 use App\Http\Controllers\Auth\SocialiteController;
@@ -156,4 +157,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/edit-profile', [UserProfileController::class, 'edit'])->name('profile.edit');
     Route::post('/edit-profile', [UserProfileController::class, 'update'])->name('profile.update');
     Route::delete('/edit-profile', [UserProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/checkout', [CheckoutController::class, 'showCheckoutDetails'])->name('checkout.details');
 });
