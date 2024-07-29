@@ -10,6 +10,11 @@
     box-sizing: border-box;
 }
 
+body.dark .store-header{
+    background-color: #232323;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
 .store-info {
     display: flex;
     align-items: center;
@@ -26,10 +31,20 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow pada logo */
 }
 
+body.dark .store-logo{
+    background-color: #000;
+    border: 2px solid lightblue; /* Border biru di sekeliling logo */
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1); /* Shadow pada logo */
+}
+
 .store-text h1 {
     font-size: 24px;
     margin: 0;
     color: #333;
+}
+
+body.dark .store-text h1{
+    color: #ddd;
 }
 
 .store-text h2 {
@@ -38,11 +53,19 @@
     color: #777;
 }
 
+body.dark .store-text h2{
+    color: whitesmoke;
+}
+
 .store-description p {
     margin: 0;
     font-size: 14px;
     color: #555;
     line-height: 1.8;
+}
+
+body.dark .store-description p{
+    color: whitesmoke;
 }
 
 /* Product container styles */
