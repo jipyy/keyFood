@@ -274,7 +274,7 @@ body.dark .clock__date {
 }
 
 
-.box {
+.box-container {
   width: 100%;
   position: sticky;
   margin-top: 600px;
@@ -295,7 +295,7 @@ body.dark .clock__date {
 }
 
 
-body.dark .box {
+body.dark .box-container {
   width: 100%;
   position: sticky;
   margin-top: 600px;
@@ -340,14 +340,14 @@ body.dark .content {
 /* BOX */
 
 @media (max-width: 768px) {
-  .box {
+  .box-container {
     background: white;
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
     margin-top: 650px;
   }
 
-  body.dark .box {
+  body.dark .box-container {
     background-color: #1f1f1f;
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
@@ -365,12 +365,12 @@ body.dark .content {
 
 @media (min-width:1024px) {
 
-  .box {
+  .box-container {
     margin-top: 600px;
     background-color: #fff;
   }
 
-  body.dark .box {
+  body.dark .box-container {
     background-color: #1f1f1f;
     margin-top: 600px;
 
