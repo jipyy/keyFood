@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('container')
-<section class="home" id="home">
+<section class="" id="home">
     <main>
         <section class="checkout-form">
             <form action="#!" method="get">
