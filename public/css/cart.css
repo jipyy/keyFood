@@ -133,3 +133,72 @@
     line-height: 1; /* Ensure line height does not affect vertical alignment */
     color: black; /* Text color */
 }
+
+/* For tablets and smaller devices */
+@media (max-width: 768px) {
+    .bottom-sheet .content {
+      width: 90%; /* Adjust width for smaller screens */
+      height: 60vh; /* Slightly larger height for smaller screens */
+      margin-left: 0; /* Remove left margin */
+      padding: 15px; /* Reduce padding */
+    }
+  
+    .bottom-sheet .body h2 {
+      font-size: 1.5rem; /* Smaller heading size */
+    }
+  
+    .bottom-sheet .body p {
+      font-size: 0.9rem; /* Smaller paragraph size */
+    }
+  }
+  
+  /* For mobile phones */
+  @media (max-width: 480px) {
+    .bottom-sheet .content {
+      height: 70vh; /* Increase height to better fit mobile screens */
+      padding: 10px; /* Further reduce padding */
+    }
+  
+    .bottom-sheet .body h2 {
+      font-size: 1.2rem; /* Smaller heading size for mobile */
+    }
+  
+    .bottom-sheet .body p {
+      font-size: 0.85rem; /* Smaller paragraph size for mobile */
+    }
+  }
+
+  /* For tablets and smaller devices */
+@media (max-width: 768px) {
+    .bottom-sheet .content {
+      width: 90%; /* Adjust width for smaller screens */
+      height: 60vh; /* Slightly larger height for smaller screens */
+      margin-left: 0; /* Remove left margin */
+      padding: 15px; /* Reduce padding */
+    }
+  
+    .bottom-sheet .body h2 {
+      font-size: 1.5rem; /* Smaller heading size */
+    }
+  
+    .bottom-sheet .body p {
+      font-size: 0.9rem; /* Smaller paragraph size */
+    }
+  }
+  
+  /* For mobile phones */
+  @media (max-width: 480px) {
+    .bottom-sheet .content {
+      height: 70vh; /* Increase height to better fit mobile screens */
+      padding: 10px; /* Further reduce padding */
+    }
+  
+    .bottom-sheet .body h2 {
+      font-size: 1.2rem; /* Smaller heading size for mobile */
+    }
+  
+    .bottom-sheet .body p {
+      font-size: 0.85rem; /* Smaller paragraph size for mobile */
+    }
+  }
+  

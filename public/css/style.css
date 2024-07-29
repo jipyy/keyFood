@@ -44,7 +44,7 @@ body.dark{
 
 @media (max-width: 700px) {
     body{
-        margin-left: 0;
+        margin-left: 0 !important;
         width: 100vw;
         height: 100vh;
         background: var(--body-color);
@@ -84,7 +84,7 @@ body.dark{
 
 @media (max-width: 800px) {
     body{
-        margin-left: 0;
+        margin-left: 0 !important;
         width: 100vw;
         height: 100vh;
         background: var(--body-color);
@@ -124,7 +124,7 @@ body.dark{
 
 @media (max-width: 850px) {
     body{
-        margin-left: 0;
+        margin-left: 0 !important;
         width: 100vw;
         height: 100vh;
         background: var(--body-color);
