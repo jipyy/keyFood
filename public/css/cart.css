@@ -128,36 +128,47 @@ body.dark .bottom-sheet .body p {
 }
 
 .icon-cart {
-    color: black;
-    position: sticky;
-    bottom: 150px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 200px; /* Set the desired width for the rectangle */
-    height: 50px; /* Set the desired height for the rectangle */
-    border-radius: 30px; /* Rounded corners */
-    background: rgba(255, 255, 255, 0.6); /* Semi-transparent background */
-    backdrop-filter: blur(10px); /* Blur effect */
-    -webkit-backdrop-filter: blur(10px); /* Safari support */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Pronounced shadow effect */
-    display: flex; /* Use flexbox for content alignment */
-    justify-content: center; /* Center content horizontally */
-    align-items: center; /* Center content vertically */
-    padding: 10px; /* Optional: add some padding */
-    box-sizing: border-box; /* Ensure padding does not affect size */
+  color: black;
+  position: sticky;
+  bottom: 150px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 50px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  display: none; /* Initially hidden */
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  box-sizing: border-box;
+  opacity: 0;
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+  transform: translateY(100px); /* Start from below */
+}
+
+.icon-cart.show {
+  display: flex; /* Show element */
+  opacity: 1;
+  transform: translateY(0); /* Move to original position */
 }
 
 .icon-cart svg {
-    width: 24px; /* Adjust the icon width */
-    height: 24px; /* Adjust the icon height */
-    margin-right: 8px; /* Space between icon and text */
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
 }
 
 .icon-cart span {
-    font-size: 16px; /* Adjust the text size */
-    line-height: 1; /* Ensure line height does not affect vertical alignment */
-    color: black; /* Text color */
+  font-size: 16px;
+  line-height: 1;
+  color: black;
 }
+
 
 /* For tablets and smaller devices */
 @media (max-width: 768px) {
