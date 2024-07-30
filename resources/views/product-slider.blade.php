@@ -13,7 +13,7 @@
                         <strong>{{ $product->name }}</strong>
                         <span class="quantity">Lemone, Tamato, Patato, +2</span>
                         <span class="price">Rp {{ number_format($product->price, 0, ',', '.') }}</span>
-                        <a href="#" class="cart-btn">
+                        <a href="#" data-product-id="{{ $product->id }}"class="cart-btn">
                             <i class="fas fa-shopping-bag"></i> Add Cart
                         </a>
                         <a href="#" class="like-btn">
