@@ -20,7 +20,7 @@
                         Shopping Cart
                     </h2>
                     {{-- card1 --}}
-                    <div class="rounded-3xl border-2 border-gray-200 p-4 lg:p-8 grid grid-cols-12 mb-8 max-lg:max-w-lg max-lg:mx-auto gap-y-4 cards" data-counter-id="1">
+                    <div class="rounded-3xl border-2 border-gray-200 p-4 lg:p-8 grid grid-cols-12 mb-8 max-lg:max-w-lg max-lg:mx-auto gap-y-4 cards">
                         <div class="col-span-12 lg:col-span-2 img box">
                             <img src="https://pagedone.io/asset/uploads/1701162826.png" alt="speaker image" class="max-lg:w-full lg:w-[180px] rounded-lg">
                         </div>
@@ -44,20 +44,20 @@
                                             <path d="M4.5 9.5H13.5" stroke="" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
                                     </button>
-                                    <input type="text" id="quantity" class="quantity border border-gray-200 rounded-full w-10 aspect-square outline-none text-gray-900 font-semibold text-sm py-1.5 px-3 bg-gray-100 text-center" value="1" data-count="1">
+                                    <input type="text" id="quantity" class="quantity border border-gray-200 rounded-full w-10 aspect-square outline-none text-gray-900 font-semibold text-sm py-1.5 px-3 bg-gray-100 text-center" value="1">
                                     <button class="add group rounded-[50px] border border-gray-200 shadow-sm shadow-transparent p-2.5 flex items-center justify-center bg-white transition-all duration-500 hover:shadow-gray-200 hover:bg-gray-50 hover:border-gray-300 focus-within:outline-gray-300">
                                         <svg class="stroke-gray-900 transition-all duration-500 group-hover:stroke-black" width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M3.75 9.5H14.25M9 14.75V4.25" stroke="" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
                                     </button>
                                 </div>
-                                <h6 class="text-indigo-600 font-manrope font-bold text-2xl leading-9 text-right price" data-price="2000">$220</h6>
+                                <h6 class="text-indigo-600 font-manrope font-bold text-2xl leading-9 text-right price" >$220</h6>
                             </div>
                         </div>
                     </div>
                     
                     <!-- card2 -->
-                    <div class="rounded-3xl border-2 border-gray-200 p-4 lg:p-8 grid grid-cols-12 mb-8 max-lg:max-w-lg max-lg:mx-auto gap-y-4" data-counter-id="2">
+                    <div class="rounded-3xl border-2 border-gray-200 p-4 lg:p-8 grid grid-cols-12 mb-8 max-lg:max-w-lg max-lg:mx-auto gap-y-4">
                         <div class="col-span-12 lg:col-span-2 img box">
                             <img src="https://pagedone.io/asset/uploads/1701162839.png" alt="speaker image" class="max-lg:w-full lg:w-[180px] rounded-lg">
                         </div>
@@ -88,7 +88,7 @@
                                         </svg>
                                     </button>
                                 </div>
-                                <h6 class="text-indigo-600 font-manrope font-bold text-2xl leading-9 text-right price" data-price="2000">$220</h6>
+                                <h6 class="text-indigo-600 font-manrope font-bold text-2xl leading-9 text-right price" >$220</h6>
                             </div>
                         </div>
                     </div>
@@ -115,71 +115,6 @@
 </div>
 </div>
 </div>
-
-{{-- <script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Fungsi untuk memformat harga dalam mata uang rupiah
-    const formatRupiah = (amount) => {
-        return `Rp${amount.toLocaleString('id-ID', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`;
-    };
-
-    // Fungsi untuk memperbarui nilai input counter dan total harga
-    const updateCounterAndTotal = (card) => {
-        const quantityInput = card.querySelector('.quantity');
-        const addButton = card.querySelector('.add');
-        const subtractButton = card.querySelector('.subtract');
-        const priceElement = card.querySelector('.price');
-        const cardId = card.getAttribute('data-counter-id');
-        const price = parseFloat(priceElement.getAttribute('data-price'));
-
-        // Memuat data dari localStorage
-        const savedQuantity = localStorage.getItem(`product-${cardId}`);
-        if (savedQuantity !== null) {
-            quantityInput.value = parseInt(savedQuantity) || 0;
-        } else {
-            quantityInput.value = 0;
-        }
-
-        const updateTotal = () => {
-            const total = Array.from(document.querySelectorAll('[data-counter-id]')).reduce((acc, card) => {
-                const quantity = parseInt(card.querySelector('.quantity').value) || 0;
-                const price = parseFloat(card.querySelector('.price').getAttribute('data-price'));
-                return acc + (quantity * price);
-            }, 0);
-            document.querySelector('.total').textContent = formatRupiah(total);
-        };
-
-        const saveToLocalStorage = () => {
-            localStorage.setItem(`product-${cardId}`, quantityInput.value);
-        };
-
-        addButton.addEventListener('click', () => {
-            quantityInput.value = (parseInt(quantityInput.value) || 0) + 1;
-            saveToLocalStorage();
-            updateTotal();
-        });
-
-        subtractButton.addEventListener('click', () => {
-            const currentQuantity = parseInt(quantityInput.value) || 0;
-            if (currentQuantity > 1) {
-                quantityInput.value = currentQuantity - 1;
-                saveToLocalStorage();
-                updateTotal();
-            }
-        });
-
-        // Initial total update
-        updateTotal();
-    };
-
-    // Loop melalui setiap kartu dengan data-counter-id yang berbeda
-    document.querySelectorAll('[data-counter-id]').forEach(card => {
-        updateCounterAndTotal(card);
-    });
-    console.log(localStorage.getItem(`product-${cardId}`, quantityInput.value));
-});
-</script> --}}
-
 
     
     

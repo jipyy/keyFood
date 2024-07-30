@@ -17,9 +17,6 @@
                         <a href="#" class="cart-btn" data-product-id="{{ $product->id }}">
                             <i class="fas fa-shopping-bag"></i> Add Cart
                         </a>
-                        <a href="#" class="like-btn">
-                            <i class="far fa-heart"c></i>
-                        </a>
                     </div>
                 @endforeach
             </div>
