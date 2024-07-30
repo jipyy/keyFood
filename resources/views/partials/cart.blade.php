@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('[data-counter-id]').forEach(card => {
         updateCounterAndTotal(card);
     });
-    
+    console.log(localStorage.getItem(`product-${cardId}`, quantityInput.value));
 });
 </script> --}}
 
