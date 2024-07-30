@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('name');
             $table->string('slug');
             $table->string('photo');
-            $table->string('quantity');
             $table->unsignedBigInteger('price');
             $table->foreignId('category_id')->constrained()->onDelete('cascade');
             $table->foreignId('creator_id')->constrained('users')->onDelete('cascade'); // Menambahkan kolom creator_id

@@ -158,17 +158,16 @@ body.dark .bottom-sheet .body p {
 }
 
 .icon-cart svg {
-  width: 24px;
-  height: 24px;
-  margin-right: 8px;
+    width: 24px; /* Adjust the icon width */
+    height: 24px; /* Adjust the icon height */
+    margin-right: 8px; /* Space between icon and text */
 }
 
 .icon-cart span {
-  font-size: 16px;
-  line-height: 1;
-  color: black;
+    font-size: 16px; /* Adjust the text size */
+    line-height: 1; /* Ensure line height does not affect vertical alignment */
+    color: black; /* Text color */
 }
-
 
 /* For tablets and smaller devices */
 @media (max-width: 768px) {
