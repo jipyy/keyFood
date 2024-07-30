@@ -93,6 +93,7 @@
                         </div>
                     </div>
                     
+                    
                     <div class="flex flex-col md:flex-row items-center md:items-center justify-between lg:px-6 pb-6 border-b border-gray-200 max-lg:max-w-lg max-lg:mx-auto">
                         <h5 class="text-gray-900 font-manrope font-semibold text-2xl leading-9 w-full max-md:text-center max-md:mb-4">Subtotal</h5>
                         <div class="flex items-center justify-between gap-5 ">
