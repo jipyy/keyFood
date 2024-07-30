@@ -129,7 +129,7 @@ body.dark .bottom-sheet .body p {
 
 .icon-cart {
     color: black;
-    position: absolute;
+    position: sticky;
     bottom: 150px;
     left: 50%;
     transform: translateX(-50%);

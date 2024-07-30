@@ -157,6 +157,26 @@
                     </a>
                 </div>
             </div>
+            {{-- detail container --}}
+
         </section>
+        <!-- Modal Structure -->
+        <div id="product-modal" class="product-modal">
+            <div class="product-modal-content">
+                <div class="product-box">
+                    <span class="product-modal-close">&times;</span>
+                    <!-- Tambahkan konten modal di sini -->
+                    <img id="modal-image" src="{{ asset('img/pack1.png') }}" alt="Product Image">
+                    <strong>Big Pack</strong>
+                    <span class="quantity">Lemone, Tamato, Patato,+4</span>
+                    <span class="price">9$</span>
+                    <!--cart-btn------->
+                    <a href="#" class="cart-btn">
+                        <i class="fas fa-shopping-bag"></i> Add Cart
+                    </a>
+                </div>
+            </div>
+        </div>
+
     </section>
 @endsection
