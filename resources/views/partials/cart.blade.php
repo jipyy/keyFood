@@ -20,7 +20,7 @@
                         Shopping Cart
                     </h2>
                     {{-- card1 --}}
-                    <div class="rounded-3xl border-2 border-gray-200 p-4 lg:p-8 grid grid-cols-12 mb-8 max-lg:max-w-lg max-lg:mx-auto gap-y-4 cards" data-counter-id="1">
+                    <div class="rounded-3xl border-2 border-gray-200 p-4 lg:p-8 grid grid-cols-12 mb-8 max-lg:max-w-lg max-lg:mx-auto gap-y-4 cards" data-counter-id="4">
                         <div class="col-span-12 lg:col-span-2 img box">
                             <img src="https://pagedone.io/asset/uploads/1701162826.png" alt="speaker image" class="max-lg:w-full lg:w-[180px] rounded-lg">
                         </div>
@@ -57,7 +57,7 @@
                     </div>
                     
                     <!-- card2 -->
-                    <div class="rounded-3xl border-2 border-gray-200 p-4 lg:p-8 grid grid-cols-12 mb-8 max-lg:max-w-lg max-lg:mx-auto gap-y-4" data-counter-id="2">
+                    <div class="rounded-3xl border-2 border-gray-200 p-4 lg:p-8 grid grid-cols-12 mb-8 max-lg:max-w-lg max-lg:mx-auto gap-y-4" data-counter-id="5">
                         <div class="col-span-12 lg:col-span-2 img box">
                             <img src="https://pagedone.io/asset/uploads/1701162839.png" alt="speaker image" class="max-lg:w-full lg:w-[180px] rounded-lg">
                         </div>
@@ -180,6 +180,99 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script> --}}
 
-
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Fungsi untuk memformat harga dalam mata uang rupiah
+        const formatRupiah = (amount) => {
+            return `Rp${amount.toLocaleString('id-ID', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`;
+        };
     
+        // Fungsi untuk memuat data keranjang dari Local Storage
+        const getCartData = () => JSON.parse(localStorage.getItem('cart')) || {};
+    
+        // Fungsi untuk menyimpan data keranjang ke Local Storage
+        const saveCartData = (cart) => localStorage.setItem('cart', JSON.stringify(cart));
+    
+        // Fungsi untuk memperbarui total harga
+        const updateTotal = () => {
+            const total = Array.from(document.querySelectorAll('[data-counter-id]')).reduce((acc, card) => {
+                const quantity = parseInt(card.querySelector('.quantity').value) || 0;
+                const price = parseFloat(card.querySelector('.price').getAttribute('data-price'));
+                return acc + (quantity * price);
+            }, 0);
+            document.querySelector('.total').textContent = formatRupiah(total);
+        };
+    
+        // Fungsi untuk memperbarui nilai input counter dan menyimpan ke Local Storage
+        const updateCounterAndTotal = (card) => {
+            const quantityInput = card.querySelector('.quantity');
+            const addButton = card.querySelector('.add');
+            const subtractButton = card.querySelector('.subtract');
+            const priceElement = card.querySelector('.price');
+            const cardId = card.getAttribute('data-counter-id');
+    
+            // Memuat data dari localStorage
+            const cart = getCartData();
+            const savedQuantity = cart[cardId] || 0;
+            quantityInput.value = savedQuantity;
+    
+            // Fungsi untuk menyimpan data ke Local Storage
+            const saveToLocalStorage = () => {
+                const cart = getCartData();
+                cart[cardId] = parseInt(quantityInput.value) || 0;
+                saveCartData(cart);
+                updateTotal(); // Memperbarui total harga setiap kali data disimpan
+            };
+    
+            // Event listener untuk tombol tambah
+            addButton.addEventListener('click', () => {
+                quantityInput.value = (parseInt(quantityInput.value) || 0) + 1;
+                saveToLocalStorage();
+            });
+    
+            // Event listener untuk tombol kurangi
+            subtractButton.addEventListener('click', () => {
+                const currentQuantity = parseInt(quantityInput.value) || 0;
+                if (currentQuantity > 1) {
+                    quantityInput.value = currentQuantity - 1;
+                    saveToLocalStorage();
+                }
+            });
+    
+            // Menangani perubahan manual dari input quantity
+            quantityInput.addEventListener('input', () => {
+                const currentQuantity = parseInt(quantityInput.value) || 0;
+                if (currentQuantity >= 0) { // Menghindari nilai negatif
+                    saveToLocalStorage();
+                }
+            });
+        };
+    
+        // Fungsi untuk memperbarui semua elemen card yang ada
+        const initializeCart = () => {
+            document.querySelectorAll('[data-counter-id]').forEach(card => {
+                updateCounterAndTotal(card);
+            });
+        };
+    
+        // Inisialisasi halaman cart
+        initializeCart();
+    
+        // Menangani perubahan langsung dari Local Storage
+        window.addEventListener('storage', (event) => {
+            if (event.key === 'cart') {
+                initializeCart(); // Perbarui cart ketika ada perubahan di Local Storage
+            }
+        });
+    
+        // Debugging: Menampilkan data keranjang dari LocalStorage
+        console.log('Cart Data:', JSON.stringify(getCartData()));
+    });
+    </script>
+    
+    
+
+
+
+
     
