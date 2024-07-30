@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Update cart count and display icon if there are items in cart
     function updateCartDisplay() {
         const cart = getCartData();
-        const cartCount = Object.values(cart).reduce((total, item) => total + item.quantity, 0);
+        const cartCount = Object.values(cart).reduce((total, qty) => total + qty, 0);
         cartCountSpan.textContent = cartCount;
         if (cartCount > 0) {
             iconCart.classList.add('show');
@@ -93,9 +93,9 @@ document.addEventListener('DOMContentLoaded', function () {
             const productId = this.getAttribute('data-product-id');
             let cart = getCartData();
             if (cart[productId]) {
-                cart[productId].quantity++;
+                cart[productId]++;
             } else {
-                cart[productId] = { quantity: 1 };
+                cart[productId] = 1;
             }
             saveCartData(cart);
             updateCartDisplay();
