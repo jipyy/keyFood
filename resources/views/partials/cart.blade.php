@@ -1,3 +1,4 @@
+
 <div class="icon-cart show-modal">
     <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -114,7 +115,7 @@
 </div>
 </div>
 
-<script>
+{{-- <script>
 document.addEventListener('DOMContentLoaded', function() {
     // Fungsi untuk memformat harga dalam mata uang rupiah
     const formatRupiah = (amount) => {
@@ -176,7 +177,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     console.log(localStorage.getItem(`product-${cardId}`, quantityInput.value));
 });
-</script>
+</script> --}}
 
 
     

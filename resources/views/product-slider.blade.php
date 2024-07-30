@@ -9,19 +9,21 @@
             <div class="product-container">
                 @foreach ($products as $product)
                     <div class="product-box">
+                        <span hidden>{{ $product->id }}</span>
                         <img alt="{{ $product->name }}" src="{{ asset($product->photo) }}">
                         <strong>{{ $product->name }}</strong>
-                        <span class="quantity">Lemone, Tamato, Patato, +2</span>
+                        <span class="quantity"></span>
                         <span class="price">Rp {{ number_format($product->price, 0, ',', '.') }}</span>
-                        <a href="#" data-product-id="{{ $product->id }}"class="cart-btn">
+                        <a href="#" class="cart-btn" data-product-id="{{ $product->id }}">
                             <i class="fas fa-shopping-bag"></i> Add Cart
                         </a>
                         <a href="#" class="like-btn">
-                            <i class="far fa-heart"></i>
+                            <i class="far fa-heart"c></i>
                         </a>
                     </div>
                 @endforeach
             </div>
+
         @include('partials.cart')
             <div class="pagination">
                 {{-- Menampilkan link pagination --}}
