@@ -72,7 +72,7 @@
                         <strong>{{ $product->name }}</strong>
                         <span class="quantity">{{ $product->quantity }}</span>
                         <span class="price">Rp {{ number_format($product->price, 0, ',', '.') }}</span>
-                        <a href="#" class="cart-btn">
+                        <a href="javascript:void(0)" data-product-id="{{ $product->id }}" class="cart-btn">
                             <i class="fas fa-shopping-bag"></i> Add Cart
                         </a>
                         <a href="#" class="view-btn">
@@ -81,7 +81,7 @@
                     </div>
                 @endforeach
             </div>
-            
+
             @include('partials.cart')
             <div class="pagination">
                 {{ $products->links() }}
