@@ -81,7 +81,10 @@
                     </div>
                 @endforeach
             </div>
-            <!-- Pagination Links -->
-            {{ $products->links() }}
+            
+            @include('partials.cart')
+            <div class="pagination">
+                {{ $products->links() }}
+            </div>
         </section>
     @endsection
