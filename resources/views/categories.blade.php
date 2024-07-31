@@ -66,117 +66,22 @@
             </div>
             <!--box-container------>
             <div class="product-container">
-                <!--box---------->
-                <div class="product-box" data-category="Minuman">
-                    <img alt="pack" src="{{ asset('img/pack1.png') }}">
-                    <strong>Big Pack</strong>
-                    <span class="quantity">Lemone, Tamato, Patato,+4</span>
-                    <span class="price">9$</span>
-                    <!--cart-btn------->
-                    <a href="#" class="cart-btn">
-                        <i class="fas fa-shopping-bag"></i> Add Cart
-                    </a>
-                    <!--view-btn------->
-                    <a href="#" class="view-btn">
-                        <i class="far fa-eye"></i>
-                    </a>
-                </div>
-                <!--box---------->
-                <div class="product-box" data-category="Makanan Asin">
-                    <img alt="apple" src="{{ asset('img/pack2.jpg') }}">
-                    <strong>Large Pack</strong>
-                    <span class="quantity">Lemone, Tamato, Patato,+2</span>
-                    <span class="price">5$</span>
-                    <!--cart-btn------->
-                    <a href="#" class="cart-btn">
-                        <i class="fas fa-shopping-bag"></i> Add Cart
-                    </a>
-                    <!--view-btn------->
-                    <a href="#" class="view-btn">
-                        <i class="far fa-eye"></i>
-                    </a>
-                </div>
-                <!--box---------->
-                <div class="product-box" data-category="Makanan Manis">
-                    <img alt="apple" src="{{ asset('img/pack3.png') }}">
-                    <strong>Small Pack</strong>
-                    <span class="quantity">Lemone, Tamato, Patato</span>
-                    <span class="price">3$</span>
-                    <!--cart-btn------->
-                    <a href="#" class="cart-btn">
-                        <i class="fas fa-shopping-bag"></i> Add Cart
-                    </a>
-                    <!--view-btn------->
-                    <a href="#" class="view-btn">
-                        <i class="far fa-eye"></i>
-                    </a>
-                </div>
-                <!--box---------->
-                <div class="product-box" data-category="Sayur-sayuran">
-                    <img alt="pack" src="{{ asset('img/pack1.png') }}">
-                    <strong>Big Pack</strong>
-                    <span class="quantity">Lemone, Tamato, Patato,+4</span>
-                    <span class="price">9$</span>
-                    <!--cart-btn------->
-                    <a href="#" class="cart-btn">
-                        <i class="fas fa-shopping-bag"></i> Add Cart
-                    </a>
-                    <!--view-btn------->
-                    <a href="#" class="view-btn">
-                        <i class="far fa-eye"></i>
-                    </a>
-                </div>
-                <!--box---------->
-                <div class="product-box" data-category="Buah-buahan">
-                    <img alt="apple" src="{{ asset('img/pack2.jpg') }}">
-                    <strong>Large Pack</strong>
-                    <span class="quantity">Lemone, Tamato, Patato,+2</span>
-                    <span class="price">5$</span>
-                    <!--cart-btn------->
-                    <a href="#" class="cart-btn">
-                        <i class="fas fa-shopping-bag"></i> Add Cart
-                    </a>
-                    <!--view-btn------->
-                    <a href="#" class="view-btn">
-                        <i class="far fa-eye"></i>
-                    </a>
-                </div>
-                <!--box---------->
-                <div class="product-box" data-category="Minuman">
-                    <img alt="apple" src="{{ asset('img/pack3.png') }}">
-                    <strong>Small Pack</strong>
-                    <span class="quantity">Lemone, Tamato, Patato</span>
-                    <span class="price">3$</span>
-                    <!--cart-btn------->
-                    <a href="#" class="cart-btn">
-                        <i class="fas fa-shopping-bag"></i> Add Cart
-                    </a>
-                    <!--view-btn------->
-                    <a href="#" class="view-btn">
-                        <i class="far fa-eye"></i>
-                    </a>
-                </div>
+                @foreach ($products as $product)
+                    <div class="product-box">
+                        <img alt="{{ $product->name }}" src="{{ asset($product->photo) }}">
+                        <strong>{{ $product->name }}</strong>
+                        <span class="quantity">{{ $product->quantity }}</span>
+                        <span class="price">Rp {{ number_format($product->price, 0, ',', '.') }}</span>
+                        <a href="#" class="cart-btn">
+                            <i class="fas fa-shopping-bag"></i> Add Cart
+                        </a>
+                        <a href="#" class="view-btn">
+                            <i class="far fa-eye"></i>
+                        </a>
+                    </div>
+                @endforeach
             </div>
-            {{-- detail container --}}
-
+            <!-- Pagination Links -->
+            {{ $products->links() }}
         </section>
-        <!-- Modal Structure -->
-        <div id="product-modal" class="product-modal">
-            <div class="product-modal-content">
-                <div class="product-box">
-                    <span class="product-modal-close">&times;</span>
-                    <!-- Tambahkan konten modal di sini -->
-                    <img id="modal-image" src="{{ asset('img/pack1.png') }}" alt="Product Image">
-                    <strong>Big Pack</strong>
-                    <span class="quantity">Lemone, Tamato, Patato,+4</span>
-                    <span class="price">9$</span>
-                    <!--cart-btn------->
-                    <a href="#" class="cart-btn">
-                        <i class="fas fa-shopping-bag"></i> Add Cart
-                    </a>
-                </div>
-            </div>
-        </div>
-
-    </section>
-@endsection
+    @endsection

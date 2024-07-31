@@ -45,6 +45,14 @@
                         <x-input-error :messages="$errors->get('price')" class="mt-2" />
                     </div>
 
+                     
+                    <div class="mt-4">
+                        <x-input-label for="quantity" :value="('quantity')" />
+                        <x-text-input id="quantity" class="block mt-1 w-full" type="number" name="quantity" :value="old('quantity')" required autofocus autocomplete="quantity" />
+                        <x-input-error :messages="$errors->get('quantity')" class="mt-2" />
+                    </div>
+
+
                     <div class="mt-4">
                         <x-input-label for="category" :value="('Category')" />
                         <select name="category_id" id="category" class="w-full py-3 pl-5 border">
