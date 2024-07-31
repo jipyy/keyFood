@@ -25,7 +25,9 @@
                     <div>
                         <h4>Total Price: <span id="total-price">Rp 0</span></h4>
                     </div>
-                    
+                    <a href="{{ route('checkout.details') }}" class="btn btn-primary">Proceed to Checkout</a>
+
+
                 </div>
             </section>
         </div>
