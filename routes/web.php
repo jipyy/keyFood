@@ -169,11 +169,7 @@ Route::middleware(['auth'])->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/checkout', [CheckoutController::class, 'showCheckoutDetails'])->name('checkout.details');
-
     Route::post('/checkout', [CheckoutController::class, 'storeOrder'])->name('checkout.store');
-
-
-
 });
 Route::get('/cart/add/{productId}', [CartController::class, 'add'])->name('add.to.cart');
 Route::get('/cart/decrement/{productId}', [CartController::class, 'decrement'])->name('decrement.from.cart');
