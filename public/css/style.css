@@ -24,7 +24,7 @@
 }
 
 body{
-    margin-left: 88px;
+    margin-left: 88px !important;
     /* width: calc(100vw - 120px); */
     height: 100vh;
     background: var(--body-color);
@@ -44,7 +44,7 @@ body.dark{
 
 @media (max-width: 700px) {
     body{
-        margin-left: 0;
+        margin-left: 0 !important;
         width: 100vw;
         height: 100vh;
         background: var(--body-color);
@@ -84,7 +84,7 @@ body.dark{
 
 @media (max-width: 800px) {
     body{
-        margin-left: 0;
+        margin-left: 0 !important;
         width: 100vw;
         height: 100vh;
         background: var(--body-color);
@@ -124,7 +124,7 @@ body.dark{
 
 @media (max-width: 850px) {
     body{
-        margin-left: 0;
+        margin-left: 0 !important;
         width: 100vw;
         height: 100vh;
         background: var(--body-color);
@@ -438,85 +438,85 @@ body.dark .sidebar .text-header-text{
 
 @media (min-width: 764px) {
     .container{
-        max-width: 764px;
+        max-width: 764px !important;
     }
 }
 
 @media (min-width: 800px) {
     .container{
-        max-width: 800px;
+        max-width: 800px !important;
     }
 }
 
 @media (min-width: 995px) {
     .container{
-        max-width: 995px;
+        max-width: 995px !important;
     }
 }
 
 @media (min-width: 1000px) {
     .container{
-        max-width: 1000px;
+        max-width: 1000px !important;
     }
 }
 
 @media (min-width: 1100px) {
     .container{
-        max-width: 1100px;
+        max-width: 1100px !important;
     }
 }
 
 @media (min-width: 1270px) {
     .container{
-        max-width: 1270px;
+        max-width: 1270px !important;
     }
 }
 
 @media (min-width: 1300px) {
     .container{
-        max-width: 1300px;
+        max-width: 1300px !important;
     }
 }
 
 @media (min-width: 1400px) {
     .container{
-        max-width: 1400px;
+        max-width: 1400px !important;
     }
 }
 
 @media (min-width: 1500px) {
     .container{
-        max-width: 1500px;
+        max-width: 1500px !important;
     }
 }
 
 @media (min-width: 1665px) {
     .container{
-        max-width: 1665px;
+        max-width: 1665px !important;
     }
 }
 
 @media (min-width: 1700px) {
     .container{
-        max-width: 1700px;
+        max-width: 1700px !important;
     }
 }
 
 @media (min-width: 1800px) {
     .container{
-        max-width: 1800px;
+        max-width: 1800px !important;
     }
 }
 
 @media (min-width: 1900px) {
     .container{
-        max-width: 1900px;
+        max-width: 1900px !important;
     }
 }
 
 @media (min-width: 2000px) {
     .container{
-        max-width: 2000px;
+        max-width: 2000px !important;
     }
 }
 

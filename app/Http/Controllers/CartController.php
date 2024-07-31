@@ -1,65 +1,73 @@
 <?php
 
+// CartController.php
 namespace App\Http\Controllers;
 
-use App\Models\Cart;
 use Illuminate\Http\Request;
+use App\Models\Product;
+use Illuminate\Support\Facades\Session;
 
 class CartController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
+    // CartController.php
+    // CartController.php
+    public function data(){
+        $data = session()->get('cart');
+        return response()->json([
+            'data' => $data
+        ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function add($productId)
     {
-        //
+        $cart = session()->get('cart');
+        $product = Product::find($productId);
+
+        if (!$product) {
+            return redirect()->back()->with('error', 'Product not found!');
+        }
+
+        if (isset($cart[$productId])) {
+            $cart[$productId]['quantity'] += 1;
+        } else {
+            $cart[$productId] = [
+                'name' => $product->name,
+                'photo' => $product->photo,
+                'price' => $product->price,
+                'quantity' => 1,
+            ];
+        }
+        session()->put('cart', $cart);
+
+        return redirect()->back()->with('success', 'Product added to cart!');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function decrement($productId)
     {
-        //
+        $cart = session()->get('cart');
+
+        if (isset($cart[$productId])) {
+            if($cart[$productId]['quantity'] == 1) {
+                unset($cart[$productId]);
+            } else {
+                $cart[$productId]['quantity'] -= 1;
+            }
+        } 
+        session()->put('cart', $cart);
+
+        return redirect()->back()->with('success', 'Product success reduced!');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Cart $cart)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Cart $cart)
+    public function remove($productId)
     {
-        //
-    }
+        $cart = session()->get('cart');
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Cart $cart)
-    {
-        //
-    }
+        if (isset($cart[$productId])) {
+            unset($cart[$productId]);
+        }
+        session()->put('cart', $cart);
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Cart $cart)
-    {
-        //
+        return redirect()->back()->with('success', 'Product removed from cart!');
     }
 }

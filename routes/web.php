@@ -5,11 +5,13 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\ProductOrderController;
 use App\Http\Controllers\Auth\SocialiteController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\CartController;
 
 Route::get('/', function () {
     return view('home');
@@ -59,6 +61,10 @@ Route::get('/profile-user', function () {
 
 Route::get('/detailed-store', function () {
     return view('halaman-toko');
+});
+
+Route::get('/term-condition', function () {
+    return view('term-condition');
 });
 
 Route::post('/login', [AuthenticatedSessionController::class, 'store'])->middleware('guest');
@@ -126,7 +132,7 @@ require __DIR__ . '/auth.php';
 //     Route::resource('users', UserController::class);
 // });
 
-Route::prefix('seller')->name('seller.')->group(function(){
+Route::prefix('seller')->name('seller.')->group(function () {
     Route::resource('products', ProductController::class);
     Route::resource('products_orders', ProductOrderController::class);
 });
@@ -161,3 +167,13 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/edit-profile', [UserProfileController::class, 'update'])->name('profile.update');
     Route::delete('/edit-profile', [UserProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/checkout', [CheckoutController::class, 'showCheckoutDetails'])->name('checkout.details');
+});
+Route::get('/cart/add/{productId}', [CartController::class, 'add'])->name('add.to.cart');
+Route::get('/cart/decrement/{productId}', [CartController::class, 'decrement'])->name('decrement.from.cart');
+Route::get('/cart/remove/{productId}', [CartController::class, 'remove'])->name('remove.from.cart');
+
+Route::get('/data', [CartController::class, 'data']);
+

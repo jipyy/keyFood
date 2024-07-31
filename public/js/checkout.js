@@ -1,117 +1,66 @@
+
+function formatPrice(price) {
+    return 'Rp ' + price.toLocaleString('id-ID', { style: 'currency', currency: 'IDR' }).slice(3);
+}
+
+function getCartData() {
+    return JSON.parse(localStorage.getItem('cart')) || {};
+}
+
+function updateCheckoutDetails() {
+    const cart = getCartData();
+    const checkoutLists = document.getElementById('checkout-lists');
+    checkoutLists.innerHTML = '';
+
+    let totalPrice = 0;
+
+    for (const productId in cart) {
+        const item = cart[productId];
+        const itemTotal = item.price * item.quantity;
+        totalPrice += itemTotal;
+
+        checkoutLists.innerHTML += `
+            <div class="card-product">
+                <div class="card-image"><img src="${item.photo}" alt="${item.name}"></div>
+                <div class="card-details" data-counter-id="${productId}">
+                    <div class="card-name">${item.name}</div>
+                    <div class="card-price" data-price="${item.price}">Rp. ${item.price}</div>
+                    <div class="card-wheel">
+                        <button class="decrement" data-product-id="${productId}">-</button>
+                        <span class="count" data-count="${item.quantity}">${item.quantity}</span>
+                        <button class="increment" data-product-id="${productId}">+</button>
+                    </div>
+                </div>
+            </div>`;
+    }
+
+    document.getElementById('total-price').textContent = formatPrice(totalPrice);
+}
+
+function updateCart(productId, quantityChange) {
+    const cart = getCartData();
+    if (cart[productId]) {
+        cart[productId].quantity += quantityChange;
+        if (cart[productId].quantity <= 0) {
+            delete cart[productId];
+        }
+    }
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCheckoutDetails();
+}
+
 document.addEventListener('DOMContentLoaded', () => {
-    function formatCurrency(value, currency = 'IDR', locale = 'id-ID') {
-        const formatter = new Intl.NumberFormat(locale, {
-            style: 'currency',
-            currency: currency,
-            minimumFractionDigits: 0,  
-            maximumFractionDigits: 0   
-        });
-        return formatter.format(value);
-    }
+    updateCheckoutDetails();
 
-    function updateButtonState(card) {
-        const countSpan = card.querySelector('.count');
-        if (countSpan) {
-            const count = parseInt(countSpan.getAttribute('data-count'), 10);
-            if (isNaN(count)) {
-                console.error('Invalid count value:', countSpan.getAttribute('data-count'));
-                return;
-            }
-            const decrementBtn = card.querySelector('.decrement');
-            if (decrementBtn) {
-                decrementBtn.disabled = count <= 0;
-            }
-        } else {
-            console.error('Count span not found in card:', card);
+    document.addEventListener('click', (event) => {
+        if (event.target.classList.contains('decrement')) {
+            const productId = event.target.getAttribute('data-product-id');
+            updateCart(productId, -1);
         }
-    }
 
-    function updateTotalPrice() {
-        const totalPriceElement = document.querySelector('.checkout-total .total-price');
-        if (totalPriceElement) {
-            const overallTotalPrice = calculateOverallTotalPrice();
-            totalPriceElement.textContent = formatCurrency(overallTotalPrice); // Format mata uang
-        } else {
-            console.error('Total price element not found.');
+        if (event.target.classList.contains('increment')) {
+            const productId = event.target.getAttribute('data-product-id');
+            updateCart(productId, 1);
         }
-    }
-
-    function calculateOverallTotalPrice() {
-        const cardDetailsElements = document.querySelectorAll('.card-details');
-        let overallTotalPrice = 0;
-
-        cardDetailsElements.forEach(card => {
-            const countSpan = card.querySelector('.count');
-            const priceElement = card.querySelector('.card-price');
-
-            if (countSpan && priceElement) {
-                const count = parseInt(countSpan.getAttribute('data-count'), 10);
-                const price = parseFloat(priceElement.getAttribute('data-price'));
-
-                if (isNaN(count)) {
-                    console.error('Invalid count value:', countSpan.getAttribute('data-count'));
-                }
-                if (isNaN(price)) {
-                    console.error('Invalid price value:', priceElement.getAttribute('data-price'));
-                }
-
-                if (!isNaN(count) && !isNaN(price)) {
-                    overallTotalPrice += count * price;
-                }
-            } else {
-                console.error('One or more elements not found in card-details:', card);
-            }
-        });
-
-        return overallTotalPrice;
-    }
-
-    function removeEmptyCards() {
-        document.querySelectorAll('.card-product').forEach(card => {
-            const countSpan = card.querySelector('.count');
-            if (countSpan) {
-                const count = parseInt(countSpan.getAttribute('data-count'), 10);
-                if (!isNaN(count) && count === 0) {
-                    card.remove(); 
-                }
-            }
-        });
-    }
-
-    document.querySelectorAll('.decrement, .increment').forEach(button => {
-        button.addEventListener('click', (event) => {
-            const card = event.target.closest('.card-details');
-            if (card) {
-                const countSpan = card.querySelector('.count');
-                let count = parseInt(countSpan.getAttribute('data-count'), 10);
-                if (isNaN(count)) {
-                    console.error('Invalid count value before update:', countSpan.getAttribute('data-count'));
-                    return;
-                }
-
-                if (event.target.classList.contains('decrement')) {
-                    if (count > 0) {
-                        count--;
-                    }
-                } else if (event.target.classList.contains('increment')) {
-                    count++;
-                }
-
-                countSpan.setAttribute('data-count', count);
-                countSpan.textContent = count;
-
-                updateButtonState(card);
-                updateTotalPrice();
-                removeEmptyCards(); 
-            }
-        });
     });
-
-    // Inisialisasi pengecekan card kosong dan status tombol pada load awal
-    document.querySelectorAll('.card-details').forEach(card => {
-        updateButtonState(card);
-    });
-
-    updateTotalPrice();
-    removeEmptyCards(); // Panggil fungsi pada load awal untuk menghapus card yang kosong
 });
