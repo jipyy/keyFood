@@ -173,3 +173,6 @@ Route::get('/cart/remove/{productId}', [CartController::class, 'remove'])->name(
 
 Route::get('/data', [CartController::class, 'data']);
 
+Route::get('/main-admin', function () {
+    return view('admin.dashboard-main');
+});

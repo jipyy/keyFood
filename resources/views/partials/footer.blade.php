@@ -35,7 +35,7 @@
                             <a href="/faq" class="hover:underline">FAQ</a>
                         </li>
                         <li>
-                            <a href="#" class="hover:underline">Terms &amp; Conditions</a>
+                            <a href="/term-condition" class="hover:underline">Terms &amp; Conditions</a>
                         </li>
                     </ul>
                 </div>

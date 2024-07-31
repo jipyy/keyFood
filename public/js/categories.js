@@ -46,4 +46,31 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
-c
+
+//ini function untuk memilih product berdasarkan category
+document.addEventListener('DOMContentLoaded', function () {
+    const categoryBoxes = document.querySelectorAll('.category-box');
+    const productBoxes = document.querySelectorAll('.product-box');
+    const showAllLink = document.querySelector('.showall');
+
+    categoryBoxes.forEach(box => {
+        box.addEventListener('click', function (e) {
+            e.preventDefault();
+            const category = box.dataset.category;
+            productBoxes.forEach(product => {
+                if (product.dataset.category === category) {
+                    product.style.display = 'flex';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        });
+    });
+
+    showAllLink.addEventListener('click', function (e) {
+        e.preventDefault();
+        productBoxes.forEach(product => {
+            product.style.display = 'flex';
+        });
+    });
+});
