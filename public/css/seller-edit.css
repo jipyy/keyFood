@@ -13,6 +13,7 @@
 .store-info {
     display: flex;
     align-items: center;
+    justify-content: space-between; /* Tambahkan justify-content: space-between */
     margin-bottom: 20px;
 }
 
@@ -45,6 +46,9 @@
     line-height: 1.8;
 }
 
+.edit-button-container{
+    /* Tambahkan style untuk mengatur posisi button di kanan */
+}
 /* Product container styles */
 .product-container {
     display: flex;

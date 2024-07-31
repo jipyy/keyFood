@@ -63,35 +63,41 @@ document.addEventListener("touchend", dragStop);
 sheetOverlay.addEventListener("click", hideBottomSheet);
 showModalBtn.addEventListener("click", showBottomSheet);
 
-    document.addEventListener('DOMContentLoaded', function() {
-        const cartButtons = document.querySelectorAll('.cart-btn');
-        const iconCart = document.querySelector('.icon-cart');
+    // document.addEventListener('DOMContentLoaded', function() {
+    //     const cartButtons = document.querySelectorAll('.cart-btn');
+    //     const iconCart = document.querySelector('.icon-cart');
         
-        cartButtons.forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.preventDefault(); 
-                const productId = this.getAttribute('data-product-id');
+    //     cartButtons.forEach(button => {
+    //         button.addEventListener('click', function(e) {
+    //             e.preventDefault(); 
+    //             const productId = this.getAttribute('data-product-id');
                 
-                // Simulate adding to cart and showing the cart icon
-                if (iconCart) {
-                    iconCart.style.display = 'flex'; // Show the cart icon
-                }
+    //             // Simulate adding to cart and showing the cart icon
+    //             if (iconCart) {
+    //                 iconCart.style.display = 'flex'; // Show the cart icon
+    //             }
                 
-            });
-        });
-    });
+    //         });
+    //     });
+    // });
 
 //ini untuk fungsi memasukkan data product ke cart
 function getData() {
+    const iconCart = document.querySelector('.icon-cart');
     let cart = JSON.parse(localStorage.getItem('cart')) || {};
     if (Object.keys(cart).length === 0) {
         document.getElementById('cart').innerHTML = '<p>Your cart is empty.</p>';
         document.getElementById('count-cart').innerHTML = 0;
         document.getElementById('total-price').innerHTML = 'Rp.0';
+        iconCart.style.display = 'none'; // Show the cart icon
+        hideBottomSheet();
+
+        
     } else {
         let totalPrice = 0;
         document.getElementById('count-cart').innerHTML = Object.keys(cart).length;
         document.getElementById('cart').innerHTML = '';
+        iconCart.style.display = 'flex'; // Show the cart icon
         for (let key in cart) {
             let itemTotal = cart[key].price * cart[key].quantity;
             totalPrice += itemTotal;
