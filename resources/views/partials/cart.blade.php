@@ -33,7 +33,8 @@
                                 <button
                                     class="rounded-full py-2.5 px-3 bg-indigo-50 text-indigo-600 font-semibold text-xs text-center whitespace-nowrap transition-all duration-500 hover:bg-indigo-100">Promo
                                     Code?</button>
-                                <h6 class="font-manrope font-bold text-2xl lead-10 text-indigo-600"><span id="total-price">Rp.0</span></h6>
+                                <h6 class="font-manrope font-bold text-2xl lead-10 text-indigo-600"><span
+                                        id="total-price">Rp.0</span></h6>
                             </div>
                         </div>
                         <div class="max-lg:max-w-lg max-lg:mx-auto">
@@ -41,9 +42,11 @@
                                 taxes, and discounts
                                 calculated
                                 at checkout</p>
-                            <button
-                                class="rounded-full py-4 px-6 bg-indigo-600 text-white font-semibold text-lg w-full text-center transition-all duration-500 hover:bg-indigo-700 ">Checkout</button>
-
+                            <a href="{{ route('checkout.details') }}">
+                                <button
+                                    class="rounded-full py-4 px-6 bg-indigo-600 text-white font-semibold text-lg w-full text-center transition-all duration-500 hover:bg-indigo-700 ">Checkout
+                                </button>
+                            </a>
                         </div>
                     </div>
 
