@@ -169,6 +169,10 @@ Route::middleware(['auth'])->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/checkout', [CheckoutController::class, 'showCheckoutDetails'])->name('checkout.details');
+    Route::post('/checkout', [CheckoutController::class, 'storeOrder'])->name('checkout.store');
+    
+
+
 });
 Route::get('/cart/add/{productId}', [CartController::class, 'add'])->name('add.to.cart');
 Route::get('/cart/decrement/{productId}', [CartController::class, 'decrement'])->name('decrement.from.cart');
@@ -176,6 +180,14 @@ Route::get('/cart/remove/{productId}', [CartController::class, 'remove'])->name(
 
 Route::get('/data', [CartController::class, 'data']);
 
+Route::get('/categories', [ProductController::class, 'showProducts'])->name('products.list');
 Route::get('/main-admin', function () {
     return view('admin.dashboard-main');
+});
+
+Route::get('/dashboard-buttons', function () {
+    return view('admin.dashboard-buttons');
+});
+Route::get('/dashboard-tables', function () {
+    return view('admin.dashboard-tables');
 });

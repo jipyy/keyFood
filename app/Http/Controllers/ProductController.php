@@ -50,6 +50,8 @@ class ProductController extends Controller
             'slug' => ['required', 'string', 'max:65535'],
             'category_id' => ['required', 'integer'],
             'price' => ['required', 'integer', 'min:0'],
+            'name' => ['required', 'string', 'max:255'],
+            'quantity' => ['required', 'string',],
         ]);
 
         DB::beginTransaction();
@@ -158,5 +160,42 @@ class ProductController extends Controller
 
             throw $error;
         }
+    }
+
+    public function cart()
+    {
+        return view('partials.cart');
+    }
+
+    public function addToCart($id)
+    {
+        $product = Product::find($id);
+
+        if (!$product) {
+            return redirect()->back()->with('error', 'Product not found.');
+        }
+
+        $cart = Session::get('cart', []);
+        if (isset($cart[$id])) {
+            $cart[$id]['quantity']++;
+        } else {
+            $cart[$id] = [
+                "name" => $product->name,
+                "quantity" => 1,
+                "price" => $product->price,
+                "photo" => $product->photo
+            ];
+        }
+        Session::put('cart', $cart);
+
+        return redirect()->back()->with('success', 'Product added to cart successfully!');
+    }
+    public function showProducts()
+    {
+        // Ambil produk dengan paginasi (atau sesuai kebutuhan)
+        $products = Product::paginate(10);
+
+        // Kirim data produk ke view
+        return view('categories', compact('products'));
     }
 }

@@ -2,21 +2,21 @@
     <header>
         <div class="image-text">
             <span class="image">
-                <img src="{{ asset((Auth::user()->img ?? '../img/guest.png')) }}" alt="logo">
+                <img src="{{ asset(Auth::user()->img ?? '../img/guest.png') }}" alt="logo">
             </span>
 
             <div class="text-header-text">
                 @if (Auth::check())
-                <span class="name">
-                    <div>
-                        {{ strlen(Auth::user()->name) > 16 ? substr(Auth::user()->name, 0, 16) . '...' : Auth::user()->name }}
-                    </div>
-                </span>
-                <span class="email">
-                    <div>
-                        {{ strlen(Auth::user()->email) > 16 ? substr(Auth::user()->email, 0, 16) . '...' : Auth::user()->email }}
-                    </div>
-                </span>
+                    <span class="name">
+                        <div>
+                            {{ strlen(Auth::user()->name) > 16 ? substr(Auth::user()->name, 0, 16) . '...' : Auth::user()->name }}
+                        </div>
+                    </span>
+                    <span class="email">
+                        <div>
+                            {{ strlen(Auth::user()->email) > 16 ? substr(Auth::user()->email, 0, 16) . '...' : Auth::user()->email }}
+                        </div>
+                    </span>
                 @else
                     <span class="email">
                         <a href="/log-reg">
@@ -96,8 +96,8 @@
                             </a>
                         </li>
 
-                        <li class="{{ Request::is('categories-sell') ? 'nav-link active' : 'nav-link' }}">
-                            <a href="/categories-sell">
+                        <li class="{{ Request::is('categories') ? 'nav-link active' : 'nav-link' }}">
+                            <a href="/categories">
                                 <i class='bx bx-bowl-hot icon'></i>
                                 <span class="text nav-text">Categories</span>
                             </a>
