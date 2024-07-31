@@ -170,9 +170,6 @@ Route::middleware(['auth'])->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('/checkout', [CheckoutController::class, 'showCheckoutDetails'])->name('checkout.details');
     Route::post('/checkout', [CheckoutController::class, 'storeOrder'])->name('checkout.store');
-    
-
-
 });
 Route::get('/cart/add/{productId}', [CartController::class, 'add'])->name('add.to.cart');
 Route::get('/cart/decrement/{productId}', [CartController::class, 'decrement'])->name('decrement.from.cart');
@@ -185,9 +182,26 @@ Route::get('/main-admin', function () {
     return view('admin.dashboard-main');
 });
 
+Route::get('/dashboard-cards', function () {
+    return view('admin.dashboard-cards');
+});
+
+Route::get('/dashboard-forms', function () {
+    return view('admin.dashboard-forms');
+});
+
+Route::get('/dashboard-404', function () {
+    return view('admin.dashboard-404');
+});
+
+Route::get('/dashboard-blank', function () {
+    return view('admin.dashboard-blank');
+});
+
 Route::get('/dashboard-buttons', function () {
     return view('admin.dashboard-buttons');
 });
+
 Route::get('/dashboard-tables', function () {
     return view('admin.dashboard-tables');
 });
