@@ -180,3 +180,19 @@ Route::get('/data', [CartController::class, 'data']);
 Route::get('/main-admin', function () {
     return view('admin.dashboard-main');
 });
+
+Route::get('/dashboard-cards', function () {
+    return view('admin.dashboard-cards');
+});
+
+Route::get('/dashboard-forms', function () {
+    return view('admin.dashboard-forms');
+});
+
+Route::get('/dashboard-404', function () {
+    return view('admin.dashboard-404');
+});
+
+Route::get('/dashboard-blank', function () {
+    return view('admin.dashboard-blank');
+});
