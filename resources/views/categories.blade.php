@@ -32,28 +32,28 @@
             <!--box-container---------->
             <div class="category-container">
                 <!--box---------------->
-                <a href="#" class="category-box">
-                    <img alt="Fish" src="{{ asset('img/icons/cookies.png') }}">
+                <a href="#" class="category-box" data-category="Makanan Manis">
+                    <img alt="Product" src="{{ asset('img/icons/cookies.png') }}">
                     <span>Makanan Manis</span>
                 </a>
                 <!--box---------------->
-                <a href="#" class="category-box">
-                    <img alt="Fish" src="{{ asset('img/icons/drink.png') }}">
+                <a href="#" class="category-box" data-category="Minuman">
+                    <img alt="Product" src="{{ asset('img/icons/drink.png') }}">
                     <span>Minuman</span>
                 </a>
                 <!--box---------------->
-                <a href="#" class="category-box">
-                    <img alt="Fish" src="{{ asset('img/icons/salad.png') }}">
+                <a href="#" class="category-box" data-category="Sayur-sayuran">
+                    <img alt="Product" src="{{ asset('img/icons/salad.png') }}">
                     <span>Sayur-sayuran</span>
                 </a>
                 <!--box---------------->
-                <a href="#" class="category-box">
-                    <img alt="Fish" src="{{ asset('img/icons/salty-food.png') }}">
+                <a href="#" class="category-box" data-category="Makanan Asin">
+                    <img alt="Product" src="{{ asset('img/icons/salty-food.png') }}">
                     <span>Makanan Asin</span>
                 </a>
                 <!--box---------------->
-                <a href="#" class="category-box">
-                    <img alt="Fish" src="{{ asset('img/icons/fruit.png') }}">
+                <a href="#" class="category-box" data-category="Buah-buahan">
+                    <img alt="Product" src="{{ asset('img/icons/fruit.png') }}">
                     <span>Buah-buahan</span>
                 </a>
             </div>

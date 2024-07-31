@@ -18,6 +18,7 @@ body.dark .store-header{
 .store-info {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     margin-bottom: 20px;
 }
 
@@ -26,9 +27,17 @@ body.dark .store-header{
     height: 80px;
     border-radius: 50%;
     margin-right: 20px;
-    background-color: #eee; /* Placeholder background color */
-    border: 2px solid lightblue; /* Border biru di sekeliling logo */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow pada logo */
+    background-color: #eee;
+    border: 2px solid lightblue;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.store-text {
+    flex: 1; /* Allows the text container to grow and fill available space */
+}
+
+.edit-button-container {
+    margin-left: auto; /* Pushes the button to the far right */
 }
 
 body.dark .store-logo{

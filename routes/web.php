@@ -47,6 +47,10 @@ Route::get('/edit-profile', function () {
     return view('edit-profile');
 });
 
+Route::get('/seller-edit', function () {
+    return view('seller-edit');
+});
+
 Route::get('/stores', function () {
     return view('stores');
 });
@@ -178,3 +182,13 @@ Route::get('/cart/remove/{productId}', [CartController::class, 'remove'])->name(
 Route::get('/data', [CartController::class, 'data']);
 
 Route::get('/categories', [ProductController::class, 'showProducts'])->name('products.list');
+Route::get('/main-admin', function () {
+    return view('admin.dashboard-main');
+});
+
+Route::get('/dashboard-buttons', function () {
+    return view('admin.dashboard-buttons');
+});
+Route::get('/dashboard-tables', function () {
+    return view('admin.dashboard-tables');
+});
