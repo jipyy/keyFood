@@ -45,6 +45,10 @@ Route::get('/edit-profile', function () {
     return view('edit-profile');
 });
 
+Route::get('/seller-edit', function () {
+    return view('seller-edit');
+});
+
 Route::get('/stores', function () {
     return view('stores');
 });
