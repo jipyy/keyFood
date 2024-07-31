@@ -62,7 +62,7 @@
         <section id="popular-bundle-pack">
             <!--heading-------------->
             <div class="product-heading">
-                <h3>Popular Bundle Pack</h3>
+                <h3>Products List</h3>
             </div>
             <!--box-container------>
             <div class="product-container">

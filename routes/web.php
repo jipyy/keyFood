@@ -59,6 +59,10 @@ Route::get('/detailed-store', function () {
     return view('halaman-toko');
 });
 
+Route::get('/term-condition', function () {
+    return view('term-condition');
+});
+
 Route::post('/login', [AuthenticatedSessionController::class, 'store'])->middleware('guest');
 
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->middleware('auth')->name('logout');
@@ -168,3 +172,4 @@ Route::get('/cart/decrement/{productId}', [CartController::class, 'decrement'])-
 Route::get('/cart/remove/{productId}', [CartController::class, 'remove'])->name('remove.from.cart');
 
 Route::get('/data', [CartController::class, 'data']);
+
