@@ -63,42 +63,20 @@ document.addEventListener("touchend", dragStop);
 sheetOverlay.addEventListener("click", hideBottomSheet);
 showModalBtn.addEventListener("click", showBottomSheet);
 
-document.addEventListener('DOMContentLoaded', function () {
-    const iconCart = document.querySelector('.icon-cart');
-    const cartCountSpan = iconCart.querySelector('span');
-    
-    // Get cart data from localStorage
-    const getCartData = () => JSON.parse(localStorage.getItem('cart')) || {};
-    
-    // Save cart data to localStorage
-    const saveCartData = (cart) => localStorage.setItem('cart', JSON.stringify(cart));
-    
-    // Update cart count and display icon if there are items in cart
-    function updateCartDisplay() {
-        const cart = getCartData();
-        const cartCount = Object.values(cart).reduce((total, item) => total + item.quantity, 0);
-        cartCountSpan.textContent = cartCount;
-        if (cartCount > 0) {
-            iconCart.classList.add('show');
-        } else {
-            iconCart.classList.remove('show');
-        }
-    }
-
-    updateCartDisplay();
-
-    document.querySelectorAll('.cart-btn').forEach(link => {
-        link.addEventListener('click', function (event) {
-            event.preventDefault(); // Prevent the default anchor behavior
-            const productId = this.getAttribute('data-product-id');
-            let cart = getCartData();
-            if (cart[productId]) {
-                cart[productId].quantity++;
-            } else {
-                cart[productId] = { quantity: 1 };
-            }
-            saveCartData(cart);
-            updateCartDisplay();
+    document.addEventListener('DOMContentLoaded', function() {
+        const cartButtons = document.querySelectorAll('.cart-btn');
+        const iconCart = document.querySelector('.icon-cart');
+        
+        cartButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault(); 
+                const productId = this.getAttribute('data-product-id');
+                
+                // Simulate adding to cart and showing the cart icon
+                if (iconCart) {
+                    iconCart.style.display = 'flex'; // Show the cart icon
+                }
+                
+            });
         });
     });
-});
