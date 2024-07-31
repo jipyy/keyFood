@@ -36,7 +36,7 @@
             if (Object.keys(cart).length === 0) {
                 document.getElementById('cart').innerHTML = '<p>Your cart is empty.</p>';
                 document.getElementById('count-cart').innerHTML = 0;
-                document.getElementById('total-price').innerHTML = 'Rp 0';
+                document.getElementById('total-price').innerHTML = 'Rp.0';
             } else {
                 let totalPrice = 0;
                 document.getElementById('count-cart').innerHTML = Object.keys(cart).length;
@@ -110,7 +110,7 @@
                             </div>
                         </div>`;
                 }
-                document.getElementById('total-price').innerHTML = 'Rp ' + totalPrice.toLocaleString('id-ID');
+                document.getElementById('total-price').innerHTML = 'Rp.' + totalPrice.toLocaleString('id-ID');
             }
         }
 
