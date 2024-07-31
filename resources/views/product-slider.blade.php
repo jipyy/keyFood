@@ -94,6 +94,8 @@
                                         <input type="text" id="number"
                                             class="border border-gray-200 rounded-full w-10 aspect-square outline-none text-gray-900 font-semibold text-sm py-1.5 px-3 bg-gray-100  text-center"
                                             placeholder="${cart[key].quantity}">
+
+                                        <a href="javascript:void(0)" class="increment" data-increment-id="${key}">
                                         <button
                                             class="group rounded-[50px] border border-gray-200 shadow-sm shadow-transparent p-2.5 flex items-center justify-center bg-white transition-all duration-500 hover:shadow-gray-200 hover:bg-gray-50 hover:border-gray-300 focus-within:outline-gray-300">
                                             <svg class="stroke-gray-900 transition-all duration-500 group-hover:stroke-black"
@@ -153,6 +155,24 @@
                 localStorage.setItem('cart', JSON.stringify(cart));
                 getData();
             });
+
+            
+            $(document).on('click', '.increment', function() {
+                let productId = $(this).data('increment-id');
+                let cart = JSON.parse(localStorage.getItem('cart')) || {};
+
+                if (cart[productId]) {
+                    if (cart[productId].quantity > 0) {
+                        cart[productId].quantity++;
+                    } else {
+                        delete cart[productId];
+                    }
+                }
+
+                localStorage.setItem('cart', JSON.stringify(cart));
+                getData();
+            });
+            
 
             $(document).on('click', '.remove', function() {
                 let productId = $(this).data('remove-id');
