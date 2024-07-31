@@ -67,7 +67,7 @@
             <!--box-container------>
             <div class="product-container">
                 @foreach ($products as $product)
-                    <div class="product-box">
+                    <div class="product-box" data-category="{{ $product->category->name }}">
                         <img alt="{{ $product->name }}" src="{{ asset($product->photo) }}">
                         <strong>{{ $product->name }}</strong>
                         <span class="quantity">{{ $product->quantity }}</span>

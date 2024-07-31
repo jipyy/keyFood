@@ -30,9 +30,6 @@
                                 Subtotal</h5>
 
                             <div class="flex items-center justify-between gap-5 ">
-                                <button
-                                    class="rounded-full py-2.5 px-3 bg-indigo-50 text-indigo-600 font-semibold text-xs text-center whitespace-nowrap transition-all duration-500 hover:bg-indigo-100">Promo
-                                    Code?</button>
                                 <h6 class="font-manrope font-bold text-2xl lead-10 text-indigo-600"><span
                                         id="total-price">Rp.0</span></h6>
                             </div>
