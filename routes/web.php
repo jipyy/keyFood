@@ -58,6 +58,10 @@ Route::get('/detailed-store', function () {
     return view('halaman-toko');
 });
 
+Route::get('/term-condition', function () {
+    return view('term-condition');
+});
+
 Route::post('/login', [AuthenticatedSessionController::class, 'store'])->middleware('guest');
 
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->middleware('auth')->name('logout');
@@ -162,3 +166,4 @@ Route::middleware(['auth'])->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('/checkout', [CheckoutController::class, 'showCheckoutDetails'])->name('checkout.details');
 });
+

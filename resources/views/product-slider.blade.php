@@ -4,7 +4,7 @@
         <!-- Popular Bundle Pack Section -->
         <section id="popular-bundle-pack">
             <div class="product-heading">
-                <h3>Popular Bundle Pack</h3>
+                <h3>Products List</h3>
             </div>
             <div class="product-container">
                 @foreach ($products as $product)

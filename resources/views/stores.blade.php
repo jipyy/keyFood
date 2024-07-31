@@ -19,62 +19,51 @@
     </div>
 
     <!-- content -->
-     <div class="container-s">
-         <div class="user-s">
-             <img src="{{ asset('img/2.png') }}" class="user-icon-s">
-             <div class="user-info-s">
-               <div class="user-name-s">Toko 1</div>
-               <div class="user-description-s">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, mollitia ex et laborum id iure blanditiis dignissimos libero, vero in voluptate ad voluptatem, fugiat ratione labore repellat suscipit aut maxime!</div>
-             </div>
-                <button id="visit" class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800">
-                    <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-                        Kunjungi Toko
-                    </span>
-            </button>
-         </div>
-     </div>
-     <div class="container-s">
+    <a href="/detailed-store">
+        <div class="container-s" id="visit">
+            <div class="user-s">
+                <img src="{{ asset('img/2.png') }}" class="user-icon-s">
+                <div class="user-info-s">
+                  <div class="user-name-s">Toko 1</div>
+                  <div class="user-description-s">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, mollitia ex et laborum id iure blanditiis dignissimos libero, vero in voluptate ad voluptatem, fugiat ratione labore repellat suscipit aut maxime!</div>
+                </div>
+            </div>
+        </div>
+    </a>
+    <a href="/detailed-store">
+     <div class="container-s" id="visit">
         <div class="user-s">
             <img src="{{ asset('img/2.png') }}" class="user-icon-s">
             <div class="user-info-s">
               <div class="user-name-s">Toko 2</div>
               <div class="user-description-s">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, mollitia ex et laborum id iure blanditiis dignissimos libero, vero in voluptate ad voluptatem, fugiat ratione labore repellat suscipit aut maxime!</div>
             </div>
-               <button id="visit" class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800">
-                   <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-                       Kunjungi Toko
-                   </span>
-           </button>
         </div>
     </div>
-    <div class="container-s">
+    </a>
+    <a href="/detailed-store">
+        <div class="container-s" id="visit">
+            <div class="user-s">
+                <img src="{{ asset('img/2.png') }}" class="user-icon-s">
+                <div class="user-info-s">
+                  <div class="user-name-s">Toko 2</div>
+                  <div class="user-description-s">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, mollitia ex et laborum id iure blanditiis dignissimos libero, vero in voluptate ad voluptatem, fugiat ratione labore repellat suscipit aut maxime!</div>
+                </div>
+            </div>
+        </div>
+    </a>
+    
+    <a href="/detailed-store">
+    <div class="container-s" id="visit">
         <div class="user-s">
             <img src="{{ asset('img/2.png') }}" class="user-icon-s">
             <div class="user-info-s">
               <div class="user-name-s">Toko 2</div>
               <div class="user-description-s">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, mollitia ex et laborum id iure blanditiis dignissimos libero, vero in voluptate ad voluptatem, fugiat ratione labore repellat suscipit aut maxime!</div>
             </div>
-               <button id="visit" class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800">
-                   <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-                       Kunjungi Toko
-                   </span>
-           </button>
         </div>
     </div>
-    <div class="container-s">
-        <div class="user-s">
-            <img src="{{ asset('img/2.png') }}" class="user-icon-s">
-            <div class="user-info-s">
-              <div class="user-name-s">Toko 2</div>
-              <div class="user-description-s">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, mollitia ex et laborum id iure blanditiis dignissimos libero, vero in voluptate ad voluptatem, fugiat ratione labore repellat suscipit aut maxime!</div>
-            </div>
-               <button id="visit" class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800">
-                   <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-                       Kunjungi Toko
-                   </span>
-           </button>
-        </div>
-    </div>
+    </a>
 </section>
     <!-- search -->
    
