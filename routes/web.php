@@ -107,7 +107,6 @@ Route::prefix('seller')->name('seller.')->group(function () {
 // ROUTE ADMIN  PAGE
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('categories', CategoryController::class)->middleware('role:admin');
-
     Route::resource('products', ProductController::class);
     Route::resource('products_orders', ProductOrderController::class);
     // Route::resource('categories', CategoryController::class)->middleware('role:admin');

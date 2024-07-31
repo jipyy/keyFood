@@ -96,6 +96,7 @@ class AuthenticatedSessionController extends Controller
 
         // Jika email dan password benar
         $request->session()->regenerate();
+        
         return redirect()->intended(route('home'));
     }
 
