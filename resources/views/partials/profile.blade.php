@@ -3,7 +3,7 @@
     <button
         class="fixed-button flex h-12 w-12 items-center justify-center rounded-lg bg-slate-900 text-slate-100 ring-slate-100 transition hover:shadow-md hover:ring-2 overflow-hidden"
         @click="isOpen = !isOpen">
-        <img class="w-full object-cover" src="{{ asset(Auth::user()->img ?? './img/guest.png') }}" alt="Profile">
+        <img class="w-full object-cover" src="{{ asset(Auth::user()->img ?? './img/client-1.jpg') }}" alt="Profile">
     </button>
 
     <!-- Dropdown Menu -->
@@ -79,13 +79,7 @@
             <p>You Haven't Login,</p>
             <p>Please Login First</p>
             <a href="/log-reg">
-                <button
-                    class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800">
-                    <span
-                        class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-                        Login
-                    </span>
-                </button>
+                <button type="button" class="text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Login</button>
             </a>
         @endif
     </div>

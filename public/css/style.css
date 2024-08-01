@@ -302,6 +302,10 @@ body.dark .nav-link.active{
     color: white;
 }
 
+.nav-link.active .nav-text{
+    color: white;
+}
+
 
 .sidebar header .toggle{
     position: absolute;
