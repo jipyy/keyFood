@@ -50,7 +50,7 @@
                             otentik yang mendefinisikan hasrat kami terhadap makanan.
                         </p>
                         <div class="header__btn">
-                            <button class="btn">Get Started</button>
+                            <button class="btn">Ayo Lihat!</button>
                         </div>
                     </div>
                 </section>

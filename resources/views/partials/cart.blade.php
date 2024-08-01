@@ -17,7 +17,7 @@
             <section class="py-24 relative">
                 <div class="w-full max-w-7xl px-4 md:px-5 lg-6 mx-auto">
                     <h2 class="title font-manrope font-bold text-4xl leading-10 mb-8 text-center text-black">
-                        Shopping Cart
+                        Keranjang Anda
                     </h2>
                     <div id="cart"></div>
 
@@ -35,10 +35,7 @@
                             </div>
                         </div>
                         <div class="max-lg:max-w-lg max-lg:mx-auto">
-                            <p class="font-normal text-base leading-7 text-gray-500 text-center mb-5 mt-6">Shipping
-                                taxes, and discounts
-                                calculated
-                                at checkout</p>
+                            <p class="font-normal text-base leading-7 text-gray-500 text-center mb-5 mt-6">Mari lanjut ke halaman Checkout!</p>
                             <a href="{{ route('checkout.details') }}">
                                 <button
                                     class="rounded-full py-4 px-6 bg-indigo-600 text-white font-semibold text-lg w-full text-center transition-all duration-500 hover:bg-indigo-700 ">Checkout

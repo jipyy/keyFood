@@ -42,7 +42,7 @@
                     <span class="price">9$</span>
                     <!--cart-btn------->
                     <a href="#" class="cart-btn">
-                        <i class="fas fa-shopping-bag"></i> Add Cart
+                        <i class="fas fa-shopping-bag"></i> Tambah Ke Keranjang
                     </a>
                     <!--view-btn------->
                     <a href="#" class="view-btn">
@@ -57,7 +57,7 @@
                     <span class="price">5$</span>
                     <!--cart-btn------->
                     <a href="#" class="cart-btn">
-                        <i class="fas fa-shopping-bag"></i> Add Cart
+                        <i class="fas fa-shopping-bag"></i> Tambah Ke Keranjang
                     </a>
                     <!--view-btn------->
                     <a href="#" class="view-btn">
@@ -72,7 +72,7 @@
                     <span class="price">3$</span>
                     <!--cart-btn------->
                     <a href="#" class="cart-btn">
-                        <i class="fas fa-shopping-bag"></i> Add Cart
+                        <i class="fas fa-shopping-bag"></i> Tambah Ke Keranjang
                     </a>
                     <!--view-btn------->
                     <a href="#" class="view-btn">
@@ -87,7 +87,7 @@
                     <span class="price">9$</span>
                     <!--cart-btn------->
                     <a href="#" class="cart-btn">
-                        <i class="fas fa-shopping-bag"></i> Add Cart
+                        <i class="fas fa-shopping-bag"></i> Tambah Ke Keranjang
                     </a>
                     <!--view-btn------->
                     <a href="#" class="view-btn">
@@ -102,7 +102,7 @@
                     <span class="price">5$</span>
                     <!--cart-btn------->
                     <a href="#" class="cart-btn">
-                        <i class="fas fa-shopping-bag"></i> Add Cart
+                        <i class="fas fa-shopping-bag"></i> Tambah Ke Keranjang
                     </a>
                     <!--view-btn------->
                     <a href="#" class="view-btn">
@@ -117,7 +117,7 @@
                     <span class="price">3$</span>
                     <!--cart-btn------->
                     <a href="#" class="cart-btn">
-                        <i class="fas fa-shopping-bag"></i> Add Cart
+                        <i class="fas fa-shopping-bag"></i> Tambah Ke Keranjang
                     </a>
                     <!--view-btn------->
                     <a href="#" class="view-btn">
