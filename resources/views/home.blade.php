@@ -34,7 +34,7 @@
                         <span id="date-year"></span>
                     </div>
                     <div class="text-container">
-                        <p>Direkomendasikan Dibuka Melalui Ponsel</p>
+                        <p>*Catatan: Direkomendasikan Dibuka Melalui Ponsel</p>
                     </div>
                 </div>
             </div>

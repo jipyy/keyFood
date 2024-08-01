@@ -29,14 +29,21 @@
                     </div>
                 </div>
                 <div class="form-control">
-                    <label for="checkout-address">Address</label>
+                    <label for="checkout-address">Alamat</label>
                     <div>
                         <span class="fa"><i class='bx bx-home'></i></span>
                         <input type="text" name="checkout-address" id="checkout-address" placeholder="Your address..." value="{{ $user->location ?? '' }}">
                     </div>
                 </div>
+                <div class="form-control">
+                    <label for="checkout-address">Catatan</label>
+                    <div>
+                        <span class="fa"><i class='bx bx-edit'></i></span>
+                        <input type="text" name="checkout-address" id="checkout-address" placeholder="Catatan Anda.. (opsional)" value="">
+                    </div>
+                </div>
                 <div class="form-control-btn">
-                    <button>Continue</button>
+                    <button type="submit">Checkout</button>
                 </div>
             </form>
         </section>
