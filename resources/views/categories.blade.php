@@ -31,34 +31,16 @@
             </div>
             <!--box-container---------->
             <div class="category-container">
-                <!--box---------------->
-                <a href="#" class="category-box" data-category="Makanan Manis">
-                    <img alt="Product" src="{{ asset('img/icons/cookies.png') }}">
-                    <span>Makanan Manis</span>
-                </a>
-                <!--box---------------->
-                <a href="#" class="category-box" data-category="Minuman">
-                    <img alt="Product" src="{{ asset('img/icons/drink.png') }}">
-                    <span>Minuman</span>
-                </a>
-                <!--box---------------->
-                <a href="#" class="category-box" data-category="Sayur-sayuran">
-                    <img alt="Product" src="{{ asset('img/icons/salad.png') }}">
-                    <span>Sayur-sayuran</span>
-                </a>
-                <!--box---------------->
-                <a href="#" class="category-box" data-category="Makanan Asin">
-                    <img alt="Product" src="{{ asset('img/icons/salty-food.png') }}">
-                    <span>Makanan Asin</span>
-                </a>
-                <!--box---------------->
-                <a href="#" class="category-box" data-category="Buah-buahan">
-                    <img alt="Product" src="{{ asset('img/icons/fruit.png') }}">
-                    <span>Buah-buahan</span>
-                </a>
+                @foreach ($categories as $category)
+                    <!--box---------------->
+                    <a href="#" class="category-box" data-category="{{ $category->name }}">
+                        <img alt="Product" src="{{ asset($category->icon) }}">
+                        <span>{{ $category->name }}</span>
+                    </a>
+                @endforeach
             </div>
-
         </section>
+        
         <section id="popular-bundle-pack">
             <!--heading-------------->
             <div class="product-heading">

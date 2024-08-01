@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -12,11 +13,11 @@ class CategoryController extends Controller
     {
         $categories = Category::all();
         // return view('admin.categories.index', compact('categories'));
-        if(auth()->user()->can('categories')){
+        if (auth()->user()->can('categories')) {
             return view('admin.categories.index', compact('categories'));
         }
-       
-            return abort(403);
+
+        return abort(403);
     }
 
     public function create()
@@ -92,5 +93,13 @@ class CategoryController extends Controller
 
         $category->delete();
         return redirect()->route('admin.categories.index')->with('success', 'Category deleted successfully.');
+    }
+
+    public function showCategories()
+    {
+        $categories = Category::all();
+        $products = Product::paginate(10);// Mengambil semua kategori dari database
+        return view('categories', compact('categories','products'));
+    
     }
 }
