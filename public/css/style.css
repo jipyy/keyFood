@@ -290,7 +290,7 @@ header .image-text .header-text{
 
 .nav-link.active{
     background: var(--primary-color);
-    border-radius: 8%;
+    border-radius: 6px;
     font-style: var(--sidebar-color);
 }
 
