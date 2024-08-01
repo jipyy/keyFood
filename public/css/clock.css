@@ -273,6 +273,15 @@ body.dark .clock__date {
   color: black;
 }
 
+.text-container{
+  height: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
 
 .box-container {
   width: 100%;
