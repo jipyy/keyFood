@@ -212,4 +212,9 @@ Route::get('/dashboard-tables', function () {
 
 Route::get('/history', function () {
     return view('history');
+    });
+
+    
+Route::get('/dashboard-toko', function () {
+    return view('admin.dashboard-toko');
 });
