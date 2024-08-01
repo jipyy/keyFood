@@ -206,3 +206,7 @@ Route::get('/dashboard-buttons', function () {
 Route::get('/dashboard-tables', function () {
     return view('admin.dashboard-tables');
 });
+
+Route::get('/dashboard-toko', function () {
+    return view('admin.dashboard-toko');
+});
