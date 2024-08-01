@@ -390,3 +390,16 @@ body.dark .content {
 
   }
 }
+
+@media (max-width:600px) {
+  .text-container{
+    display:none;
+  }
+}
+
+
+@media (max-width:400px) {
+  .text-container{
+    display:none;
+  }
+}
