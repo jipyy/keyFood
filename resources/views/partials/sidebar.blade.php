@@ -122,6 +122,12 @@
                                 <span class="text nav-text">Categories</span>
                             </a>
                         </li>
+                        <li class="{{ Request::is('history') ? 'nav-link active' : 'nav-link' }}">
+                            <a href="/history">
+                                <i class='bx bx-history icon'></i>
+                                <span class="text nav-text">History</span>
+                            </a>
+                        </li>
                         <li class="nav-link">
                             <a href="#" onclick="openProfile()">
                                 <i class='bx bx-user icon'></i>

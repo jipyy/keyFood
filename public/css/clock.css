@@ -280,6 +280,11 @@ body.dark .clock__date {
   justify-content: center;
   align-items: center;
   margin-top: 50px;
+  color: gray;
+}
+
+body.dark .text-container{
+  color: gray;
 }
 
 
