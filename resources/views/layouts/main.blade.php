@@ -35,6 +35,8 @@
     <link rel="stylesheet" href="{{ asset('../../css/categories.css') }}">
     <link rel="stylesheet" href="{{ asset('../../css/checkout.css') }}">
     <link rel="stylesheet" href="{{ asset('../../css/cart.css') }}">
+    <link rel="stylesheet" href="{{ asset('../../css/history.css') }}">
+
 
 
 

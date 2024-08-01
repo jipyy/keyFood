@@ -33,6 +33,9 @@
                         <span id="date-month"></span>
                         <span id="date-year"></span>
                     </div>
+                    <div class="text-container">
+                        <p>*Catatan: Direkomendasikan Dibuka Melalui Ponsel</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -162,7 +165,8 @@
                         <span class="banner__icon"><i class="ri-truck-fill"></i></span>
                         <h4>Jelajah Rasa, Puaskan Selera!</h4>
                         <p>
-                            Mau hidangan yang gurih, manis, atau yang lain? Semuanya ada di sini! Kamu bebas pilih sesuai seleramu! Kami punya banyak pilihan
+                            Mau hidangan yang gurih, manis, atau yang lain? Semuanya ada di sini! Kamu bebas pilih sesuai
+                            seleramu! Kami punya banyak pilihan
                             yang pasti bikin kamu puas.
                         </p>
                         <a href="#">

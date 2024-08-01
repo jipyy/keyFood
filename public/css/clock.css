@@ -273,6 +273,20 @@ body.dark .clock__date {
   color: black;
 }
 
+.text-container{
+  height: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  color: gray;
+}
+
+body.dark .text-container{
+  color: gray;
+}
+
 
 .box-container {
   width: 100%;
@@ -374,5 +388,18 @@ body.dark .content {
     background-color: #1f1f1f;
     margin-top: 600px;
 
+  }
+}
+
+@media (max-width:600px) {
+  .text-container{
+    display:none;
+  }
+}
+
+
+@media (max-width:400px) {
+  .text-container{
+    display:none;
   }
 }
