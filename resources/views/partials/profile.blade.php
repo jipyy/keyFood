@@ -15,7 +15,7 @@
                 <div class="flex gap-3 items-center">
                     <div
                         class="flex items-center justify-center rounded-lg h-12 w-12 overflow-hidden border-2 border-slate-600">
-                        <img class="w-full object-cover" src="{{ asset(Auth::user()->img ?? './img/guest.png') }}"
+                        <img class="w-full object-cover" src="{{ asset(Auth::user()->img ?? './img/client-1.jpg') }}"
                             alt="Profile">
                     </div>
                     <div style="width: 100%">
@@ -91,7 +91,7 @@
             <i class="fa-solid fa-arrow-left back"></i>
         </button>
         <div class="profile-pic">
-            <img src="{{ asset(Auth::user()->img ?? '../img/guest.png') }}" alt="user avatar">
+            <img src="{{ asset(Auth::user()->img ?? './img/client-1.jpg') }}" alt="user avatar">
         </div>
         <div class="profile-details">
             <div class="intro">
