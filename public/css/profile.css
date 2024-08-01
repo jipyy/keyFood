@@ -257,7 +257,7 @@ body.dark .profile-details .contact-info{
     width: 40px;
     line-height: 40px;
     border-radius: 5px;
-    background-color: grey;
+    background-color: #f0f0f0;
     text-align: center;
     color: black;
     transition: 0.5s;
@@ -431,6 +431,7 @@ body.dark .contact-info .row .icon{
 @media (max-width: 480px) {
     .profile-card {
         padding: 1rem;
+        margin-left: 1px;
     }
 
     .profile-card .profile-pic img {

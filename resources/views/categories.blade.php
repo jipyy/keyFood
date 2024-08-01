@@ -27,7 +27,7 @@
             <!--heading---------------->
             <div class="category-heading">
                 <h2>Kategori</h2>
-                <a href="#" class="showall"><span>Semua</span></a>
+                <a href="#" class="showall active"><span>Semua</span></a>
             </div>
             <!--box-container---------->
             <div class="category-container">
@@ -44,7 +44,7 @@
         <section id="popular-bundle-pack">
             <!--heading-------------->
             <div class="product-heading">
-                <h3>Products List</h3>
+                <h3>Daftar Produk</h3>
             </div>
             <!--box-container------>
             <div class="product-container">
@@ -55,7 +55,7 @@
                         <span class="quantity">{{ $product->quantity }}</span>
                         <span class="price">Rp {{ number_format($product->price, 0, ',', '.') }}</span>
                         <a href="javascript:void(0)" data-product-id="{{ $product->id }}" class="cart-btn">
-                            <i class="fas fa-shopping-bag"></i> Add Cart
+                            <i class="fas fa-shopping-bag"></i> Tambah Ke Keranjang
                         </a>
                         <a href="#" class="view-btn">
                             <i class="far fa-eye"></i>
