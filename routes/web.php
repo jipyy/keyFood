@@ -179,6 +179,8 @@ Route::get('/data', [CartController::class, 'data']);
 
 Route::get('/categories', [ProductController::class, 'showProducts'])->name('products.list');
 
+Route::get('/categories', [CategoryController::class, 'showCategories'])->name('categories.index');
+
 Route::get('/main-admin', function () {
     return view('admin.dashboard-main');
 });
