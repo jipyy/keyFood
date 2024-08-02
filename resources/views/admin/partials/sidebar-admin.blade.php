@@ -22,12 +22,12 @@
             </ul>
             <ul class="list-none">
                 <li class="relative px-6 py-3">
-                    @if (Request::is('dashboard-cards'))
+                    @if (Request::is('dashboard-cms'))
                         <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
                             aria-hidden="true"></span>
                     @endif
-                    <a class="{{ Request::is('dashboard-cards') ? 'inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100' : 'inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200' }}"
-                        href="/dashboard-cards">
+                    <a class="{{ Request::is('dashboard-cms') ? 'inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100' : 'inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200' }}"
+                        href="/dashboard-cms">
                         <i class='bx bx-building-house bx-sm'></i>
                     <span class="ml-4">Company Info</span>
                     </a>
@@ -35,12 +35,12 @@
             </ul>
             <ul class="list-none">
             <li class="relative px-6 py-3">
-                @if (Request::is('dashboard-tables'))
+                @if (Request::is('dashboard-users'))
                     <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
                         aria-hidden="true"></span>
                 @endif
-                <a class="{{ Request::is('dashboard-tables') ? 'inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100' : 'inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200' }}"
-                    href="/dashboard-tables">
+                <a class="{{ Request::is('dashboard-users') ? 'inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100' : 'inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200' }}"
+                    href="/dashboard-users">
                 
                     <i class='bx bx-user bx-sm'></i>
                     <span class="ml-4">User</span>
@@ -62,16 +62,17 @@
             </ul>
 
             <ul class="list-none">
-            <li class="relative px-6 py-3">
-                <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                    href="">
-                    <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
-                        stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                        <path d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>
-                    </svg>
-                    <span class="ml-4">Tables</span>
-                </a>
-            </li>
+                <li class="relative px-6 py-3">
+                    @if (Request::is('dashboard-role'))
+                        <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
+                            aria-hidden="true"></span>
+                    @endif
+                    <a class="{{ Request::is('dashboard-role') ? 'inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100' : 'inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200' }}"
+                        href="/dashboard-role">
+                        <i class='bx bx-check-circle bx-sm'></i>
+                        <span class="ml-4">Role Requests</span>
+                    </a>
+                </li>
             </ul>
             <ul class="list-none">
             <li class="relative px-6 py-3">
