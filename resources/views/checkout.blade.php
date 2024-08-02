@@ -4,12 +4,12 @@
     <main>
         <section class="checkout-form">
             <form action="#!" method="get">
-                <h3>Contact information</h3>
+                <h2 class="font-manrope font-extrabold text-3xl lead-10 text-black mb-9">Pesanan Anda</h2>
                 <div class="form-control">
                     <label for="checkout-email">E-mail</label>
                     <div>
                         <span class="fa"><i class='bx bx-envelope'></i></span>
-                        <input type="email" id="checkout-email" name="checkout-email" placeholder="Enter your email..." value="{{ $user->email ?? '' }}">
+                        <input type="email" id="checkout-email" name="checkout-email" placeholder="Enter your email.. (opsional)." value="{{ $user->email ?? '' }}">
                     </div>
                 </div>
                 <div class="form-control">

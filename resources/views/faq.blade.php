@@ -9,6 +9,9 @@
 </head>
 <body>
     <div class="accordion">
+        <div class="title">
+            <h2>What is the purpose of the FAQ section?</h2>    
+        </div>
         {{-- Product --}}
         <ul>
             <li>
