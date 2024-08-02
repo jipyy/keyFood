@@ -20,7 +20,7 @@
                     </a>
                 </li>
             </ul>
-            <ul>
+            <ul class="list-none">
                 <li class="relative px-6 py-3">
                     @if (Request::is('dashboard-cards'))
                         <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
@@ -33,6 +33,7 @@
                     </a>
                 </li>
             </ul>
+            <ul class="list-none">
             <li class="relative px-6 py-3">
                 @if (Request::is('dashboard-tables'))
                     <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
@@ -44,6 +45,8 @@
                     <span class="ml-4">User</span>
                 </a>
             </li>
+          </ul>
+          <ul class="list-none">
             <li class="relative px-6 py-3">
                 @if (Route::currentRouteName() == 'dashboard-toko')
                     <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
@@ -55,6 +58,9 @@
                     <span class="ml-4">Seller</span>
                 </a>
             </li>
+            </ul>
+
+            <ul class="list-none">
             <li class="relative px-6 py-3">
                 <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                     href="">
@@ -65,6 +71,8 @@
                     <span class="ml-4">Tables</span>
                 </a>
             </li>
+            </ul>
+            <ul class="list-none">
             <li class="relative px-6 py-3">
                 <button
                     class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
