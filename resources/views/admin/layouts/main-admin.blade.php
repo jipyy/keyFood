@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html :class="{ 'theme-dark': dark }" x-data="data()" lang="en">
+<html :class="{ 'theme-dark': dark }" class="overflow-hidden" x-data="data()" lang="en">
 
 <head>
   <meta charset="UTF-8" />

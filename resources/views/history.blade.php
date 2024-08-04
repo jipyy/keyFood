@@ -58,12 +58,7 @@
                             </div>
                         </div>
                         <div class="flex items-center justify-around w-full  sm:pl-28 lg:pl-0">
-                            <div class="flex flex-col justify-center items-start max-sm:items-center">
-                                <p class="font-normal text-lg text-gray-500 leading-8 mb-2 text-left whitespace-nowrap">
-                                    Status</p>
-                               <p class="complete font-semibold text-lg leading-8 text-green-500 text-left whitespace-nowrap">
-                                    Selesai</p>
-                            </div>
+                            
                             <div class="flex flex-col justify-center items-start max-sm:items-center">
                                 <p class="font-semibold text-xl leading-8 text-black whitespace-nowrap">Harga: Rp. 100.000</p>
 
@@ -98,12 +93,7 @@
                             </div>
                         </div>
                         <div class="flex items-center justify-around w-full sm:pl-28 lg:pl-0">
-                            <div class="flex flex-col justify-center items-start max-sm:items-center">
-                                <p class="font-normal text-lg text-gray-500 leading-8 mb-2 text-left whitespace-nowrap">
-                                    Status</p>
-                               <p class="complete font-semibold text-lg leading-8 text-green-500 text-left whitespace-nowrap">
-                                    Selesai</p>
-                            </div>
+                            
                             <div class="flex flex-col justify-center items-start max-sm:items-center">
                                 <p class="font-semibold text-xl leading-8 text-black whitespace-nowrap">Harga: Rp. 100.000</p>
 
@@ -128,7 +118,7 @@
                                 </svg>
                                 Hapus Riwayat
                             </button>
-                            <p class="font-normal text-xl leading-8 text-gray-500 sm:pl-8">Pembelian Berhasil!</p>
+                            <p class="complete font-normal text-xl leading-8 text-gray-500 sm:pl-8">Pembelian Berhasil!</p>
                         </div>
                         <p class="font-medium text-xl leading-8 text-black max-sm:py-4"> <span class="text-gray-500">Total
                                 Harga: </span> &nbsp;Rp. 200.000</p>
@@ -180,12 +170,7 @@
                             </div>
                         </div>
                         <div class="flex items-center justify-around w-full  sm:pl-28 lg:pl-0">
-                            <div class="flex flex-col justify-center items-start max-sm:items-center">
-                                <p class="font-normal text-lg text-gray-500 leading-8 mb-2 text-left whitespace-nowrap">
-                                    Status</p>
-                               <p class="complete font-semibold text-lg leading-8 text-green-500 text-left whitespace-nowrap">
-                                    Selesai</p>
-                            </div>
+                            
                             <div class="flex flex-col justify-center items-start max-sm:items-center">
                                 <p class="font-semibold text-xl leading-8 text-black whitespace-nowrap">Harga: Rp. 100.000</p>
 
@@ -221,12 +206,7 @@
                             </div>
                         </div>
                         <div class="flex items-center justify-around w-full sm:pl-28 lg:pl-0">
-                            <div class="flex flex-col justify-center items-start max-sm:items-center">
-                                <p class="font-normal text-lg text-gray-500 leading-8 mb-2 text-left whitespace-nowrap">
-                                    Status</p>
-                               <p class="complete font-semibold text-lg leading-8 text-green-500 text-left whitespace-nowrap">
-                                    Selesai</p>
-                            </div>
+                            
                             <div class="flex flex-col justify-center items-start max-sm:items-center">
                                 <p class="font-semibold text-xl leading-8 text-black whitespace-nowrap">Harga: Rp. 100.000</p>
 
@@ -251,7 +231,7 @@
                                 </svg>
                                 Hapus Riwayat
                             </button>
-                            <p class="font-normal text-xl leading-8 text-gray-500 sm:pl-8">Pembelian Berhasil!</p>
+                            <p class="complete font-normal text-xl leading-8 text-gray-500 sm:pl-8">Pembelian Berhasil!</p>
                         </div>
                         <p class="font-medium text-xl leading-8 text-black max-sm:py-4"> <span class="text-gray-500">Total
                                 Harga: </span> &nbsp;Rp. 200.000</p>
@@ -303,12 +283,7 @@
                             </div>
                         </div>
                         <div class="flex items-center justify-around w-full  sm:pl-28 lg:pl-0">
-                            <div class="flex flex-col justify-center items-start max-sm:items-center">
-                                <p class="font-normal text-lg text-gray-500 leading-8 mb-2 text-left whitespace-nowrap">
-                                    Status</p>
-                               <p class="complete font-semibold text-lg leading-8 text-green-500 text-left whitespace-nowrap">
-                                    Selesai</p>
-                            </div>
+                            
                             <div class="flex flex-col justify-center items-start max-sm:items-center">
                                 <p class="font-semibold text-xl leading-8 text-black whitespace-nowrap">Harga: Rp. 100.000</p>
 
@@ -344,12 +319,7 @@
                             </div>
                         </div>
                         <div class="flex items-center justify-around w-full sm:pl-28 lg:pl-0">
-                            <div class="flex flex-col justify-center items-start max-sm:items-center">
-                                <p class="font-normal text-lg text-gray-500 leading-8 mb-2 text-left whitespace-nowrap">
-                                    Status</p>
-                               <p class="complete font-semibold text-lg leading-8 text-green-500 text-left whitespace-nowrap">
-                                    Selesai</p>
-                            </div>
+                            
                             <div class="flex flex-col justify-center items-start max-sm:items-center">
                                 <p class="font-semibold text-xl leading-8 text-black whitespace-nowrap">Harga: Rp. 100.000</p>
 
@@ -374,7 +344,7 @@
                                 </svg>
                                 Hapus Riwayat
                             </button>
-                            <p class="font-normal text-xl leading-8 text-gray-500 sm:pl-8">Pembelian Berhasil!</p>
+                            <p class="complete font-normal text-xl leading-8 text-gray-500 sm:pl-8">Pembelian Berhasil!</p>
                         </div>
                         <p class="font-medium text-xl leading-8 text-black max-sm:py-4"> <span class="text-gray-500">Total
                                 Harga: </span> &nbsp;Rp. 200.000</p>

@@ -21,6 +21,11 @@ body.dark .history-container h6{
 body.dark .history-container .complete{
     color: rgb(34 197 94 / var(--tw-text-opacity));
 }
+
+.history-container .complete{
+    color: rgb(34 197 94 / var(--tw-text-opacity));
+}
+
 body.dark .history-section h2{
     color: #ffff;
 }

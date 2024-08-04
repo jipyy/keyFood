@@ -10,6 +10,7 @@
     box-sizing: border-box;
 }
 
+
 body.dark .store-header{
     background-color: #232323;
     box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);

@@ -185,8 +185,8 @@ Route::get('/main-admin', function () {
     return view('admin.dashboard-main');
 });
 
-Route::get('/dashboard-cards', function () {
-    return view('admin.dashboard-cards');
+Route::get('/dashboard-cms', function () {
+    return view('admin.dashboard-cms');
 });
 
 Route::get('/dashboard-forms', function () {
@@ -205,8 +205,12 @@ Route::get('/dashboard-buttons', function () {
     return view('admin.dashboard-buttons');
 });
 
-Route::get('/dashboard-tables', function () {
-    return view('admin.dashboard-tables');
+Route::get('/dashboard-users', function () {
+    return view('admin.dashboard-users');
+});
+
+Route::get('/dashboard-role', function () {
+    return view('admin.dashboard-role');
 });
 
 

@@ -186,9 +186,9 @@ body.dark .price {
     background-color: #d1d1d1;
 }
 
-svg {
+/* svg {
     width: 20px;
-}
+} */
 
 /* Media Queries */
 @media (max-width: 768px) {
