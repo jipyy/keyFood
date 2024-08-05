@@ -23,7 +23,7 @@
                                 </tr>
                             </thead>
                             <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-                                <tr class="text-gray-700 dark:text-gray-400">
+                                <tr class="text-gray-700 dark:text-gray-400" id="1">
                                     {{-- id user --}}
 
                                     <td class="px-4 py-3">
@@ -71,7 +71,7 @@
                                     </td>
 
                                     <td class="px-4 py-3">
-                                        <div class="flex items-center text-sm">
+                                        <div class="flex items-center text-sm text">
                                             <div>
                                                 <p class="font-semibold">Seller</p>
                                             </div>
@@ -80,24 +80,34 @@
 
                                     <td class="px-4 py-3">
                                         <div class="flex items-center space-x-4 text-sm">
+                                           
+                                            <h5
+                                                class="approved hidden items-center gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium border border-green-600 text-green-600 dark:text-white">
+                                                Approved</h5>
+                                            <h5
+                                                class="rejected hidden items-center gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium border border-red-600 text-red-600 dark:text-white">
+                                                Canceled</h5>
+
+                                           
+
                                             <button
-                                                class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
-                                                aria-label="Edit">
-                                                <svg class="w-5 h-5" aria-hidden="true" fill="currentColor"
-                                                    viewBox="0 0 20 20">
+                                                class="check flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
+                                                aria-label="Check">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" width="24"
+                                                    height="24" viewBox="0 0 24 24" fill="currentColor">
                                                     <path
-                                                        d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z">
+                                                        d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm-1.999 14.413-3.713-3.705L7.7 11.292l2.299 2.295 5.294-5.294 1.414 1.414-6.706 6.706z">
                                                     </path>
                                                 </svg>
                                             </button>
                                             <button
-                                                class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
-                                                aria-label="Delete">
-                                                <svg class="w-5 h-5" aria-hidden="true" fill="currentColor"
-                                                    viewBox="0 0 20 20">
-                                                    <path fill-rule="evenodd"
-                                                        d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
-                                                        clip-rule="evenodd"></path>
+                                                class="cancel flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
+                                                aria-label="Cancel">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" width="24"
+                                                    height="24" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path
+                                                        d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm4.207 12.793-1.414 1.414L12 13.414l-2.793 2.793-1.414-1.414L10.586 12 7.793 9.207l1.414-1.414L12 10.586l2.793-2.793 1.414 1.414L13.414 12l2.793 2.793z">
+                                                    </path>
                                                 </svg>
                                             </button>
                                         </div>
@@ -133,7 +143,7 @@
                                             </div>
                                         </div>
                                     </td>
-                                    
+
                                     <td class="px-4 py-3">
                                         <div class="flex items-center text-sm">
                                             <div>
@@ -160,24 +170,32 @@
 
                                     <td class="px-4 py-3">
                                         <div class="flex items-center space-x-4 text-sm">
+                                            <h5
+                                                class="approved hidden items-center gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium border border-green-600 text-green-600 dark:text-white">
+                                                Approved</h5>
+                                            <h5
+                                                class="rejected hidden items-center gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium border border-red-600 text-red-600 dark:text-white dark:border-red-500">
+                                                Canceled</h5>
+
+
                                             <button
-                                                class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
-                                                aria-label="Edit">
-                                                <svg class="w-5 h-5" aria-hidden="true" fill="currentColor"
-                                                    viewBox="0 0 20 20">
+                                                class="check flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
+                                                aria-label="Check">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" width="24"
+                                                    height="24" viewBox="0 0 24 24" fill="currentColor">
                                                     <path
-                                                        d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z">
+                                                        d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm-1.999 14.413-3.713-3.705L7.7 11.292l2.299 2.295 5.294-5.294 1.414 1.414-6.706 6.706z">
                                                     </path>
                                                 </svg>
                                             </button>
                                             <button
-                                                class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
-                                                aria-label="Delete">
-                                                <svg class="w-5 h-5" aria-hidden="true" fill="currentColor"
-                                                    viewBox="0 0 20 20">
-                                                    <path fill-rule="evenodd"
-                                                        d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
-                                                        clip-rule="evenodd"></path>
+                                                class="cancel flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
+                                                aria-label="Cancel">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" width="24"
+                                                    height="24" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path
+                                                        d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm4.207 12.793-1.414 1.414L12 13.414l-2.793 2.793-1.414-1.414L10.586 12 7.793 9.207l1.414-1.414L12 10.586l2.793-2.793 1.414 1.414L13.414 12l2.793 2.793z">
+                                                    </path>
                                                 </svg>
                                             </button>
                                         </div>
@@ -193,7 +211,8 @@
                                                 <img class="object-cover w-full h-full rounded-full"
                                                     src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
                                                     alt="" loading="lazy" />
-                                                <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true">
+                                                <div class="absolute inset-0 rounded-full shadow-inner"
+                                                    aria-hidden="true">
                                                 </div>
                                             </div>
                                             <div>
@@ -213,7 +232,7 @@
                                             </div>
                                         </div>
                                     </td>
-                                    
+
                                     <td class="px-4 py-3">
                                         <div class="flex items-center text-sm">
                                             <div>
@@ -240,24 +259,30 @@
 
                                     <td class="px-4 py-3">
                                         <div class="flex items-center space-x-4 text-sm">
+                                            <h5
+                                                class="approved hidden items-center gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium border border-green-600 text-green-600 dark:text-white">
+                                                Approved</h5>
+                                            <h5
+                                                class="rejected hidden items-center gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium border border-red-600 text-red-600 dark:text-white">
+                                                Canceled</h5>
                                             <button
-                                                class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
-                                                aria-label="Edit">
-                                                <svg class="w-5 h-5" aria-hidden="true" fill="currentColor"
-                                                    viewBox="0 0 20 20">
+                                                class="check flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
+                                                aria-label="Check">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" width="24"
+                                                    height="24" viewBox="0 0 24 24" fill="currentColor">
                                                     <path
-                                                        d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z">
+                                                        d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm-1.999 14.413-3.713-3.705L7.7 11.292l2.299 2.295 5.294-5.294 1.414 1.414-6.706 6.706z">
                                                     </path>
                                                 </svg>
                                             </button>
                                             <button
-                                                class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
-                                                aria-label="Delete">
-                                                <svg class="w-5 h-5" aria-hidden="true" fill="currentColor"
-                                                    viewBox="0 0 20 20">
-                                                    <path fill-rule="evenodd"
-                                                        d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
-                                                        clip-rule="evenodd"></path>
+                                                class="cancel flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
+                                                aria-label="Cancel">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" width="24"
+                                                    height="24" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path
+                                                        d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm4.207 12.793-1.414 1.414L12 13.414l-2.793 2.793-1.414-1.414L10.586 12 7.793 9.207l1.414-1.414L12 10.586l2.793-2.793 1.414 1.414L13.414 12l2.793 2.793z">
+                                                    </path>
                                                 </svg>
                                             </button>
                                         </div>
@@ -288,12 +313,14 @@
                                         </button>
                                     </li>
                                     <li>
-                                        <button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">
+                                        <button
+                                            class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">
                                             1
                                         </button>
                                     </li>
                                     <li>
-                                        <button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">
+                                        <button
+                                            class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">
                                             2
                                         </button>
                                     </li>
@@ -304,7 +331,8 @@
                                         </button>
                                     </li>
                                     <li>
-                                        <button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">
+                                        <button
+                                            class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">
                                             4
                                         </button>
                                     </li>
@@ -312,12 +340,14 @@
                                         <span class="px-3 py-1">...</span>
                                     </li>
                                     <li>
-                                        <button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">
+                                        <button
+                                            class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">
                                             8
                                         </button>
                                     </li>
                                     <li>
-                                        <button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">
+                                        <button
+                                            class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">
                                             9
                                         </button>
                                     </li>
@@ -337,9 +367,47 @@
                         </span>
                     </div>
                 </div>
-
-
             </div>
         </div>
     </main>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Ambil semua tombol check
+            const checkButtons = document.querySelectorAll('.check');
+            // Ambil semua tombol cancel
+            const cancelButtons = document.querySelectorAll('.cancel');
+
+            // Menangani klik pada tombol check
+            checkButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const row = button.closest('tr');
+                    const approvedText = row.querySelector('.approved');
+                    const rejectedText = row.querySelector('.rejected');
+
+                    // Sembunyikan tombol dan tampilkan teks 'Approved'
+                    button.style.display = 'none';
+                    row.querySelector('.cancel').style.display = 'none';
+                    approvedText.classList.remove('hidden');
+                    rejectedText.classList.add('hidden');
+                });
+            });
+
+            // Menangani klik pada tombol cancel
+            cancelButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const row = button.closest('tr');
+                    const approvedText = row.querySelector('.approved');
+                    const rejectedText = row.querySelector('.rejected');
+
+                    // Sembunyikan tombol dan tampilkan teks 'Rejected'
+                    button.style.display = 'none';
+                    row.querySelector('.check').style.display = 'none';
+                    rejectedText.classList.remove('hidden');
+                    approvedText.classList.add('hidden');
+                });
+            });
+        });
+    </script>
 @endsection
