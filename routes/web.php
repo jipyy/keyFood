@@ -47,7 +47,7 @@ Route::get('/edit-profile', function () {
     return view('edit-profile');
 });
 
-Route::get('/seller-edit', function () {
+Route::get('/seller-page', function () {
     return view('seller-edit');
 });
 

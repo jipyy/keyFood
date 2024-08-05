@@ -95,8 +95,12 @@ body.dark .bottom-sheet .sheet-overlay{
   height: 4px;
   width: 40px;
   display: block;
-  background: #C7D0E1;
+  background: #d1d2d3;
   border-radius: 50px;
+}
+
+body.dark .drag-icon span{
+  background: #000;
 }
 .bottom-sheet .body {
   height: 100%;
