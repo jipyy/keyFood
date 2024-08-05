@@ -20,8 +20,8 @@
                     </div>
                     <div style="width: 100%">
                         <div class="flex gap-1 text-sm font-semibold">
-                            <span>
-                                {{ strlen(Auth::user()->name) > 16 ? substr(Auth::user()->name, 0, 16) . '...' : Auth::user()->name }}
+                            <span>d
+                           d     {{ strlen(Auth::user()->name) > 16 ? substr(Auth::user()->name, 0, 16) . '...' : Auth::user()->name }}
                             </span>
                             <span class="text-sky-400" style="color: aqua;">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -185,3 +185,4 @@
         </div>
     </div>
 </div>
+d
