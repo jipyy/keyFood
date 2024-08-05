@@ -41,32 +41,26 @@
             </li>
 
             <ul class="menu-links">
-                <li class="{{ Request::is('home') ? 'nav-link active' : 'nav-link' }}">
-                    <a href="/home">
-                        <i class="bx bx-home-alt icon"></i>
-                        <span class="text nav-text">Home</span>
-                    </a>
-                </li>
                 @if (Auth::check())
                     @if (Auth::user()->hasRole('admin'))
                         <li class="{{ Request::is('admin.products.index') ? 'nav-link active' : 'nav-link' }}">
                             <a href="{{ route('admin.products.index') }}">
                                 <i class='bx bx-restaurant icon'></i>
-                                <span class="text nav-text">Product</span>
+                                <span class="text nav-text">Produk</span>
                             </a>
                         </li>
 
                         <li class="{{ Request::is('admin.products_orders.index') ? 'nav-link active' : 'nav-link' }}">
                             <a href="{{ route('admin.products_orders.index') }}">
                                 <i class='bx bx-store icon'></i>
-                                <span class="text nav-text">Stores</span>
+                                <span class="text nav-text">Toko</span>
                             </a>
                         </li>
 
                         <li class="{{ Request::is('admin.categories.index') ? 'nav-link active' : 'nav-link' }}">
                             <a href="{{ route('admin.categories.index') }}">
                                 <i class='bx bx-bowl-hot icon'></i>
-                                <span class="text nav-text">Categories</span>
+                                <span class="text nav-text">Kategori</span>
                             </a>
                         </li>
                         <li class="nav-link">
@@ -76,24 +70,10 @@
                             </a>
                         </li>
                     @elseif (Auth::user()->hasRole('seller'))
-                        <li class="{{ Request::is('product-slider-sell') ? 'nav-link active' : 'nav-link' }}">
-                            <a href="/product-slider-sell">
-                                <i class="bx bx-restaurant icon"></i>
-                                <span class="text nav-text">Product</span>
-                            </a>
-                        </li>
-
                         <li class="{{ Request::is('store-sell') ? 'nav-link active' : 'nav-link' }}">
-                            <a href="/store-sell">
+                            <a href="/seller-page">
                                 <i class='bx bx-store icon'></i>
-                                <span class="text nav-text">Stores</span>
-                            </a>
-                        </li>
-
-                        <li class="{{ Request::is('categories') ? 'nav-link active' : 'nav-link' }}">
-                            <a href="/categories">
-                                <i class='bx bx-bowl-hot icon'></i>
-                                <span class="text nav-text">Categories</span>
+                                <span class="text nav-text">Toko</span>
                             </a>
                         </li>
                         <li class="nav-link">
@@ -106,26 +86,26 @@
                         <li class="{{ Request::is('product-slider') ? 'nav-link active' : 'nav-link' }}">
                             <a href="/product-slider">
                                 <i class="bx bx-restaurant icon"></i>
-                                <span class="text nav-text">Product</span>
+                                <span class="text nav-text">Produk</span>
                             </a>
                         </li>
                         <li class="{{ Request::is('stores') ? 'nav-link active' : 'nav-link' }}">
                             <a href="/stores">
                                 <i class='bx bx-store icon'></i>
-                                <span class="text nav-text">Stores</span>
+                                <span class="text nav-text">Toko</span>
                             </a>
                         </li>
 
                         <li class="{{ Request::is('categories') ? 'nav-link active' : 'nav-link' }}">
                             <a href="/categories">
                                 <i class='bx bx-bowl-hot icon'></i>
-                                <span class="text nav-text">Categories</span>
+                                <span class="text nav-text">Kategori</span>
                             </a>
                         </li>
-                        <li class="s">
+                        <li class="{{ Request::is('history') ? 'nav-link active' : 'nav-link' }}">
                             <a href="/history">
                                 <i class='bx bx-history icon'></i>
-                                <span class="text nav-text">History</span>
+                                <span class="text nav-text">Riwayat</span>
                             </a>
                         </li>
                         <li class="nav-link">
@@ -136,23 +116,29 @@
                         </li>
                     @endif
                 @else
+                    <li class="{{ Request::is('home') ? 'nav-link active' : 'nav-link' }}">
+                        <a href="/home">
+                            <i class="bx bx-home-alt icon"></i>
+                            <span class="text nav-text">Home</span>
+                        </a>
+                    </li>
                     <li class="{{ Request::is('product-slider') ? 'nav-link active' : 'nav-link' }}">
                         <a href="/product-slider">
                             <i class="bx bx-restaurant icon"></i>
-                            <span class="text nav-text">Product</span>
+                            <span class="text nav-text">Produk</span>
                         </a>
                     </li>
                     <li class="{{ Request::is('stores') ? 'nav-link active' : 'nav-link' }}">
                         <a href="/stores">
                             <i class='bx bx-store icon'></i>
-                            <span class="text nav-text">Stores</span>
+                            <span class="text nav-text">Toko</span>
                         </a>
                     </li>
 
                     <li class="{{ Request::is('categories') ? 'nav-link active' : 'nav-link' }}">
                         <a href="/categories">
                             <i class='bx bx-bowl-hot icon'></i>
-                            <span class="text nav-text">Categories</span>
+                            <span class="text nav-text">Kategori</span>
                         </a>
                     </li>
                 @endif
