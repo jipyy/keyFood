@@ -79,7 +79,7 @@
                                     </td>
 
                                     <td class="px-4 py-3">
-                                        <div class="flex items-center space-x-4 text-sm">
+                                        <div class="flex items-center text-sm">
                                            
                                             <h5
                                                 class="approved hidden items-center gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium border border-green-600 text-green-600 dark:text-white">
@@ -169,7 +169,7 @@
                                     </td>
 
                                     <td class="px-4 py-3">
-                                        <div class="flex items-center space-x-4 text-sm">
+                                        <div class="flex items-center text-sm">
                                             <h5
                                                 class="approved hidden items-center gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium border border-green-600 text-green-600 dark:text-white">
                                                 Approved</h5>
@@ -258,7 +258,7 @@
                                     </td>
 
                                     <td class="px-4 py-3">
-                                        <div class="flex items-center space-x-4 text-sm">
+                                        <div class="flex items-center text-sm">
                                             <h5
                                                 class="approved hidden items-center gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium border border-green-600 text-green-600 dark:text-white">
                                                 Approved</h5>
