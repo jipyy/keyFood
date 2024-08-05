@@ -1,4 +1,5 @@
 @extends('admin.layouts.main-admin')
+
 @section('container-admin')
     <main class="h-screen pb-16 overflow-y-auto">
         <div class="container grid px-6 mx-auto">
