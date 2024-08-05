@@ -12,6 +12,7 @@ use App\Http\Controllers\Auth\SocialiteController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\RoleRequestController;
 
 Route::get('/', function () {
     return view('home');
@@ -183,7 +184,11 @@ Route::get('/categories', [CategoryController::class, 'showCategories'])->name('
 
 Route::get('/main-admin', function () {
     return view('admin.dashboard-main');
-});
+})->name('admin.dashboard-main');
+
+
+Route::post('/role-request/approve/{id}', [RoleRequestController::class, 'approve'])->name('role-request.approve');
+Route::post('/role-request/cancel/{id}', [RoleRequestController::class, 'cancel'])->name('role-request.cancel');
 
 Route::get('/dashboard-cms', function () {
     return view('admin.dashboard-cms');
@@ -222,3 +227,4 @@ Route::get('/history', function () {
 Route::get('/dashboard-toko', function () {
     return view('admin.dashboard-toko');
 });
+Route::get('/role-requests', [RoleRequestController::class, 'index'])->name('role-requests.index');

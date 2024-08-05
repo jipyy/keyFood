@@ -96,7 +96,17 @@ class AuthenticatedSessionController extends Controller
 
         // Jika email dan password benar
         $request->session()->regenerate();
+
+        // Redirect based on user role
+        if (Auth::user()->hasRole('admin')) {
+            return redirect()->intended(route('admin.dashboard-main'));
+        }
         
+        if (Auth::user()->hasRole('seller')) {
+            return redirect()->intended(route('seller-edit'));
+        }
+        
+        // Default redirect if no roles match
         return redirect()->intended(route('home'));
     }
 

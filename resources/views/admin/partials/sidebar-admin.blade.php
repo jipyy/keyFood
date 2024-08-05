@@ -1,9 +1,7 @@
-
-
 <div class="flex h-full bg-gray-50 dark:bg-gray-900" :class="{ 'overflow-hidden': isSideMenuOpen }">
     <!-- Desktop sidebar -->
     <aside class="z-20 hidden w-64 overflow-y-hidden bg-white dark:bg-gray-800 md:block flex-shrink-0 sticky top-0">
-       <div class="py-4 text-gray-500 dark:text-gray-400">
+        <div class="py-4 text-gray-500 dark:text-gray-400">
             <a class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200" href="#">
                 KeyFood
             </a>
@@ -29,36 +27,36 @@
                     <a class="{{ Request::is('dashboard-cms') ? 'inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100' : 'inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200' }}"
                         href="/dashboard-cms">
                         <i class='bx bx-building-house bx-sm'></i>
-                    <span class="ml-4">Company Info</span>
+                        <span class="ml-4">Company Info</span>
                     </a>
                 </li>
             </ul>
             <ul class="list-none">
-            <li class="relative px-6 py-3">
-                @if (Request::is('admin/users'))
-                    <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
-                        aria-hidden="true"></span>
-                @endif
-                <a class="{{ Request::is('admin/users') ? 'inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100' : 'inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200' }}"
-                    href="/admin/users">
-                
-                    <i class='bx bx-user bx-sm'></i>
-                    <span class="ml-4">User</span>
-                </a>
-            </li>
-          </ul>
-          <ul class="list-none">
-            <li class="relative px-6 py-3">
-                @if (Request::is('dashboard-toko'))
-                    <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
-                        aria-hidden="true"></span>
-                @endif
-                <a class="{{ Request::is('dashboard-toko') ? 'inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100' : 'inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200' }}"
-                    href="/dashboard-toko">
-                    <i class='bx bx-store bx-sm' ></i>
-                    <span class="ml-4">Toko</span>
-                </a>
-            </li>
+                <li class="relative px-6 py-3">
+                    @if (Request::is('admin/users'))
+                        <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
+                            aria-hidden="true"></span>
+                    @endif
+                    <a class="{{ Request::is('admin/users') ? 'inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100' : 'inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200' }}"
+                        href="/admin/users">
+
+                        <i class='bx bx-user bx-sm'></i>
+                        <span class="ml-4">User</span>
+                    </a>
+                </li>
+            </ul>
+            <ul class="list-none">
+                <li class="relative px-6 py-3">
+                    @if (Request::is('dashboard-toko'))
+                        <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
+                            aria-hidden="true"></span>
+                    @endif
+                    <a class="{{ Request::is('dashboard-toko') ? 'inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100' : 'inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200' }}"
+                        href="/dashboard-toko">
+                        <i class='bx bx-store bx-sm'></i>
+                        <span class="ml-4">Toko</span>
+                    </a>
+                </li>
             </ul>
 
             <ul class="list-none">
@@ -75,6 +73,18 @@
                 </li>
             </ul>
             <ul class="list-none">
+                <li class="relative px-6 py-3">
+                    @if (Request::is('admin/categories'))
+                        <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
+                            aria-hidden="true"></span>
+                    @endif
+                    <a class="{{ Request::is('admin/categories') ? 'inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100' : 'inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200' }}"
+                        href="/admin/categories">
+                        <i class='bx bx-list-ul bx-sm'></i>
+                        <span class="ml-4">Categories</span>
+                    </a>
+                </li>
+            </ul>
             <li class="relative px-6 py-3">
                 <button
                     class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"

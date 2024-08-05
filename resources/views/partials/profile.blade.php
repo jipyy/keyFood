@@ -137,6 +137,17 @@
                     </div>
                 </div>
             </div>
+            <form action="{{ route('role-request.store') }}" method="POST">
+                @csrf
+                <input type="hidden" name="user_id" value="{{ Auth::id() }}">
+                <input type="hidden" name="requested_role" value="seller">
+                <input type="hidden" name="name" value="{{ Auth::user()->name }}">
+                <input type="hidden" name="address" value="{{ Auth::user()->address }}">
+                <input type="hidden" name="email" value="{{ Auth::user()->email }}">
+                <input type="hidden" name="phone" value="{{ Auth::user()->phone }}">
+        
+                <button type="submit" class="btn btn-primary">Request Role Change to Seller</button>
+            </form>
             <a href="{{ route('profile.edit') }}">
                 <button class="download-btn"><i class="fa fa-edit"></i> Edit Profile</button>
             </a>
@@ -185,4 +196,3 @@
         </div>
     </div>
 </div>
-d

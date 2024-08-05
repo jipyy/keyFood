@@ -17,7 +17,7 @@
                                     <th class="px-4 py-3">Alamat User</th>
                                     <th class="px-4 py-3">No Telp</th>
                                     <th class="px-4 py-3">Email</th>
-                                    <th class="px-4 py-3">Role Requested</th>
+                                    {{-- <th class="px-4 py-3">Role Requested</th> --}}
                                     <th class="px-6 py-3">Action</th>
                                 </tr>
                             </thead>
@@ -35,7 +35,7 @@
                                                     </div>
                                                 </div>
                                                 <div>
-                                                    <p class="font-semibold">{{ $request->user->name }}</p>
+                                                    <p class="font-semibold">{{ $request->name }}</p>
                                                     <p class="text-xs text-gray-600 dark:text-gray-400">
                                                         ID User: {{ $request->user_id }}
                                                     </p>
@@ -47,7 +47,7 @@
                                         <td class="px-4 py-3">
                                             <div class="flex items-center text-sm">
                                                 <div>
-                                                    <p class="font-semibold">{{ $request->user->address }}</p>
+                                                    <p class="font-semibold">{{ $request->location }}</p>
                                                 </div>
                                             </div>
                                         </td>
@@ -56,7 +56,7 @@
                                         <td class="px-4 py-3">
                                             <div class="flex items-center text-sm">
                                                 <div>
-                                                    <p class="font-semibold">{{ $request->user->phone_number }}</p>
+                                                    <p class="font-semibold">{{ $request->phone }}</p>
                                                 </div>
                                             </div>
                                         </td>
@@ -65,16 +65,7 @@
                                         <td class="px-4 py-3">
                                             <div class="flex items-center text-sm">
                                                 <div>
-                                                    <p class="font-semibold">{{ $request->user->email }}</p>
-                                                </div>
-                                            </div>
-                                        </td>
-
-                                        <!-- Role Requested -->
-                                        <td class="px-4 py-3">
-                                            <div class="flex items-center text-sm">
-                                                <div>
-                                                    <p class="font-semibold">{{ $request->requested_role }}</p>
+                                                    <p class="font-semibold">{{ $request->email }}</p>
                                                 </div>
                                             </div>
                                         </td>
@@ -82,17 +73,17 @@
                                         <!-- Action -->
                                         <td class="px-4 py-3">
                                             <div class="flex items-center text-sm">
-                                                <h5 class="approved {{ $request->status !== 'approved' ? 'hidden' : '' }} items-center gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium border border-green-600 text-green-600 dark:text-white">Approved</h5>
-                                                <h5 class="rejected {{ $request->status !== 'rejected' ? 'hidden' : '' }} items-center gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium border border-red-600 text-red-600 dark:text-white">Canceled</h5>
+                                                {{-- <h5 class="approved {{ $request->status !== 'approved' ? 'hidden' : '' }} items-center gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium border border-green-600 text-green-600 dark:text-white">Approved</h5>
+                                                <h5 class="rejected {{ $request->status !== 'rejected' ? 'hidden' : '' }} items-center gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium border border-red-600 text-red-600 dark:text-white">Canceled</h5> --}}
 
-                                                <form action="{{ route('role-request.approve', $request->user->id) }}" method="POST" style="display: inline;">
+                                                <form action="{{ route('role-request.approve', $request->id) }}" method="POST" style="display: inline;">
                                                     @csrf
                                                     <button class="check flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray" aria-label="Check">
                                                         <!-- SVG icon here -->
                                                     </button>
                                                 </form>
                                                 
-                                                <form action="{{ route('role-request.cancel', $request->user->id) }}" method="POST" style="display: inline;">
+                                                <form action="{{ route('role-request.cancel', $request->id) }}" method="POST" style="display: inline;">
                                                     @csrf
                                                     <button class="cancel flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray" aria-label="Cancel">
                                                         <!-- SVG icon here -->
