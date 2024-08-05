@@ -189,6 +189,7 @@ Route::get('/main-admin', function () {
 
 Route::post('/role-request/approve/{id}', [RoleRequestController::class, 'approve'])->name('role-request.approve');
 Route::post('/role-request/cancel/{id}', [RoleRequestController::class, 'cancel'])->name('role-request.cancel');
+Route::post('/role-request/store/{id}', [RoleRequestController::class, 'store'])->name('role-request.store');
 
 Route::get('/dashboard-cms', function () {
     return view('admin.dashboard-cms');

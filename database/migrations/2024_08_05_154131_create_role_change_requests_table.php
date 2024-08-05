@@ -13,7 +13,12 @@ return new class extends Migration
     {
         Schema::create('role_change_requests', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id'); // Menambahkan kolom user_id
+            $table->string('requested_role'); // Menambahkan kolom requested_role
             $table->timestamps();
+            
+            // Menambahkan foreign key constraint untuk user_id
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
