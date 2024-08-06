@@ -1,7 +1,7 @@
 @extends('admin.layouts.main-admin')
 @section('container-admin')
     <main class="h-screen pb-16 overflow-y-auto">
-        <div class="container px-6 mx-auto grid">
+        <div class="container px-6 mx-auto grid py-4 mb-8">
             <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
                 CMS
             </h2>
