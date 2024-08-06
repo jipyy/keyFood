@@ -20,10 +20,12 @@ class RoleRequestController extends Controller
 
     public function approve($id)
     {
-        $roleRequest = new RoleRequest;
-        $roleRequest->role_id = 2;
-        $roleRequest->model_type = 'App\Models\User';
-        $roleRequest->model_id = $id;
+        $roleRequest = RoleRequest::findOrFail($id);
+
+        $user = User::findOrFail($roleRequest->user_id);
+        $user->assignRole($roleRequest->requested_role);
+
+        $roleRequest->status = 'approved';
         $roleRequest->save();
 
         return redirect()->back()->with('success', 'Role changed successfully.');

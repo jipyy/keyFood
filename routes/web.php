@@ -48,9 +48,9 @@ Route::get('/edit-profile', function () {
     return view('edit-profile');
 });
 
-Route::get('/seller-page', function () {
-    return view('seller-edit');
-});
+// Route::get('/seller-page', function () {
+//     return view('seller-edit');
+// });
 
 Route::get('/stores', function () {
     return view('stores');
@@ -232,3 +232,7 @@ Route::get('/dashboard-toko', function () {
     return view('admin.dashboard-toko');
 });
 Route::get('/role-requests', [RoleRequestController::class, 'index'])->name('role-requests.index');
+Route::post('/save-cart', [CartController::class, 'saveCart'])->name('save-cart');
+
+
+Route::post('role-request/store', [RoleRequestController::class, 'store'])->name('role-request.store');

@@ -35,12 +35,10 @@
                             </div>
                         </div>
                         <div class="max-lg:max-w-lg max-lg:mx-auto">
-                            <p class="font-normal text-base leading-7 text-gray-500 text-center mb-5 mt-6">Mari lanjut ke halaman Checkout!</p>
-                            <a href="{{ route('checkout.details') }}">
-                                <button
-                                    class="rounded-full py-4 px-6 bg-indigo-600 text-white font-semibold text-lg w-full text-center transition-all duration-500 hover:bg-indigo-700 ">Checkout
-                                </button>
-                            </a>
+                            <p class="font-normal text-base leading-7 text-gray-500 text-center mb-5 mt-6">Mari lanjut
+                                ke halaman Checkout!</p>
+                            <button onclick="sendCartDataToServer()" class="rounded-full py-4 px-6 bg-indigo-600 text-white font-semibold text-lg w-full text-center transition-all duration-500 hover:bg-indigo-700 ">Checkout"
+                            </button>
                         </div>
                     </div>
 
@@ -49,3 +47,6 @@
         </div>
     </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
