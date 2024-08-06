@@ -12,22 +12,47 @@ class RoleRequestController extends Controller
 {
     public function index()
     {
-        // $roleRequests = RoleRequest::with('user')->get(); // Assuming you have a RoleRequest model with a relationship to User
         $roleRequests = DB::table('role_change_requests')
-                            ->join('users', 'role_change_requests.user_id', '=', 'users.id') // Join berdasarkan user_id di role_change_requests
-                            ->select('role_change_requests.*', 'users.*')
-                            ->get();
-        // dd($roleRequests);
+            ->join('users', 'role_change_requests.user_id', '=', 'users.id')
+            ->select('role_change_requests.*', 'users.name', 'users.address', 'users.phone_number', 'users.email')
+            ->get();
+    
         return view('admin.role-requests.index', compact('roleRequests'));
-    }
+    }    
 
+    public function store(Request $request)
+    {
+        $validatedData = $request->validate([
+            'user_id' => 'required|exists:users,id',
+            'requested_role' => 'required|string',
+            'name' => 'required|string|max:255',
+            'address' => 'nullable|string|max:255',
+            'email' => 'required|string|email|max:255',
+            'phone' => 'nullable|string|max:20',
+        ]);
+    
+        $roleRequest = new RoleRequest();
+        $roleRequest->user_id = $validatedData['user_id'];
+        $roleRequest->requested_role = $validatedData['requested_role'];
+        $roleRequest->name = $validatedData['name'];
+        $roleRequest->address = $validatedData['address'] ?? '';
+        $roleRequest->email = $validatedData['email'];
+        $roleRequest->phone = $validatedData['phone'] ?? '';
+        $roleRequest->status = 'pending';
+    
+        $roleRequest->save();
+    
+        return redirect()->back()->with('success', 'Role change request submitted successfully.');
+    }    
 
     public function approve($id)
     {
-        $roleRequest = new RoleRequest;
-        $roleRequest->role_id = 2;
-        $roleRequest->model_type = 'App\Models\User';
-        $roleRequest->model_id = $id;
+        $roleRequest = RoleRequest::findOrFail($id);
+
+        $user = User::findOrFail($roleRequest->user_id);
+        $user->assignRole($roleRequest->requested_role);
+
+        $roleRequest->status = 'approved';
         $roleRequest->save();
 
         return redirect()->back()->with('success', 'Role changed successfully.');
@@ -36,8 +61,6 @@ class RoleRequestController extends Controller
     public function cancel($id)
     {
         $request = RoleRequest::findOrFail($id);
-
-        // Optionally, mark the request as canceled
         $request->status = 'canceled';
         $request->save();
 
