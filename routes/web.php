@@ -240,4 +240,4 @@ Route::get('/role-requests', [RoleRequestController::class, 'index'])->name('rol
 Route::post('/save-cart', [CartController::class, 'saveCart'])->name('save-cart');
 
 
-Route::post('role-request/store', [RoleRequestController::class, 'store'])->name('role-request.store');
+// Route::post('role-request/store', [RoleRequestController::class, 'store'])->name('role-request.store');

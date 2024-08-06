@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Models\RoleRequest;
@@ -12,21 +13,19 @@ class RoleRequestController extends Controller
     public function index()
     {
         $roleRequests = DB::table('role_change_requests')
-                            ->join('users', 'role_change_requests.user_id', '=', 'users.id')
-                            ->select('role_change_requests.*', 'users.*')
-                            ->get();
+            ->join('users', 'role_change_requests.user_id', '=', 'users.id')
+            ->select('role_change_requests.*', 'users.*')
+            ->get();
 
         return view('admin.role-requests.index', compact('roleRequests'));
     }
 
     public function approve($id)
     {
-        $roleRequest = RoleRequest::findOrFail($id);
-
-        $user = User::findOrFail($roleRequest->user_id);
-        $user->assignRole($roleRequest->requested_role);
-
-        $roleRequest->status = 'approved';
+        $roleRequest = new RoleRequest;
+        $roleRequest->role_id = 2;
+        $roleRequest->model_type = 'App\Models\User';
+        $roleRequest->model_id = $id;
         $roleRequest->save();
 
         return redirect()->back()->with('success', 'Role changed successfully.');
@@ -48,6 +47,15 @@ class RoleRequestController extends Controller
             'user_id' => 'required|exists:users,id',
             'requested_role' => 'required',
         ]);
+
+        // Cek apakah user_id sudah ada di tabel role_change_requests
+        $existingRequest = DB::table('role_change_requests')
+            ->where('user_id', $request->user_id)
+            ->first();
+
+        if ($existingRequest) {
+            return redirect()->back()->with('error', 'A role change request for this user already exists.');
+        }
 
         // Simpan data ke database
         DB::table('role_change_requests')->insert([
