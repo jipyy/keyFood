@@ -7,6 +7,25 @@
                 Toko
             </h2>
 
+            {{-- ini cards --}}
+            <div class="container-profile">
+                @forelse($roleRequests as $request)
+                    <div class="card-profile">
+                        <p><strong>ID:</strong>{{ $request->user_id }}</p>
+                        <img src="{{ $request->img }}" alt="Profile Picture">
+                        <h2>{{ $request->name }}</h2>
+                        <p><strong>Role:</strong>($roleRequests as $request)</p>
+                        <div class="info">
+                            <p><strong>Email:</strong> {{ $request->email }}</p>
+                            <p><strong>Alamat</strong> {{ $request->location }}</p>
+                            <p><strong>No Telp</strong> {{ $request->phone }}</p>
+                        </div>
+                    </div>
+                @empty
+                    <p>No users found.</p>
+                @endforelse
+            </div>
+
             <div class="w-full overflow-hidden rounded-lg shadow-xs">
                 <!-- New Table -->
                 <div class="w-full overflow-hidden rounded-lg shadow-xs">
