@@ -6,7 +6,7 @@
 
 
 
-///backup
+
 
 namespace App\Http\Controllers;
 
@@ -16,9 +16,9 @@ use Spatie\Permission\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class RoleRequestController extends Controller
+class RoleRequestController123 extends Controller
 {
-    public function index()
+    public function index89()
     {
         // $roleRequests = RoleRequest::with('user')->get(); // Assuming you have a RoleRequest model with a relationship to User
         $roleRequests = DB::table('role_change_requests')
@@ -30,7 +30,7 @@ class RoleRequestController extends Controller
     }
 
 
-    public function approve($id)
+    public function approve78($id)
     {
         $roleRequest = new RoleRequest;
         $roleRequest->role_id = 2;
@@ -41,7 +41,7 @@ class RoleRequestController extends Controller
         return redirect()->back()->with('success', 'Role changed successfully.');
     }
 
-    public function cancel($id)
+    public function cancel89($id)
     {
         $request = RoleRequest::findOrFail($id);
 
