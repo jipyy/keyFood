@@ -145,7 +145,6 @@
                 <input type="hidden" name="address" value="{{ Auth::user()->address }}">
                 <input type="hidden" name="email" value="{{ Auth::user()->email }}">
                 <input type="hidden" name="phone" value="{{ Auth::user()->phone }}">
-        
                 <button type="submit" class="btn btn-primary">Request Role Change to Seller</button>
             </form>
             <a href="{{ route('profile.edit') }}">
