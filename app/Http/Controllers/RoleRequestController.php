@@ -66,4 +66,6 @@ class RoleRequestController extends Controller
 
         return redirect()->back()->with('info', 'Role change request canceled.');
     }
+
+    
 }
