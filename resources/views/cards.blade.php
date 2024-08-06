@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Profile Cards with Dropdown</title>
+    <title>User Profile card-profiles with Dropdown</title>
     <style>
-        .container {
+        .container-profile {
             max-width: 800px;
             margin: auto;
             display: flex;
@@ -14,7 +14,7 @@
             gap: 20px;
         }
 
-        .card {
+        .card-profile {
             max-width: 300px;
             padding: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -25,19 +25,19 @@
             overflow: visible; /* Ensure dropdown doesn't get cut off */
         }
 
-        .card img {
+        .card-profile img {
             border-radius: 50%;
             width: 100px;
             height: 100px;
             object-fit: cover; /* Ensures image fits within the circle */
         }
 
-        .card .info {
+        .card-profile .info {
             margin-top: 15px;
             text-align: center;
         }
 
-        .card .info p {
+        .card-profile .info p {
             margin: 5px 0;
         }
 
@@ -123,8 +123,8 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="card">
+    <div class="container-profile">
+        <div class="card-profile">
             <p><strong>ID:</strong> 12345</p>
             <img src="https://via.placeholder.com/100" alt="Profile Picture">
             <h2>Username1</h2>
@@ -157,7 +157,7 @@
             </div>
         </div>
 
-        <div class="card">
+        <div class="card-profile">
             <p><strong>ID:</strong> 12346</p>
             <img src="https://via.placeholder.com/100" alt="Profile Picture">
             <h2>Username2</h2>
@@ -190,7 +190,7 @@
             </div>
         </div>
 
-        <div class="card">
+        <div class="card-profile">
             <p><strong>ID:</strong> 12347</p>
             <img src="https://via.placeholder.com/100" alt="Profile Picture">
             <h2>Username3</h2>

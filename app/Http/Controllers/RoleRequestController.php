@@ -3,24 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Models\RoleRequest;
-use App\Models\User;
-use Spatie\Permission\Models\Role;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Models\User;
 
 class RoleRequestController extends Controller
 {
     public function index()
     {
-        // $roleRequests = RoleRequest::with('user')->get(); // Assuming you have a RoleRequest model with a relationship to User
         $roleRequests = DB::table('role_change_requests')
-                            ->join('users', 'role_change_requests.user_id', '=', 'users.id') // Join berdasarkan user_id di role_change_requests
-                            ->select('role_change_requests.*', 'users.*')
-                            ->get();
-        // dd($roleRequests);
+            ->join('users', 'role_change_requests.user_id', '=', 'users.id')
+            ->select('role_change_requests.*', 'users.*')
+            ->get();
+
         return view('admin.role-requests.index', compact('roleRequests'));
     }
-
 
     public function approve($id)
     {
@@ -36,13 +34,37 @@ class RoleRequestController extends Controller
     public function cancel($id)
     {
         $request = RoleRequest::findOrFail($id);
-
-        // Optionally, mark the request as canceled
         $request->status = 'canceled';
         $request->save();
 
         return redirect()->back()->with('info', 'Role change request canceled.');
     }
 
-    
+    public function store(Request $request)
+    {
+        // Validasi input jika diperlukan
+        $request->validate([
+            'user_id' => 'required|exists:users,id',
+            'requested_role' => 'required',
+        ]);
+
+        // Cek apakah user_id sudah ada di tabel role_change_requests
+        $existingRequest = DB::table('role_change_requests')
+            ->where('user_id', $request->user_id)
+            ->first();
+
+        if ($existingRequest) {
+            return redirect()->back()->with('error', 'A role change request for this user already exists.');
+        }
+
+        // Simpan data ke database
+        DB::table('role_change_requests')->insert([
+            'user_id' => $request->user_id,
+            'requested_role' => $request->requested_role,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        return redirect()->back()->with('success', 'Role change request submitted successfully.');
+    }
 }

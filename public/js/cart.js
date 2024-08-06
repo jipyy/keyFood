@@ -167,6 +167,24 @@ function getData() {
     }
 }
 
+function sendCartDataToServer() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    console.log('Sending cart data to server:', cart);
+    axios.post('/save-cart', {
+        cartItems: cart
+    })
+    .then(response => {
+        console.log(response.data);
+        alert('Cart items saved successfully');
+        // localStorage.removeItem('cart'); // Optional: clear the cart from localStorage after successful save
+        window.location = "/checkout"
+    })
+    .catch(error => {
+        console.log(error.response.data);
+    });
+}
+
+
 $(function() {
     getData();
 });
@@ -180,6 +198,7 @@ $(document).ready(function() {
             cart[productId].quantity++;
         } else {
             cart[productId] = {
+                product_id: productId,
                 name: $(this).siblings('strong').text(),
                 price: parseFloat($(this).siblings('.price').text().replace('Rp ', '').replace(/\./g, '')),
                 photo: $(this).siblings('img').attr('src'),

@@ -3,8 +3,11 @@
 // CartController.php
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Cart;
 use App\Models\Product;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class CartController extends Controller
@@ -70,4 +73,19 @@ class CartController extends Controller
 
         return redirect()->back()->with('success', 'Product removed from cart!');
     }
+        // Validasi data yang diterima dari permintaan
+        public function saveCart(Request $request)
+        {
+            \Log::info('Received cart data: ' . json_encode($request->all()));
+    
+            foreach ($request->cartItems as $item) {
+                // Simpan data ke tabel carts
+                Cart::updateOrCreate(
+                    ['user_id' => auth()->id(), 'product_id' => $item['product_id']],
+                    ['quantity' => $item['quantity'], 'photo' => $item['photo']]
+                );
+            }
+    
+            return redirect()->route('checkout.details')->with('success', 'Cart successfully added.');
+        }
 }
