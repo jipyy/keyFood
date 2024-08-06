@@ -225,6 +225,11 @@ Route::get('/history', function () {
     });
 
     
+Route::get('/card', function () {
+    return view('cards');
+    });
+
+    
 Route::get('/dashboard-toko', function () {
     return view('admin.dashboard-toko');
 });
