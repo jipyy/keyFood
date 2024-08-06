@@ -1,7 +1,7 @@
 @extends('admin.layouts.main-admin')
 @section('container-admin')
     <main class="h-full overflow-y-auto">
-        <div class="container grid px-6 mx-auto">
+        <div class="container grid px-6 mx-auto py-4 mb-8">
             <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
                 Buttons
             </h2>

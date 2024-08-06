@@ -142,15 +142,6 @@
                 @csrf
                 <input type="hidden" name="user_id" value="{{ Auth::id() }}">
                 <input type="hidden" name="requested_role" value="seller">
-                <input type="hidden" name="name" value="{{ Auth::user()->name ?? '' }}">
-                <input type="hidden" name="address" value="{{ Auth::user()->address ?? '' }}">
-                <input type="hidden" name="email" value="{{ Auth::user()->email }}">
-<<<<<<< HEAD
-                <input type="hidden" name="phone" value="{{ Auth::user()->phone ?? '' }}">
-        
-=======
-                <input type="hidden" name="phone" value="{{ Auth::user()->phone }}">
->>>>>>> 384d52b62924386d3043f9426e2a94ae45774cb9
                 <button type="submit" class="btn btn-primary">Request Role Change to Seller</button>
             </form>
         @else

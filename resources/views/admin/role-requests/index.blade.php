@@ -2,7 +2,7 @@
 
 @section('container-admin')
     <main class="h-screen pb-16 overflow-y-auto">
-        <div class="container grid px-6 mx-auto">
+        <div class="container grid px-6 mx-auto py-4 mb-8">
             <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
                 Toko
             </h2>
@@ -29,7 +29,7 @@
                                             <div class="flex items-center text-sm">
                                                 <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
                                                     <img class="object-cover w-full h-full rounded-full"
-                                                        src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
+                                                        src="{{ $request->img }}"
                                                         alt="" loading="lazy" />
                                                     <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true">
                                                     </div>
@@ -76,14 +76,26 @@
                                                 <form action="{{ route('role-request.approve', $request->id) }}" method="POST" style="display: inline;">
                                                     @csrf
                                                     <button class="check flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray" aria-label="Check">
-                                                        <!-- SVG icon here -->
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5"
+                                                        width="24" height="24" viewBox="0 0 24 24"
+                                                        fill="currentColor">
+                                                        <path
+                                                            d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm-1.999 14.413-3.713-3.705L7.7 11.292l2.299 2.295 5.294-5.294 1.414 1.414-6.706 6.706z">
+                                                        </path>
+                                                    </svg>
                                                     </button>
                                                 </form>
                                                 
                                                 <form action="{{ route('role-request.cancel', $request->id) }}" method="POST" style="display: inline;">
                                                     @csrf
                                                     <button class="cancel flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray" aria-label="Cancel">
-                                                        <!-- SVG icon here -->
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5"
+                                                        width="24" height="24" viewBox="0 0 24 24"
+                                                        fill="currentColor">
+                                                        <path
+                                                            d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm4.207 12.793-1.414 1.414L12 13.414l-2.793 2.793-1.414-1.414L10.586 12 7.793 9.207l1.414-1.414L12 10.586l2.793-2.793 1.414 1.414L13.414 12l2.793 2.793z">
+                                                        </path>
+                                                    </svg>
                                                     </button>
                                                 </form>
                                             </div>
