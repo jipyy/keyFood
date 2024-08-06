@@ -7,7 +7,7 @@
     }
 }
 
-@media (min-width: 340px) {
+@media (min-width: 300px) {
     .container-profile{
         display: flex;
     }
@@ -64,6 +64,13 @@
 
 .card-profile .info p {
     margin: 5px 0;
+}
+
+.btn-container{
+    height: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .dropdown-button {
