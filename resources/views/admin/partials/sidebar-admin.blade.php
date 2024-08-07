@@ -85,6 +85,7 @@
                     </a>
                 </li>
             </ul>
+            <ul class="list-none">
             <li class="relative px-6 py-3">
                 <button
                     class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
