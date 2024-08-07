@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id'); // Menambahkan kolom user_id
             $table->string('requested_role'); // Menambahkan kolom requested_role
+            $table->enum('status', ['Pending', 'Approved', 'Cancelled'])->default('Pending');
             $table->timestamps();
             
             // Menambahkan foreign key constraint untuk user_id

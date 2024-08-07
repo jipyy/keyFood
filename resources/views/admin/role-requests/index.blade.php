@@ -4,7 +4,7 @@
     <main class="h-screen pb-16 overflow-y-auto">
         <div class="container grid px-6 mx-auto py-4 mb-8">
             <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
-                Toko
+                Role Requests
             </h2>
 
             {{-- ini cards --}}
@@ -50,8 +50,7 @@
                 @empty
                     <p>No requests found.</p>
                 @endforelse
-            </div>
-
+            </div>        
             <div class="w-full overflow-hidden rounded-lg shadow-xs">
                 <!-- New Table -->
                 <div class="user-table w-full overflow-hidden rounded-lg shadow-xs">
