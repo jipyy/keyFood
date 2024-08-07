@@ -36,6 +36,7 @@
     <link rel="stylesheet" href="{{ asset('../../css/checkout.css') }}">
     <link rel="stylesheet" href="{{ asset('../../css/cart.css') }}">
     <link rel="stylesheet" href="{{ asset('../../css/history.css') }}">
+    <link rel="stylesheet" href="{{ asset('../../css/nav.css') }}">
 
 
 
@@ -53,7 +54,7 @@
             background="transparent" speed="1" style="width: 300px; height: 300px;" loop
             autoplay></dotlottie-player>
     </div>
-    @include('partials.sidebar')
+    @include('partials.navbar')
 
     <div class="container" id="container">
         @include('partials.profile')
@@ -75,12 +76,13 @@
 <script src="{{ asset('../js/checkout.js') }}"></script>
 <script src="{{ asset('../js/stores.js') }}"></script>
 <script src="{{ asset('../js/categories.js') }}"></script>
-<script src="{{ asset('../js/sidebar.js') }}"></script>
+{{-- <script src="{{ asset('../js/sidebar.js') }}"></script> --}}
 <script src="{{ asset('../js/home.js') }}"></script>
 <script src="{{ asset('../js/load.js') }}"></script>
 <script src="{{ asset('../js/clock.js') }}"></script>
 <script src="{{ asset('../js/product.js') }}"></script>
 <script src="{{ asset('../js/home-container.js') }}"></script>
+<script src="{{ asset('../js/nav.js') }}"></script>
 
 
 
