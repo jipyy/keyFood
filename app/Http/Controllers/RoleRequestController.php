@@ -22,14 +22,28 @@ class RoleRequestController extends Controller
 
     public function approve($id)
     {
+        // Delete existing role request entries with the given model_id and role_id = 2
+        RoleRequest::where('model_id', $id) // Remove existing role requests with role_id = 3
+            ->where('role_id', 3)
+            ->delete();
+
+        // Create a new role request entry for the approved role
         $roleRequest = new RoleRequest;
-        $roleRequest->role_id = 2;
+        $roleRequest->role_id = 2; // Assign the role ID for approval
         $roleRequest->model_type = 'App\Models\User';
         $roleRequest->model_id = $id;
         $roleRequest->save();
 
+        // Also delete the corresponding entry in the role_change_requests table
+        DB::table('role_change_requests')
+            ->where('user_id', $id) // Use $id to match user_id/model_id
+            ->delete();
+
+        // Redirect back with a success message
         return redirect()->back()->with('success', 'Role changed successfully.');
     }
+
+
 
     public function cancel($id)
     {
