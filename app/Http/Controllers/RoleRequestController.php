@@ -47,12 +47,16 @@ class RoleRequestController extends Controller
 
     public function cancel($id)
     {
-        $request = RoleRequest::findOrFail($id);
-        $request->status = 'canceled';
-        $request->save();
+        // Also delete the corresponding entry in the role_change_requests table
+        DB::table('role_change_requests')
+            ->where('user_id', $id) // Use $id to match user_id/model_id
+            ->delete();
 
+        // Redirect back with a cancel message
         return redirect()->back()->with('info', 'Role change request canceled.');
     }
+
+
 
     public function store(Request $request)
     {

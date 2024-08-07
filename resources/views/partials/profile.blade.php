@@ -20,8 +20,8 @@
                     </div>
                     <div style="width: 100%">
                         <div class="flex gap-1 text-sm font-semibold">
-                            <span>d
-                           d     {{ strlen(Auth::user()->name) > 16 ? substr(Auth::user()->name, 0, 16) . '...' : Auth::user()->name }}
+                            <span>
+                                {{ strlen(Auth::user()->name) > 16 ? substr(Auth::user()->name, 0, 16) . '...' : Auth::user()->name }}
                             </span>
                             <span class="text-sky-400" style="color: aqua;">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -50,7 +50,23 @@
                         <span>Profile</span>
                     </button>
                     <a href="/history" class="flex items-center gap-3 rounded-md py-2 px-3 hover:bg-slate-800">
-                        <?xml version="1.0" ?><svg height="21px" version="1.1" viewBox="0 0 20 21" width="20px" xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" xmlns:xlink="http://www.w3.org/1999/xlink"><title/><desc/><defs/><g fill="none" fill-rule="evenodd" id="Page-1" stroke="none" stroke-width="1"><g fill="#000000" id="Core" opacity="0.9" transform="translate(-464.000000, -254.000000)"><g id="history" transform="translate(464.000000, 254.500000)"><path d="M10.5,0 C7,0 3.9,1.9 2.3,4.8 L0,2.5 L0,9 L6.5,9 L3.7,6.2 C5,3.7 7.5,2 10.5,2 C14.6,2 18,5.4 18,9.5 C18,13.6 14.6,17 10.5,17 C7.2,17 4.5,14.9 3.4,12 L1.3,12 C2.4,16 6.1,19 10.5,19 C15.8,19 20,14.7 20,9.5 C20,4.3 15.7,0 10.5,0 L10.5,0 Z M9,5 L9,10.1 L13.7,12.9 L14.5,11.6 L10.5,9.2 L10.5,5 L9,5 L9,5 Z" id="Shape"/></g></g></g></svg>
+                        <?xml version="1.0" ?><svg height="21px" version="1.1" viewBox="0 0 20 21" width="20px"
+                            xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
+                            xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <title />
+                            <desc />
+                            <defs />
+                            <g fill="none" fill-rule="evenodd" id="Page-1" stroke="none" stroke-width="1">
+                                <g fill="#000000" id="Core" opacity="0.9"
+                                    transform="translate(-464.000000, -254.000000)">
+                                    <g id="history" transform="translate(464.000000, 254.500000)">
+                                        <path
+                                            d="M10.5,0 C7,0 3.9,1.9 2.3,4.8 L0,2.5 L0,9 L6.5,9 L3.7,6.2 C5,3.7 7.5,2 10.5,2 C14.6,2 18,5.4 18,9.5 C18,13.6 14.6,17 10.5,17 C7.2,17 4.5,14.9 3.4,12 L1.3,12 C2.4,16 6.1,19 10.5,19 C15.8,19 20,14.7 20,9.5 C20,4.3 15.7,0 10.5,0 L10.5,0 Z M9,5 L9,10.1 L13.7,12.9 L14.5,11.6 L10.5,9.2 L10.5,5 L9,5 L9,5 Z"
+                                            id="Shape" />
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
                         <span>Riwayat Belanja</span>
                     </a>
                 </div>
@@ -75,7 +91,8 @@
             <p>You Haven't Login,</p>
             <p>Please Login First</p>
             <a href="/log-reg">
-                <button type="button" class="text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Login</button>
+                <button type="button"
+                    class="text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Login</button>
             </a>
         @endif
     </div>
@@ -99,6 +116,16 @@
                         <h4>Seller</h4>
                     @else
                         <h4>Buyer</h4>
+                        @if (Auth::check())
+                            <form action="{{ route('role-request.store') }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="user_id" value="{{ Auth::id() }}">
+                                <input type="hidden" name="requested_role" value="seller">
+                                <button type="submit" class="btn btn-primary">Request Role Change to Seller</button>
+                            </form>
+                        @else
+                            <p>User is not authenticated.</p>
+                        @endif
                     @endif
                 @endif
                 <div class="social">
@@ -133,26 +160,17 @@
                     </div>
                     <div class="content">
                         <span>Location</span>
-                        <h5>{{ Auth::user()->location ?? 'Guest' }}</h5> <!-- Assuming there is a location attribute -->
+                        <h5>{{ Auth::user()->location ?? 'Guest' }}</h5>
+                        <!-- Assuming there is a location attribute -->
                     </div>
                 </div>
             </div>
-            @if(Auth::check())
-            <form action="{{ route('role-request.store') }}" method="POST">
-                @csrf
-                <input type="hidden" name="user_id" value="{{ Auth::id() }}">
-                <input type="hidden" name="requested_role" value="seller">
-                <button type="submit" class="btn btn-primary">Request Role Change to Seller</button>
-            </form>
-        @else
-            <p>User is not authenticated.</p>
-        @endif                  
             <a href="{{ route('profile.edit') }}">
                 <button class="download-btn"><i class="fa fa-edit"></i> Edit Profile</button>
             </a>
             <button type="button" data-modal-target="popup-modal" data-modal-toggle="popup-modal"
                 class="text-white mt-3 bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
-                Delete Account
+                <i class='bx bx-trash'></i> Delete Account
             </button>
             <div id="popup-modal" tabindex="-1"
                 class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
