@@ -12,7 +12,8 @@
                     <div class="w-full overflow-x-auto">
                         <table class="w-full whitespace-no-wrap">
                             <thead>
-                                <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+                                <tr
+                                    class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                                     <th class="px-4 py-3">ID User</th>
                                     <th class="px-4 py-3">Alamat User</th>
                                     <th class="px-4 py-3">No Telp</th>
@@ -83,8 +84,12 @@
                                         <!-- Action -->
                                         <td class="px-4 py-3">
                                             <div class="flex items-center text-sm">
-                                                {{-- <h5 class="approved {{ $request->status !== 'approved' ? 'hidden' : '' }} items-center gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium border border-green-600 text-green-600 dark:text-white">Approved</h5>
-                                                <h5 class="rejected {{ $request->status !== 'rejected' ? 'hidden' : '' }} items-center gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium border border-red-600 text-red-600 dark:text-white">Canceled</h5> --}}
+                                                <h5
+                                                    class="approved {{ $request->status !== 'approved' ? 'hidden' : '' }} items-center gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium border border-green-600 text-green-600 dark:text-white">
+                                                    Approved</h5>
+                                                <h5
+                                                    class="rejected {{ $request->status !== 'rejected' ? 'hidden' : '' }} items-center gap-x-1.5 py-1.5 px-3 rounded-full text-xs font-medium border border-red-600 text-red-600 dark:text-white">
+                                                    Canceled</h5>
 
                                                 <form action="{{ route('role-request.approve', $request->user->id) }}"
                                                     method="POST" style="display: inline;">
