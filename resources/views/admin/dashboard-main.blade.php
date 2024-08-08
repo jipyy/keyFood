@@ -1,6 +1,6 @@
 @extends('admin.layouts.main-admin')
 @section('container-admin')
-    <main class="h-screen overflow-y-auto">
+    <main class="h-screen overflow-y-auto py-4">
         <div class="container px-6 mx-auto grid overflow-y-hidden py-4 mb-8">
             <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
                 Dashboard Payments

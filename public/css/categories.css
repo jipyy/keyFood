@@ -173,10 +173,22 @@ body.dark .category-heading span,
 .category-box.active {
     border: 3px solid gold; /* Change border color to gold when active */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 
-                0 8px 16px rgba(0, 0, 0, 0.1), 
-                0 16px 24px rgba(0, 0, 0, 0.1); /* Elevated shadow effect */
+    0 8px 16px rgba(0, 0, 0, 0.1), 
+    0 16px 24px rgba(0, 0, 0, 0.1); /* Elevated shadow effect */
     transform: translateY(-10px); /* Lift the box up slightly */
 }
+.category-box img{
+    height: 35px;
+    width: 50px;
+    object-fit: contain;
+    object-position: center;
+    transition: all ease 0.1s;
+}
+.category-box:hover img{
+    transform: scale(1.1);
+    transition: all ease 0.1s;
+}
+
 .showall.active span{
     color: #202020;
     font-weight: 500;
@@ -197,13 +209,6 @@ body.dark .category-box{
     border: 1px solid rgba(255, 255, 255, 1);
 
 }
-.category-box img{
-    height: 35px;
-    width: 50px;
-    object-fit: contain;
-    object-position: center;
-    transition: all ease 0.1s;
-}
 .category-box span{
     color: #393939;
     font-size: 0.8rem;
@@ -215,10 +220,6 @@ body.dark .category-box span{
     color: #ecf7ee;
 }
 
-.category-box:hover img{
-    transform: scale(1.1);
-    transition: all ease 0.1s;
-}
 
 /*==popular-product========================*/
 #popular-product{
