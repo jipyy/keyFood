@@ -17,22 +17,20 @@
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
                     <li class="list">
-                        <a href="#" class="nav__link active">Home</a>
+                        <a href="/home" class="{{ Request::is('home') ? 'nav__link active' : 'nav__link' }}">Home</a>
                     </li>
                     <li class="list">
-                        <a href="#" class="nav__link">Produk</a>
+                        <a href="/product-slider" class="{{ Request::is('product-slider') ? 'nav__link active' : 'nav__link' }}">Produk</a>
                     </li>
                     <li class="list">
-                        <a href="#" class="nav__link">Toko</a>
+                        <a href="/stores" class="{{ Request::is('stores') ? 'nav__link active' : 'nav__link' }}">Toko</a>
                     </li>
                     <li class="list">
-                        <a href="#" class="nav__link">Kategori</a>
+                        <a href="/categories" class="{{ Request::is('categories') ? 'nav__link active' : 'nav__link' }}">Kategori</a>
                     </li>
                     <li class="list">
-                        <a href="#" class="nav__link">History</a>
+                        <a href="/history" class="{{ Request::is('history') ? 'nav__link active' : 'nav__link' }}">History</a>
                     </li>
-
-            
                 </ul>
             </div>
             <button id="dropdownButton1" class="profile-button">

@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
         button.addEventListener('click', function () {
             const dropdownMenu = dropdownMenus[index];
             dropdownMenu.style.top = `${button.offsetTop + button.offsetHeight}px`;
-            dropdownMenu.style.left = `${button.offsetLeft - dropdownMenu.offsetWidth + 200 }px`; // Adjust position to the left
+            dropdownMenu.style.left = `${button.offsetLeft - dropdownMenu.offsetWidth + 200 - 120 }px`; // Adjust position to the left
             dropdownMenu.classList.toggle('show');
         });
     });
