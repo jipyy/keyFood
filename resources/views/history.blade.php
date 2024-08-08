@@ -30,27 +30,29 @@
                     <path d="M0 1H1216" stroke="#D1D5DB" />
                 </svg>
 
-                @if($order->products && $order->products->isNotEmpty())
-                @foreach ($order->products as $product)
+                @if($order->orderDetails && $order->orderDetails->isNotEmpty())
+                    @foreach ($order->orderDetails as $orderDetail)
                         <div class="flex max-lg:flex-col items-center gap-8 lg:gap-24 px-3 md:px-11">
                             <div class="grid grid-cols-4 w-full">
                                 <div class="col-span-4 sm:col-span-1">
-                                    <img src="{{ $product->photo }}" alt="" class="max-sm:mx-auto">
+                                    <img src="{{ $order->photo }}" alt="" class="max-sm:mx-auto">
                                 </div>
                                 <div class="col-span-4 sm:col-span-3 max-sm:mt-4 sm:pl-8 flex flex-col justify-center max-sm:items-center">
                                     <h6 class="font-manrope font-semibold text-2xl leading-9 text-black mb-3 whitespace-nowrap">
-                                        {{ $product->name }}
+                                        {{ $orderDetail->products->name }}
                                     </h6>
-                                    <p class="font-normal text-lg leading-8 text-gray-500 mb-8 whitespace-nowrap">Toko: {{ $order->product->toko->nama_toko }}</p>
+                                    <p class="font-normal text-lg leading-8 text-gray-500 mb-8 whitespace-nowrap">
+                                        Toko: {{ $orderDetail->products->toko->id_toko }}
+                                    </p>
                                     <div class="flex items-center max-sm:flex-col gap-x-10 gap-y-3">
-                                        <span class="font-normal text-lg leading-8 text-gray-500 whitespace-nowrap">Kategori: {{ $product->category->name }}</span>
-                                        <span class="font-normal text-lg leading-8 text-gray-500 whitespace-nowrap">Qty: {{ $order->quantity }}</span>
+                                        <span class="font-normal text-lg leading-8 text-gray-500 whitespace-nowrap">Kategori: {{ $orderDetail->products->category->name}}</span>
+                                        <span class="font-normal text-lg leading-8 text-gray-500 whitespace-nowrap">Qty: {{ $orderDetail->quantity }}</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="flex items-center justify-around w-full sm:pl-28 lg:pl-0">
                                 <div class="flex flex-col justify-center items-start max-sm:items-center">
-                                    <p class="font-semibold text-xl leading-8 text-black whitespace-nowrap">Harga: Rp. {{ number_format($product->price, 0, ',', '.') }}</p>
+                                    <p class="font-semibold text-xl leading-8 text-black whitespace-nowrap">Harga: Rp. {{ number_format($orderDetail->unit_price, 0, ',', '.') }}</p>
                                 </div>
                             </div>
                         </div>
@@ -72,7 +74,9 @@
                         </button>
                         <p class="complete font-normal text-xl leading-8 text-gray-500 sm:pl-8">Pembelian Berhasil!</p>
                     </div>
-                    <p class="font-medium text-xl leading-8 text-black max-sm:py-4"> <span class="text-gray-500">Total Harga: </span> &nbsp;Rp. {{ $order->products ? $order->products->sum('price') : 0 }}</p>
+                    <p class="font-medium text-xl leading-8 text-black max-sm:py-4"> 
+                        <span class="text-gray-500">Total Harga: </span> &nbsp;Rp. {{ number_format($order->orderDetails->sum(function($detail) { return $detail->unit_price * $detail->quantity; }) ?? 0, 0, ',', '.') }}
+                    </p>
                 </div>
             </div>
         @endforeach

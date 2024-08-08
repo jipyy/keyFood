@@ -13,6 +13,7 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\RoleRequestController;
+use App\Http\Controllers\SellerEditController;
 
 Route::get('/', function () {
     return view('home');
@@ -31,6 +32,9 @@ Route::get('/login', function () {
 Route::get('/contact-us', function () {
     return view('contact-us');
 });
+
+Route::get('/seller-edit', [SellerEditController::class, 'index']);
+
 Route::get('/faq', function () {
     return view('faq');
 });

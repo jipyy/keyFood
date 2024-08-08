@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Product;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -31,18 +32,23 @@ class Orders extends Model
         return $this->belongsTo(User::class, 'id_user');
     }
 
-    public function product()
+    public function products()
     {
-        return $this->hasMany(Product::class, 'product_id', 'id');
+        return $this->hasMany(product::class, 'id');
     }
 
     public function toko()
     {
-        return $this->belongsTo(Toko::class, 'toko_id');
+        return $this->belongsTo(toko::class, 'id_toko');
     }
 
     public function category()
     {
         return $this->belongsTo(Category::class, 'category_id');
+    }
+
+    public function orderDetails()
+    {
+        return $this->hasMany(OrderDetail::class, 'order_id');
     }
 }

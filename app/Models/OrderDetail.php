@@ -23,8 +23,20 @@ class OrderDetail extends Model
         return $this->belongsTo(Orders::class, 'order_id');
     }
 
-    public function product()
+    public function products()
     {
         return $this->belongsTo(Product::class, 'product_id');
     }
+
+    
+    public function categories()
+    {
+        return $this->belongsTo(Category::class, 'category_id');
+    }
+
+    public function getTotalPriceAttribute()
+    {
+        return $this->quantity * $this->unit_price;
+    }
+    
 }

@@ -33,7 +33,7 @@ class Product extends Model
 
     public function toko()
     {
-        return $this->belongsTo(Toko::class, 'store_id');
+        return $this->belongsTo(toko::class, 'store_id');
     }
 
     public function category()
