@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Toko;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Validation\ValidationException;
 
 class ProductController extends Controller
@@ -34,11 +36,12 @@ class ProductController extends Controller
     public function create()
     {
         $categories = Category::all();
+        $stores = Toko::all(); // Ambil semua store
         return view('seller.products.create', [
-            'categories' => $categories
+            'categories' => $categories,
+            'stores' => $stores // Kirim data stores ke view
         ]);
     }
-
     /**
      * Store a newly created resource in storage.
      */
@@ -50,8 +53,8 @@ class ProductController extends Controller
             'slug' => ['required', 'string', 'max:65535'],
             'category_id' => ['required', 'integer'],
             'price' => ['required', 'integer', 'min:0'],
-            'name' => ['required', 'string', 'max:255'],
-            'quantity' => ['required', 'string',],
+            'quantity' => ['required', 'integer'],
+            'store_id' => ['required', 'integer'],  // Validasi store_id
         ]);
 
         DB::beginTransaction();
@@ -85,18 +88,20 @@ class ProductController extends Controller
         return view('product-slider', compact('products'));
     }
 
-
     /**
      * Show the form for editing the specified resource.
      */
     public function edit(Product $product)
     {
         $categories = Category::all();
+        $stores = Toko::all(); // Ambil semua store
         return view('seller.products.edit', [
             'product' => $product,
-            'categories' => $categories
+            'categories' => $categories,
+            'stores' => $stores // Kirim data stores ke view
         ]);
     }
+    
 
     /**
      * Update the specified resource in storage.
@@ -109,6 +114,7 @@ class ProductController extends Controller
             'category_id' => ['required', 'integer'],
             'price' => ['required', 'integer', 'min:0'],
             'slug' => ['required', 'string', 'max:65535'],
+            'store_id' => ['required', 'integer'],  // Validasi store_id
         ]);
 
         DB::beginTransaction();

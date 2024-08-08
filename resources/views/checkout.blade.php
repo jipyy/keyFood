@@ -1,22 +1,23 @@
 @extends('layouts.main')
 @section('container')
-<section class="" id="home">
+<section id="home">
     <main>
         <section class="checkout-form">
-            <form action="#!" method="get">
+            <form id="checkout-form" action="{{ route('checkout.store') }}" method="post">
+                @csrf
                 <h2 class="font-manrope font-extrabold text-3xl lead-10 text-black mb-9">Pesanan Anda</h2>
                 <div class="form-control">
                     <label for="checkout-email">E-mail</label>
                     <div>
                         <span class="fa"><i class='bx bx-envelope'></i></span>
-                        <input type="email" id="checkout-email" name="checkout-email" placeholder="Enter your email.. (opsional)." value="{{ $user->email ?? '' }}">
+                        <input type="email" id="checkout-email" name="checkout-email" placeholder="Enter your email.. (opsional)." value="{{ old('checkout-email', $user->email ?? '') }}" required>
                     </div>
                 </div>
                 <div class="form-control">
                     <label for="checkout-phone">Phone</label>
                     <div>
                         <span class="fa"><i class='bx bx-phone'></i></span>
-                        <input type="tel" name="checkout-phone" id="checkout-phone" placeholder="Enter you phone..." value="{{ $user->phone ?? '' }}" >
+                        <input type="tel" name="checkout-phone" id="checkout-phone" placeholder="Enter your phone..." value="{{ old('checkout-phone', $user->phone ?? '') }}" required>
                     </div>
                 </div>
                 <br>
@@ -25,23 +26,24 @@
                     <label for="checkout-name">Full name</label>
                     <div>
                         <span class="fa"><i class='bx bx-user-circle'></i></span>
-                        <input type="text" id="checkout-name" name="checkout-name" placeholder="Enter you name..." value="{{ $user->name ?? '' }}">
+                        <input type="text" id="checkout-name" name="checkout-name" placeholder="Enter your name..." value="{{ old('checkout-name', $user->name ?? '') }}" required>
                     </div>
                 </div>
                 <div class="form-control">
                     <label for="checkout-address">Alamat</label>
                     <div>
                         <span class="fa"><i class='bx bx-home'></i></span>
-                        <input type="text" name="checkout-address" id="checkout-address" placeholder="Your address..." value="{{ $user->location ?? '' }}">
+                        <input type="text" name="checkout-address" id="checkout-address" placeholder="Your address..." value="{{ old('checkout-address', $user->location ?? '') }}" required>
                     </div>
                 </div>
                 <div class="form-control">
-                    <label for="checkout-address">Catatan</label>
+                    <label for="checkout-notes">Catatan</label>
                     <div>
                         <span class="fa"><i class='bx bx-edit'></i></span>
-                        <input type="text" name="checkout-address" id="checkout-address" placeholder="Catatan Anda.. (opsional)" value="">
+                        <input type="text" name="checkout-notes" id="checkout-notes" placeholder="Catatan Anda.. (opsional)" value="{{ old('checkout-notes') }}">
                     </div>
                 </div>
+                <input type="hidden" name="products" id="products" required>
                 <div class="form-control-btn">
                     <button type="submit">Checkout</button>
                 </div>
@@ -61,4 +63,11 @@
         </section>
     </main>
 </section>
+
+<script>
+document.getElementById('checkout-form').addEventListener('submit', function(event) {
+    const products = JSON.parse(localStorage.getItem('cart')) || [];
+    document.getElementById('products').value = JSON.stringify(products);
+});
+</script>
 @endsection

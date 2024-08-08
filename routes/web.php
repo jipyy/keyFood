@@ -169,8 +169,14 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::middleware(['auth'])->group(function () {
+    // Route untuk menampilkan form checkout
     Route::get('/checkout', [CheckoutController::class, 'showCheckoutDetails'])->name('checkout.details');
+
+    // Route untuk menyimpan order
     Route::post('/checkout', [CheckoutController::class, 'storeOrder'])->name('checkout.store');
+
+    // Route untuk menampilkan halaman history
+    Route::get('/history', [CheckoutController::class, 'showOrderHistory'])->name('checkout.history');
 });
 Route::get('/cart/add/{productId}', [CartController::class, 'add'])->name('add.to.cart');
 Route::get('/cart/decrement/{productId}', [CartController::class, 'decrement'])->name('decrement.from.cart');
@@ -223,16 +229,16 @@ Route::get('/dashboard-role', function () {
 });
 
 
-Route::get('/history', function () {
-    return view('history');
-    });
+// Route::get('/history', function () {
+//     return view('history');
+// });
 
-    
+
 Route::get('/card', function () {
     return view('cards');
-    });
+});
 
-    
+
 Route::get('/dashboard-toko', function () {
     return view('admin.dashboard-toko');
 });

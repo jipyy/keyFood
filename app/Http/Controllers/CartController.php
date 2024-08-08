@@ -81,7 +81,7 @@ class CartController extends Controller
             foreach ($request->cartItems as $item) {
                 // Simpan data ke tabel carts
                 Cart::updateOrCreate(
-                    ['user_id' => auth()->id(), 'product_id' => $item['product_id']],
+                    ['user_id' => auth()->id(), 'product_id' => $item['product_id'], 'store_id' => $item['store_id'], 'category_id' => $item['category_id'],],
                     ['quantity' => $item['quantity'], 'photo' => $item['photo']]
                 );
             }

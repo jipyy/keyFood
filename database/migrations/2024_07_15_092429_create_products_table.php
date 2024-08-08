@@ -17,9 +17,12 @@ return new class extends Migration
             $table->string('slug');
             $table->string('photo');
             $table->unsignedBigInteger('price');
+            $table->unsignedBigInteger('quantity'); // Menambahkan kolom quantity
             $table->foreignId('category_id')->constrained()->onDelete('cascade');
             $table->foreignId('creator_id')->constrained('users')->onDelete('cascade'); // Menambahkan kolom creator_id
+            $table->foreignId('store_id')->constrained('toko', 'id_toko')->onDelete('cascade'); // Merujuk ke tabel toko
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
