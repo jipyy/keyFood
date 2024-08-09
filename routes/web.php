@@ -246,6 +246,12 @@ Route::get('/card', function () {
 Route::get('/dashboard-toko', function () {
     return view('admin.dashboard-toko');
 });
+
+
+Route::get('/otp', function () {
+    return view('auth.otp-verif');
+});
+
 Route::get('/role-requests', [RoleRequestController::class, 'index'])->name('role-requests.index');
 Route::post('/save-cart', [CartController::class, 'saveCart'])->name('save-cart');
 
