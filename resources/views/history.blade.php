@@ -52,7 +52,7 @@
                             </div>
                             <div class="flex items-center justify-around w-full sm:pl-28 lg:pl-0">
                                 <div class="flex flex-col justify-center items-start max-sm:items-center">
-                                    <p class="font-semibold text-xl leading-8 text-black whitespace-nowrap">Harga: Rp. {{ number_format($orderDetail->unit_price, 0, ',', '.') }}</p>
+                                    <p class="font-semibold text-xl leading-8 text-black whitespace-nowrap">Harga: Rp. {{ number_format($order->products->price, 0, ',', '.') }}</p>
                                 </div>
                             </div>
                         </div>
@@ -75,7 +75,7 @@
                         <p class="complete font-normal text-xl leading-8 text-gray-500 sm:pl-8">Pembelian Berhasil!</p>
                     </div>
                     <p class="font-medium text-xl leading-8 text-black max-sm:py-4"> 
-                        <span class="text-gray-500">Total Harga: </span> &nbsp;Rp. {{ number_format($order->orderDetails->sum(function($detail) { return $detail->unit_price * $detail->quantity; }) ?? 0, 0, ',', '.') }}
+                        <span class="text-gray-500">Total Harga: </span> &nbsp;Rp. {{ number_format($order->orderDetails->sum(function($detail) { return $detail->unit_price; }) ?? 0, 0, ',', '.') }}
                     </p>
                 </div>
             </div>

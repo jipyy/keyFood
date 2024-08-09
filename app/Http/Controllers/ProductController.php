@@ -21,7 +21,7 @@ class ProductController extends Controller
     {
         if (auth()->user()->can('productCRUD')) {
             // Mengambil 10 produk per halaman
-            $products = Product::where('creator_id', Auth::id())->paginate(2);
+            $products = Product::where('creator_id', Auth::id())->paginate(5);
 
             // Mengirim data produk ke view dengan pagination
             return view('seller.products.index', compact('products'));

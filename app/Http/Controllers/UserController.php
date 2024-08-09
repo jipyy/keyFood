@@ -31,7 +31,8 @@ class UserController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'email' => 'required|email|unique:users',
+            // 'email' => 'required|email|unique:users',
+            'phone' => 'required|phone|unique:users',
             'password' => 'required|min:6',
             'img' => 'nullable|image|mimes:jpg,png,jpeg|max:2048',
         ]);
@@ -45,7 +46,8 @@ class UserController extends Controller
 
         User::create([
             'name' => $request->name,
-            'email' => $request->email,
+            // 'email' => $request->email,
+            'phone' => $request->phone,
             'password' => Hash::make($request->password),
             'img' => $imgPath,
         ]);
@@ -67,12 +69,13 @@ class UserController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'email' => 'required|email|unique:users,email,' . $user->id,
+            // 'email' => 'required|email|unique:users,email,' . $user->id,
+            'phone' => 'required|phone|unique:users,phone,' . $user->id,
             'password' => 'nullable|min:6',
             'img' => 'nullable|image|mimes:jpg,png,jpeg|max:2048',
         ]);
 
-        $data = $request->only(['name', 'email']);
+        $data = $request->only(['name',  'phone']);
 
         if ($request->filled('password')) {
             $data['password'] = Hash::make($request->password);

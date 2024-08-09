@@ -50,6 +50,9 @@ function updateCheckoutDetails() {
     }
 
     document.getElementById('total-price').textContent = formatPrice(totalPrice);
+
+    // Update the hidden input value with the total price
+    document.getElementById('hidden-total-price').value = totalPrice;
 }
 
 function updateCart(productId, quantityChange) {

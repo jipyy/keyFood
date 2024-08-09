@@ -52,8 +52,7 @@
                     <div class="product-box" data-category="{{ $product->category->name }}">
                         <img alt="{{ $product->name }}" src="{{ asset($product->photo) }}">
                         <strong>{{ $product->name }}</strong>
-                        <span class="quantity">{{ $product->quantity }}</span>
-                        <span class="quantity">Store: {{ $product->creator ? $product->creator->name : 'Unknown' }}</span>
+                        <span class="quantity">Store: {{ $product->toko ? $product->toko->nama_toko : 'Unknown' }}</span>
                         <span class="price">Rp {{ number_format($product->price, 0, ',', '.') }}</span>
                         <a href="javascript:void(0)" data-product-id="{{ $product->id }}" class="cart-btn">
                             <i class="fas fa-shopping-bag"></i> Tambah Ke Keranjang

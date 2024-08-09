@@ -38,6 +38,9 @@ Route::get('/seller-edit', [SellerEditController::class, 'index']);
 Route::get('/faq', function () {
     return view('faq');
 });
+Route::get('/coba', function () {
+    return view('coba_wa');
+});
 Route::get('/product-slider', [ProductController::class, 'showProductSlider']);
 
 Route::get('/categories', function () {
