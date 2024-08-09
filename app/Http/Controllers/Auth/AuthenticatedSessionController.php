@@ -64,11 +64,12 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-        $credentials = $request->only('email', 'password');
+        $credentials = $request->only('phone','password');
 
         // Validasi Email
         $validator = Validator::make($credentials, [
-            'email' => 'required|email',
+            // 'email' => 'required|email',
+            'phone' => 'required|phone',
             'password' => 'required',
         ]);
 
@@ -77,13 +78,14 @@ class AuthenticatedSessionController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
-        // Cek apakah email ada di database
-        $user = User::where('email', $credentials['email'])->first();
+        // Cek apakah phone ada di database
+        // $user = User::where('email', $credentials['email'])->first();
+        $user = User::where('phone', $credentials['phone'])->first();
 
         if (!$user) {
             // Jika email tidak ditemukan
             return redirect()->back()->withErrors([
-                'email' => 'Email tidak ditemukan.',
+                'phone' => 'Phone tidak ditemukan.',
             ])->withInput();
         }
 
@@ -144,10 +146,12 @@ class AuthenticatedSessionController extends Controller
                 // Jika pengguna tidak ada, buat pengguna baru
                 $newUser = User::create([
                     'name' => $user->name,
-                    'email' => $user->email,
+                    // 'email' => $user->email,
+                    'phone' => $user->phone,
                     'google_id' => $user->id,
                     'password' => bcrypt('default_password'), // Atau bisa generate password random
-                    'email_verified_at' => now(),
+                    // 'email_verified_at' => now(),
+                    'phone_verified_at' => now(),
                     // Tambahkan kolom lain yang diperlukan
                 ]);
 

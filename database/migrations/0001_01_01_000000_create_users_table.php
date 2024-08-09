@@ -17,12 +17,13 @@ return new class extends Migration
             $table->string('google_token');
             $table->string('google_refresh_token')->nullable();
             $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            // $table->string('email')->unique();
+            // $table->timestamp('email_verified_at')->nullable();
+            $table->timestamp('phone_verified_at')->nullable();
             $table->string('password');
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
-            $table->string('phone')->default('08123456789');
+            $table->string('phone')->default('0000000000'); // Nilai default
             $table->string('location')->default('Perumahan Keandra, Kec. Sumber, Kab. Cirebon, Jawa Barat, Indonesia');
             $table->string('img')->nullable();
             $table->rememberToken();

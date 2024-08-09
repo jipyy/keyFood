@@ -8,11 +8,22 @@
       <input type="text" id="name" placeholder="Username" name="name" value="{{ old('name') }}" style="background: transparent" required />
       {{-- <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" /> --}}
     </div>
-    <div class="input-field">
+
+    {{-- email --}}
+
+    {{-- <div class="input-field">
       <i class="fas fa-envelope"></i>
       <input type="email" id="email" placeholder="Email" name="email" value="{{ old('email') }}" style="background: transparent" required />
-      {{-- <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" /> --}}
+      <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
+    </div> --}}
+
+
+    <div class="input-field">
+      <i class="fas fa-phone"></i>
+      <input type="number" id="phone" placeholder="Phone" name="phone" value="{{ old('phone') }}" style="background: transparent" required />
+      {{-- <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('phone')" required autocomplete="username" /> --}}
     </div>
+
     <div class="input-field">
       <i class="fas fa-lock"></i>
       <input type="password" id="password" placeholder="Password" name="password" style="background: transparent" required />
@@ -23,7 +34,7 @@
     </div>
     <div class="input-field">
       <i class="fas fa-lock"></i>
-      <input id="password_confirmation" type="password" placeholder="Password" name="password_confirmation" style="background: transparent" required />
+      <input id="password_confirmation" type="password" placeholder="Confirm Password" name="password_confirmation" style="background: transparent" required />
       {{-- <x-text-input id="password_confirmation" class="block mt-1 w-full"
                             type="password"
                             name="password_confirmation" required autocomplete="new-password" /> --}}
