@@ -7,6 +7,21 @@ function getCartData() {
     return JSON.parse(localStorage.getItem('cart')) || {};
 }
 
+function isProductDataComplete(product) {
+    const isComplete = product.product_id !== undefined &&
+           product.name !== undefined &&
+           product.price !== undefined &&
+           product.photo !== undefined &&
+           product.quantity !== undefined &&
+           product.category_id !== undefined &&
+           product.toko_id !== undefined; // Pastikan semua atribut ada
+    if (!isComplete) {
+        console.error('Incomplete product data:', product);
+    }
+    return isComplete;
+}
+
+
 function updateCheckoutDetails() {
     const cart = getCartData();
     const checkoutLists = document.getElementById('checkout-lists');

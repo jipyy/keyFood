@@ -14,6 +14,8 @@ class Cart extends Model
         'product_id',
         'quantity',
         'photo',
+        'store_id',
+        'category_id',
     ];
 
     // Relasi ke User
@@ -26,5 +28,15 @@ class Cart extends Model
     public function product()
     {
         return $this->belongsTo(Product::class);
+    }
+
+    public function toko()
+    {
+        return $this->belongsTo(Toko::class);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
     }
 }

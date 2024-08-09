@@ -5,8 +5,8 @@
             <div class="store-info">
                 <img src="{{ asset('img/shoes.jpg') }}" alt="logo toko" class="store-logo">
                 <div class="store-text">
-                    <h1>nama toko anda</h1>
-                    <h2>alamat toko</h2>
+                    <h1>{{ $toko->nama_toko }}</h1>
+                    <h2>{{ $toko->alamat_toko }}</h2>
                 </div>
                 @if (Auth::check())
                     @if (Auth::user()->hasRole('seller'))
@@ -34,8 +34,9 @@
             <!--box-container------>
             <div class="product-container">
                 <!--box---------->
+                @foreach($product as $p)
                 <div class="product-box">
-                    <img alt="pack" src="{{ asset('img/pack1.png') }}">
+                    <img alt="pack" src="{{ asset($p->photo) }}">
                     <strong>Big Pack</strong>
                     <span class="quantity">Lemone, Tamato, Patato,+4</span>
                     <span class="price">9$</span>
@@ -96,6 +97,7 @@
                         </div>
                     </a>
                 </div>
+                @endforeach
             </div>
         </section>
                      @endif
