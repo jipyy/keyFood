@@ -38,6 +38,9 @@ Route::get('/seller-edit', [SellerEditController::class, 'index']);
 Route::get('/faq', function () {
     return view('faq');
 });
+Route::get('/coba', function () {
+    return view('coba_wa');
+});
 Route::get('/product-slider', [ProductController::class, 'showProductSlider']);
 
 Route::get('/categories', function () {
@@ -246,6 +249,12 @@ Route::get('/card', function () {
 Route::get('/dashboard-toko', function () {
     return view('admin.dashboard-toko');
 });
+
+
+Route::get('/otp', function () {
+    return view('auth.otp-verif');
+});
+
 Route::get('/role-requests', [RoleRequestController::class, 'index'])->name('role-requests.index');
 Route::post('/save-cart', [CartController::class, 'saveCart'])->name('save-cart');
 

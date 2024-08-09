@@ -37,9 +37,15 @@
       <img src="img/login.svg" style="width: 150px; align-items: center;" alt="">
     </h2>
 
-    <div class="input-field">
+    {{-- email --}}
+    {{-- <div class="input-field">
       <i class="fas fa-envelope"></i>
       <input type="email" id="email" placeholder="Email" name="email" value="{{ old('email') }}" style="background: transparent" required />
+    </div> --}}
+
+    <div class="input-field">
+      <i class="fas fa-phone"></i>
+      <input type="number" id="phone" placeholder="Phone" name="phone" value="{{ old('phone') }}" style="background: transparent" required />
     </div>
     <div class="input-field">
       <i class="fas fa-lock"></i>
