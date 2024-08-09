@@ -4,10 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Orders;
-use App\Models\OrderDetail; // Pastikan untuk mengimpor model OrderDetail
-use App\Models\User;
+use App\Models\OrderDetail;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\DB; // Untuk menggunakan transaksi database
+use Illuminate\Support\Facades\DB;
 
 class CheckoutController extends Controller
 {
@@ -17,7 +16,6 @@ class CheckoutController extends Controller
     public function showCheckoutDetails()
     {
         $user = auth()->user();
-        
         return view('checkout', compact('user'));
     }
 
@@ -27,16 +25,18 @@ class CheckoutController extends Controller
     public function storeOrder(Request $request)
     {
         $products = json_decode($request->products, true);
+        $totalOrderPrice = $request->input('total_price');
 
-        // Check if products decoding was successful
-        if ($products === null) {
-            Log::error('Invalid products data: ' . $request->products);
-            return redirect()->back()->withErrors(['products' => 'Invalid products data.']);
+        if ($products === null || !is_numeric($totalOrderPrice)) {
+            Log::error('Invalid input data. Products: ' . $request->input('products') . ', Total Price: ' . $totalOrderPrice);
+            return redirect()->back()->withErrors(['checkout' => 'Invalid input data. Please try again.']);
         }
 
         DB::beginTransaction(); // Memulai transaksi
 
         try {
+            $totalOrderPrice = 0; // Untuk menyimpan total harga dari semua produk dalam satu order
+
             foreach ($products as $product) {
                 // Check if the required keys exist in the product array
                 if (!isset($product['price'], $product['quantity'], $product['photo'], $product['product_id'], $product['category_id'], $product['store_id'])) {
@@ -44,16 +44,19 @@ class CheckoutController extends Controller
                     return redirect()->back()->withErrors(['products' => 'Missing product data.']);
                 }
 
+                // Menghitung total harga untuk produk ini
+                $unitPrice = $product['quantity'] * $product['price'];
+
                 // Simpan data ke tabel orders
                 $order = new Orders();
                 $order->no_order = uniqid('no_order');
                 $order->tanggal_order = now();
-                $order->quantity = $product['quantity'];
+                $order->quantity = array_sum(array_column($products, 'quantity')); // Menghitung total quantity dari semua produk
                 $order->photo = $product['photo'];
                 $order->order_date = now();
                 $order->id_user = auth()->id();
                 $order->location = $request->input('checkout-address');
-                $order->harga = $product['price'];
+                $order->harga = $totalOrderPrice; // Simpan harga per produk
                 $order->product_id = $product['product_id'];
                 $order->category_id = $product['category_id'];
                 $order->toko_id = $product['store_id'];
@@ -64,9 +67,16 @@ class CheckoutController extends Controller
                 $orderDetail->order_id = $order->id;
                 $orderDetail->product_id = $product['product_id'];
                 $orderDetail->quantity = $product['quantity'];
-                $orderDetail->unit_price = $product['quantity'] * $product['price']; // Menghitung total harga
+                $orderDetail->unit_price = $unitPrice; // Menghitung total harga untuk setiap produk
                 $orderDetail->save();
+
+                // Tambahkan harga produk ini ke total harga order
+                $totalOrderPrice += $unitPrice;
             }
+
+            // Update harga di tabel orders untuk total harga dari seluruh produk
+            $order->harga = $totalOrderPrice;
+            $order->save();
 
             DB::commit(); // Commit transaksi jika semua berhasil
             return redirect('/history')->with('success', 'Order created successfully!');
@@ -80,7 +90,7 @@ class CheckoutController extends Controller
 
     public function showOrderHistory()
     {
-        $orders = Orders::with('orderDetails.products.toko.category')->where('id_user', auth()->id())->get(); // Mengambil data order beserta produk
+        $orders = Orders::with('orderDetails.products')->where('id_user', auth()->id())->get();
         return view('history', compact('orders'));
     }
 }
