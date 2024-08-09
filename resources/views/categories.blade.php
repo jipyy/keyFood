@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('container')
-    <section id="home">
+    <section id="home" class="mt-11">
         <section id="search-banner">
             <!--bg--------->
             <img alt="bg" class="bg-1" src="{{ asset('img/bg-1.png') }}">
