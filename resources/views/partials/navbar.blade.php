@@ -31,6 +31,7 @@
                     <li class="list">
                         <a href="/history" class="{{ Request::is('history') ? 'nav__link active' : 'nav__link' }}">History</a>
                     </li>
+                    
                 </ul>
             </div>
             <button id="dropdownButton1" class="profile-button">

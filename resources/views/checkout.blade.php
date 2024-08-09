@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('container')
 <section id="home">
-    <main>
+    <main class="mt-10">
         <section class="checkout-form">
             <form id="checkout-form" action="{{ route('checkout.store') }}" method="post">
                 @csrf

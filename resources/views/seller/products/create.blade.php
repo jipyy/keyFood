@@ -67,6 +67,20 @@
                     </div>
 
                     <div class="mt-4">
+                        <x-input-label for="store_id" :value="('store_id')" />
+                        <select name="store_id" id="store_id" class="w-full py-3 pl-5 border">
+                            <option value="">Select Toko</option>
+                            @forelse($stores as $store)
+                            <option value="{{ $store->id_toko }}">{{ $store->nama_toko }}</option>
+                            @empty
+                            <option value="">No Store Available</option>
+                            @endforelse
+                        </select>
+                        <x-input-error :messages="$errors->get('store_id')" class="mt-2" />
+                    </div>
+
+
+                    <div class="mt-4">
                         <x-input-label for="slug" :value="('slug')" />
                         <textarea name="slug" id="slug" class="w-full py-3 pl-5 border">{{ old('slug') }}</textarea>
                         <x-input-error :messages="$errors->get('slug')" class="mt-2" />
