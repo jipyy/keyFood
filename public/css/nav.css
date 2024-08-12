@@ -454,7 +454,7 @@ a {
 
   .nav__link::after {
 
-    bottom: 0;
+    bottom: -5px;
     content: "";
     display: block;
     height: 3px;
