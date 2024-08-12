@@ -26,7 +26,7 @@
 
             <!-- Add New User Button -->
             <a href="{{ route('admin.users.create') }}"
-                class="mb-6 inline-block px-4 py-2 bg-indigo-600 text-white rounded-lg">
+                class="mb-6 inline-block px-4 py-2 bg-indigo-600 text-black rounded-lg dark:text-white">
                 Add New User
             </a>
 

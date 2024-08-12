@@ -17,7 +17,7 @@
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
                     <li class="list">
-                        <a href="/home" class="{{ Request::is('home') ? 'nav__link active' : 'nav__link' }}">Home</a>
+                        <a href="/home" class="{{ Request::is('/') || Request::is('home') ? 'nav__link active' : 'nav__link' }}">Home</a>
                     </li>
                     <li class="list">
                         <a href="/product-slider"
