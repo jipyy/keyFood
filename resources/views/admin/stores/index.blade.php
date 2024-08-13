@@ -7,7 +7,7 @@
             </h2>
 
             {{-- ini cards --}}
-            <div class="container-profile dark:text-gray-200">
+            <div class="container-profile ">
                 @forelse($stores as $store)
                     <div class="card-profile">
                         <p><strong>ID:</strong> {{ $store->id_toko }}</p>
@@ -52,7 +52,7 @@
                         </div>
                     </div>
                 @empty
-                    <p>No users found.</p>
+                    <p>No stores found.</p>
                 @endforelse
 
             </div>

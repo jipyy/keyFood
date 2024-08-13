@@ -31,7 +31,7 @@
             </a>
 
             {{-- ini cards --}}
-            <div class="container-profile dark:text-gray-200">
+            <div class="container-profile">
                 @forelse($users as $user)
                     <div class="card-profile">
                         <p><strong>ID:</strong> {{ $user->id }}</p>
@@ -66,15 +66,6 @@
                                 <li>
                                     <a href="#"
                                         class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Delete</a>
-                                </li>
-                                <li>
-                                    <a href="#"
-                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
-                                </li>
-                                <li>
-                                    <a href="#"
-                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign
-                                        out</a>
                                 </li>
                             </ul>
                         </div>
