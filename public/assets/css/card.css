@@ -1,3 +1,11 @@
+@media (min-width: 400px) {
+    .container-profile{
+        display: flex;
+    }
+    .user-table{
+        display: none;
+    }
+}
 @media (min-width: 440px) {
     .container-profile{
         display: flex;
@@ -149,7 +157,7 @@
     color: #d1d5db; /* Gray-200 */
 }
 
-.dark .dropdown-menu a:hover {
+.dark.dropdown-menu a:hover {
     background-color: #4b5563; /* Gray-600 */
     color: #ffffff;
 }

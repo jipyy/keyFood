@@ -1,19 +1,20 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\TokoController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\SellerEditController;
+use App\Http\Controllers\RoleRequestController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\ProductOrderController;
 use App\Http\Controllers\Auth\SocialiteController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
-use App\Http\Controllers\CartController;
-use App\Http\Controllers\RoleRequestController;
-use App\Http\Controllers\SellerEditController;
 
 Route::get('/', function () {
     return view('home');
@@ -119,6 +120,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('products_orders', ProductOrderController::class);
     // Route::resource('categories', CategoryController::class)->middleware('role:admin');
     Route::resource('users', UserController::class);
+    Route::resource('stores', TokoController::class);
 });
 
 
