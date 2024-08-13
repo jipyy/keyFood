@@ -359,7 +359,7 @@
                         </button>
                     </li>
                     <!-- Notifications menu -->
-                    <li class="relative">
+                    {{-- <li class="relative">
                         <button class="relative align-middle rounded-md focus:outline-none focus:shadow-outline-purple"
                             @click="toggleNotificationsMenu" @keydown.escape="closeNotificationsMenu"
                             aria-label="Notifications" aria-haspopup="true">
@@ -405,7 +405,7 @@
                                 </li>
                             </ul>
                         </template>
-                    </li>
+                    </li> --}}
                     <!-- Profile menu -->
                     <li class="relative">
                         <button class="align-middle rounded-full focus:shadow-outline-purple focus:outline-none"
@@ -434,7 +434,7 @@
                                         <span>Profile</span>
                                     </a>
                                 </li>
-                                <li class="flex">
+                                {{-- <li class="flex">
                                     <a class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
                                         href="#">
                                         <svg class="w-4 h-4 mr-3" aria-hidden="true" fill="none"
@@ -447,7 +447,7 @@
                                         </svg>
                                         <span>Settings</span>
                                     </a>
-                                </li>
+                                </li> --}}
                                 <li class="flex">
                                     <a class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
                                         href="#">
