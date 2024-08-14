@@ -237,6 +237,10 @@ Route::get('/dashboard-role', function () {
     return view('admin.dashboard-role');
 });
 
+Route::get('/dashboard-profile', function () {
+    return view('admin.dashboard-profile');
+});
+
 
 // Route::get('/history', function () {
 //     return view('history');
