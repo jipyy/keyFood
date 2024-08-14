@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('container')
 <section id="home">
-    <main>
+    <main class="mt-10">
         <section class="checkout-form">
             <form id="checkout-form" action="{{ route('checkout.store') }}" method="post">
                 @csrf
@@ -43,7 +43,11 @@
                         <input type="text" name="checkout-notes" id="checkout-notes" placeholder="Catatan Anda.. (opsional)" value="{{ old('checkout-notes') }}">
                     </div>
                 </div>
+                
+                <!-- Hidden input for products and total price -->
                 <input type="hidden" name="products" id="products" required>
+                <input type="hidden" name="total_price" id="hidden-total-price" required>
+
                 <div class="form-control-btn">
                     <button type="submit">Checkout</button>
                 </div>
@@ -67,7 +71,10 @@
 <script>
 document.getElementById('checkout-form').addEventListener('submit', function(event) {
     const products = JSON.parse(localStorage.getItem('cart')) || [];
+    const totalPrice = document.getElementById('total-price').textContent.replace(/[^\d]/g, ''); // Menghilangkan simbol 'Rp' dan koma
+    
     document.getElementById('products').value = JSON.stringify(products);
+    document.getElementById('hidden-total-price').value = totalPrice;
 });
 </script>
 @endsection

@@ -1,3 +1,11 @@
+@media (min-width: 400px) {
+    .container-profile{
+        display: flex;
+    }
+    .user-table{
+        display: none;
+    }
+}
 @media (min-width: 440px) {
     .container-profile{
         display: flex;
@@ -25,6 +33,7 @@
     }
 }
 
+
 .container-profile {
     max-width: 100%;
     margin: auto;
@@ -48,6 +57,8 @@
     flex-direction: column;
     align-items: center; /* Center items horizontally */
     justify-content: center; /* Center items vertically */
+    background-color: white;
+
 }
 
 .card-profile img {
@@ -149,7 +160,7 @@
     color: #d1d5db; /* Gray-200 */
 }
 
-.dark .dropdown-menu a:hover {
+.dark.dropdown-menu a:hover {
     background-color: #4b5563; /* Gray-600 */
     color: #ffffff;
 }

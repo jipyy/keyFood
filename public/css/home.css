@@ -425,7 +425,11 @@ body.dark .icons{
       border-color: var(--primary-color);
     }
   }
-  
+  .container-profile{
+    height: 40px;
+    width: 40px;
+    background: tomato;
+  }
   #dropdown {
     position: fixed;
     z-index: 990;
@@ -451,7 +455,8 @@ body.dark #opened{
 
 @media (min-width: 850px) {
     #dropdown {
-        display: none;
+        display: flex;
+        top: 10px;
     }
 }
 

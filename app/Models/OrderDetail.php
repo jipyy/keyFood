@@ -33,10 +33,5 @@ class OrderDetail extends Model
     {
         return $this->belongsTo(Category::class, 'category_id');
     }
-
-    public function getTotalPriceAttribute()
-    {
-        return $this->quantity * $this->unit_price;
-    }
     
 }

@@ -1,12 +1,64 @@
 @extends('admin.layouts.main-admin')
 @section('container-admin')
     <main class="h-screen pb-16 overflow-y-auto">
-        <div class="container grid px-6 mx-auto">
+        <div class="container grid px-6 mx-auto py-4 mb-8">
             <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
                 Toko
             </h2>
 
-            <div class="w-full overflow-hidden rounded-lg shadow-xs">
+            {{-- ini cards --}}
+            <div class="container-profile ">
+                @forelse($stores as $store)
+                    <div class="card-profile">
+                        <p><strong>ID:</strong> {{ $store->id_toko }}</p>
+                        <img src="{{ asset($store->foto_profile_toko) }}" alt="Profile Picture">
+                        <h2>{{ $store->nama_toko }}</h2>
+
+                        <div class="info">
+                            <strong>Seller_id:</strong> {{ $store->id_seller }}
+                        </div>
+                        <div class="info">
+                            {{ $store->created_at->format('d/m/Y') }}
+                        </div>
+                        <div class="info">
+                            {{ $store->alamat_toko }}
+                        </div>
+                        <button id="dropdownButton1" class="dropdown-button dark:text-white">
+                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 8.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM8 4.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM8 12.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z" />
+                            </svg>
+                        </button>
+                        <div id="dropdown1" class="dropdown-menu">
+                            <ul>
+                                <li>
+                                    <a href="#"
+                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign
+                                        out</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                @empty
+                    <p>No stores found.</p>
+                @endforelse
+
+            </div>
+
+
+            <div class="user-table w-full overflow-hidden rounded-lg shadow-xs">
                 <!-- New Table -->
                 <div class="w-full overflow-hidden rounded-lg shadow-xs">
                     <div class="w-full overflow-x-auto">
@@ -16,7 +68,7 @@
                                     class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                                     <th class="px-4 py-3">ID Toko</th>
                                     <th class="px-4 py-3">Nama Toko</th>
-                                    <th class="px-4 py-3">Id Seller</th>
+                                    {{-- <th class="px-4 py-3">Id Seller</th> --}}
                                     <th class="px-4 py-3">Alamat Toko</th>
                                     <th class="px-4 py-3">Tanggal Join</th>
                                     <th class="px-6 py-3">Action</th>
