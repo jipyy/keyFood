@@ -3,7 +3,7 @@
     <main class="h-screen pb-16 overflow-y-auto">
         <div class="container grid px-6 mx-auto py-4 mb-8">
             <div class="m-10 w-[30rem] max-h-8">
-                <div class="rounded-lg border bg-white px-4 pt-8 pb-10 shadow-lg">
+                <div class="rounded-lg bg-white px-4 pt-8 pb-10 shadow-lg dark:bg-gray-800">
                     <div class="relative mx-auto w-24 rounded-full">
                         <span
                             class="absolute right-0 m-3 h-3 w-3 rounded-full bg-green-500 ring-2 ring-green-300 ring-offset-2"></span>
@@ -13,11 +13,11 @@
                        
                     </div>
                     
-                    <h1 class="my-1 text-center text-xl font-bold leading-8 text-gray-900">Michael Simbal</h1>
+                    <h1 class="my-1 text-center text-xl font-bold leading-8 text-gray-900 dark:text-gray-100">Admin xx</h1>
                     <div class="flex justify-center">
                         <span class="inline-flex items-center text-center rounded-md bg-gray-100 px-2 py-1 text-sm font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">Admin</span>
                     </div>
-                    <h3 class="font-lg text-semibold text-center leading-6 text-gray-600">Marketing Exec. at Denva Corp</h3>
+                    <h3 class="font-lg text-semibold text-center leading-6 text-gray-600 dark:text-gray-300">Marketing Exec. at Denva Corp</h3>
                     <p class="text-center text-sm leading-6 text-gray-500 hover:text-gray-600">Lorem ipsum dolor sit amet
                         consectetur, adipisicing elit. Architecto, placeat!</p>
                     <ul class="mt-4 mb-4 divide-y rounded-md w-24">
