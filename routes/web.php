@@ -240,6 +240,9 @@ Route::get('/dashboard-role', function () {
 Route::get('/dashboard-profile', function () {
     return view('admin.dashboard-profile');
 });
+Route::get('/edit-profile', function () {
+    return view('admin.edit-profile');
+});
 
 
 // Route::get('/history', function () {

@@ -22,11 +22,11 @@
                         consectetur, adipisicing elit. Architecto, placeat!</p>
                     <ul class="mt-4 mb-4 divide-y rounded-md w-24">
                         <li class="flex items-center justify-center py-3 text-sm">
+                            <a href="/edit-profile">
                             <button type="button" class="text-white bg-purple-600 hover:bg-purple-700 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-5 w-32 h-12">
                                 Edit Profile
-                            </button>
-                            
-                            
+                            </button> 
+                        </a>
                         </li>
                     </ul>
                 </div>
