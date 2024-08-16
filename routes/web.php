@@ -16,10 +16,9 @@ use App\Http\Controllers\Auth\SocialiteController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\OtpWaController;
-use App\Http\Controllers\CartController;
 use App\Http\Controllers\OtpWaVerificationController;
-use App\Http\Controllers\RoleRequestController;
-use App\Http\Controllers\SellerEditController;
+
+
 
 Route::get('/', function () {
     return view('home');
