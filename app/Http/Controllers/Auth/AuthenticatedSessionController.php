@@ -51,7 +51,7 @@ class AuthenticatedSessionController extends Controller
     // }
 
 
-     /**
+    /**
      * Display the login view.
      */
     public function create(): View
@@ -62,14 +62,15 @@ class AuthenticatedSessionController extends Controller
     /**
      * Handle an incoming authentication request.
      */
+
+
     public function store(LoginRequest $request): RedirectResponse
     {
-        $credentials = $request->only('phone','password');
+        $credentials = $request->only('phone', 'password');
 
-        // Validasi Email
+        // Validasi Phone dan Password
         $validator = Validator::make($credentials, [
-            // 'email' => 'required|email',
-            'phone' => 'required|phone',
+            'phone' => 'required|numeric',
             'password' => 'required',
         ]);
 
@@ -90,11 +91,12 @@ class AuthenticatedSessionController extends Controller
         }
 
         if (!Auth::attempt($credentials)) {
-            // Jika email ditemukan tetapi password salah
+            // Jika phone ditemukan tetapi password salah
             return redirect()->back()->withErrors([
                 'password' => 'Password salah.',
             ])->withInput();
-        }     
+        }
+
 
         // Jika email dan password benar
         $request->session()->regenerate();
@@ -103,11 +105,11 @@ class AuthenticatedSessionController extends Controller
         if (Auth::user()->hasRole('admin')) {
             return redirect()->intended(route('admin.dashboard-main'));
         }
-        
+
         if (Auth::user()->hasRole('seller')) {
             return redirect()->intended(route('seller-edit'));
         }
-        
+
         // Default redirect if no roles match
         return redirect()->intended(route('home'));
     }
@@ -165,6 +167,4 @@ class AuthenticatedSessionController extends Controller
             return redirect('/log-reg')->withErrors('Error: ' . $e->getMessage());
         }
     }
-
-
 }

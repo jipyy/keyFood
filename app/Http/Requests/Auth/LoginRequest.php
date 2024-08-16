@@ -15,7 +15,12 @@ class LoginRequest extends FormRequest
     /**
      * Determine if the user is authorized to make this request.
      */
-    public function authorize(): bool
+
+    // public function authorize(): bool
+    // {
+    //     return true;
+    // }
+    public function authorize()
     {
         return true;
     }
@@ -30,10 +35,11 @@ class LoginRequest extends FormRequest
         return [
             // 'email' => ['required', 'string', 'email'],
            
-            'phone' => ['required', new PhoneNumber, 'unique:users'],
+            'phone' => ['required', 'numeric'],
             'password' => ['required', 'string'],
         ];
     }
+    
 
     /**
      * Attempt to authenticate the request's credentials.
@@ -58,6 +64,7 @@ class LoginRequest extends FormRequest
 
         RateLimiter::clear($this->throttleKey());
     }
+    
 
     /**
      * Ensure the login request is not rate limited.

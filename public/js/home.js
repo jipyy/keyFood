@@ -57,7 +57,7 @@ textCircle.forEach((value, key) => {
 
       
         if (screenWidth > 850) {
-          dropdown.style.display = 'none';
+          dropdown.style.display = 'flex';
           profileCard.style.display = 'none';
         } else {
           dropdown.style.display = 'flex';
