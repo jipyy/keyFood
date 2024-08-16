@@ -441,7 +441,7 @@ a {
   .nav__list {
     display: flex;
     column-gap: 3rem;
-    height: 100%;
+    /* height: 100%; */
 
   }
 

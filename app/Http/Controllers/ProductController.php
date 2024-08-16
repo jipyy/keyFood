@@ -204,4 +204,13 @@ class ProductController extends Controller
         // Kirim data produk ke view
         return view('categories', compact('products'));
     }
+
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+        $products = Product::where('name', 'LIKE', "%{$query}%")
+                            ->paginate(10);
+                            
+        return response()->json($products);
+    }
 }
