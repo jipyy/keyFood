@@ -11,13 +11,17 @@ use App\Http\Controllers\ProductOrderController;
 use App\Http\Controllers\Auth\SocialiteController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\OtpWaController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\OtpWaVerificationController;
 use App\Http\Controllers\RoleRequestController;
 use App\Http\Controllers\SellerEditController;
 
 Route::get('/', function () {
     return view('home');
 });
+
+
 
 // Custom login and registration form route
 Route::get('/log-reg', function () {
@@ -75,7 +79,10 @@ Route::get('/term-condition', function () {
     return view('term-condition');
 });
 
-Route::post('/login', [AuthenticatedSessionController::class, 'store'])->middleware('guest');
+
+Route::post('/login', [AuthenticatedSessionController::class, 'store'])
+    ->middleware('guest')
+    ->name('login');
 
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->middleware('auth')->name('logout');
 
@@ -85,6 +92,17 @@ Route::get('/register', function () {
 })->middleware('guest')->name('register');
 
 Route::post('/register', [RegisteredUserController::class, 'store'])->middleware('guest');
+
+
+//send message
+Route::post('/send-whatsapp', [RegisteredUserController::class, 'sendMessage'])->name('send.whatsapp');
+
+
+Route::get('/whatsapp-form', function () {
+    return view('auth/send_whatsapp');
+});
+
+
 
 //batas andika
 
@@ -254,6 +272,8 @@ Route::get('/dashboard-toko', function () {
 Route::get('/otp', function () {
     return view('auth.otp-verif');
 });
+
+Route::post('/verify-wa-otp', [OtpWaVerificationController::class, 'verify'])->name('verify.wa.otp');
 
 Route::get('/role-requests', [RoleRequestController::class, 'index'])->name('role-requests.index');
 Route::post('/save-cart', [CartController::class, 'saveCart'])->name('save-cart');

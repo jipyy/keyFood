@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -114,4 +114,18 @@
     </script>
 </body>
 
-</html>
+</html> --}}
+
+<form method="POST" action="{{ route('verify.wa.otp') }}">
+    @csrf
+    <div>
+        <label for="otp">OTP</label>
+        <input id="otp" type="text" name="otp" required autofocus>
+    </div>
+    @error('otp')
+        <span>{{ $message }}</span>
+    @enderror
+    <div>
+        <button type="submit">Verify OTP</button>
+    </div>
+</form>
