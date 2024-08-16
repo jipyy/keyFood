@@ -1,11 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\TokoController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\SellerEditController;
+use App\Http\Controllers\RoleRequestController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\ProductOrderController;
 use App\Http\Controllers\Auth\SocialiteController;
@@ -137,6 +141,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('products_orders', ProductOrderController::class);
     // Route::resource('categories', CategoryController::class)->middleware('role:admin');
     Route::resource('users', UserController::class);
+    Route::resource('stores', TokoController::class);
 });
 
 
@@ -251,6 +256,13 @@ Route::get('/dashboard-users', function () {
 
 Route::get('/dashboard-role', function () {
     return view('admin.dashboard-role');
+});
+
+Route::get('/dashboard-profile', function () {
+    return view('admin.dashboard-profile');
+});
+Route::get('/admin-profile', function () {
+    return view('admin.edit-profile');
 });
 
 

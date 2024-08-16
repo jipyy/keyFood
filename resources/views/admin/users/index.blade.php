@@ -1,5 +1,4 @@
 @extends('admin.layouts.main-admin')
-
 @section('container-admin')
     <main class="h-screen overflow-y-auto">
         <div class="container px-6 mx-auto grid py-4 mb-8">
@@ -26,7 +25,7 @@
 
             <!-- Add New User Button -->
             <a href="{{ route('admin.users.create') }}"
-                class="mb-6 inline-block px-4 py-2 bg-indigo-600 text-white rounded-lg">
+                class="mb-6 inline-block px-4 py-2 bg-indigo-600 text-black rounded-lg dark:text-white">
                 Add New User
             </a>
 
@@ -51,7 +50,7 @@
                         <div class="info">
                             <p><strong>Email:</strong> {{ $user->email }}</p>
                         </div>
-                        <button id="dropdownButton1" class="dropdown-button">
+                        <button id="dropdownButton1" class="dropdown-button dark:text-gray-200">
                             <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M8 8.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM8 4.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM8 12.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z" />
@@ -61,20 +60,11 @@
                             <ul>
                                 <li>
                                     <a href="#"
-                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit</a>
                                 </li>
                                 <li>
                                     <a href="#"
-                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
-                                </li>
-                                <li>
-                                    <a href="#"
-                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
-                                </li>
-                                <li>
-                                    <a href="#"
-                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign
-                                        out</a>
+                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Delete</a>
                                 </li>
                             </ul>
                         </div>
