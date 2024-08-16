@@ -69,6 +69,7 @@ body.dark .back:hover{
     width: 100%;
     flex-wrap: wrap;
     position: relative;
+    margin-top: 70px;
 }
 
 body.dark .profile-card{
