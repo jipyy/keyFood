@@ -63,80 +63,72 @@
         </section>
     @endsection
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    $(document).ready(function() {
-        // Flag to indicate if a category is selected
-        let isCategorySelected = false;
-
-        // Live Search
-        $('#search').on('keyup', function() {
-            var query = $(this).val();
-            isCategorySelected = false; // Reset category selection state
-            performSearch(query); // Perform search with the query
-        });
-
-        // Category Selection
-        $('.category-box').on('click', function(e) {
-            e.preventDefault(); // Prevent default link behavior
-            var category = $(this).data('category');
-            $('#search').val(''); // Clear the search input
-            isCategorySelected = true; // Mark that a category has been selected
-            $('.category-box').removeClass('active');
-            $(this).addClass('active');
-            performSearch('', category); // Perform search with the selected category
-        });
-
-         // Show All Products
-         $('.showall').on('click', function(e) {
-            e.preventDefault();
-            console.log('Showing All Products'); // Debug: Menampilkan semua produk
-            $('#search').val('');
-            $('.category-box').removeClass('active');
-            isCategorySelected = false;
-            selectedCategory = '';
-            performSearch();
-        });
-
-        function performSearch(query = '', category = '') {
-            $.ajax({
-                url: "{{ route('search') }}",
-                type: "GET",
-                data: {
-                    'query': query,
-                    'category': category
-                },
-                success: function(data) {
-                    $('#product-list').empty();
-
-                    const products = data.data || []; // Ensure data.data is an array of products
-
-                    if (Array.isArray(products) && products.length > 0) {
-                        $.each(products, function(index, product) {
-                            var productHtml = '<div class="product-box" data-category="' + (
-                                    product.category ? product.category.name : 'Unknown') +
-                                '">' +
-                                '<img alt="' + product.name + '" src="' +
-                                '{{ asset('') }}' + product.photo + '">' +
-                                '<strong>' + product.name + '</strong>' +
-                                '<span class="quantity">Store: ' + (product.toko ? product
-                                    .toko.nama_toko : 'Unknown') + '</span>' +
-                                '<span class="price">Rp ' + new Intl.NumberFormat('id-ID')
-                                .format(product.price) + '</span>' +
-                                '<a href="javascript:void(0)" data-product-id="' + product
-                                .id + '" class="cart-btn">' +
-                                '<i class="fas fa-shopping-bag"></i> Tambah Ke Keranjang</a>' +
-                                '<a href="#" class="view-btn"><i class="far fa-eye"></i></a>' +
-                                '</div>';
-                            $('#product-list').append(productHtml);
-                        });
-                    } else {
-                        $('#product-list').append('<p class="text-gray-500">No products found</p>');
-                    }
-                },
-                error: function(xhr, status, error) {
-                    console.log("Error: " + error);
-                }
+    <script>
+        $(document).ready(function() {
+            let selectedCategory = ''; // Variabel untuk menyimpan kategori yang dipilih
+    
+            // Live Search
+            $('#search').on('keyup', function() {
+                var query = $(this).val();
+                performSearch(query, selectedCategory); // Pencarian dilakukan dalam kategori yang dipilih
             });
-        }
-    });
-</script>
+    
+            // Category Selection
+            $('.category-box').on('click', function(e) {
+                e.preventDefault();
+                selectedCategory = $(this).data('category'); // Ambil kategori dari elemen yang diklik
+                $('#search').val(''); // Kosongkan input pencarian
+                $('.category-box').removeClass('active');
+                $(this).addClass('active');
+                performSearch('', selectedCategory); // Pencarian dilakukan hanya dalam kategori yang dipilih
+            });
+    
+            // Show All Products
+            $('.showall').on('click', function(e) {
+                e.preventDefault();
+                selectedCategory = ''; // Reset kategori yang dipilih
+                $('#search').val(''); // Kosongkan input pencarian
+                $('.category-box').removeClass('active');
+                performSearch(); // Menampilkan semua produk
+            });
+    
+            function performSearch(query = '', category = '') {
+                $.ajax({
+                    url: "{{ route('search') }}",
+                    type: "GET",
+                    data: {
+                        'query': query,
+                        'category': category
+                    },
+                    success: function(data) {
+                        $('#product-list').empty(); // Kosongkan daftar produk sebelumnya
+    
+                        const products = data.data || []; // Pastikan data yang diterima adalah array produk
+    
+                        if (Array.isArray(products) && products.length > 0) {
+                            $.each(products, function(index, product) {
+                                var productHtml = `
+                                    <div class="product-box" data-category-name="${product.category ? product.category.name : 'Unknown'}">
+                                        <img alt="${product.name}" src="{{ asset('') }}${product.photo}">
+                                        <strong>${product.name}</strong>
+                                        <span class="quantity">Store: ${product.toko ? product.toko.nama_toko : 'Unknown'}</span>
+                                        <span class="price">Rp ${new Intl.NumberFormat('id-ID').format(product.price)}</span>
+                                        <a href="javascript:void(0)" data-product-id="${product.id}" class="cart-btn">
+                                            <i class="fas fa-shopping-bag"></i> Tambah Ke Keranjang
+                                        </a>
+                                        <a href="#" class="view-btn"><i class="far fa-eye"></i></a>
+                                    </div>`;
+                                $('#product-list').append(productHtml); // Tambahkan produk ke daftar
+                            });
+                        } else {
+                            $('#product-list').append('<p class="text-gray-500">No products found</p>'); // Tampilkan pesan jika tidak ada produk
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.log("Error: " + error); // Debugging jika terjadi kesalahan
+                    }
+                });
+            }
+        });
+    </script>
+    
