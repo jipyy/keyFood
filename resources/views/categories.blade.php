@@ -86,6 +86,17 @@
             performSearch('', category); // Perform search with the selected category
         });
 
+         // Show All Products
+         $('.showall').on('click', function(e) {
+            e.preventDefault();
+            console.log('Showing All Products'); // Debug: Menampilkan semua produk
+            $('#search').val('');
+            $('.category-box').removeClass('active');
+            isCategorySelected = false;
+            selectedCategory = '';
+            performSearch();
+        });
+
         function performSearch(query = '', category = '') {
             $.ajax({
                 url: "{{ route('search') }}",
