@@ -1,4 +1,7 @@
-{{-- <!DOCTYPE html>
+<input type="text"
+class="w-14 h-14 text-center text-2xl font-extrabold text-slate-900 bg-slate-100 border border-transparent hover:border-slate-200 appearance-none rounded p-4 outline-none focus:bg-white focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100"
+maxlength="1" name="otp[]" />
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -22,23 +25,17 @@
     <div class="max-w-md mx-auto text-center bg-white px-4 sm:px-8 py-10 rounded-xl shadow">
         <header class="mb-8">
             <h1 class="text-2xl font-bold mb-1">Mobile Phone Verification</h1>
-            <p class="text-[15px] text-slate-500">Enter the 4-digit verification code that was sent to your phone
+            <p class="text-[15px] text-slate-500">Enter the 6-digit verification code that was sent to your phone
                 number.</p>
         </header>
-        <form id="otp-form">
+        <form id="otp-form" method="POST" action="{{ route('verify.wa.otp') }}">
+            @csrf
             <div class="flex items-center justify-center gap-3">
-                <input type="text"
-                    class="w-14 h-14 text-center text-2xl font-extrabold text-slate-900 bg-slate-100 border border-transparent hover:border-slate-200 appearance-none rounded p-4 outline-none focus:bg-white focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100"
-                    pattern="\d*" maxlength="1" />
-                <input type="text"
-                    class="w-14 h-14 text-center text-2xl font-extrabold text-slate-900 bg-slate-100 border border-transparent hover:border-slate-200 appearance-none rounded p-4 outline-none focus:bg-white focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100"
-                    maxlength="1" />
-                <input type="text"
-                    class="w-14 h-14 text-center text-2xl font-extrabold text-slate-900 bg-slate-100 border border-transparent hover:border-slate-200 appearance-none rounded p-4 outline-none focus:bg-white focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100"
-                    maxlength="1" />
-                <input type="text"
-                    class="w-14 h-14 text-center text-2xl font-extrabold text-slate-900 bg-slate-100 border border-transparent hover:border-slate-200 appearance-none rounded p-4 outline-none focus:bg-white focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100"
-                    maxlength="1" />
+                @for ($i = 0; $i < 6; $i++)
+                    <input type="text"
+                        class="w-14 h-14 text-center text-2xl font-extrabold text-slate-900 bg-slate-100 border border-transparent hover:border-slate-200 appearance-none rounded p-4 outline-none focus:bg-white focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100"
+                        pattern="\d*" maxlength="1" name="otp[]" required autofocus />
+                @endfor
             </div>
             <div class="max-w-[260px] mx-auto mt-4">
                 <button type="submit"
@@ -76,9 +73,7 @@
             }
 
             const handleInput = (e) => {
-                const {
-                    target
-                } = e
+                const { target } = e
                 const index = inputs.indexOf(target)
                 if (target.value) {
                     if (index < inputs.length - 1) {
@@ -110,13 +105,41 @@
                 input.addEventListener('focus', handleFocus)
                 input.addEventListener('paste', handlePaste)
             })
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault()
+                const formData = new FormData(form)
+                const otp = inputs.map(input => input.value).join('')
+                if (otp.length !== inputs.length) {
+                    alert('Please enter the complete OTP.')
+                    return
+                }
+                try {
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                        }
+                    })
+                    if (response.ok) {
+                        window.location.href = "{{ route('home') }}"
+                    } else {
+                        const errorData = await response.json();
+                        console.error('Error:', errorData);
+                        alert('Invalid OTP');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('An error occurred. Please try again.');
+                }
+            })
         })
     </script>
 </body>
 
-</html> --}}
-
-<form method="POST" action="{{ route('verify.wa.otp') }}">
+</html>
+{{-- <form method="POST" action="{{ route('verify.wa.otp') }}">
     @csrf
     <div>
         <label for="otp">OTP</label>
@@ -128,4 +151,4 @@
     <div>
         <button type="submit">Verify OTP</button>
     </div>
-</form>
+</form> --}}
