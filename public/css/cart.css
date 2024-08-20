@@ -50,7 +50,7 @@ body.dark .bottom-sheet .sheet-overlay{
   background: #fff;
 }
 .bottom-sheet .content {
-    margin-left: 90px;
+    /* margin-left: 90px; */
     width: 100%;
     position: relative;
     background: rgba(255, 255, 255, 0.6); /* Semi-transparent background */
@@ -192,10 +192,11 @@ body.dark .bottom-sheet .body p {
   }
   
   /* For mobile phones */
-  @media (max-width: 480px) {
+  @media (min-width: 400px) {
     .bottom-sheet .content {
       height: 70vh; /* Increase height to better fit mobile screens */
       padding: 10px; /* Further reduce padding */
+      margin-left: 80px;
     }
   
     .bottom-sheet .body h2 {

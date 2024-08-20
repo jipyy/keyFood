@@ -10,7 +10,7 @@
                     <label for="checkout-email">E-mail</label>
                     <div>
                         <span class="fa"><i class='bx bx-envelope'></i></span>
-                        <input type="email" id="checkout-email" name="checkout-email" placeholder="Enter your email.. (opsional)." value="{{ old('checkout-email', $user->email ?? '') }}" required>
+                        <input type="email" id="checkout-email" name="checkout-email" placeholder="Enter your email.. (opsional)." value="{{ old('checkout-email', $user->email ?? '') }}">
                     </div>
                 </div>
                 <div class="form-control">
