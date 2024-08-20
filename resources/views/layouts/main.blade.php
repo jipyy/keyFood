@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-   
-    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+   <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
+    {{-- <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script> --}}
     <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
@@ -44,6 +44,13 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('../img/logos.svg') }}">
     {{-- <title>KeyFood | {{ $title }} </title> --}}
     {{-- ini diatas, disebelah dikasih title statis --}}
+    <style>
+   @media(min-width: 600px){
+    .container{
+        margin-top: 50px;
+    }
+   }
+    </style>
 </head>
 
 <body>
@@ -54,7 +61,7 @@
     </div>
     @include('partials.navbar')
 
-    <div class="container" style="@media (min-width: 600px){margin-top: 20px}" id="container">
+    <div class="container" style="" id="container">
         @include('partials.profile')
         @yield('container')
     </div>

@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
             $table->string('phone')->default('0000000000'); // Nilai default
-            $table->string('location')->default('Perumahan Keandra, Kec. Sumber, Kab. Cirebon, Jawa Barat, Indonesia');
+            $table->string('location')->nullable();
             $table->string('img')->nullable();
             $table->rememberToken();
             $table->timestamps();

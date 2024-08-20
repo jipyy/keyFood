@@ -2,7 +2,7 @@
 
 @section('container')
     @if($orders->isEmpty())
-        <p>No orders found.</p>
+        <p class="my-20 mx-20">No orders found.</p>
     @else
         @foreach ($orders as $order)
             <div class="history-container mt-7 border border-gray-300 pt-9 rounded-lg">

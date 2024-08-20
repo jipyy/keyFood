@@ -1,9 +1,16 @@
 @extends('admin.layouts.main-admin')
-
 @section('container-admin')
-    <div class="py-12">
+<main class="h-screen overflow-y-auto">
+    <main class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
            
+            <!-- Add Category Button -->
+            <div class="mb-4 flex justify-start">
+                <a href="{{ route('admin.categories.create') }}" class="px-4 py-2 bg-blue-500 text-white rounded-lg dark:bg-gray-700 dark:text-white">
+                    Add Category
+                </a>
+            </div>
+
             <!-- New Table -->
             <div class="w-full overflow-hidden rounded-lg shadow-xs">
                 <div class="w-full overflow-x-auto">
@@ -59,13 +66,8 @@
                 </div>
             </div>
         </div>
-    </div>
- <!-- Add Category Button -->
- <div class="mb-4">
-    <a href="{{ route('admin.categories.create') }}" class="px-4 py-2 bg-blue-500 text-white rounded-lg">
-        Add Category
-    </a>
-</div>
+    </main>
+
     <script>
         function confirmDelete() {
             return confirm('Are you sure you want to delete this category? This action cannot be undone.');
