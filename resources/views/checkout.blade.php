@@ -30,10 +30,25 @@
                     </div>
                 </div>
                 <div class="form-control">
-                    <label for="checkout-address">Alamat</label>
+                    <label for="cluster-select">Pilih Cluster</label>
+                    <div>
+                        <span class="fa"><i class='bx bx-building'></i></span>
+                        <select name="cluster_id" id="cluster-select" required>
+                            <option value="" disabled selected>Pilih Cluster...</option>
+                            @foreach($clusters as $cluster)
+                                <option value="{{ $cluster->id }}">{{ $cluster->nama_cluster }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                <div class="form-control">
+                    <label for="alamat-select">Pilih Alamat</label>
                     <div>
                         <span class="fa"><i class='bx bx-home'></i></span>
-                        <input type="text" name="checkout-address" id="checkout-address" placeholder="Your address..." value="{{ old('checkout-address', $user->location ?? '') }}" required>
+                        <select name="alamat_cluster_id" id="alamat-select" required>
+                            <option value="" disabled selected>Pilih Alamat...</option>
+                            <!-- Alamat akan diisi secara dinamis berdasarkan cluster yang dipilih -->
+                        </select>
                     </div>
                 </div>
                 <div class="form-control">
@@ -76,5 +91,26 @@ document.getElementById('checkout-form').addEventListener('submit', function(eve
     document.getElementById('products').value = JSON.stringify(products);
     document.getElementById('hidden-total-price').value = totalPrice;
 });
+
+document.getElementById('cluster-select').addEventListener('change', function() {
+        var clusterId = this.value;
+        var alamatSelect = document.getElementById('alamat-select');
+        
+        // Kosongkan dropdown alamat
+        alamatSelect.innerHTML = '<option value="" disabled selected>Memuat alamat...</option>';
+
+        fetch(`/get-alamat-by-cluster/${clusterId}`)
+            .then(response => response.json())
+            .then(data => {
+                alamatSelect.innerHTML = '<option value="" disabled selected>Pilih Alamat...</option>';
+                data.forEach(function(alamatCluster) {
+                    var option = document.createElement('option');
+                    option.value = alamatCluster.id;
+                    option.textContent = alamatCluster.alamat;
+                    alamatSelect.appendChild(option);
+                });
+            })
+            .catch(error => console.error('Error:', error));
+    });
 </script>
 @endsection

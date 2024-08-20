@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Orders;
 use App\Models\Toko;
+use App\Models\Orders;
+use App\Models\Cluster;
 use App\Models\OrderDetail;
-use Illuminate\Support\Facades\Log;
+use Illuminate\Http\Request;
+use App\Models\AlamatCluster;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Http;
 
 
@@ -19,7 +21,8 @@ class CheckoutController extends Controller
     public function showCheckoutDetails()
     {
         $user = auth()->user();
-        return view('checkout', compact('user'));
+        $clusters = Cluster::all();
+        return view('checkout', compact('user', 'clusters'));
     }
 
     /**
@@ -77,12 +80,19 @@ class CheckoutController extends Controller
                 $order = new Orders();
                 $order->no_order = uniqid('no_order');
                 $order->tanggal_order = now();
-                $order->quantity = array_sum(array_column($products, 'quantity')); // Menghitung total quantity dari semua produk
+                $order->quantity = array_sum(array_column($products, 'quantity'));
                 $order->photo = $product['photo'];
                 $order->order_date = now();
                 $order->id_user = auth()->id();
-                $order->location = $request->input('checkout-address');
-                $order->harga = $totalOrderPrice; // Simpan harga per produk
+                
+                // Ambil cluster dan alamat cluster dari request
+                $cluster = Cluster::find($request->input('cluster_id'));
+                $alamatCluster = AlamatCluster::find($request->input('alamat_cluster_id'));
+                
+                // Gabungkan nama cluster dan alamat cluster untuk disimpan di location
+                $order->location = $cluster->nama_cluster . ' - ' . $alamatCluster->alamat;
+                
+                $order->harga = $totalOrderPrice;
                 $order->product_id = $product['product_id'];
                 $order->category_id = $product['category_id'];
                 $order->toko_id = $product['store_id'];
@@ -118,5 +128,11 @@ class CheckoutController extends Controller
     {
         $orders = Orders::with('orderDetails.products')->where('id_user', auth()->id())->get();
         return view('history', compact('orders'));
+    }
+
+    public function getAlamatByCluster($clusterId)
+    {
+        $alamatClusters = Cluster::find($clusterId)->alamatClusters;
+        return response()->json($alamatClusters);
     }
 }
