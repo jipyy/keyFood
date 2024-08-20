@@ -20,6 +20,7 @@ class TokoController extends Controller
 
     public function store(Request $request)
     {
+        // dd($request->all());
         $request->validate([
             'nama_toko' => 'required|string|max:255',
             'alamat_toko' => 'required|string|max:255',

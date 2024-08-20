@@ -54,7 +54,7 @@
             </form>
         </section>
 
-        <section class="checkout-details">
+        <section class="checkout-details mt-20">
             <div class="checkout-details-inner">
                 <div class="checkout-lists" id="checkout-lists">
                     <!-- Card products will be appended here by JavaScript -->

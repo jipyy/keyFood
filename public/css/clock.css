@@ -342,9 +342,6 @@ body.dark .content {
     margin-right: auto;
   }
 
-  .clock__theme{
-    display: none;
-  }
   .clock__logo {
     margin-bottom: 3rem;
   }
