@@ -45,9 +45,9 @@ class CheckoutController extends Controller
             // dd($products);
             foreach ($products as $product) {
                 $toko = Toko::where('id_toko', $product['store_id'])->with('user')->first();
-
-                // dd($product);
-                // dd($)
+                
+                // dd($products);
+                
                 // dd($toko);
 
                 // dd($request->request);
@@ -59,9 +59,11 @@ class CheckoutController extends Controller
 
                 Http::post('https://wa.ponpesalgaz.online/send-message', [
                     'number' => $toko['user']['phone'],
-                    'message' => "Yth. Penjual,\n\nKami informasikan bahwa produk Anda, *" . $product['name'] . "* (x" . $product['quantity'] . "), telah dipesan oleh *" . $request['checkout-name'] . "*. \n\nDetail pesanan:\n* *Jumlah:* " . $product['quantity'] . " buah/pcs\n* *Total harga:* Rp " . $product['quantity'] * $product['price'] . "\n* *Alamat pengiriman:* " . $request['checkout-address'] . "\n* *Nomor telepon pembeli:* " . $request['checkout-phone'] . "\n\nMohon segera proses pesanan ini dan informasikan kepada pembeli mengenai status pengiriman. Terima kasih atas kerjasama Anda.\n\nHormat kami,\nTim KeyFood",
+                    'message' => "Yth. Penjual,\n\nKami informasikan bahwa produk Anda, *" . $product['name'] . "* (x" . $product['quantity'] . "), telah dipesan oleh *" . $request['checkout-name'] . "*. \n\nDetail pesanan:\n* *Jumlah:* " . $product['quantity'] . " buah/pcs\n* *Total harga:* Rp " . ($product['quantity'] * $product['price']) . "\n* *Alamat pengiriman:* " . $request['checkout-address'] . "\n* *Nomor telepon pembeli:* " . $request['checkout-phone'] . 
+                    (!empty($request['checkout-notes']) ? "\n* *Catatan pembeli:* " . $request['checkout-notes'] : "") . 
+                    "\n\nMohon segera proses pesanan ini dan informasikan kepada pembeli mengenai status pengiriman. Terima kasih atas kerjasama Anda.\n\nHormat kami,\nTim KeyFood",
                 ]);
-
+                
                 // dd('masuk');
 
                 // Check if the required keys exist in the product array

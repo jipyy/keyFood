@@ -44,6 +44,13 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('../img/logos.svg') }}">
     {{-- <title>KeyFood | {{ $title }} </title> --}}
     {{-- ini diatas, disebelah dikasih title statis --}}
+    <style>
+   @media(min-width: 600px){
+    .container{
+        margin-top: 50px;
+    }
+   }
+    </style>
 </head>
 
 <body>
@@ -54,7 +61,7 @@
     </div>
     @include('partials.navbar')
 
-    <div class="container" style="@media (min-width: 600px){margin-top: 20px}" id="container">
+    <div class="container" style="" id="container">
         @include('partials.profile')
         @yield('container')
     </div>

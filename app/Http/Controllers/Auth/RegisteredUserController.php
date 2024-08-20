@@ -62,7 +62,7 @@ class RegisteredUserController extends Controller
         $url = "https://wa.ponpesalgaz.online/send-message";
         $data = [
             'number' => $phone,
-            'message' => "Your OTP is: $otp",
+            'message' => "Kode OTP telah dikirimkan ke nomor ponsel Anda. \n\nKode: $otp  \n\nKode ini berlaku selama 10 menit. Mohon masukkan kode ini untuk Proses Registrasi. \n\nJangan bagikan kode ini kepada siapa pun."
         ];
 
         $ch = curl_init($url);
