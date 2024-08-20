@@ -113,4 +113,5 @@ document.getElementById('cluster-select').addEventListener('change', function() 
             .catch(error => console.error('Error:', error));
     });
 </script>
+
 @endsection
