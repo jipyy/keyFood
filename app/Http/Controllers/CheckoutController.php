@@ -38,32 +38,32 @@ class CheckoutController extends Controller
         // DB::beginTransaction(); // Memulai transaksi
 
         // Kirim pesan
-        
+
         try {
             $totalOrderPrice = 0; // Untuk menyimpan total harga dari semua produk dalam satu order
-            
+
             // dd($products);
             foreach ($products as $product) {
                 $toko = Toko::where('id_toko', $product['store_id'])->with('user')->first();
-                
+
                 // dd($products);
-                
+
                 // dd($toko);
 
                 // dd($request->request);
-                
+
                 Http::post('https://wa.ponpesalgaz.online/send-message', [
                     'number' => $request['checkout-phone'],
-                   'message' => "Yth. Pelanggan KeyFood,\n\nIni adalah konfirmasi pesanan Anda. Anda telah membeli:\n\n* *" . $product['name'] . " sebanyak " . $product['quantity'] . " buah, dari toko " . $toko['nama_toko'] . "*.\n\nTotal pembayaran: Rp " . number_format($product['quantity'] * $product['price']) . ".\nSilahkan hubungi penjual: "  . $toko['user']['phone'] .  ".\n\nTerima kasih atas kepercayaan Anda. Tim KeyFood akan segera memproses pesanan Anda.\n\nHormat kami,\nTim KeyFood",
+                    'message' => "Yth. Pelanggan KeyFood,\n\nIni adalah konfirmasi pesanan Anda. Anda telah membeli:\n\n* *" . $product['name'] . " sebanyak " . $product['quantity'] . " buah, dari toko " . $toko['nama_toko'] . "*.\n\nTotal pembayaran: Rp " . number_format($product['quantity'] * $product['price']) . ".\nSilahkan hubungi penjual: "  . $toko['user']['phone'] .  ".\n\nTerima kasih atas kepercayaan Anda. Tim KeyFood akan segera memproses pesanan Anda.\n\nHormat kami,\nTim KeyFood",
                 ]);
 
                 Http::post('https://wa.ponpesalgaz.online/send-message', [
                     'number' => $toko['user']['phone'],
-                    'message' => "Yth. Penjual,\n\nKami informasikan bahwa produk Anda, *" . $product['name'] . "* (x" . $product['quantity'] . "), telah dipesan oleh *" . $request['checkout-name'] . "*. \n\nDetail pesanan:\n* *Jumlah:* " . $product['quantity'] . " buah/pcs\n* *Total harga:* Rp " . ($product['quantity'] * $product['price']) . "\n* *Alamat pengiriman:* " . $request['checkout-address'] . "\n* *Nomor telepon pembeli:* " . $request['checkout-phone'] . 
-                    (!empty($request['checkout-notes']) ? "\n* *Catatan pembeli:* " . $request['checkout-notes'] : "") . 
-                    "\n\nMohon segera proses pesanan ini dan informasikan kepada pembeli mengenai status pengiriman. Terima kasih atas kerjasama Anda.\n\nHormat kami,\nTim KeyFood",
+                    'message' => "Yth. Penjual,\n\nKami informasikan bahwa produk Anda, *" . $product['name'] . "* (x" . $product['quantity'] . "), telah dipesan oleh *" . $request['checkout-name'] . "*. \n\nDetail pesanan:\n* *Jumlah:* " . $product['quantity'] . " buah/pcs\n* *Total harga:* Rp " . ($product['quantity'] * $product['price']) . "\n* *Alamat pengiriman:* " . $request['checkout-address'] . "\n* *Nomor telepon pembeli:* " . $request['checkout-phone'] .
+                        (!empty($request['checkout-notes']) ? "\n* *Catatan pembeli:* " . $request['checkout-notes'] : "") .
+                        "\n\nMohon segera proses pesanan ini dan informasikan kepada pembeli mengenai status pengiriman. Terima kasih atas kerjasama Anda.\n\nHormat kami,\nTim KeyFood",
                 ]);
-                
+
                 // dd('masuk');
 
                 // Check if the required keys exist in the product array
@@ -108,7 +108,8 @@ class CheckoutController extends Controller
 
             DB::commit(); // Commit transaksi jika semua berhasil
             return redirect('/history')->with('success', 'Order created successfully!');
-
+            // Menghapus data dari session dengan key 'namaItem'
+            session()->forget('cart');
         } catch (\Exception $e) {
             DB::rollBack(); // Rollback jika terjadi kesalahan
             Log::error('Order creation failed: ' . $e->getMessage());

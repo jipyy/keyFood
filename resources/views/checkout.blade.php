@@ -57,7 +57,7 @@
                     <input type="hidden" name="total_price" id="hidden-total-price" required>
 
                     <div class="form-control-btn">
-                        <button id="deleteLocalStorageBtn" type="submit">Checkout</button>
+                        <button type="submit">Checkout</button>
                     </div>
                 </form>
             </section>
@@ -77,10 +77,6 @@
     </section>
 
     <script>
-        // Menghapus item tertentu dari local storage saat tombol diklik
-        document.getElementById('deleteLocalStorageBtn').addEventListener('click', function() {
-            localStorage.removeItem('cart'); 
-        });
 
         document.getElementById('checkout-form').addEventListener('submit', function(event) {
             const products = JSON.parse(localStorage.getItem('cart')) || [];
