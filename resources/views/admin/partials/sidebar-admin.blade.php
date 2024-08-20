@@ -411,8 +411,9 @@
                         <button class="align-middle rounded-full focus:shadow-outline-purple focus:outline-none"
                             @click="toggleProfileMenu" @keydown.escape="closeProfileMenu" aria-label="Account"
                             aria-haspopup="true">
+                            @if (Auth::check())
                             <img class="object-cover w-8 h-8 rounded-full"
-                                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80"
+                                src="{{ asset(Auth::user()->img ?? './img/client-1.jpg') }}"
                                 alt="" aria-hidden="true" />
                         </button>
                         <template x-if="isProfileMenuOpen">
@@ -421,6 +422,33 @@
                                 @click.away="closeProfileMenu" @keydown.escape="closeProfileMenu"
                                 class="absolute right-0 w-56 p-2 mt-2 space-y-2 text-gray-600 bg-white border border-gray-100 rounded-md shadow-md dark:border-gray-700 dark:text-gray-300 dark:bg-gray-700"
                                 aria-label="submenu">
+                              
+                                <div class="flex gap-3 items-center">
+                                    <div
+                                        class="flex items-center justify-center rounded-lg h-12 w-12 overflow-hidden ">
+                                        <img class="object-cover w-8 h-8 rounded-full" src="{{ asset(Auth::user()->img ?? './img/client-1.jpg') }}"
+                                            alt="Profile">
+                                    </div>
+                                    <div style="width: 100%" class="ml-2">
+                                        <div class="flex gap-1 text-sm font-semibold">
+                                            <span>
+                                                {{ strlen(Auth::user()->name) > 16 ? substr(Auth::user()->name, 0, 16) . '...' : Auth::user()->name }}
+                                            </span>
+                                            <span class="text-sky-400" style="color: aqua;">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                    stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z">
+                                                    </path>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <div class="text-xs text-slate-400">
+                                            {{ strlen(Auth::user()->email) > 16 ? substr(Auth::user()->email, 0, 16) . '...' : Auth::user()->email }}
+                                        </div>
+                                    </div>
+                                </div>
+                                @endif
                                 <li class="flex">
                                     <a class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
                                         href="/dashboard-profile">
@@ -431,7 +459,7 @@
                                                 d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z">
                                             </path>
                                         </svg>
-                                        <span>Profile</span>
+                                        <span class="ml-2">Profile</span>
                                     </a>
                                 </li>
                                 {{-- <li class="flex">
@@ -448,9 +476,12 @@
                                         <span>Settings</span>
                                     </a>
                                 </li> --}}
+                                <form method="POST" action="{{ route('logout') }}">
                                 <li class="flex">
-                                    <a class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-                                        href="#">
+                                        @csrf
+                                    <a href="/logout" onclick="event.preventDefault();
+                                    this.closest('form').submit();" class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
+                                        href="/logout">
                                         <svg class="w-4 h-4 mr-3" aria-hidden="true" fill="none"
                                             stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             viewBox="0 0 24 24" stroke="currentColor">
@@ -458,9 +489,11 @@
                                                 d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1">
                                             </path>
                                         </svg>
-                                        <span>Log out</span>
+                                        <span class="ml-2">Log out</span>
                                     </a>
                                 </li>
+                            </form>
+
                             </ul>
                         </template>
                     </li>
