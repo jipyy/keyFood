@@ -39,7 +39,7 @@ class ProductController extends Controller
         $stores = Toko::all(); // Ambil semua store
         return view('seller.products.create', [
             'categories' => $categories,
-            'stores' => $stores // Kirim data stores ke view
+            'stores' => $stores, // Kirim data stores ke view
         ]);
     }
     /**
@@ -54,7 +54,7 @@ class ProductController extends Controller
             'category_id' => ['required', 'integer'],
             'price' => ['required', 'integer', 'min:0'],
             'quantity' => ['required', 'integer'],
-            'store_id' => ['required', 'integer'],  // Validasi store_id
+            'store_id' => ['required', 'integer'], // Validasi store_id
         ]);
 
         DB::beginTransaction();
@@ -72,7 +72,7 @@ class ProductController extends Controller
             DB::rollBack();
 
             $error = ValidationException::withMessages([
-                'system_error' => ['System error! ' . $e->getMessage()]
+                'system_error' => ['System error! ' . $e->getMessage()],
             ]);
 
             throw $error;
@@ -98,10 +98,9 @@ class ProductController extends Controller
         return view('seller.products.edit', [
             'product' => $product,
             'categories' => $categories,
-            'stores' => $stores // Kirim data stores ke view
+            'stores' => $stores, // Kirim data stores ke view
         ]);
     }
-    
 
     /**
      * Update the specified resource in storage.
@@ -114,7 +113,7 @@ class ProductController extends Controller
             'category_id' => ['required', 'integer'],
             'price' => ['required', 'integer', 'min:0'],
             'slug' => ['required', 'string', 'max:65535'],
-            'store_id' => ['required', 'integer'],  // Validasi store_id
+            'store_id' => ['required', 'integer'], // Validasi store_id
         ]);
 
         DB::beginTransaction();
@@ -132,7 +131,7 @@ class ProductController extends Controller
             DB::rollBack();
 
             $error = ValidationException::withMessages([
-                'system_error' => ['System error! ' . $e->getMessage()]
+                'system_error' => ['System error! ' . $e->getMessage()],
             ]);
 
             throw $error;
@@ -161,7 +160,7 @@ class ProductController extends Controller
             DB::rollBack();
 
             $error = ValidationException::withMessages([
-                'system_error' => ['System error! ' . $e->getMessage()]
+                'system_error' => ['System error! ' . $e->getMessage()],
             ]);
 
             throw $error;
@@ -186,10 +185,10 @@ class ProductController extends Controller
             $cart[$id]['quantity']++;
         } else {
             $cart[$id] = [
-                "name" => $product->name,
-                "quantity" => 1,
-                "price" => $product->price,
-                "photo" => $product->photo
+                'name' => $product->name,
+                'quantity' => 1,
+                'price' => $product->price,
+                'photo' => $product->photo,
             ];
         }
         Session::put('cart', $cart);
@@ -204,4 +203,33 @@ class ProductController extends Controller
         // Kirim data produk ke view
         return view('categories', compact('products'));
     }
+
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+        $categoryName = $request->input('category');
+    
+        // Start the query builder
+        $productQuery = Product::query();
+    
+        // Filter by search query
+        if ($query) {
+            $productQuery->where('name', 'LIKE', "%{$query}%");
+        }
+    
+        // Filter by category if provided
+        if ($categoryName) {
+            // Assuming category name is unique and you want to filter by category name
+            $productQuery->whereHas('category', function ($q) use ($categoryName) {
+                $q->where('name', $categoryName);
+            });
+        }
+    
+        // Paginate the results
+        $products = $productQuery->paginate(10);
+    
+        // Return the paginated products as JSON
+        return response()->json($products);
+    }
+    
 }
