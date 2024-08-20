@@ -40,7 +40,7 @@ Route::get('/contact-us', function () {
     return view('contact-us');
 });
 
-Route::get('/seller-edit', [SellerEditController::class, 'index']);
+Route::get('/seller-page', [SellerEditController::class, 'index']);
 
 Route::get('/faq', function () {
     return view('faq');
@@ -290,5 +290,5 @@ Route::post('/verify-wa-otp', [OtpWaVerificationController::class, 'verify'])->n
 Route::get('/role-requests', [RoleRequestController::class, 'index'])->name('role-requests.index');
 Route::post('/save-cart', [CartController::class, 'saveCart'])->name('save-cart');
 
-
+Route::get('/get-alamat-by-cluster/{id}', [CheckoutController::class, 'getAlamatByCluster']);
 // Route::post('role-request/store', [RoleRequestController::class, 'store'])->name('role-request.store');

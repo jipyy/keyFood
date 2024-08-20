@@ -128,12 +128,7 @@
                         @endif
                     @endif
                 @endif
-                <div class="social">
-                    <a href="#"><i class="fab fa-facebook" style="color:var(--blue)"></i></a>
-                    <a href="#"><i class="fab fa-twitter" style="color:var(--skyblue)"></i></a>
-                    <a href="#"><i class="fab fa-dribbble" style="color:var(--dark-pink)"></i></a>
-                    <a href="#"><i class="fab fa-linkedin" style="color:var(--light-blue)"></i></a>
-                </div>
+
             </div>
             <div class="contact-info">
                 <div class="row">
