@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->string('no_order');
-            $table->integer('tanggal_order');
+            $table->date('tanggal_order');
             $table->integer('quantity');
             $table->string('photo');
             $table->date('order_date');
