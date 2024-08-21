@@ -8,37 +8,82 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Carbon\Carbon;
 
 class OtpWaVerificationController extends Controller
 {
 
     public function verify(Request $request)
+{
+    $otp = implode('', $request->otp);
+    $request->merge(['otp' => $otp]);
+    
+    $request->validate([
+        'otp' => 'required|string|size:6',
+    ]);
+    
+    $otpExpiration = Session::get('otp_expiration');
+    
+    if (Carbon::now()->greaterThan($otpExpiration)) {
+        // OTP kadaluarsa
+        return back()->with('status', 'OTP kadaluarsa')->withErrors(['otp' => 'OTP telah kadaluarsa. Silakan minta OTP baru.']);
+    }
+    
+    if ($otp == Session::get('otp')) {
+        // OTP valid, buat user baru
+        $userData = Session::get('temp_user');
+        $user = User::create($userData);
+
+        event(new Registered($user));
+
+        Auth::login($user);
+
+        // Hapus data sementara dari session
+        Session::forget(['temp_user', 'otp', 'otp_expiration']);
+
+        return redirect(route('home'));
+    } else {
+        // OTP tidak valid
+        return back()->with('status', 'OTP salah')->withErrors(['otp' => 'OTP tidak valid']);
+    }
+}
+
+public function resendOtp(Request $request)
+{
+    // Cek apakah session masih menyimpan data user sementara
+    if (!Session::has('temp_user')) {
+        return back()->with('status', 'Session telah habis, silakan ulangi registrasi.');
+    }
+
+    // Generate OTP baru
+    $otp = mt_rand(100000, 999999);
+    Session::put('otp', $otp);
+
+    // Set ulang waktu kadaluarsa OTP 2 menit
+    Session::put('otp_expiration', Carbon::now()->addMinutes(2));
+
+    // Kirim OTP melalui WhatsApp
+    $this->sendWhatsAppOTP(Session::get('temp_user')['phone'], $otp);
+
+    return back()->with('status', 'OTP baru telah dikirimkan');
+}
+
+
+    private function sendWhatsAppOTP($phone, $otp)
     {
-        $otp = implode('', $request->otp);
-    
-        $request->merge(['otp' => $otp]);
-    
-        $request->validate([
-            'otp' => 'required|string|size:6',
-        ]);
-    
-        if ($otp == Session::get('otp')) {
-            // OTP valid, buat user baru
-            $userData = Session::get('temp_user');
-            $user = User::create($userData);
-    
-            event(new Registered($user));
-    
-            Auth::login($user);
-    
-            // Hapus data sementara dari session
-            Session::forget(['temp_user', 'otp']);
-    
-            return redirect(route('home', absolute: false));
-        } else {
-            // OTP tidak valid
-            return back()->withErrors(['otp' => 'OTP tidak valid']);
-        }
+        $url = "https://wa.ponpesalgaz.online/send-message";
+        $data = [
+            'number' => $phone,
+            'message' => "Kode OTP telah dikirimkan ke nomor ponsel Anda. \n\nKode: $otp  \n\nKode ini berlaku selama 2 menit. Mohon masukkan kode ini untuk Proses Registrasi. \n\nJangan bagikan kode ini kepada siapa pun."
+        ];
+
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+        $response = curl_exec($ch);
+        curl_close($ch);
+
+        // Handle response if needed
     }
     
 }

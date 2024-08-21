@@ -88,5 +88,32 @@ class RegisteredUserController extends Controller
         // Handle response if needed
     }
 
+     // public function store(Request $request): RedirectResponse
+    // {
+    //     // dd($request->all());
+
+    //     $request->validate([
+    //         'name' => ['required', 'string', 'max:255'],
+    //         'phone' => 'required|string|max:255|unique:users',
+    //         'password' => ['required', 'confirmed', Rules\Password::defaults()],
+    //     ]);
+
+    //     // Simpan data sementara ke session
+    //     Session::put('temp_user', [
+    //         'name' => $request->name,
+    //         'phone' => $request->phone,
+    //         'password' => Hash::make($request->password),
+    //     ]);
+
+    //     // Generate OTP
+    //     $otp = mt_rand(100000, 999999);
+    //     Session::put('otp', $otp);
+
+    //     // Kirim OTP melalui WhatsApp
+    //     $this->sendWhatsAppOTP($request->phone, $otp);
+
+    //     return redirect('/otp');  // Menggunakan route yang sudah Anda buat
+    // }
+
    
 }

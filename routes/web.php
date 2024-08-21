@@ -280,12 +280,13 @@ Route::get('/dashboard-toko', function () {
     return view('admin.dashboard-toko');
 });
 
-
+//OTP 
 Route::get('/otp', function () {
     return view('auth.otp-verif');
 });
-
 Route::post('/verify-wa-otp', [OtpWaVerificationController::class, 'verify'])->name('verify.wa.otp');
+Route::get('/resend-otp', [OtpWaVerificationController::class, 'resendOtp'])->name('resend.otp');
+
 
 Route::get('/role-requests', [RoleRequestController::class, 'index'])->name('role-requests.index');
 Route::post('/save-cart', [CartController::class, 'saveCart'])->name('save-cart');
