@@ -93,7 +93,7 @@ class CheckoutController extends Controller
             
                 // Gabungkan nama cluster, alamat cluster, dan nomor blok untuk disimpan di location
                 $order->location = ($cluster ? $cluster->nama_cluster : 'Unknown Cluster') . ' - ' . 
-                                    ($alamatCluster ? $alamatCluster->alamat : 'Unknown Address') . ' - ' .
+                                    ($alamatCluster ? $alamatCluster->alamat : 'Unknown Address') . ' ' .
                                     ($nomorBlok ? $nomorBlok->nomor : 'Unknown Number');            
 
                 $order->harga = $totalOrderPrice;
