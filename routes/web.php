@@ -62,9 +62,7 @@ Route::get('/edit-profile', function () {
     return view('edit-profile');
 });
 
-Route::get('/seller-page', function () {
-    return view('seller-edit');
-});
+Route::get('/seller-page', [SellerEditController::class, 'index']);
 
 Route::get('/stores', function () {
     return view('stores');
