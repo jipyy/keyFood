@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('container')
-    <section id="home">
+    <section id="home" class="">
         <!-- Popular Bundle Pack Section -->
         <section id="popular-bundle-pack">
             <div class="product-heading">
