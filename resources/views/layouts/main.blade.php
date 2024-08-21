@@ -54,7 +54,7 @@
     </div>
     @include('partials.navbar')
 
-    <div class="container md:mt-5" id="container">
+    <div class="container md:my-10" id="container">
         @include('partials.profile')
         @yield('container')
     </div>
