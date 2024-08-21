@@ -149,6 +149,7 @@
                             }
                         });
                         if (response.ok) {
+                            //sumber masalah
                             window.location.href = "{{ route('home') }}";
                         } else {
                             const errorData = await response.json();
