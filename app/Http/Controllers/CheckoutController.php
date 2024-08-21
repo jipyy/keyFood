@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Toko;
 use App\Models\Orders;
 use App\Models\Cluster;
+use App\Models\NomorBlok;
 use App\Models\OrderDetail;
 use Illuminate\Http\Request;
 use App\Models\AlamatCluster;
@@ -41,10 +42,10 @@ class CheckoutController extends Controller
         // DB::beginTransaction(); // Memulai transaksi
 
         // Kirim pesan
-        
+
         try {
             $totalOrderPrice = 0; // Untuk menyimpan total harga dari semua produk dalam satu order
-            
+
             // dd($products);
             foreach ($products as $product) {
                 $toko = Toko::where('id_toko', $product['store_id'])->with('user')->first();
@@ -54,10 +55,10 @@ class CheckoutController extends Controller
                 // dd($toko);
 
                 // dd($request->request);
-                
+
                 Http::post('https://wa.ponpesalgaz.online/send-message', [
                     'number' => $request['checkout-phone'],
-                   'message' => "Yth. Pelanggan KeyFood,\n\nIni adalah konfirmasi pesanan Anda. Anda telah membeli:\n\n* *" . $product['name'] . " sebanyak " . $product['quantity'] . " buah, dari toko " . $toko['nama_toko'] . "*.\n\nTotal pembayaran: Rp " . number_format($product['quantity'] * $product['price']) . ".\nSilahkan hubungi penjual: "  . $toko['user']['phone'] .  ".\n\nTerima kasih atas kepercayaan Anda. Tim KeyFood akan segera memproses pesanan Anda.\n\nHormat kami,\nTim KeyFood",
+                    'message' => "Yth. Pelanggan KeyFood,\n\nIni adalah konfirmasi pesanan Anda. Anda telah membeli:\n\n* *" . $product['name'] . " sebanyak " . $product['quantity'] . " buah, dari toko " . $toko['nama_toko'] . "*.\n\nTotal pembayaran: Rp " . number_format($product['quantity'] * $product['price']) . ".\nSilahkan hubungi penjual: "  . $toko['user']['phone'] .  ".\n\nTerima kasih atas kepercayaan Anda. Tim KeyFood akan segera memproses pesanan Anda.\n\nHormat kami,\nTim KeyFood",
                 ]);
 
                 Http::post('https://wa.ponpesalgaz.online/send-message', [
@@ -84,14 +85,14 @@ class CheckoutController extends Controller
                 $order->photo = $product['photo'];
                 $order->order_date = now();
                 $order->id_user = auth()->id();
-                
+
                 // Ambil cluster dan alamat cluster dari request
                 $cluster = Cluster::find($request->input('cluster_id'));
                 $alamatCluster = AlamatCluster::find($request->input('alamat_cluster_id'));
-                
+
                 // Gabungkan nama cluster dan alamat cluster untuk disimpan di location
                 $order->location = $cluster->nama_cluster . ' - ' . $alamatCluster->alamat;
-                
+
                 $order->harga = $totalOrderPrice;
                 $order->product_id = $product['product_id'];
                 $order->category_id = $product['category_id'];
@@ -116,7 +117,6 @@ class CheckoutController extends Controller
 
             DB::commit(); // Commit transaksi jika semua berhasil
             return redirect('/history')->with('success', 'Order created successfully!');
-
         } catch (\Exception $e) {
             DB::rollBack(); // Rollback jika terjadi kesalahan
             Log::error('Order creation failed: ' . $e->getMessage());
@@ -134,5 +134,17 @@ class CheckoutController extends Controller
     {
         $alamatClusters = Cluster::find($clusterId)->alamatClusters;
         return response()->json($alamatClusters);
+    }
+
+    public function getNomorByBlok($blokId)
+    {
+        $alamatCluster = AlamatCluster::find($blokId);
+
+        if ($alamatCluster) {
+            $nomors = $alamatCluster->nomorBloks;
+            return response()->json($nomors);
+        } else {
+            return response()->json(['error' => 'Blok tidak ditemukan.'], 404);
+        }
     }
 }

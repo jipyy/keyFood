@@ -18,4 +18,9 @@ class AlamatCluster extends Model
     {
         return $this->belongsTo(Cluster::class, 'cluster_id');
     }
+
+    public function nomorBloks()
+    {
+        return $this->hasMany(NomorBlok::class, 'blok_id', 'id');
+    }
 }

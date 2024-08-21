@@ -6,6 +6,7 @@
             <form id="checkout-form" action="{{ route('checkout.store') }}" method="post">
                 @csrf
                 <h2 class="font-manrope font-extrabold text-3xl lead-10 text-black mb-9">Pesanan Anda</h2>
+                <!-- Email Input -->
                 <div class="form-control">
                     <label for="checkout-email">E-mail</label>
                     <div>
@@ -13,6 +14,7 @@
                         <input type="email" id="checkout-email" name="checkout-email" placeholder="Enter your email.. (opsional)." value="{{ old('checkout-email', $user->email ?? '') }}" required>
                     </div>
                 </div>
+                <!-- Phone Input -->
                 <div class="form-control">
                     <label for="checkout-phone">Phone</label>
                     <div>
@@ -21,6 +23,7 @@
                     </div>
                 </div>
                 <br>
+                <!-- Shipping Address -->
                 <h3>Shipping address</h3>
                 <div class="form-control">
                     <label for="checkout-name">Full name</label>
@@ -29,6 +32,7 @@
                         <input type="text" id="checkout-name" name="checkout-name" placeholder="Enter your name..." value="{{ old('checkout-name', $user->name ?? '') }}" required>
                     </div>
                 </div>
+                <!-- Cluster Dropdown -->
                 <div class="form-control">
                     <label for="cluster-select">Pilih Cluster</label>
                     <div>
@@ -41,16 +45,27 @@
                         </select>
                     </div>
                 </div>
+                <!-- Alamat Dropdown -->
                 <div class="form-control">
                     <label for="alamat-select">Pilih Alamat</label>
                     <div>
                         <span class="fa"><i class='bx bx-home'></i></span>
                         <select name="alamat_cluster_id" id="alamat-select" required>
                             <option value="" disabled selected>Pilih Alamat...</option>
-                            <!-- Alamat akan diisi secara dinamis berdasarkan cluster yang dipilih -->
                         </select>
                     </div>
                 </div>
+                <!-- Nomor Dropdown -->
+                <div class="form-control">
+                    <label for="nomor-select">Pilih Nomor</label>
+                    <div>
+                        <span class="fa"><i class='bx bx-home'></i></span>
+                        <select name="nomor_id" id="nomor-select" required>
+                            <option value="" disabled selected>Pilih Nomor...</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- Notes Input -->
                 <div class="form-control">
                     <label for="checkout-notes">Catatan</label>
                     <div>
@@ -58,11 +73,9 @@
                         <input type="text" name="checkout-notes" id="checkout-notes" placeholder="Catatan Anda.. (opsional)" value="{{ old('checkout-notes') }}">
                     </div>
                 </div>
-                
-                <!-- Hidden input for products and total price -->
+                <!-- Hidden Inputs for Products and Total Price -->
                 <input type="hidden" name="products" id="products" required>
                 <input type="hidden" name="total_price" id="hidden-total-price" required>
-
                 <div class="form-control-btn">
                     <button type="submit">Checkout</button>
                 </div>
@@ -84,35 +97,80 @@
 </section>
 
 <script>
+// Event listener for the checkout form submission
 document.getElementById('checkout-form').addEventListener('submit', function(event) {
     const products = JSON.parse(localStorage.getItem('cart')) || [];
-    const totalPrice = document.getElementById('total-price').textContent.replace(/[^\d]/g, ''); // Menghilangkan simbol 'Rp' dan koma
+    const totalPrice = document.getElementById('total-price').textContent.replace(/[^\d]/g, ''); // Remove 'Rp' and commas
     
     document.getElementById('products').value = JSON.stringify(products);
     document.getElementById('hidden-total-price').value = totalPrice;
 });
 
+// Event listener for the cluster dropdown change
 document.getElementById('cluster-select').addEventListener('change', function() {
-        var clusterId = this.value;
-        var alamatSelect = document.getElementById('alamat-select');
-        
-        // Kosongkan dropdown alamat
-        alamatSelect.innerHTML = '<option value="" disabled selected>Memuat alamat...</option>';
+    const clusterId = this.value;
+    const alamatSelect = document.getElementById('alamat-select');
+    
+    // Clear the alamat dropdown
+    alamatSelect.innerHTML = '<option value="" disabled selected>Memuat alamat...</option>';
 
-        fetch(`/get-alamat-by-cluster/${clusterId}`)
-            .then(response => response.json())
-            .then(data => {
-                alamatSelect.innerHTML = '<option value="" disabled selected>Pilih Alamat...</option>';
-                data.forEach(function(alamatCluster) {
-                    var option = document.createElement('option');
-                    option.value = alamatCluster.id;
-                    option.textContent = alamatCluster.alamat;
-                    alamatSelect.appendChild(option);
-                });
+    fetch(`/get-alamat-by-cluster/${clusterId}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Gagal mengambil data alamat.');
+            }
+            return response.json();
+        })
+        .then(data => {
+            alamatSelect.innerHTML = '<option value="" disabled selected>Pilih Alamat...</option>';
+            data.forEach(function(alamat) {
+                const option = document.createElement('option');
+                option.value = alamat.id;
+                option.textContent = alamat.alamat;
+                alamatSelect.appendChild(option);
+            });
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Terjadi kesalahan saat mengambil data alamat. Silakan coba lagi.');
+        });
+});
+
+// Event listener for the alamat dropdown change
+document.getElementById('alamat-select').addEventListener('change', function() {
+    const blokId = this.value;
+    const nomorSelect = document.getElementById('nomor-select');
+    
+    // Clear the nomor dropdown
+    nomorSelect.innerHTML = '<option value="" disabled selected>Memuat nomor...</option>';
+    nomorSelect.disabled = true;
+
+    if (blokId) {
+        fetch(`/get-nomor-by-blok/${blokId}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Gagal mengambil data nomor blok.');
+                }
+                return response.json();
             })
-            .catch(error => console.error('Error:', error));
-    });
+            .then(data => {
+                nomorSelect.innerHTML = '<option value="" disabled selected>Pilih Nomor...</option>';
+                data.forEach(function(nomor) {
+                    const option = document.createElement('option');
+                    option.value = nomor.id;
+                    option.textContent = nomor.nomor;
+                    nomorSelect.appendChild(option);
+                });
+                nomorSelect.disabled = false;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Terjadi kesalahan saat mengambil data nomor blok. Silakan coba lagi.');
+            });
+    } else {
+        nomorSelect.innerHTML = '<option value="" disabled selected>Pilih Nomor...</option>';
+        nomorSelect.disabled = true;
+    }
+});
 </script>
-
-
 @endsection
