@@ -77,7 +77,6 @@
     </section>
 
     <script>
-
         document.getElementById('checkout-form').addEventListener('submit', function(event) {
             const products = JSON.parse(localStorage.getItem('cart')) || [];
             const totalPrice = document.getElementById('total-price').textContent.replace(/[^\d]/g,
@@ -85,6 +84,10 @@
 
             document.getElementById('products').value = JSON.stringify(products);
             document.getElementById('hidden-total-price').value = totalPrice;
+
+             // Menghapus data dari LocalStorage setelah checkout
+             localStorage.removeItem('cart');
+
         });
     </script>
 @endsection

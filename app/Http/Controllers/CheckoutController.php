@@ -108,8 +108,7 @@ class CheckoutController extends Controller
 
             DB::commit(); // Commit transaksi jika semua berhasil
             return redirect('/history')->with('success', 'Order created successfully!');
-            // Menghapus data dari session dengan key 'namaItem'
-            session()->forget('cart');
+        
         } catch (\Exception $e) {
             DB::rollBack(); // Rollback jika terjadi kesalahan
             Log::error('Order creation failed: ' . $e->getMessage());
