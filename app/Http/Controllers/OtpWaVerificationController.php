@@ -14,79 +14,63 @@ class OtpWaVerificationController extends Controller
 {
 
     public function verify(Request $request)
-{
-    $otp = implode('', $request->otp);
-    $request->merge(['otp' => $otp]);
-    
-    $request->validate([
-        'otp' => 'required|string|size:6',
-    ]);
-    
-    $otpExpiration = Session::get('otp_expiration');
-    $kondisi = Session::get('otp_expiration') == null ? true : false;
-    $kondisi2 = true;
+    {
 
-    // if (false) {
-    //     // return back()->withErrors('status', 'OTP kadaluarsa atau tidak diatur dengan benar. Silakan minta OTP baru.');
-    //     $kondisi2 = false;
-    //     return 'coba';
-    //     exit;
-    // } else {
+
+        $otp = implode('', $request->otp);
+        $request->merge(['otp' => $otp]);
+
+        $request->validate([
+            'otp' => 'required|string|size:6',
+        ]);
+
+        $otpExpiration = Session::get('otp_expiration');
+        $kondisi = Session::get('otp_expiration') == null ? true : false;
+        $kondisi2 = true;
 
         if ($otpExpiration && Carbon::now()->greaterThan($otpExpiration)) {
             // OTP kadaluarsa
             return response()->json(['status' => 'error', 'message' => 'OTP telah kadaluarsa. Silakan minta OTP baru.'], 400);
-            // return back()->with('status', 'OTP kadaluarsa')->withErrors(['otp' => 'OTP telah kadaluarsa. Silakan minta OTP baru.']);
-            // dd('ini fungsi 2 salah');
         }
-        
+
         if ($otp == Session::get('otp')) {
-        // if (false) {
+
             // OTP valid, buat user baru
             $userData = Session::get('temp_user');
             $user = User::create($userData);
-    
+
             event(new Registered($user));
-    
+
             Auth::login($user);
-    
+
             // Hapus data sementara dari session
             Session::forget(['temp_user', 'otp', 'otp_expiration']);
-    
-            // return redirect()->route('home');
+
             return response()->json(200);
-        }else{
+        } else {
             return response()->json(['status' => 'error', 'message' => 'OTP anda salah. Silakan minta OTP baru.'], 400);
         }
-
-    // }
-    
-
-    // else {
-    //     // OTP tidak valid
-    //     return back()->with('status', 'OTP salah')->withErrors(['otp' => 'OTP tidak valid']);
-    // }
-}
-
-public function resendOtp(Request $request)
-{
-    // Cek apakah session masih menyimpan data user sementara
-    if (!Session::has('temp_user')) {
-        return back()->with('status', 'Session telah habis, silakan ulangi registrasi.');
     }
 
-    // Generate OTP baru
-    $otp = mt_rand(100000, 999999);
-    Session::put('otp', $otp);
+    public function resendOtp(Request $request)
+    {
+        // Cek apakah session masih menyimpan data user sementara
+        if (!Session::has('temp_user')) {
+            return back()->with('status', 'Session telah habis, silakan ulangi registrasi.');
+        }
 
-    // Set ulang waktu kadaluarsa OTP 2 menit
-    Session::put('otp_expiration', Carbon::now()->addMinutes(2));
+        // Generate OTP baru
+        $otp = mt_rand(100000, 999999);
+        Session::put('otp', $otp);
 
-    // Kirim OTP melalui WhatsApp
-    $this->sendWhatsAppOTP(Session::get('temp_user')['phone'], $otp);
+        // Set ulang waktu kadaluarsa OTP 2 menit
+        Session::put('otp_expiration', Carbon::now()->addMinutes(2));
 
-    return back()->with('status', 'OTP baru telah dikirimkan');
-}
+        // Kirim OTP melalui WhatsApp
+        $this->sendWhatsAppOTP(Session::get('temp_user')['phone'], $otp);
+
+        return back()->with('status', 'OTP baru telah dikirimkan');
+    }
 
 
     private function sendWhatsAppOTP($phone, $otp)
@@ -105,5 +89,4 @@ public function resendOtp(Request $request)
 
         // Handle response if needed
     }
-    
 }
