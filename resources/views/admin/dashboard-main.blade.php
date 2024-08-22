@@ -40,7 +40,7 @@
                             Total Payment
                         </p>
                         <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                           Rp {{$paymentTotal}}
+                            Rp {{ $paymentTotal }}
                         </p>
                     </div>
                 </div>
@@ -58,7 +58,7 @@
                             New sales
                         </p>
                         <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                            376
+                            {{ $totalOrders }}
                         </p>
                     </div>
                 </div>
@@ -73,10 +73,10 @@
                     </div>
                     <div>
                         <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                            Pending contacts
+                            Stores
                         </p>
                         <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                            35
+                            {{ $stores }}
                         </p>
                     </div>
                 </div>
@@ -87,7 +87,7 @@
                 <div class="w-full overflow-x-auto">
                     <table class="w-full whitespace-no-wrap">
                         <thead>
-                           
+
                             <tr
                                 class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                                 <th class="px-4 py-3">ID Pembayaran</th>
@@ -96,40 +96,40 @@
                                 <th class="px-4 py-3">Total</th>
                                 <th class="px-4 py-3">Tanggal</th>
                             </tr>
-                           
+
                         </thead>
                         <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-                            @foreach($orders as $order)
-                            <tr class="text-gray-700 dark:text-gray-400">
-                                <td class="px-4 py-3 text-sm">
-                                    {{ $order->no_order }}
-                                </td>
-                                <td class="px-4 py-3 text-sm">
-                                    {{ $order->toko_id }}
-                                </td>
-                                <td class="px-4 py-3">
-                                    <div class="flex items-center text-sm">
-                                        <!-- Avatar with inset shadow -->
-                                        <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
-                                            <img class="object-cover w-full h-full rounded-full"
-                                                src="{{  $order->user->img }}"
-                                                alt="" loading="lazy" />
-                                            <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true">
+                            @foreach ($orders as $order)
+                                <tr class="text-gray-700 dark:text-gray-400">
+                                    <td class="px-4 py-3 text-sm">
+                                        {{ $order->no_order }}
+                                    </td>
+                                    <td class="px-4 py-3 text-sm">
+                                        {{ $order->toko_id }}
+                                    </td>
+                                    <td class="px-4 py-3">
+                                        <div class="flex items-center text-sm">
+                                            <!-- Avatar with inset shadow -->
+                                            <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
+                                                <img class="object-cover w-full h-full rounded-full"
+                                                    src="{{ $order->user->img }}" alt="" loading="lazy" />
+                                                <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true">
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <p class="font-semibold">{{ $order->user->name }}</p>
+                                                <p class="text-xs text-gray-600 dark:text-gray-400">{{ $order->id_user }}
+                                                </p>
                                             </div>
                                         </div>
-                                        <div>
-                                            <p class="font-semibold">{{ $order->user->name }}</p>
-                                            <p class="text-xs text-gray-600 dark:text-gray-400">{{ $order->id_user }}</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="px-4 py-3 text-sm">
-                                    {{ $order->harga }}
-                                </td>
-                                <td class="px-4 py-3 text-sm">
-                                    {{ $order->tanggal_order }}
-                                </td>
-                            </tr>
+                                    </td>
+                                    <td class="px-4 py-3 text-sm">
+                                        {{ $order->harga }}
+                                    </td>
+                                    <td class="px-4 py-3 text-sm">
+                                        {{ $order->tanggal_order }}
+                                    </td>
+                                </tr>
                             @endforeach
 
                         </tbody>

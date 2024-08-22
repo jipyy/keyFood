@@ -89,7 +89,7 @@ class CheckoutController extends Controller
                 $transactionNumber = str_pad($totalOrders + 1, 3, '0', STR_PAD_LEFT); // Ensure it is 3 digits
 
                 // Combine to form the order number without an underscore
-                $order->no_order = 'KBK' . $randomNumber . $transactionNumber;
+                $order->no_order = '#KBK' . $randomNumber . $transactionNumber;
 
                 // $order->no_order = uniqid('no_order');
                 $order->tanggal_order = now();

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Orders;
+use App\Models\Toko;
 use Illuminate\Http\Request;
 
 class PaymentController extends Controller
@@ -13,12 +14,13 @@ class PaymentController extends Controller
      */
     public function index()
     {
-        $user = User::all();
         $orders = Orders::all();
-        $totalUser = $user->count(); //menghitung semua user
-        $paymentTotal = Orders::sum('harga');
+        $totalUser = User::all()->count(); //menghitung jumlah user
+        $stores = Toko::all()->count(); // menghitung jumlah toko
+        $totalOrders = Orders::all()->count(); //menghitung jumlah transaksi atau order
+        $paymentTotal = Orders::sum('harga'); // menjumlahkan semua kolom harga
 
-        return view('admin.dashboard-main' ,  compact('totalUser' , 'orders', 'paymentTotal'));
+        return view('admin.dashboard-main',  compact('orders','totalUser', 'paymentTotal', 'stores', 'totalOrders'));
     }
 
     /**
