@@ -24,10 +24,12 @@
             @endif
 
             <!-- Add New User Button -->
-            <a href="{{ route('admin.users.create') }}"
-                class="mb-6 inline-block px-4 py-2 bg-indigo-600 text-black rounded-lg dark:text-white">
+            <button type="button" class="mb-4 px-2 py-1 bg-blue-500 text-white rounded-lg" style="width: 150px;">
+                <a href="{{ route('admin.users.create') }}"
+                class="inline-block px-2 py-1 bg-indigo-600 text-black rounded-lg dark:text-white w-full">
                 Add New User
-            </a>
+                </a>
+            </button>
 
             {{-- ini cards --}}
             <div class="container-profile">
