@@ -9,7 +9,7 @@
                 <div class="flex max-md:flex-col items-center justify-between px-3 md:px-11">
                     <div class="data p-4 max-w-full overflow-hidden">
                         <p class="font-medium text-lg leading-8 text-black whitespace-normal break-words">
-                            Order: #{{ $order->no_order }}
+                            Order: {{ $order->no_order }}
                         </p>
                         <p class="font-medium text-lg leading-8 text-black whitespace-normal break-words">
                             Order Selesai: {{ \Carbon\Carbon::parse($order->tanggal_order)->format('d F Y') }}
