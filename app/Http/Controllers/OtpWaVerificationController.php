@@ -23,29 +23,49 @@ class OtpWaVerificationController extends Controller
     ]);
     
     $otpExpiration = Session::get('otp_expiration');
+    $kondisi = Session::get('otp_expiration') == null ? true : false;
+    $kondisi2 = true;
+
+    // if (false) {
+    //     // return back()->withErrors('status', 'OTP kadaluarsa atau tidak diatur dengan benar. Silakan minta OTP baru.');
+    //     $kondisi2 = false;
+    //     return 'coba';
+    //     exit;
+    // } else {
+
+        if ($otpExpiration && Carbon::now()->greaterThan($otpExpiration)) {
+            // OTP kadaluarsa
+            return response()->json(['status' => 'error', 'message' => 'OTP telah kadaluarsa. Silakan minta OTP baru.'], 400);
+            // return back()->with('status', 'OTP kadaluarsa')->withErrors(['otp' => 'OTP telah kadaluarsa. Silakan minta OTP baru.']);
+            // dd('ini fungsi 2 salah');
+        }
+        
+        if ($otp == Session::get('otp')) {
+        // if (false) {
+            // OTP valid, buat user baru
+            $userData = Session::get('temp_user');
+            $user = User::create($userData);
     
-    if (Carbon::now()->greaterThan($otpExpiration)) {
-        // OTP kadaluarsa
-        return back()->with('status', 'OTP kadaluarsa')->withErrors(['otp' => 'OTP telah kadaluarsa. Silakan minta OTP baru.']);
-    }
+            event(new Registered($user));
     
-    if ($otp == Session::get('otp')) {
-        // OTP valid, buat user baru
-        $userData = Session::get('temp_user');
-        $user = User::create($userData);
+            Auth::login($user);
+    
+            // Hapus data sementara dari session
+            Session::forget(['temp_user', 'otp', 'otp_expiration']);
+    
+            // return redirect()->route('home');
+            return response()->json(200);
+        }else{
+            return response()->json(['status' => 'error', 'message' => 'OTP anda salah. Silakan minta OTP baru.'], 400);
+        }
 
-        event(new Registered($user));
+    // }
+    
 
-        Auth::login($user);
-
-        // Hapus data sementara dari session
-        Session::forget(['temp_user', 'otp', 'otp_expiration']);
-
-        return redirect(route('home'));
-    } else {
-        // OTP tidak valid
-        return back()->with('status', 'OTP salah')->withErrors(['otp' => 'OTP tidak valid']);
-    }
+    // else {
+    //     // OTP tidak valid
+    //     return back()->with('status', 'OTP salah')->withErrors(['otp' => 'OTP tidak valid']);
+    // }
 }
 
 public function resendOtp(Request $request)

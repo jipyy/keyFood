@@ -54,7 +54,8 @@ class RegisteredUserController extends Controller
         Session::put('otp', $otp);
 
         // Set waktu kadaluarsa OTP 2 menit
-        Session::put('otp_expiration', Carbon::now()->addMinutes(2));
+        Session::put('otp_expiration', Carbon::now()->addMinutes(2));//ini jadi null, perbaiki
+        
 
         // Kirim OTP melalui WhatsApp
         $this->sendWhatsAppOTP($request->phone, $otp);
