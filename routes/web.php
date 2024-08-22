@@ -17,6 +17,7 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\OtpWaController;
 use App\Http\Controllers\OtpWaVerificationController;
+use App\Http\Controllers\PaymentController;
 
 
 
@@ -217,10 +218,7 @@ Route::get('/categories', [ProductController::class, 'showProducts'])->name('pro
 Route::get('/categories/search', [ProductController::class, 'search'])->name('search');
 
 Route::get('/categories', [CategoryController::class, 'showCategories'])->name('categories.index');
-
-Route::get('/main-admin', function () {
-    return view('admin.dashboard-main');
-})->name('admin.dashboard-main');
+Route::get('/main-admin', [PaymentController::class, 'index'])->name('admin.dashboard-main');
 
 
 
