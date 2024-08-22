@@ -82,3 +82,7 @@
         @endforeach
     @endif
 @endsection
+
+<script>
+     localStorage.removeItem('cart');
+</script>
