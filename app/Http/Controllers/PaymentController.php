@@ -14,7 +14,7 @@ class PaymentController extends Controller
      */
     public function index()
     {
-        $orders = Orders::all();
+        $orders = Orders::orderBy('id', 'desc')->paginate(10);
         $totalUser = User::all()->count(); //menghitung jumlah user
         $stores = Toko::all()->count(); // menghitung jumlah toko
         $totalOrders = Orders::all()->count(); //menghitung jumlah transaksi atau order
