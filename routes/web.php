@@ -5,7 +5,6 @@ use App\Http\Controllers\FaqController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\TokoController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\OtpWaController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
@@ -19,7 +18,6 @@ use App\Http\Controllers\OtpWaVerificationController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\OtpWaController;
-use App\Http\Controllers\OtpWaVerificationController;
 use App\Http\Controllers\PaymentController;
 
 
