@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Orders;
 use App\Models\Toko;
+use App\Models\Orders;
+use App\Models\Cluster;
+use App\Models\NomorBlok;
 use App\Models\OrderDetail;
-use Illuminate\Support\Facades\Log;
+use Illuminate\Http\Request;
+use App\Models\AlamatCluster;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Http;
 
 
@@ -19,7 +22,9 @@ class CheckoutController extends Controller
     public function showCheckoutDetails()
     {
         $user = auth()->user();
-        return view('checkout', compact('user'));
+        $clusters = Cluster::all();
+        $loginType = $user->email ? 'email' : 'phone';
+        return view('checkout', compact('user', 'clusters', 'loginType'));
     }
 
     /**
@@ -46,8 +51,8 @@ class CheckoutController extends Controller
             foreach ($products as $product) {
                 $toko = Toko::where('id_toko', $product['store_id'])->with('user')->first();
 
-                // dd($products);
-
+                // dd($product);
+                // dd($)
                 // dd($toko);
 
                 // dd($request->request);
@@ -59,9 +64,7 @@ class CheckoutController extends Controller
 
                 Http::post('https://wa.ponpesalgaz.online/send-message', [
                     'number' => $toko['user']['phone'],
-                    'message' => "Yth. Penjual,\n\nKami informasikan bahwa produk Anda, *" . $product['name'] . "* (x" . $product['quantity'] . "), telah dipesan oleh *" . $request['checkout-name'] . "*. \n\nDetail pesanan:\n* *Jumlah:* " . $product['quantity'] . " buah/pcs\n* *Total harga:* Rp " . ($product['quantity'] * $product['price']) . "\n* *Alamat pengiriman:* " . $request['checkout-address'] . "\n* *Nomor telepon pembeli:* " . $request['checkout-phone'] .
-                        (!empty($request['checkout-notes']) ? "\n* *Catatan pembeli:* " . $request['checkout-notes'] : "") .
-                        "\n\nMohon segera proses pesanan ini dan informasikan kepada pembeli mengenai status pengiriman. Terima kasih atas kerjasama Anda.\n\nHormat kami,\nTim KeyFood",
+                    'message' => "Yth. Penjual,\n\nKami informasikan bahwa produk Anda, *" . $product['name'] . "* (x" . $product['quantity'] . "), telah dipesan oleh *" . $request['checkout-name'] . "*. \n\nDetail pesanan:\n* *Jumlah:* " . $product['quantity'] . " buah/pcs\n* *Total harga:* Rp " . $product['quantity'] * $product['price'] . "\n* *Alamat pengiriman:* " . $request['checkout-address'] . "\n* *Nomor telepon pembeli:* " . $request['checkout-phone'] . "\n\nMohon segera proses pesanan ini dan informasikan kepada pembeli mengenai status pengiriman. Terima kasih atas kerjasama Anda.\n\nHormat kami,\nTim KeyFood",
                 ]);
 
                 // dd('masuk');
@@ -77,14 +80,36 @@ class CheckoutController extends Controller
 
                 // Simpan data ke tabel orders
                 $order = new Orders();
-                $order->no_order = uniqid('no_order');
+
+
+                // membuat random nomor
+                $randomNumber = mt_rand(1000, 9999); // menentukan range
+
+                // Get the total number of existing orders (this will be used for the last 3 digits)
+                $totalOrders = Orders::count();
+                $transactionNumber = str_pad($totalOrders + 1, 3, '0', STR_PAD_LEFT); // Ensure it is 3 digits
+
+                // Combine to form the order number without an underscore
+                $order->no_order = '#KBK' . $randomNumber . $transactionNumber;
+
+                // $order->no_order = uniqid('no_order');
                 $order->tanggal_order = now();
-                $order->quantity = array_sum(array_column($products, 'quantity')); // Menghitung total quantity dari semua produk
+                $order->quantity = array_sum(array_column($products, 'quantity'));
                 $order->photo = $product['photo'];
                 $order->order_date = now();
                 $order->id_user = auth()->id();
-                $order->location = $request->input('checkout-address');
-                $order->harga = $totalOrderPrice; // Simpan harga per produk
+
+                // Ambil cluster dan alamat cluster dari request
+                $cluster = Cluster::find($request->input('cluster_id'));
+                $alamatCluster = AlamatCluster::find($request->input('alamat_cluster_id'));
+                $nomorBlok = NomorBlok::find($request->input('nomor_id'));
+
+                // Gabungkan nama cluster, alamat cluster, dan nomor blok untuk disimpan di location
+                $order->location = ($cluster ? $cluster->nama_cluster : 'Unknown Cluster') . ' - ' .
+                    ($alamatCluster ? $alamatCluster->alamat : 'Unknown Address') . ' ' .
+                    ($nomorBlok ? $nomorBlok->nomor : 'Unknown Number');
+
+                $order->harga = $totalOrderPrice;
                 $order->product_id = $product['product_id'];
                 $order->category_id = $product['category_id'];
                 $order->toko_id = $product['store_id'];
@@ -121,5 +146,23 @@ class CheckoutController extends Controller
     {
         $orders = Orders::with('orderDetails.products')->where('id_user', auth()->id())->get();
         return view('history', compact('orders'));
+    }
+
+    public function getAlamatByCluster($clusterId)
+    {
+        $alamatClusters = Cluster::find($clusterId)->alamatClusters;
+        return response()->json($alamatClusters);
+    }
+
+    public function getNomorByBlok($blokId)
+    {
+        $alamatCluster = AlamatCluster::find($blokId);
+
+        if ($alamatCluster) {
+            $nomors = $alamatCluster->nomorBloks;
+            return response()->json($nomors);
+        } else {
+            return response()->json(['error' => 'Blok tidak ditemukan.'], 404);
+        }
     }
 }

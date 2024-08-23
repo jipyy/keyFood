@@ -17,6 +17,7 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\OtpWaController;
 use App\Http\Controllers\OtpWaVerificationController;
+use App\Http\Controllers\PaymentController;
 
 
 
@@ -40,7 +41,7 @@ Route::get('/contact-us', function () {
     return view('contact-us');
 });
 
-Route::get('/seller-edit', [SellerEditController::class, 'index']);
+Route::get('/seller-page', [SellerEditController::class, 'index']);
 
 Route::get('/faq', function () {
     return view('faq');
@@ -62,9 +63,7 @@ Route::get('/edit-profile', function () {
     return view('edit-profile');
 });
 
-Route::get('/seller-page', function () {
-    return view('seller-edit');
-});
+Route::get('/seller-page', [SellerEditController::class, 'index']);
 
 Route::get('/stores', function () {
     return view('stores');
@@ -217,10 +216,7 @@ Route::get('/categories', [ProductController::class, 'showProducts'])->name('pro
 Route::get('/categories/search', [ProductController::class, 'search'])->name('search');
 
 Route::get('/categories', [CategoryController::class, 'showCategories'])->name('categories.index');
-
-Route::get('/main-admin', function () {
-    return view('admin.dashboard-main');
-})->name('admin.dashboard-main');
+Route::get('/main-admin', [PaymentController::class, 'index'])->name('admin.dashboard-main');
 
 
 
@@ -290,5 +286,6 @@ Route::post('/verify-wa-otp', [OtpWaVerificationController::class, 'verify'])->n
 Route::get('/role-requests', [RoleRequestController::class, 'index'])->name('role-requests.index');
 Route::post('/save-cart', [CartController::class, 'saveCart'])->name('save-cart');
 
-
+Route::get('/get-alamat-by-cluster/{id}', [CheckoutController::class, 'getAlamatByCluster']);
+Route::get('/get-nomor-by-blok/{blokId}', [CheckoutController::class, 'getNomorByBlok']);
 // Route::post('role-request/store', [RoleRequestController::class, 'store'])->name('role-request.store');
