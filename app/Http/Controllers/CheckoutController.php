@@ -103,11 +103,11 @@ class CheckoutController extends Controller
                 $cluster = Cluster::find($request->input('cluster_id'));
                 $alamatCluster = AlamatCluster::find($request->input('alamat_cluster_id'));
                 $nomorBlok = NomorBlok::find($request->input('nomor_id'));
-            
+
                 // Gabungkan nama cluster, alamat cluster, dan nomor blok untuk disimpan di location
-                $order->location = ($cluster ? $cluster->nama_cluster : 'Unknown Cluster') . ' - ' . 
-                                    ($alamatCluster ? $alamatCluster->alamat : 'Unknown Address') . ' ' .
-                                    ($nomorBlok ? $nomorBlok->nomor : 'Unknown Number');            
+                $order->location = ($cluster ? $cluster->nama_cluster : 'Unknown Cluster') . ' - ' .
+                    ($alamatCluster ? $alamatCluster->alamat : 'Unknown Address') . ' ' .
+                    ($nomorBlok ? $nomorBlok->nomor : 'Unknown Number');
 
                 $order->harga = $totalOrderPrice;
                 $order->product_id = $product['product_id'];
@@ -133,6 +133,8 @@ class CheckoutController extends Controller
 
             DB::commit(); // Commit transaksi jika semua berhasil
             return redirect('/history')->with('success', 'Order created successfully!');
+            // Menghapus data dari session dengan key 'namaItem'
+            session()->forget('cart');
         } catch (\Exception $e) {
             DB::rollBack(); // Rollback jika terjadi kesalahan
             Log::error('Order creation failed: ' . $e->getMessage());
