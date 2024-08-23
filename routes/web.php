@@ -63,9 +63,7 @@ Route::get('/edit-profile', function () {
     return view('edit-profile');
 });
 
-Route::get('/seller-page', function () {
-    return view('seller-edit');
-});
+Route::get('/seller-page', [SellerEditController::class, 'index']);
 
 Route::get('/stores', function () {
     return view('stores');
@@ -289,4 +287,5 @@ Route::get('/role-requests', [RoleRequestController::class, 'index'])->name('rol
 Route::post('/save-cart', [CartController::class, 'saveCart'])->name('save-cart');
 
 Route::get('/get-alamat-by-cluster/{id}', [CheckoutController::class, 'getAlamatByCluster']);
+Route::get('/get-nomor-by-blok/{blokId}', [CheckoutController::class, 'getNomorByBlok']);
 // Route::post('role-request/store', [RoleRequestController::class, 'store'])->name('role-request.store');

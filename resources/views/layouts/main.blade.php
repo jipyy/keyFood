@@ -54,7 +54,7 @@
     </div>
     @include('partials.navbar')
 
-    <div class="container" style="@media (min-width: 600px){margin-top: 20px}" id="container">
+    <div class="container md:my-10" id="container">
         @include('partials.profile')
         @yield('container')
     </div>

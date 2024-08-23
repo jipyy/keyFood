@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Toko;
 use App\Models\Orders;
 use App\Models\Cluster;
+use App\Models\NomorBlok;
 use App\Models\OrderDetail;
 use Illuminate\Http\Request;
 use App\Models\AlamatCluster;
@@ -101,9 +102,12 @@ class CheckoutController extends Controller
                 // Ambil cluster dan alamat cluster dari request
                 $cluster = Cluster::find($request->input('cluster_id'));
                 $alamatCluster = AlamatCluster::find($request->input('alamat_cluster_id'));
-
-                // Gabungkan nama cluster dan alamat cluster untuk disimpan di location
-                $order->location = $cluster->nama_cluster . ' - ' . $alamatCluster->alamat;
+                $nomorBlok = NomorBlok::find($request->input('nomor_id'));
+            
+                // Gabungkan nama cluster, alamat cluster, dan nomor blok untuk disimpan di location
+                $order->location = ($cluster ? $cluster->nama_cluster : 'Unknown Cluster') . ' - ' . 
+                                    ($alamatCluster ? $alamatCluster->alamat : 'Unknown Address') . ' ' .
+                                    ($nomorBlok ? $nomorBlok->nomor : 'Unknown Number');            
 
                 $order->harga = $totalOrderPrice;
                 $order->product_id = $product['product_id'];
@@ -146,5 +150,17 @@ class CheckoutController extends Controller
     {
         $alamatClusters = Cluster::find($clusterId)->alamatClusters;
         return response()->json($alamatClusters);
+    }
+
+    public function getNomorByBlok($blokId)
+    {
+        $alamatCluster = AlamatCluster::find($blokId);
+
+        if ($alamatCluster) {
+            $nomors = $alamatCluster->nomorBloks;
+            return response()->json($nomors);
+        } else {
+            return response()->json(['error' => 'Blok tidak ditemukan.'], 404);
+        }
     }
 }
