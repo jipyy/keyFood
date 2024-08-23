@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FaqController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\TokoController;
 use App\Http\Controllers\UserController;
@@ -13,10 +14,10 @@ use App\Http\Controllers\RoleRequestController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\ProductOrderController;
 use App\Http\Controllers\Auth\SocialiteController;
+use App\Http\Controllers\OtpWaVerificationController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\OtpWaController;
-use App\Http\Controllers\OtpWaVerificationController;
 use App\Http\Controllers\PaymentController;
 
 
@@ -281,6 +282,10 @@ Route::get('/otp', function () {
     return view('auth.otp-verif');
 });
 
+Route::get('/lc', function () {
+    return view('admin.dashboard-404');
+});
+
 Route::post('/verify-wa-otp', [OtpWaVerificationController::class, 'verify'])->name('verify.wa.otp');
 Route::get('/resend-otp', [OtpWaVerificationController::class, 'resendOtp'])->name('resend.otp');
 
@@ -291,3 +296,5 @@ Route::post('/save-cart', [CartController::class, 'saveCart'])->name('save-cart'
 Route::get('/get-alamat-by-cluster/{id}', [CheckoutController::class, 'getAlamatByCluster']);
 Route::get('/get-nomor-by-blok/{blokId}', [CheckoutController::class, 'getNomorByBlok']);
 // Route::post('role-request/store', [RoleRequestController::class, 'store'])->name('role-request.store');
+Route::resource('faqs', FaqController::class);
+Route::get('/faq', [FaqController::class, 'showFaqPage'])->name('faq.page');
