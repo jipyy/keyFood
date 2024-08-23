@@ -18,6 +18,16 @@
   <script src="{{ asset('./assets/js/charts-pie.js') }}" defer></script>
   <script src="{{ asset('./assets/js/card.js') }}" defer></script>
 
+  <script>
+    function toggleDropdown() {
+       var menu = document.getElementById('dropdown-menu');
+       var button = document.getElementById('menu-button');
+       var expanded = button.getAttribute('aria-expanded') === 'true' || false;
+       button.setAttribute('aria-expanded', !expanded);
+       menu.classList.toggle('hidden');
+   }
+</script>
+
 </head>
 
 <body>

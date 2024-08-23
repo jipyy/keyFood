@@ -29,10 +29,42 @@
                 Add New User
             </a>
 
+            <!-- Dropdown Menu Button -->
+            <div class="relative inline-flex justify-end mb-4">
+                <div>
+                    <button type="button"
+                        class="btn inline-flex justify-center gap-x-1.5 rounded-md bg-white px-2 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+                        id="menu-button" aria-expanded="false" aria-haspopup="true">
+                        Roles
+                        <svg class="-mr-1 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                            <path fill-rule="evenodd"
+                                d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                </div>
+
+                <div id="dropdown-menu"
+                    class="hidden absolute right-0 z-10 mt-8 w-32 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                    role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+                    <div class="py-1" role="none">
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
+                            data-roles="admin">Admin</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
+                            data-roles="">Buyer</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
+                            data-roles="seller">Seller</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
+                            data-roles="all">All</a> <!-- Option to show all -->
+                    </div>
+                </div>
+            </div>
+
+
             {{-- ini cards --}}
             <div class="container-profile">
                 @forelse($users as $user)
-                    <div class="card-profile">
+                    <div class="card-profile card-table" data-roles="{{ $user->roles->pluck('name')->join(', ') }}">
                         <p><strong>ID:</strong> {{ $user->id }}</p>
                         <img src="{{ asset($user->img) }}" alt="Profile Picture">
                         <h2>{{ $user->name }}</h2>
@@ -90,7 +122,8 @@
                             </thead>
                             <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
                                 @forelse($users as $user)
-                                    <tr class="text-gray-700 dark:text-gray-400">
+                                    <tr class="text-gray-700 dark:text-gray-400 card-table"
+                                        data-roles="{{ $user->roles->pluck('name')->join(', ') }}">
                                         <td class="px-4 py-3">
                                             <div class="flex items-center text-sm">
                                                 <!-- Avatar with inset shadow -->
@@ -101,16 +134,13 @@
                                                     </div>
                                                 </div>
                                                 <div>
-                                                    <p class="font-semibold"> {{ $user->name }}</p>
-                                                    <p class="text-xs text-gray-600 dark:text-gray-400">
-                                                        ID: {{ $user->id }}
+                                                    <p class="font-semibold">{{ $user->name }}</p>
+                                                    <p class="text-xs text-gray-600 dark:text-gray-400">ID: {{ $user->id }}
                                                     </p>
                                                 </div>
                                             </div>
                                         </td>
-                                        <td class="px-4 py-3 text-sm">
-                                            {{ $user->email }}
-                                        </td>
+                                        <td class="px-4 py-3 text-sm">{{ $user->email }}</td>
                                         <td class="px-4 py-3 text-sm">
                                             @if ($user->roles->isEmpty())
                                                 buyer
@@ -122,7 +152,6 @@
                                                 @endforeach
                                             @endif
                                         </td>
-
                                         <td class="px-4 py-3 text-sm">
                                             <div class="flex gap-2">
                                                 <a href="{{ route('admin.users.edit', $user) }}"
@@ -155,9 +184,8 @@
                                     </tr>
                                     @empty
                                         <tr>
-                                            <td colspan="3" class="px-4 py-3 text-center text-gray-600 dark:text-gray-400">
-                                                No users available
-                                            </td>
+                                            <td colspan="4" class="px-4 py-3 text-center text-gray-600 dark:text-gray-400">No
+                                                users available</td>
                                         </tr>
                                     @endforelse
                                 </tbody>
@@ -171,5 +199,59 @@
                 function confirmDelete() {
                     return confirm('Are you sure you want to delete this user?');
                 }
+                document.addEventListener('DOMContentLoaded', function() {
+                    // Function to toggle the dropdown menu visibility
+                    function toggleDropdown() {
+                        const dropdownMenu = document.getElementById('dropdown-menu');
+                        dropdownMenu.classList.toggle('hidden');
+                    }
+
+                    // Add click event listener to each dropdown item
+                    document.querySelectorAll('#dropdown-menu a').forEach(function(item) {
+                        item.addEventListener('click', function(e) {
+                            e.preventDefault();
+
+                            // Get the selected role from the clicked dropdown item
+                            const selectedRole = this.getAttribute('data-roles');
+                            
+                            // document.querySelector('.btn').textContent = selectedRole; //untuk mengubah text pada btn dropdown
+
+                            // Get all the user profile rows
+                            const userProfiles = document.querySelectorAll('.card-table');
+
+                            // Loop through each user profile
+                            userProfiles.forEach(function(profile) {
+                                // Get the roles from the data-roles attribute
+                                const profileRoles = profile.getAttribute('data-roles').split(', ')
+                                    .map(role => role.trim());
+
+                                // Check if the selected role is in the user's roles
+                                if (profileRoles.includes(selectedRole) || selectedRole === 'all') {
+                                    profile.style.display = ''; // Show the profile
+                                } else {
+                                    profile.style.display = 'none'; // Hide the profile
+                                }
+                            });
+
+                            // Close the dropdown menu after selection
+                            toggleDropdown();
+                        });
+                    });
+
+                    // Add click event listener to the document to close the dropdown when clicking outside
+                    document.addEventListener('click', function(e) {
+                        const dropdownMenu = document.getElementById('dropdown-menu');
+                        const menuButton = document.getElementById('menu-button');
+
+                        if (!dropdownMenu.contains(e.target) && !menuButton.contains(e.target)) {
+                            dropdownMenu.classList.add('hidden');
+                        }
+                    });
+
+                    // Add click event listener to the dropdown button
+                    document.getElementById('menu-button').addEventListener('click', function() {
+                        toggleDropdown();
+                    });
+                });
             </script>
         @endsection

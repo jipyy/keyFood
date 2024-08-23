@@ -5,14 +5,12 @@
         <div class="container grid px-6 mx-auto py-4 mb-8">
             <div class="m-10 w-[30rem] max-h-8">
                 <div class="rounded-lg bg-white px-4 pt-8 pb-10 shadow-lg dark:bg-gray-800">
-                    <div class="relative mx-auto w-16 rounded-full">
-                        <span
-                            class="absolute right-0 m-3 h-3 w-3 rounded-full bg-green-500 ring-2 ring-green-300 ring-offset-2"></span>
-                            <img class="w-full object-cover"
-                            src="{{ asset(Auth::user()->img ?? './img/client-1.jpg') }}"
-                            alt="" />
-                       
+                    <div class="relative mx-auto w-24 h-24 rounded-full overflow-hidden">
+                        <img class="w-full h-full object-cover"
+                             src="{{ asset(Auth::user()->img ?? './img/client-1.jpg') }}"
+                             alt="User Image" />
                     </div>
+                    
                     
                     <h1 class="my-1 text-center text-xl font-bold leading-8 text-gray-900 dark:text-gray-100">{{ Auth::user()->name }}</h1>
                     <div class="flex justify-center">

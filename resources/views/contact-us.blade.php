@@ -14,17 +14,17 @@
         <div class="box">
             <!-- form -->
             <div class="contact form">
-                <h3>What's your problem?
+                <h3>Apa masalahmu?
                 <form action="mailto:andikasupriyadi27@gmail.com" method="POST">
                     <div class="formBox">
                         <div class="row50">
                             <div class="inputBox">
-                                <span>First Name</span>
-                                <input type="text" placeholder="first name">
+                                <span>Nama Depan</span>
+                                <input type="text" placeholder="Nama depan">
                             </div>
                             <div class="inputBox">
-                                <span>Last Name</span>
-                                <input type="text" placeholder="last name">
+                                <span>Nama Belakang</span>
+                                <input type="text" placeholder="Nama belakang">
                             </div>
                         </div>
 
@@ -34,19 +34,19 @@
                                 <input type="text" placeholder="yourgmail@gmail.com">
                             </div>
                             <div class="inputBox">
-                                <span>Mobile</span>
+                                <span>NO Handphome</span>
                                 <input type="text" placeholder="+62 123 456 7890">
                             </div>
                         </div>
                         <div class="row100">
                             <div class="inputBox">
-                                <span>Message</span>
-                                <textarea placeholder="Write your message here..."></textarea>
+                                <span>Pesan</span>
+                                <textarea placeholder="Ketik pesan disini..."></textarea>
                             </div>
                         </div>
                         <div class="row100">
                             <div class="inputBox">
-                                <input type="submit" value="Send">
+                                <input type="submit" value="Kirim">
                             </div>
                         </div>
                     </div>
@@ -67,7 +67,7 @@
                     </div>
                     <div>
                         <span><ion-icon name="call"></ion-icon></span>
-                        <a href="tel:+919876543211">+91 987 654 3211</a>
+                        <a href="tel:+919876543211">+62 8123456789</a>
                     </div>
 
                     <!-- social media links -->

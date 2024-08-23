@@ -13,6 +13,7 @@ use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Http; //new
 use Illuminate\Support\Facades\Session;
+use Carbon\Carbon;
 
 
 class RegisteredUserController extends Controller
@@ -30,10 +31,11 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
+
+
+
     public function store(Request $request): RedirectResponse
     {
-        // dd($request->all());
-
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'phone' => 'required|string|max:255|unique:users',
@@ -51,10 +53,14 @@ class RegisteredUserController extends Controller
         $otp = mt_rand(100000, 999999);
         Session::put('otp', $otp);
 
+        // Set waktu kadaluarsa OTP 2 menit
+        Session::put('otp_expiration', Carbon::now()->addMinutes(2));//ini jadi null, pernaik
+
+
         // Kirim OTP melalui WhatsApp
         $this->sendWhatsAppOTP($request->phone, $otp);
 
-        return redirect('/otp');  // Menggunakan route yang sudah Anda buat
+        return redirect('/otp');
     }
 
     private function sendWhatsAppOTP($phone, $otp)
@@ -62,7 +68,7 @@ class RegisteredUserController extends Controller
         $url = "https://wa.ponpesalgaz.online/send-message";
         $data = [
             'number' => $phone,
-            'message' => "Your OTP is: $otp",
+            'message' => "Kode OTP telah dikirimkan ke nomor ponsel Anda. \n\nKode: $otp  \n\nKode ini berlaku selama 2 menit. Mohon masukkan kode ini untuk Proses Registrasi. \n\nJangan bagikan kode ini kepada siapa pun."
         ];
 
         $ch = curl_init($url);

@@ -34,6 +34,8 @@
                         </div>
                         <div class="text-xs text-slate-400">
                             {{ strlen(Auth::user()->email) > 16 ? substr(Auth::user()->email, 0, 16) . '...' : Auth::user()->email }}
+                            {{ strlen(Auth::user()->phone) > 16 ? substr(Auth::user()->phone, 0, 16) . '...' : Auth::user()->phone }}
+
                         </div>
                     </div>
                 </div>
@@ -141,7 +143,7 @@
                     @else
                         <h4>Buyer</h4>
                         @if (Auth::check())
-                            <form action="{{ route('role-request.store') }}" method="POST">
+                            <form action="{{ route('role-request.store') }}" class="mb-5" method="POST">
                                 @csrf
                                 <input type="hidden" name="user_id" value="{{ Auth::id() }}">
                                 <input type="hidden" name="requested_role" value="seller">
