@@ -24,10 +24,15 @@
             @endif
 
             <!-- Add New User Button -->
-            <a href="{{ route('admin.users.create') }}"
-                class="mb-6 inline-block px-4 py-2 bg-indigo-600 text-black rounded-lg dark:text-white">
-                Add New User
-            </a>
+
+            <div class="px-6 my-6 w-20 max-w-xs">
+                <a href="{{ route('admin.users.create') }}"
+                    class="flex items-center justify-between w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
+                    Add New User
+                    <span class="ml-2" aria-hidden="true">+</span>
+                </a>
+            </div>
+            
 
             {{-- ini cards --}}
             <div class="container-profile">

@@ -23,7 +23,8 @@ class CheckoutController extends Controller
     {
         $user = auth()->user();
         $clusters = Cluster::all();
-        return view('checkout', compact('user', 'clusters'));
+        $loginType = $user->email ? 'email' : 'phone';
+        return view('checkout', compact('user', 'clusters', 'loginType'));
     }
 
     /**
@@ -79,7 +80,19 @@ class CheckoutController extends Controller
 
                 // Simpan data ke tabel orders
                 $order = new Orders();
-                $order->no_order = uniqid('no_order');
+
+
+                // membuat random nomor
+                $randomNumber = mt_rand(1000, 9999); // menentukan range
+
+                // Get the total number of existing orders (this will be used for the last 3 digits)
+                $totalOrders = Orders::count();
+                $transactionNumber = str_pad($totalOrders + 1, 3, '0', STR_PAD_LEFT); // Ensure it is 3 digits
+
+                // Combine to form the order number without an underscore
+                $order->no_order = '#KBK' . $randomNumber . $transactionNumber;
+
+                // $order->no_order = uniqid('no_order');
                 $order->tanggal_order = now();
                 $order->quantity = array_sum(array_column($products, 'quantity'));
                 $order->photo = $product['photo'];
@@ -90,11 +103,11 @@ class CheckoutController extends Controller
                 $cluster = Cluster::find($request->input('cluster_id'));
                 $alamatCluster = AlamatCluster::find($request->input('alamat_cluster_id'));
                 $nomorBlok = NomorBlok::find($request->input('nomor_id'));
-            
+
                 // Gabungkan nama cluster, alamat cluster, dan nomor blok untuk disimpan di location
-                $order->location = ($cluster ? $cluster->nama_cluster : 'Unknown Cluster') . ' - ' . 
-                                    ($alamatCluster ? $alamatCluster->alamat : 'Unknown Address') . ' ' .
-                                    ($nomorBlok ? $nomorBlok->nomor : 'Unknown Number');            
+                $order->location = ($cluster ? $cluster->nama_cluster : 'Unknown Cluster') . ' - ' .
+                    ($alamatCluster ? $alamatCluster->alamat : 'Unknown Address') . ' ' .
+                    ($nomorBlok ? $nomorBlok->nomor : 'Unknown Number');
 
                 $order->harga = $totalOrderPrice;
                 $order->product_id = $product['product_id'];

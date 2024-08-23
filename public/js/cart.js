@@ -11,7 +11,7 @@ let isDragging = false, startY, startHeight;
 // Show the bottom sheet, hide body vertical scrollbar, and call updateSheetHeight
 const showBottomSheet = () => {
     bottomSheet.classList.add("show");
-    document.body.style.overflowY = "hidden";
+    // document.body.style.overflowY = "hidden";
     updateSheetHeight(50);
 }
 
