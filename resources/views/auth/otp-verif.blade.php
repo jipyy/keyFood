@@ -19,17 +19,23 @@
     <div class="max-w-md mx-auto text-center bg-white px-4 sm:px-8 py-10 rounded-xl shadow">
         <header class="mb-8">
             <h1 class="text-2xl font-bold mb-1">Mobile Phone Verification</h1>
-            <p class="text-[15px] text-slate-500">Enter the 6-digit verification code that was sent to your phone
+            <p class="text-[15px] text-slate-500">Enter the 4-digit verification code that was sent to your phone
                 number.</p>
         </header>
-        <form id="otp-form" method="POST" action="{{ route('verify.wa.otp') }}">
-            @csrf
+        <form id="otp-form">
             <div class="flex items-center justify-center gap-3">
-                @for ($i = 0; $i < 6; $i++)
-                    <input type="text"
-                        class="w-14 h-14 text-center text-2xl font-extrabold text-slate-900 bg-slate-100 border border-transparent hover:border-slate-200 appearance-none rounded p-4 outline-none focus:bg-white focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100"
-                        pattern="\d*" maxlength="1" name="otp[]" required autofocus />
-                @endfor
+                <input type="text"
+                    class="w-14 h-14 text-center text-2xl font-extrabold text-slate-900 bg-slate-100 border border-transparent hover:border-slate-200 appearance-none rounded p-4 outline-none focus:bg-white focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100"
+                    pattern="\d*" maxlength="1" />
+                <input type="text"
+                    class="w-14 h-14 text-center text-2xl font-extrabold text-slate-900 bg-slate-100 border border-transparent hover:border-slate-200 appearance-none rounded p-4 outline-none focus:bg-white focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100"
+                    maxlength="1" />
+                <input type="text"
+                    class="w-14 h-14 text-center text-2xl font-extrabold text-slate-900 bg-slate-100 border border-transparent hover:border-slate-200 appearance-none rounded p-4 outline-none focus:bg-white focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100"
+                    maxlength="1" />
+                <input type="text"
+                    class="w-14 h-14 text-center text-2xl font-extrabold text-slate-900 bg-slate-100 border border-transparent hover:border-slate-200 appearance-none rounded p-4 outline-none focus:bg-white focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100"
+                    maxlength="1" />
             </div>
             @error('otp')
                 <span>{{ $message }}</span>
@@ -180,4 +186,4 @@
     <div>
         <button type="submit">Verify OTP</button>
     </div>
-</form> --}}
+</form>
