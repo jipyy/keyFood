@@ -281,6 +281,10 @@ Route::get('/otp', function () {
     return view('auth.otp-verif');
 });
 
+Route::get('/lc', function () {
+    return view('admin.dashboard-404');
+});
+
 Route::post('/verify-wa-otp', [OtpWaVerificationController::class, 'verify'])->name('verify.wa.otp');
 Route::get('/resend-otp', [OtpWaVerificationController::class, 'resendOtp'])->name('resend.otp');
 

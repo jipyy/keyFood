@@ -86,59 +86,59 @@
                 </li>
             </ul>
             <ul class="list-none">
-            <li class="relative px-6 py-3">
-                <button
-                    class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                    @click="togglePagesMenu" aria-haspopup="true">
-                    <span class="inline-flex items-center">
-                        <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
-                            stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                            <path
-                                d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z">
-                            </path>
+                <li class="relative px-6 py-3">
+                    <button
+                        class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                        @click="togglePagesMenu" aria-haspopup="true">
+                        <span class="inline-flex items-center">
+                            <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
+                                stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                                <path
+                                    d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z">
+                                </path>
+                            </svg>
+                            <span class="ml-4">Pages</span>
+                        </span>
+                        <svg class="w-4 h-4" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                clip-rule="evenodd"></path>
                         </svg>
-                        <span class="ml-4">Pages</span>
-                    </span>
-                    <svg class="w-4 h-4" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd"
-                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                            clip-rule="evenodd"></path>
-                    </svg>
-                </button>
-                <template x-if="isPagesMenuOpen">
-                    <ul x-transition:enter="transition-all ease-in-out duration-300"
-                        x-transition:enter-start="opacity-25 max-h-0" x-transition:enter-end="opacity-100 max-h-xl"
-                        x-transition:leave="transition-all ease-in-out duration-300"
-                        x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0"
-                        class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md shadow-inner bg-gray-50 dark:text-gray-400 dark:bg-gray-900"
-                        aria-label="submenu">
-                        <li
-                            class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
-                            <a class="w-full" href="pages/login.html">Login</a>
-                        </li>
-                        <li
-                            class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
-                            <a class="w-full" href="pages/create-account.html">
-                                Create account
-                            </a>
-                        </li>
-                        <li
-                            class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
-                            <a class="w-full" href="pages/forgot-password.html">
-                                Forgot password
-                            </a>
-                        </li>
-                        <li
-                            class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
-                            <a class="w-full" href="pages/404.html">404</a>
-                        </li>
-                        <li
-                            class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
-                            <a class="w-full" href="pages/blank.html">Blank</a>
-                        </li>
-                    </ul>
-                </template>
-            </li>
+                    </button>
+                    <template x-if="isPagesMenuOpen">
+                        <ul x-transition:enter="transition-all ease-in-out duration-300"
+                            x-transition:enter-start="opacity-25 max-h-0" x-transition:enter-end="opacity-100 max-h-xl"
+                            x-transition:leave="transition-all ease-in-out duration-300"
+                            x-transition:leave-start="opacity-100 max-h-xl" x-transition:leave-end="opacity-0 max-h-0"
+                            class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md shadow-inner bg-gray-50 dark:text-gray-400 dark:bg-gray-900"
+                            aria-label="submenu">
+                            <li
+                                class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+                                <a class="w-full" href="pages/login.html">Login</a>
+                            </li>
+                            <li
+                                class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+                                <a class="w-full" href="pages/create-account.html">
+                                    Create account
+                                </a>
+                            </li>
+                            <li
+                                class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+                                <a class="w-full" href="pages/forgot-password.html">
+                                    Forgot password
+                                </a>
+                            </li>
+                            <li
+                                class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+                                <a class="w-full" href="pages/404.html">404</a>
+                            </li>
+                            <li
+                                class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200">
+                                <a class="w-full" href="pages/blank.html">Blank</a>
+                            </li>
+                        </ul>
+                    </template>
+                </li>
             </ul>
             <div class="px-6 my-6">
                 <a href="{{ route('admin.users.create') }}"
@@ -179,74 +179,74 @@
                     </a>
                 </li>
             </ul>
-                <ul class="list-none">
-                    <li class="relative px-6 py-3">
-                        @if (Request::is('dashboard-cms'))
-                            <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
-                                aria-hidden="true"></span>
-                        @endif
-                        <a class="{{ Request::is('dashboard-cms') ? 'inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100' : 'inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200' }}"
-                            href="/dashboard-cms">
-                            <i class='bx bx-building-house bx-sm'></i>
-                            <span class="ml-4">Company Info</span>
-                        </a>
-                    </li>
-                </ul>
-                <ul class="list-none">
-                    <li class="relative px-6 py-3">
-                        @if (Request::is('admin/users'))
-                            <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
-                                aria-hidden="true"></span>
-                        @endif
-                        <a class="{{ Request::is('admin/users') ? 'inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100' : 'inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200' }}"
-                            href="/admin/users">
-    
-                            <i class='bx bx-user bx-sm'></i>
-                            <span class="ml-4">User</span>
-                        </a>
-                    </li>
-                </ul>
-                <ul class="list-none">
-                    <li class="relative px-6 py-3">
-                        @if (Request::is('admin/stores'))
-                            <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
-                                aria-hidden="true"></span>
-                        @endif
-                        <a class="{{ Request::is('admin/stores') ? 'inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100' : 'inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200' }}"
-                            href="/admin/stores">
-                            <i class='bx bx-store bx-sm'></i>
-                            <span class="ml-4">Toko</span>
-                        </a>
-                    </li>
-                </ul>
-    
-                <ul class="list-none">
-                    <li class="relative px-6 py-3">
-                        @if (Request::is('role-requests'))
-                            <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
-                                aria-hidden="true"></span>
-                        @endif
-                        <a class="{{ Request::is('role-requests') ? 'inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100' : 'inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200' }}"
-                            href="/role-requests">
-                            <i class='bx bx-check-circle bx-sm'></i>
-                            <span class="ml-4">Role Requests</span>
-                        </a>
-                    </li>
-                </ul>
-                <ul class="list-none">
-                    <li class="relative px-6 py-3">
-                        @if (Request::is('admin/categories'))
-                            <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
-                                aria-hidden="true"></span>
-                        @endif
-                        <a class="{{ Request::is('admin/categories') ? 'inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100' : 'inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200' }}"
-                            href="/admin/categories">
-                            <i class='bx bx-list-ul bx-sm'></i>
-                            <span class="ml-4">Categories</span>
-                        </a>
-                    </li>
-                </ul>
-                <ul class="list-none">
+            <ul class="list-none">
+                <li class="relative px-6 py-3">
+                    @if (Request::is('dashboard-cms'))
+                        <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
+                            aria-hidden="true"></span>
+                    @endif
+                    <a class="{{ Request::is('dashboard-cms') ? 'inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100' : 'inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200' }}"
+                        href="/dashboard-cms">
+                        <i class='bx bx-building-house bx-sm'></i>
+                        <span class="ml-4">Company Info</span>
+                    </a>
+                </li>
+            </ul>
+            <ul class="list-none">
+                <li class="relative px-6 py-3">
+                    @if (Request::is('admin/users'))
+                        <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
+                            aria-hidden="true"></span>
+                    @endif
+                    <a class="{{ Request::is('admin/users') ? 'inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100' : 'inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200' }}"
+                        href="/admin/users">
+
+                        <i class='bx bx-user bx-sm'></i>
+                        <span class="ml-4">User</span>
+                    </a>
+                </li>
+            </ul>
+            <ul class="list-none">
+                <li class="relative px-6 py-3">
+                    @if (Request::is('admin/stores'))
+                        <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
+                            aria-hidden="true"></span>
+                    @endif
+                    <a class="{{ Request::is('admin/stores') ? 'inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100' : 'inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200' }}"
+                        href="/admin/stores">
+                        <i class='bx bx-store bx-sm'></i>
+                        <span class="ml-4">Toko</span>
+                    </a>
+                </li>
+            </ul>
+
+            <ul class="list-none">
+                <li class="relative px-6 py-3">
+                    @if (Request::is('role-requests'))
+                        <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
+                            aria-hidden="true"></span>
+                    @endif
+                    <a class="{{ Request::is('role-requests') ? 'inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100' : 'inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200' }}"
+                        href="/role-requests">
+                        <i class='bx bx-check-circle bx-sm'></i>
+                        <span class="ml-4">Role Requests</span>
+                    </a>
+                </li>
+            </ul>
+            <ul class="list-none">
+                <li class="relative px-6 py-3">
+                    @if (Request::is('admin/categories'))
+                        <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
+                            aria-hidden="true"></span>
+                    @endif
+                    <a class="{{ Request::is('admin/categories') ? 'inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100' : 'inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200' }}"
+                        href="/admin/categories">
+                        <i class='bx bx-list-ul bx-sm'></i>
+                        <span class="ml-4">Categories</span>
+                    </a>
+                </li>
+            </ul>
+            <ul class="list-none">
                 <li class="relative px-6 py-3">
                     <button
                         class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
@@ -358,63 +358,16 @@
                             </template>
                         </button>
                     </li>
-                    <!-- Notifications menu -->
-                    {{-- <li class="relative">
-                        <button class="relative align-middle rounded-md focus:outline-none focus:shadow-outline-purple"
-                            @click="toggleNotificationsMenu" @keydown.escape="closeNotificationsMenu"
-                            aria-label="Notifications" aria-haspopup="true">
-                            <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
-                                <path
-                                    d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z">
-                                </path>
-                            </svg>
-                            <!-- Notification badge -->
-                            <span aria-hidden="true"
-                                class="absolute top-0 right-0 inline-block w-3 h-3 transform translate-x-1 -translate-y-1 bg-red-600 border-2 border-white rounded-full dark:border-gray-800"></span>
-                        </button>
-                        <template x-if="isNotificationsMenuOpen">
-                            <ul x-transition:leave="transition ease-in duration-150"
-                                x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
-                                @click.away="closeNotificationsMenu" @keydown.escape="closeNotificationsMenu"
-                                class="absolute right-0 w-56 p-2 mt-2 space-y-2 text-gray-600 bg-white border border-gray-100 rounded-md shadow-md dark:text-gray-300 dark:border-gray-700 dark:bg-gray-700">
-                                <li class="flex">
-                                    <a class="inline-flex items-center justify-between w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-                                        href="#">
-                                        <span>Messages</span>
-                                        <span
-                                            class="inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-600 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-600">
-                                            13
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="flex">
-                                    <a class="inline-flex items-center justify-between w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-                                        href="#">
-                                        <span>Sales</span>
-                                        <span
-                                            class="inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-600 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-600">
-                                            2
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="flex">
-                                    <a class="inline-flex items-center justify-between w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-                                        href="#">
-                                        <span>Alerts</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </template>
-                    </li> --}}
+
                     <!-- Profile menu -->
                     <li class="relative">
                         <button class="align-middle rounded-full focus:shadow-outline-purple focus:outline-none"
                             @click="toggleProfileMenu" @keydown.escape="closeProfileMenu" aria-label="Account"
                             aria-haspopup="true">
                             @if (Auth::check())
-                            <img class="object-cover w-8 h-8 rounded-full"
-                                src="{{ asset(Auth::user()->img ?? './img/client-1.jpg') }}"
-                                alt="" aria-hidden="true" />
+                                <img class="object-cover w-8 h-8 rounded-full"
+                                    src="{{ asset(Auth::user()->img ?? './img/client-1.jpg') }}" alt=""
+                                    aria-hidden="true" />
                         </button>
                         <template x-if="isProfileMenuOpen">
                             <ul x-transition:leave="transition ease-in duration-150"
@@ -422,11 +375,12 @@
                                 @click.away="closeProfileMenu" @keydown.escape="closeProfileMenu"
                                 class="absolute right-0 w-56 p-2 mt-2 space-y-2 text-gray-600 bg-white border border-gray-100 rounded-md shadow-md dark:border-gray-700 dark:text-gray-300 dark:bg-gray-700"
                                 aria-label="submenu">
-                              
+
                                 <div class="flex gap-3 items-center">
                                     <div
                                         class="flex items-center justify-center rounded-lg h-12 w-12 overflow-hidden ">
-                                        <img class="object-cover w-8 h-8 rounded-full" src="{{ asset(Auth::user()->img ?? './img/client-1.jpg') }}"
+                                        <img class="object-cover w-8 h-8 rounded-full"
+                                            src="{{ asset(Auth::user()->img ?? './img/client-1.jpg') }}"
                                             alt="Profile">
                                     </div>
                                     <div style="width: 100%" class="ml-2">
@@ -435,8 +389,9 @@
                                                 {{ strlen(Auth::user()->name) > 16 ? substr(Auth::user()->name, 0, 16) . '...' : Auth::user()->name }}
                                             </span>
                                             <span class="text-sky-400" style="color: aqua;">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                    stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                                    class="h-5 w-5">
                                                     <path stroke-linecap="round" stroke-linejoin="round"
                                                         d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z">
                                                     </path>
@@ -448,7 +403,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                @endif
                                 <li class="flex">
                                     <a class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
                                         href="/dashboard-profile">
@@ -462,37 +416,34 @@
                                         <span class="ml-2">Profile</span>
                                     </a>
                                 </li>
-                                {{-- <li class="flex">
-                                    <a class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-                                        href="#">
-                                        <svg class="w-4 h-4 mr-3" aria-hidden="true" fill="none"
-                                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            viewBox="0 0 24 24" stroke="currentColor">
-                                            <path
-                                                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
-                                            </path>
-                                            <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                        </svg>
-                                        <span>Settings</span>
-                                    </a>
-                                </li> --}}
+
                                 <form method="POST" action="{{ route('logout') }}">
-                                <li class="flex">
+                                    <li class="flex">
                                         @csrf
-                                    <a href="/logout" onclick="event.preventDefault();
-                                    this.closest('form').submit();" class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-                                        href="/logout">
-                                        <svg class="w-4 h-4 mr-3" aria-hidden="true" fill="none"
-                                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            viewBox="0 0 24 24" stroke="currentColor">
-                                            <path
-                                                d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1">
-                                            </path>
-                                        </svg>
-                                        <span class="ml-2">Log out</span>
+                                        <a href="/logout"
+                                            onclick="event.preventDefault();
+                                    this.closest('form').submit();"
+                                            class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
+                                            href="/logout">
+                                            <svg class="w-4 h-4 mr-3" aria-hidden="true" fill="none"
+                                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                <path
+                                                    d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1">
+                                                </path>
+                                            </svg>
+                                            <span class="ml-2">Log out</span>
+                                        </a>
+                                    </li>
+                                </form>
+                            @else
+                                <div class="mb-4 pt-5 flex justify-start">
+                                    <a href="{{ route('log-reg') }}"
+                                        class="px-4 py-2 bg-blue-500 text-white rounded-lg dark:bg-gray-700 dark:text-white">
+                                        Login
                                     </a>
-                                </li>
-                            </form>
+                                </div>
+                                @endif
 
                             </ul>
                         </template>
