@@ -1,9 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FaqController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\TokoController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\OtpWaController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
@@ -13,10 +15,9 @@ use App\Http\Controllers\RoleRequestController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\ProductOrderController;
 use App\Http\Controllers\Auth\SocialiteController;
+use App\Http\Controllers\OtpWaVerificationController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
-use App\Http\Controllers\OtpWaController;
-use App\Http\Controllers\OtpWaVerificationController;
 
 
 
@@ -291,3 +292,5 @@ Route::post('/save-cart', [CartController::class, 'saveCart'])->name('save-cart'
 Route::get('/get-alamat-by-cluster/{id}', [CheckoutController::class, 'getAlamatByCluster']);
 Route::get('/get-nomor-by-blok/{blokId}', [CheckoutController::class, 'getNomorByBlok']);
 // Route::post('role-request/store', [RoleRequestController::class, 'store'])->name('role-request.store');
+Route::resource('faqs', FaqController::class);
+Route::get('/faq', [FaqController::class, 'showFaqPage'])->name('faq.page');
