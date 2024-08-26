@@ -19,7 +19,7 @@
                     </div>
                     <div>
                         <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                            Total clients
+                            Total Users
                         </p>
                         <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
                             {{ $totalUser }}
@@ -112,7 +112,7 @@
                                             <!-- Avatar with inset shadow -->
                                             <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
                                                 <img class="object-cover w-full h-full rounded-full"
-                                                    src="{{ $order->user->img }}" alt="user" loading="lazy" />
+                                                    src="http://127.0.0.1:8000/{{ $order->user->img }}" alt="user" loading="lazy" />
                                                 <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true">
                                                 </div>
                                             </div>

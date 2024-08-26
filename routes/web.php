@@ -65,7 +65,7 @@ Route::get('/edit-profile', function () {
     return view('edit-profile');
 });
 
-Route::get('/seller-page', [SellerEditController::class, 'index']);
+Route::get('/seller-page', [SellerEditController::class, 'index'])->name('seller-edit');
 
 Route::get('/stores', [TokoController::class, 'showStores']);
 Route::post('/detailed-store', [TokoController::class, 'detailStore']);
@@ -311,4 +311,6 @@ Route::get('/get-nomor-by-blok/{blokId}', [CheckoutController::class, 'getNomorB
 
 Route::resource('faqs', FaqController::class);
 Route::get('/faq', [FaqController::class, 'showFaqPage'])->name('faq.page');
+
+
 Route::get('/admin/history', [AdminHistoryController::class, 'index'])->name('admin.history.index');

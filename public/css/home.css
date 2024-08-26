@@ -229,3 +229,30 @@ body.dark #opened{
     body.dark .ring-slate-100 {
             border-color: #e2e8f0;
     }
+
+/* ini ada di dropdown profile, semuanya merupakan singkatan
+
+button profile, button seller, button history */
+    .dark .but-prof:hover{
+        background-color: #1a202c;
+    }
+
+    .but-prof:hover{
+        background-color: #f6f5ff;
+    }
+
+    .but-sel:hover{
+        background-color: #f6f5ff;
+    }
+
+    .dark .but-sel:hover{
+        background-color: #1a202c;
+    }
+
+    .but-his{
+        background-color: #f6f5ff;
+    }
+
+    .dark .but-his{
+        background-color: #1a202c;
+    }
