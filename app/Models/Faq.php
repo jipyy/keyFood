@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Traits\RecordsAdminHistory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Faq extends Model
 {
-    use HasFactory;
+    use HasFactory, RecordsAdminHistory;
 
     protected $fillable = ['title', 'content'];
 }

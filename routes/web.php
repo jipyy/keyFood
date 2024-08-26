@@ -12,6 +12,7 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\SellerEditController;
 use App\Http\Controllers\RoleRequestController;
 use App\Http\Controllers\UserProfileController;
+use App\Http\Controllers\AdminHistoryController;
 use App\Http\Controllers\ProductOrderController;
 use App\Http\Controllers\Auth\SocialiteController;
 use App\Http\Controllers\OtpWaVerificationController;
