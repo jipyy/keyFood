@@ -24,7 +24,23 @@
         </div>
 
         <!-- content -->
-      
+          @foreach ($stores as $store)
+          <form action="/detailed-store" method="POST">
+              @csrf
+              <input type="hidden" value="{{ $store->nama_toko }}" name="nama_toko">
+              <button type="submit">
+                  <div class="container-s" id="visit">
+                      <div class="user-s">
+                          <img src="{{ asset($store->foto_profile_toko) }}" class="user-icon-s">
+                          <div class="user-info-s">
+                              <div class="user-name-s">{{ $store->nama_toko }}</div>
+                              <div class="user-description-s">{{ $store->alamat_toko }}</div>
+                          </div>
+                      </div>
+                  </div>
+              </button>
+          </form>
+      @endforeach
 
         <!-- Custom CSS for Animations -->
         <style>
