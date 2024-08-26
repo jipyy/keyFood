@@ -66,17 +66,14 @@ Route::get('/edit-profile', function () {
 
 Route::get('/seller-page', [SellerEditController::class, 'index']);
 
-Route::get('/stores', function () {
-    return view('stores');
-});
+Route::get('/stores', [TokoController::class, 'showStores']);
+Route::post('/detailed-store', [TokoController::class, 'detailStore']);
 
 Route::get('/profile-user', function () {
     return view('/profile-user');
 });
 
-Route::get('/detailed-store', function () {
-    return view('halaman-toko');
-});
+
 
 Route::get('/term-condition', function () {
     return view('term-condition');
