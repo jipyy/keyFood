@@ -23,6 +23,7 @@
                 </div>
             @endif
 
+        <div class="flex justify-between mb-4">
             <!-- Add New User Button -->
             <a href="{{ route('admin.users.create') }}"
                 class="mb-6 inline-block px-4 py-2 bg-indigo-600 text-black rounded-lg dark:text-white">
@@ -59,7 +60,7 @@
                     </div>
                 </div>
             </div>
-
+        </div>
 
             {{-- ini cards --}}
             <div class="container-profile">
@@ -213,7 +214,7 @@
 
                             // Get the selected role from the clicked dropdown item
                             const selectedRole = this.getAttribute('data-roles');
-                            
+
                             // document.querySelector('.btn').textContent = selectedRole; //untuk mengubah text pada btn dropdown
 
                             // Get all the user profile rows
