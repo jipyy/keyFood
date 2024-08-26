@@ -143,7 +143,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
     // Route::resource('products_orders', ProductOrderController::class);
 
     //route admin new
-    Route::get('/main-admin', [PaymentController::class, 'index'])->name('admin.dashboard-main')->middleware('permission:main-admin');
+    Route::get('/main-admin', [PaymentController::class, 'index'])->name('dashboard-main')->middleware('permission:main-admin');
 
     Route::get('/dashboard-cms', function () {
         return view('admin.dashboard-cms');

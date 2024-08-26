@@ -7,10 +7,28 @@
             localStorage.removeItem('cart');
         </script>
     @endif
-    <section class="my-20 mx-5" id="history">
-        @if ($orders->isEmpty())
-            <p class="my-20 mx-20">No orders found.</p>
-        @else
+    @if ($orders->isEmpty())
+        <section class="bg-tranparent min-h-screen flex items-center justify-center p-4">
+            <div class="bg-white rounded-2xl shadow-xl p-8 max-w-md w-full">
+                <div class="relative mb-8">
+                    <img src="{{ asset('../img/no-order.png') }}" alt="Empty box" class="w-40 h-40 mx-auto" />
+                </div>
+                <h2 class="text-3xl font-bold mb-4 text-gray-800">Pesanan Masih Kosong:(</h2>
+                <p class="text-gray-600 mb-8"> Anda belum memesan apa pun. Temukan produk-produk menarik kami dan tambahkan
+                    ke keranjang belanja Anda!</p>
+                <a href="/categories">
+                    <button
+                        class="w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white font-semibold py-3 px-6 rounded-full hover:from-pink-600 hover:to-purple-700 transition duration-300 transform hover:scale-105">
+                        Ayo Beli Sesuatu!
+                    </button>
+                </a>
+                <div class="mt-6 text-center">
+                    <a href="/faq" class="text-sm text-purple-600 hover:text-purple-800 transition duration-300">Butuh Bantuan? Chat Kami</a>
+                </div>
+            </div>
+        </section>
+    @else
+        <section class="my-20 mx-5" id="history">
             @foreach ($orders as $order)
                 <div class="history-container my-7 border border-gray-300 pt-9 rounded-lg">
                     <div class="flex max-md:flex-col items-center justify-between px-3 md:px-11">
@@ -102,6 +120,6 @@
                     </div>
                 </div>
             @endforeach
-        @endif
+    @endif
     </section>
 @endsection
