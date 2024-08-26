@@ -63,7 +63,7 @@
                     var minutes = Math.floor(countdownTime / 60);
                     var seconds = countdownTime % 60;
 
-                    countdownElement.innerHTML = Resend available in ${minutes}:${seconds < 10 ? '0' : ''}${seconds};
+                    countdownElement.innerHTML = `Resend available in ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
 
                     if (countdownTime > 0) {
                         countdownTime--;
@@ -117,7 +117,7 @@
                 const handlePaste = (e) => {
                     e.preventDefault();
                     const text = e.clipboardData.getData('text');
-                    if (!new RegExp(^[0-9]{${inputs.length}}$).test(text)) {
+                    if (!new RegExp(`^[0-9]{${inputs.length}}$`).test(text)) {
                         return;
                     }
                     const digits = text.split('');
