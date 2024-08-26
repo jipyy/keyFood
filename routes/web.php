@@ -311,3 +311,6 @@ Route::get('/get-nomor-by-blok/{blokId}', [CheckoutController::class, 'getNomorB
 
 Route::resource('faqs', FaqController::class);
 Route::get('/faq', [FaqController::class, 'showFaqPage'])->name('faq.page');
+
+
+Route::get('/admin/history', [AdminHistoryController::class, 'index'])->name('admin.history.index');
