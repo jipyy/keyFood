@@ -138,9 +138,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
     //route admin old
 
-    Route::resource('categories', CategoryController::class)->middleware('role:admin');
-    Route::resource('products', ProductController::class);
-    Route::resource('products_orders', ProductOrderController::class);
+    // Route::resource('categories', CategoryController::class)->middleware('role:admin');
+    // Route::resource('products', ProductController::class);
+    // Route::resource('products_orders', ProductOrderController::class);
 
     //route admin new
     Route::get('/main-admin', [PaymentController::class, 'index'])->name('dashboard-main')->middleware('permission:main-admin');
@@ -152,8 +152,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('users', UserController::class)->middleware('permission:users');
 
     Route::resource('stores', TokoController::class)->middleware('permission:stores');
-
-    // Route::resource('role-requests', RoleRequestController::class)->middleware('permission:role-requests');
 
     Route::get('/role-requests', [RoleRequestController::class, 'index'])->name('role-requests.index')->middleware('permission:role-requests');
 
