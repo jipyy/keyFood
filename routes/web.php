@@ -12,6 +12,7 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\SellerEditController;
 use App\Http\Controllers\RoleRequestController;
 use App\Http\Controllers\UserProfileController;
+use App\Http\Controllers\AdminHistoryController;
 use App\Http\Controllers\ProductOrderController;
 use App\Http\Controllers\Auth\SocialiteController;
 use App\Http\Controllers\OtpWaVerificationController;
@@ -64,19 +65,16 @@ Route::get('/edit-profile', function () {
     return view('edit-profile');
 });
 
-Route::get('/seller-page', [SellerEditController::class, 'index']);
+Route::get('/seller-page', [SellerEditController::class, 'index'])->name('seller-edit');
 
-Route::get('/stores', function () {
-    return view('stores');
-});
+Route::get('/stores', [TokoController::class, 'showStores']);
+Route::post('/detailed-store', [TokoController::class, 'detailStore']);
 
 Route::get('/profile-user', function () {
     return view('/profile-user');
 });
 
-Route::get('/detailed-store', function () {
-    return view('halaman-toko');
-});
+
 
 Route::get('/term-condition', function () {
     return view('term-condition');
