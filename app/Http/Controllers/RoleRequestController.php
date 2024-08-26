@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\RoleRequest;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
+use App\Models\Store;
+use App\Models\Toko;
 use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class RoleRequestController extends Controller
 {
@@ -22,41 +23,46 @@ class RoleRequestController extends Controller
 
     public function approve($id)
     {
-        // Delete existing role request entries with the given model_id and role_id = 2
-        RoleRequest::where('model_id', $id) // Remove existing role requests with role_id = 3
-            ->where('role_id', 3)
-            ->delete();
+        // Temukan request berdasarkan ID
+        $roleRequest = DB::table('role_change_requests')->where('user_id', $id)->first();
 
-        // Create a new role request entry for the approved role
-        $roleRequest = new RoleRequest;
-        $roleRequest->role_id = 2; // Assign the role ID for approval
-        $roleRequest->model_type = 'App\Models\User';
-        $roleRequest->model_id = $id;
-        $roleRequest->save();
+        if ($roleRequest) {
+            // Hapus request yang ada
+            DB::table('role_change_requests')->where('user_id', $id)->delete();
 
-        // Also delete the corresponding entry in the role_change_requests table
-        DB::table('role_change_requests')
-            ->where('user_id', $id) // Use $id to match user_id/model_id
-            ->delete();
+            // Temukan pengguna berdasarkan ID
+            $user = User::find($id);
 
-        // Redirect back with a success message
-        return redirect()->back()->with('success', 'Role changed successfully.');
+            if ($user) {
+                // Tambahkan role seller ke pengguna
+                $user->assignRole('seller');
+
+                // Buat akun toko untuk pengguna
+                $store = new Toko();
+                $store->id_seller = $user->id;
+                $store->nama_toko = 'Nama Toko Baru'; // Ganti sesuai kebutuhan
+                $store->alamat_toko = 'Alamat Toko'; // Ganti sesuai kebutuhan
+                $store->foto_profile_toko = 'default.png'; // Ganti sesuai kebutuhan
+                $store->save();
+
+                // Redirect dengan pesan sukses
+                return redirect()->back()->with('success', 'Role seller telah diterima dan akun toko telah dibuat.');
+            } else {
+                return redirect()->back()->with('error', 'Pengguna tidak ditemukan.');
+            }
+        }
+
+        return redirect()->back()->with('error', 'Permintaan tidak ditemukan.');
     }
-
-
 
     public function cancel($id)
     {
-        // Also delete the corresponding entry in the role_change_requests table
-        DB::table('role_change_requests')
-            ->where('user_id', $id) // Use $id to match user_id/model_id
-            ->delete();
+        // Hapus request yang ada
+        DB::table('role_change_requests')->where('user_id', $id)->delete();
 
-        // Redirect back with a cancel message
-        return redirect()->back()->with('info', 'Role change request canceled.');
+        // Redirect dengan pesan info
+        return redirect()->back()->with('info', 'Permintaan perubahan role dibatalkan.');
     }
-
-
 
     public function store(Request $request)
     {
@@ -72,7 +78,7 @@ class RoleRequestController extends Controller
             ->first();
 
         if ($existingRequest) {
-            return redirect()->back()->with('error', 'A role change request for this user already exists.');
+            return redirect()->back()->with('error', 'Permintaan perubahan role untuk pengguna ini sudah ada.');
         }
 
         // Simpan data ke database
@@ -83,6 +89,6 @@ class RoleRequestController extends Controller
             'updated_at' => now(),
         ]);
 
-        return redirect()->back()->with('success', 'Role change request submitted successfully.');
+        return redirect()->back()->with('success', 'Permintaan perubahan role berhasil dikirim.');
     }
 }
