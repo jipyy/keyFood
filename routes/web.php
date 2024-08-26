@@ -135,12 +135,30 @@ Route::prefix('seller')->name('seller.')->group(function () {
 
 // ROUTE ADMIN  PAGE
 Route::prefix('admin')->name('admin.')->group(function () {
-    Route::resource('categories', CategoryController::class)->middleware('role:admin');
-    Route::resource('products', ProductController::class);
-    Route::resource('products_orders', ProductOrderController::class);
+
+    //route admin old
+
     // Route::resource('categories', CategoryController::class)->middleware('role:admin');
-    Route::resource('users', UserController::class);
-    Route::resource('stores', TokoController::class);
+    // Route::resource('products', ProductController::class);
+    // Route::resource('products_orders', ProductOrderController::class);
+
+    //route admin new
+    Route::get('/main-admin', [PaymentController::class, 'index'])->name('dashboard-main')->middleware('permission:main-admin');
+
+    Route::get('/dashboard-cms', function () {
+        return view('admin.dashboard-cms');
+    })->middleware('permission:dasboard-cms');
+
+    Route::resource('users', UserController::class)->middleware('permission:users');
+
+    Route::resource('stores', TokoController::class)->middleware('permission:stores');
+
+    Route::get('/role-requests', [RoleRequestController::class, 'index'])->name('role-requests.index')->middleware('permission:role-requests');
+
+    Route::resource('categories', CategoryController::class)->middleware('role:admin');
+
+
+
 });
 
 
@@ -217,19 +235,17 @@ Route::get('/categories', [ProductController::class, 'showProducts'])->name('pro
 Route::get('/categories/search', [ProductController::class, 'search'])->name('search');
 
 Route::get('/categories', [CategoryController::class, 'showCategories'])->name('categories.index');
-Route::get('/main-admin', [PaymentController::class, 'index'])->name('admin.dashboard-main');
+// Route::get('/main-admin', [PaymentController::class, 'index'])->name('admin.dashboard-main');
 
 
-
+//INI ROLE REQUEST FUNCTION
 Route::post('/role-request/approve/{id}', [RoleRequestController::class, 'approve'])->name('role-request.approve');
 Route::post('/role-request/cancel/{id}', [RoleRequestController::class, 'cancel'])->name('role-request.cancel');
 // Route::post('/role-request/store/{id}', [RoleRequestController::class, 'store'])->name('role-request.store');
 Route::post('/role-request/store', [RoleRequestController::class, 'store'])->name('role-request.store');
 
 
-Route::get('/dashboard-cms', function () {
-    return view('admin.dashboard-cms');
-});
+
 
 Route::get('/dashboard-forms', function () {
     return view('admin.dashboard-forms');
@@ -290,11 +306,10 @@ Route::post('/verify-wa-otp', [OtpWaVerificationController::class, 'verify'])->n
 Route::get('/resend-otp', [OtpWaVerificationController::class, 'resendOtp'])->name('resend.otp');
 
 
-Route::get('/role-requests', [RoleRequestController::class, 'index'])->name('role-requests.index');
 Route::post('/save-cart', [CartController::class, 'saveCart'])->name('save-cart');
 
 Route::get('/get-alamat-by-cluster/{id}', [CheckoutController::class, 'getAlamatByCluster']);
 Route::get('/get-nomor-by-blok/{blokId}', [CheckoutController::class, 'getNomorByBlok']);
-// Route::post('role-request/store', [RoleRequestController::class, 'store'])->name('role-request.store');
+
 Route::resource('faqs', FaqController::class);
 Route::get('/faq', [FaqController::class, 'showFaqPage'])->name('faq.page');

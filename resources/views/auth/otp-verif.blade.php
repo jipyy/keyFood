@@ -13,10 +13,12 @@
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="{{ asset('../img/whatsapp.png') }}">
+
 </head>
 
 <body>
-    <div class="max-w-md mx-auto text-center bg-white px-4 sm:px-8 py-10 rounded-xl shadow">
+    <div class="max-w-md mx-auto my-20 max-lg:my-40 text-center bg-white px-4 sm:px-8 py-10 rounded-xl shadow">
         <header class="mb-8">
             <h1 class="text-2xl font-bold mb-1">Mobile Phone Verification</h1>
             <p class="text-[15px] text-slate-500">Enter the 6-digit verification code that was sent to your phone
@@ -63,7 +65,7 @@
                     var minutes = Math.floor(countdownTime / 60);
                     var seconds = countdownTime % 60;
 
-                    countdownElement.innerHTML = Resend available in ${minutes}:${seconds < 10 ? '0' : ''}${seconds};
+                    countdownElement.innerHTML = `Resend available in ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
 
                     if (countdownTime > 0) {
                         countdownTime--;
@@ -117,7 +119,7 @@
                 const handlePaste = (e) => {
                     e.preventDefault();
                     const text = e.clipboardData.getData('text');
-                    if (!new RegExp(^[0-9]{${inputs.length}}$).test(text)) {
+                    if (!new RegExp(`^[0-9]{${inputs.length}}$`).test(text)) {
                         return;
                     }
                     const digits = text.split('');
