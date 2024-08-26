@@ -24,57 +24,56 @@
         </div>
 
         <!-- content -->
-        @foreach ($stores as $store)
-            <form action="/detailed-store" method="POST">
-                @csrf
-                <input type="hidden" value="{{ $store->nama_toko }}" name="nama_toko">
-                <button type="submit">
-                    <div class="container-s" id="visit">
-                        <div class="user-s">
-                            <img src="{{ asset($store->foto_profile_toko) }}" class="user-icon-s">
-                            <div class="user-info-s">
-                                <div class="user-name-s">{{ $store->nama_toko }}</div>
-                                <div class="user-description-s">{{ $store->alamat_toko }}</div>
-                            </div>
-                        </div>
-                    </div>
-                </button>
-            </form>
-        @endforeach
-        {{-- <a href="/detailed-store">
-     <div class="container-s" id="visit">
-        <div class="user-s">
-            <img src="{{ asset('img/2.png') }}" class="user-icon-s">
-            <div class="user-info-s">
-              <div class="user-name-s">Toko 2</div>
-              <div class="user-description-s">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, mollitia ex et laborum id iure blanditiis dignissimos libero, vero in voluptate ad voluptatem, fugiat ratione labore repellat suscipit aut maxime!</div>
-            </div>
-        </div>
-    </div>
-    </a>
-    <a href="/detailed-store">
-        <div class="container-s" id="visit">
-            <div class="user-s">
-                <img src="{{ asset('img/2.png') }}" class="user-icon-s">
-                <div class="user-info-s">
-                  <div class="user-name-s">Toko 2</div>
-                  <div class="user-description-s">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, mollitia ex et laborum id iure blanditiis dignissimos libero, vero in voluptate ad voluptatem, fugiat ratione labore repellat suscipit aut maxime!</div>
-                </div>
-            </div>
-        </div>
-    </a>
-    
-    <a href="/detailed-store">
-    <div class="container-s" id="visit">
-        <div class="user-s">
-            <img src="{{ asset('img/2.png') }}" class="user-icon-s">
-            <div class="user-info-s">
-              <div class="user-name-s">Toko 2</div>
-              <div class="user-description-s">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, mollitia ex et laborum id iure blanditiis dignissimos libero, vero in voluptate ad voluptatem, fugiat ratione labore repellat suscipit aut maxime!</div>
-            </div>
-        </div>
-    </div>
-    </a>
-</section> --}}
-        <!-- search -->
-    @endsection
+      
+
+        <!-- Custom CSS for Animations -->
+        <style>
+            .fade-in {
+                opacity: 0;
+                transform: translateY(-20px);
+                animation: fadeIn 0.5s forwards;
+            }
+
+            .fade-out {
+                animation: fadeOut 0.5s forwards;
+            }
+
+            @keyframes fadeIn {
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            @keyframes fadeOut {
+                to {
+                    opacity: 0;
+                    transform: translateY(-20px);
+                }
+            }
+        </style>
+
+        <!-- Script -->
+        <script>
+            const toggleButton = document.getElementById('toggleButton');
+            const formSection = document.getElementById('formSection');
+            const cancelButton = document.getElementById('cancelButton');
+
+            toggleButton.addEventListener('click', () => {
+                formSection.classList.remove('hidden', 'fade-out');
+                formSection.classList.add('fade-in');
+            });
+
+            cancelButton.addEventListener('click', () => {
+                formSection.classList.add('fade-out');
+                formSection.addEventListener('animationend', () => {
+                    formSection.classList.add('hidden');
+                }, {
+                    once: true
+                });
+            });
+        </script>
+
+    </section>
+    <!-- search -->
+@endsection

@@ -52,17 +52,43 @@ class PermissionSeeder extends Seeder
             ['name' => 'product_transactions']
         );
 
+        // permission admin new
+        $permission5 = Permission::updateOrCreate(
+            ['name' => 'main-admin',],
+            ['name' => 'main-admin']
+        );
+        $permission6 = Permission::updateOrCreate(
+            ['name' => 'dasboard-cms',],
+            ['name' => 'dasboard-cms']
+        );
+        $permission7 = Permission::updateOrCreate(
+            ['name' => 'users',],
+            ['name' => 'users']
+        );
+        $permission8 = Permission::updateOrCreate(
+            ['name' => 'stores',],
+            ['name' => 'stores']
+        );
+        $permission9 = Permission::updateOrCreate(
+            ['name' => 'role-requests',],
+            ['name' => 'role-requests']
+        );
 
+        //new
+        $adminRole->givePermissionTo($permission5);
+        $adminRole->givePermissionTo($permission6);
+        $adminRole->givePermissionTo($permission7);
+        $adminRole->givePermissionTo($permission8);
+        $adminRole->givePermissionTo($permission9);
 
-
-
+        //old
         $adminRole->givePermissionTo($permission);
         $adminRole->givePermissionTo($permission2);
         $sellerRole->givePermissionTo($permission3);
         $sellerRole->givePermissionTo($permission4);
 
         //Menmbahkan manual kepada id user role tertentu
-        $user = User::find(17);
-        $user->assignRole($adminRole);
+        // $user = User::find(17);
+        // $user->assignRole($adminRole);
     }
 }
