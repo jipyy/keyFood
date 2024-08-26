@@ -220,63 +220,65 @@
                     </div>
                 </section>
 
-                <section class="section__container client__container" id="client">
-                    <h2 class="section__header">What Our Customers Are Saying</h2>
-                    <p class="section__description">
-                        Discover firsthand experiences and testimonials from our valued patrons.
-                        Explore the feedback and reviews that showcase our commitment to
-                        quality, service, and customer satisfaction.
-                    </p>
-                    <div class="client__swiper">
-                        <!-- Slider main container -->
-                        <div class="swiper">
-                            <!-- Additional required wrapper -->
-                            <div class="swiper-wrapper">
-                                <!-- Slides -->
-                                <div class="swiper-slide">
-                                    <div class="client__card">
-                                        <p>
-                                            FoodMan's culinary expertise never fails to impress! Every
-                                            dish is a masterpiece, bursting with flavor and freshness.
-                                        </p>
-                                        <img src="{{ asset('../img/client-1.jpg') }}" alt="client"
-                                            class="header-img" />
-                                        <h4>David Lee</h4>
-                                        <h5>Business Executive</h5>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="client__card">
-                                        <p>
-                                            I always turn to FoodMan for a quick and delicious meal. Their
-                                            efficient service and mouthwatering options never disappoint!
-                                        </p>
-                                        <img src="{{ asset('../img/client-2.jpg') }}" alt="client" />
-                                        <h4>Emily Johnson</h4>
-                                        <h5>Food Blogger</h5>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="client__card">
-                                        <p>
-                                            FoodMan has become my go-to for all my catering needs. Their
-                                            attention to detail and exceptional customer service make
-                                            every event a success.
-                                        </p>
-                                        <img src="{{ asset('../img/client-3.jpg') }}" alt="client" />
-                                        <h4>Michael Thompson</h4>
-                                        <h5>Event Planner</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- If we need pagination -->
-                            <div class="swiper-pagination"></div>
+             
+    </section>
+
+    <section class="section__container client__container" id="client">
+        <h2 class="section__header">What Our Customers Are Saying</h2>
+        <p class="section__description">
+            Discover firsthand experiences and testimonials from our valued patrons.
+            Explore the feedback and reviews that showcase our commitment to
+            quality, service, and customer satisfaction.
+        </p>
+        <div class="client__swiper">
+            <!-- Slider main container -->
+            <div class="swiper">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide">
+                        <div class="client__card">
+                            <p>
+                                FoodMan's culinary expertise never fails to impress! Every
+                                dish is a masterpiece, bursting with flavor and freshness.
+                            </p>
+                            <img src="{{ asset('../img/client-1.jpg') }}" alt="client" class="header-img" />
+                            <h4>David Lee</h4>
+                            <h5>Business Executive</h5>
                         </div>
                     </div>
-                </section>
-
+                    <div class="swiper-slide">
+                        <div class="client__card">
+                            <p>
+                                I always turn to FoodMan for a quick and delicious meal. Their
+                                efficient service and mouthwatering options never disappoint!
+                            </p>
+                            <img src="{{ asset('../img/client-2.jpg') }}" alt="client" />
+                            <h4>Emily Johnson</h4>
+                            <h5>Food Blogger</h5>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="client__card">
+                            <p>
+                                FoodMan has become my go-to for all my catering needs. Their
+                                attention to detail and exceptional customer service make
+                                every event a success.
+                            </p>
+                            <img src="{{ asset('../img/client-3.jpg') }}" alt="client" />
+                            <h4>Michael Thompson</h4>
+                            <h5>Event Planner</h5>
+                        </div>
+                    </div>
+                </div>
+                <!-- If we need pagination -->
+                <div class="swiper-pagination"></div>
             </div>
         </div>
+    </section>
+
+    </div>
+    </div>
     </section>
 
 

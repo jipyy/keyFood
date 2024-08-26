@@ -14,10 +14,10 @@
       
         if (screenWidth > 850) {
           dropdown.style.display = 'flex';
-          profileCard.style.display = 'none';
+          profileCard.style.display = 'flex';
         } else {
           dropdown.style.display = 'flex';
-          profileCard.style.display = 'none';
+          profileCard.style.display = 'flex';
         }
       }
       
@@ -25,11 +25,7 @@
         const screenWidth = window.innerWidth;
         const dropdown = document.getElementById('dropdown');
         const profileCard = document.getElementById('profileCard');
-      
-        if (screenWidth > 850) {
-          dropdown.style.display = 'none';
-          profileCard.style.display = 'none';
-        }
+    
       });
 
 
