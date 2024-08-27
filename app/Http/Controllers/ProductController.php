@@ -210,7 +210,8 @@ class ProductController extends Controller
         $categoryName = $request->input('category');
     
         // Start the query builder
-        $productQuery = Product::query();
+        $productQuery = Product::with(['category', 'toko']);
+
     
         // Filter by search query
         if ($query) {
@@ -227,9 +228,15 @@ class ProductController extends Controller
     
         // Paginate the results
         $products = $productQuery->paginate(10);
+        $category = Category::all();
     
         // Return the paginated products as JSON
         return response()->json($products);
+        // return response()->json([
+        //     'products' => $products,
+        //     'category' => $category,
+        // ]);
+
     }
     
 }
