@@ -105,16 +105,17 @@
                         $('#product-list').empty(); // Kosongkan daftar produk sebelumnya
     
                         const products = data.data || []; // Pastikan data yang diterima adalah array produk
-    
+                        console.log(products);
                         if (Array.isArray(products) && products.length > 0) {
                             $.each(products, function(index, product) {
+                                console.log(product.category_id);
                                 var productHtml = `
-                                    <div class="product-box" data-category-name="${product.category ? product.category.name : 'Unknown'}">
+                                    <div class="product-box" data-category="${product.category_id ? product.category.name : 'gaada id'}">
                                         <img alt="${product.name}" src="{{ asset('') }}${product.photo}">
                                         <strong>${product.name}</strong>
                                         <span class="quantity">Store: ${product.toko ? product.toko.nama_toko : 'Unknown'}</span>
                                         <span class="price">Rp ${new Intl.NumberFormat('id-ID').format(product.price)}</span>
-                                        <a href="javascript:void(0)" data-product-id="${product.id}" class="cart-btn">
+                                        <a href="javascript:void(0)" data-product-id="${product.id}" data-store-id="${product.store_id}" data-category-id="${product.category_id}" class="cart-btn">
                                             <i class="fas fa-shopping-bag"></i> Tambah Ke Keranjang
                                         </a>
                                         <a href="#" class="view-btn"><i class="far fa-eye"></i></a>
