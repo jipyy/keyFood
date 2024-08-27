@@ -249,10 +249,10 @@ button profile, button seller, button history */
         background-color: #1a202c;
     }
 
-    .but-his{
+    .but-his:hover{
         background-color: #f6f5ff;
     }
 
-    .dark .but-his{
+    .dark .but-his:hover{
         background-color: #1a202c;
     }
