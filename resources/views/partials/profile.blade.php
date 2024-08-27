@@ -60,7 +60,7 @@
                         </a>
                     @else
                         <a href="/history"
-                            class="lg:hidden flex items-center gap-3 rounded-md py-2 px-3 but-his">
+                            class="lg:hidden flex items-center gap-3 rounded-md py-2 px-3 mb-2 but-his">
                             <?xml version="1.0" ?><svg height="21px" version="1.1" viewBox="0 0 20 21" width="20px"
                                 xmlns="http://www.w3.org/2000/svg"
                                 xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
