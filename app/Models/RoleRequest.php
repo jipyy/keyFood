@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Traits\RecordsAdminHistory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Models\User; // Import User model if not already imported
 
 class RoleRequest extends Model
 {
-    use HasFactory;
+    use HasFactory, RecordsAdminHistory;
 
     protected $table = 'model_has_roles'; // Assuming you have a custom table for role requests
 

@@ -160,6 +160,7 @@
                             alert(errorData.message);
                         }
                     } catch (error) {
+                        console.log();
                         console.error('Error:', error);
                         alert('An error occurred. Please try again.');
                     }
