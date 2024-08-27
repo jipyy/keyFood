@@ -173,7 +173,8 @@ $(function() {
 });
 
 $(document).ready(function() {
-    $('.cart-btn').on('click', function() {
+    // cart buttons
+    $(document).on('click', '.cart-btn', function() {
         let productId = $(this).data('product-id');
         let storeId = $(this).data('store-id'); // Ambil store_id dari data atribut
         let categoryId = $(this).data('category-id'); // Ambil category_id dari data atribut
@@ -198,7 +199,7 @@ $(document).ready(function() {
         getData();
     });
 
-
+    // decrement buttons
     $(document).on('click', '.decrement', function() {
         let productId = $(this).data('decrement-id');
         let cart = JSON.parse(localStorage.getItem('cart')) || {};
@@ -215,24 +216,22 @@ $(document).ready(function() {
         getData();
     });
 
-    
+    //  increment buttons
     $(document).on('click', '.increment', function() {
         let productId = $(this).data('increment-id');
         let cart = JSON.parse(localStorage.getItem('cart')) || {};
 
         if (cart[productId]) {
-            if (cart[productId].quantity > 0) {
+            if (cart[productId].quantity >= 0) {
                 cart[productId].quantity++;
-            } else {
-                delete cart[productId];
             }
         }
 
         localStorage.setItem('cart', JSON.stringify(cart));
         getData();
     });
-    
 
+    // remove buttons
     $(document).on('click', '.remove', function() {
         let productId = $(this).data('remove-id');
         let cart = JSON.parse(localStorage.getItem('cart')) || {};
