@@ -57,6 +57,7 @@
 
     <div class="container md:my-10" id="container">
         @include('partials.profile')
+        {{-- @include('partials.live-chat') --}}
         @yield('container')
     </div>
 
