@@ -24,16 +24,19 @@ trait RecordsAdminHistory
 
     protected static function recordHistory($model, $action)
     {
+        // Ambil nilai name jika ada, atau nilai default jika tidak ada
+        $name = $model->getAttribute('name') ?? '';
+
+        // Siapkan data perubahan
+        $changes = $name;
+        Log::info($changes);  // Debugging: Log perubahan ke file log
+
         $history = new AdminHistory();
         $history->admin_id = auth()->id();
         $history->action = $action;
         $history->affected_model = get_class($model);
         $history->affected_model_id = $model->id;
-
-        // Pastikan `changes` selalu terisi, meskipun tidak ada perubahan
-        $changes = ($action === 'updated' || $action === 'deleted') ? $model->getDirty() : $model->getChanges();
-        Log::info($changes);  // Debugging: Log perubahan ke file log
-        $history->changes = !empty($changes) ? json_encode($changes) : '[]';
+        $history->changes = $changes;
 
         $history->save();
     }
