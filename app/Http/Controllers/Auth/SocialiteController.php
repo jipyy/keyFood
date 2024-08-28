@@ -10,55 +10,47 @@ use Laravel\Socialite\Facades\Socialite;
 
 class SocialiteController extends Controller
 {
-    public function redirect()
+    public function redirectToGoogle()
     {
         return Socialite::driver('google')->redirect();
     }
 
-    public function callback()
+    public function handleGoogleCallback()
     {
         try {
-            $socialUser = Socialite::driver('google')->stateless()->user();
+            
+            $user = Socialite::driver('google')->stateless()->user();
+            // Mencari pengguna berdasarkan google_id
+            $existingUser = User::where('google_id', $user->id)->first();
+
+            if ($existingUser) {
+                // Jika pengguna ada, login
+                Auth::login($existingUser);
+                return redirect()->intended('/home');
+            } else {
+                dd($user);
+
+                // Jika pengguna tidak ada, buat pengguna baru
+                $newUser = User::create([
+                    'name' => $user->name,
+                    'email' => $user->email,
+                    'phone' => $user->phone,
+                    'google_id' => $user->id,
+                    'password' => bcrypt('default_password'), // Atau bisa generate password random
+                    'email_verified_at' => now(),
+                    'phone_verified_at' => now(),
+                    // Tambahkan kolom lain yang diperlukan
+                ]);
+
+                Auth::login($newUser);
+
+                // Arahkan pengguna ke halaman yang diinginkan setelah login
+                return redirect()->intended('/home');
+            }
         } catch (\Exception $e) {
-            return redirect('/login')->withErrors(['error' => 'Unable to login using Google.']);
+            // Tangani kesalahan dengan mengarahkan kembali ke halaman login dan menampilkan pesan error
+            return redirect('/log-reg')->withErrors('Error: ' . $e->getMessage());
         }
 
-        // Cari user berdasarkan google_id atau email
-        $registeredUser = User::where('google_id', $socialUser->id)->orWhere('email', $socialUser->getEmail())->first();
-
-        // Jika user tidak ditemukan, buat user baru
-        if (!$registeredUser) {
-            // Pastikan nomor telepon tidak null
-            $phone = '0000000000'; // Default phone number jika tidak ada
-            if (isset($socialUser->phone)) {
-                $phone = $socialUser->phone;
-            }
-
-            // Cek apakah nomor telepon sudah ada di database
-            $phoneExists = User::where('phone', $phone)->exists();
-            if ($phoneExists) {
-                // Nomor telepon sudah ada, tetapi kita tidak boleh menggunakannya untuk registrasi baru
-                return redirect('/log-reg')->withErrors(['error' => 'The phone number has already been taken.']);
-            }
-
-            $user = User::create([
-                'name' => $socialUser->getName(),
-                'email' => $socialUser->getEmail(),
-                'password' => Hash::make('123'), // atau gunakan password yang lebih aman
-                'google_token' => $socialUser->token,
-                'google_refresh_token' => $socialUser->refreshToken,
-                'google_id' => $socialUser->id,
-                'phone' => $phone,
-            ]);
-
-            Auth::login($user);
-
-            return redirect('/home');
-        }
-
-        // User ditemukan, login
-        Auth::login($registeredUser);
-
-        return redirect('/home');
     }
 }
