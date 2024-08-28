@@ -20,8 +20,8 @@ class ProductController extends Controller
     public function index()
     {
         if (auth()->user()->can('productCRUD')) {
-            // Mengambil 10 produk per halaman
-            $products = Product::where('creator_id', Auth::id())->paginate(5);
+            // Mengambil produk milik penjual yang login
+            $products = Product::where('id_seller', Auth::id())->paginate(5);
 
             // Mengirim data produk ke view dengan pagination
             return view('seller.products.index', compact('products'));
@@ -36,7 +36,9 @@ class ProductController extends Controller
     public function create()
     {
         $categories = Category::all();
-        $stores = Toko::all(); // Ambil semua store
+        $storeId = Auth::id(); // Ambil ID seller yang sedang login
+        $stores = Toko::where('id_seller', $storeId)->get(); // Ambil toko yang sesuai dengan ID seller
+
         return view('seller.products.create', [
             'categories' => $categories,
             'stores' => $stores, // Kirim data stores ke view
@@ -54,8 +56,15 @@ class ProductController extends Controller
             'category_id' => ['required', 'integer'],
             'price' => ['required', 'integer', 'min:0'],
             'quantity' => ['required', 'integer'],
-            'store_id' => ['required', 'integer'], // Validasi store_id
+            'store_id' => ['required', 'integer', 'exists:toko,id_toko'], // Validasi store_id
         ]);
+
+        $store = Toko::find($validate['store_id']);
+
+        // Pastikan toko yang dipilih milik seller yang sedang login
+        if ($store->id_seller !== Auth::id()) {
+            return redirect()->back()->with('error', 'You can only add products to your own store.');
+        }
 
         DB::beginTransaction();
         try {
@@ -79,6 +88,7 @@ class ProductController extends Controller
         }
     }
 
+
     /**
      * Display the specified resource.
      */
@@ -93,12 +103,15 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
+        // Pastikan produk milik toko penjual yang login
+        if ($product->id_seller !== Auth::id()) {
+            return abort(403);
+        }
+
         $categories = Category::all();
-        $stores = Toko::all(); // Ambil semua store
         return view('seller.products.edit', [
             'product' => $product,
             'categories' => $categories,
-            'stores' => $stores, // Kirim data stores ke view
         ]);
     }
 
@@ -107,13 +120,18 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
+        // Pastikan produk milik toko penjual yang login
+        if ($product->id_seller !== Auth::id()) {
+            return abort(403);
+        }
+
         $validate = $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'photo' => ['sometimes', 'image', 'mimes:png,jpg,jpeg'],
             'category_id' => ['required', 'integer'],
             'price' => ['required', 'integer', 'min:0'],
             'slug' => ['required', 'string', 'max:65535'],
-            'store_id' => ['required', 'integer'], // Validasi store_id
+            // Tidak perlu validasi store_id karena tidak boleh diubah
         ]);
 
         DB::beginTransaction();
@@ -123,7 +141,6 @@ class ProductController extends Controller
                 $validate['photo'] = 'products_photo/' . $request->file('photo')->getClientOriginalName();
             }
             $validate['slug'] = Str::slug($request->name);
-            $validate['creator_id'] = Auth::id();
             $product->update($validate);
             DB::commit();
             return redirect()->route('seller.products.index')->with('success', 'Product updated successfully');
@@ -143,6 +160,11 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
+        // Pastikan produk milik toko penjual yang login
+        if ($product->id_seller !== Auth::id()) {
+            return abort(403);
+        }
+
         DB::beginTransaction();
         try {
             // Hapus file gambar dari direktori
@@ -195,6 +217,7 @@ class ProductController extends Controller
 
         return redirect()->back()->with('success', 'Product added to cart successfully!');
     }
+
     public function showProducts()
     {
         // Ambil produk dengan paginasi (atau sesuai kebutuhan)
@@ -208,16 +231,15 @@ class ProductController extends Controller
     {
         $query = $request->input('query');
         $categoryName = $request->input('category');
-    
+
         // Start the query builder
         $productQuery = Product::with(['category', 'toko']);
 
-    
         // Filter by search query
         if ($query) {
             $productQuery->where('name', 'LIKE', "%{$query}%");
         }
-    
+
         // Filter by category if provided
         if ($categoryName) {
             // Assuming category name is unique and you want to filter by category name
@@ -225,18 +247,12 @@ class ProductController extends Controller
                 $q->where('name', $categoryName);
             });
         }
-    
+
         // Paginate the results
         $products = $productQuery->paginate(10);
         $category = Category::all();
-    
+
         // Return the paginated products as JSON
         return response()->json($products);
-        // return response()->json([
-        //     'products' => $products,
-        //     'category' => $category,
-        // ]);
-
     }
-    
 }
