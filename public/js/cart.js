@@ -244,3 +244,17 @@ $(document).ready(function() {
         getData();
     });
 });
+function clearCartData() {
+    localStorage.removeItem('cart');
+    console.log('Cart data cleared.');
+}
+
+// Panggil fungsi ini ketika pengguna logout
+clearCartData();
+
+document.getElementById('Log Out').addEventListener('click', function() {
+    clearCartData();
+
+    // Lanjutkan dengan proses logout, misalnya mengarahkan pengguna ke halaman logout
+    window.location.href = '/logout';
+});
