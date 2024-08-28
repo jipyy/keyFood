@@ -24,7 +24,7 @@ class ProductController extends Controller
             $products = Product::where('id_seller', Auth::id())->paginate(5);
 
             // Mengirim data produk ke view dengan pagination
-            return view('seller.products.index', compact('products'));
+            return view('seller-page', compact('products'));
         }
 
         return abort(403);
@@ -76,7 +76,7 @@ class ProductController extends Controller
             $validate['creator_id'] = Auth::id();
             $newProduct = Product::create($validate);
             DB::commit();
-            return redirect()->route('seller.products.index')->with('success', 'Product created successfully');
+            return redirect()->route('seller-page')->with('success', 'Product created successfully');
         } catch (\Exception $e) {
             DB::rollBack();
 
@@ -143,7 +143,7 @@ class ProductController extends Controller
             $validate['slug'] = Str::slug($request->name);
             $product->update($validate);
             DB::commit();
-            return redirect()->route('seller.products.index')->with('success', 'Product updated successfully');
+            return redirect()->route('seller-page')->with('success', 'Product updated successfully');
         } catch (\Exception $e) {
             DB::rollBack();
 
@@ -177,7 +177,7 @@ class ProductController extends Controller
             $product->delete();
 
             DB::commit();
-            return redirect()->route('seller.products.index')->with('success', 'Product deleted successfully');
+            return redirect()->route('seller-page')->with('success', 'Product deleted successfully');
         } catch (\Exception $e) {
             DB::rollBack();
 

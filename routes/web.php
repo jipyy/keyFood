@@ -65,7 +65,7 @@ Route::get('/edit-profile', function () {
     return view('edit-profile');
 });
 
-Route::get('/seller-page', [SellerEditController::class, 'index'])->name('seller-edit');
+Route::get('/seller-page', [SellerEditController::class, 'index'])->name('seller-page');
 
 Route::get('/stores', [TokoController::class, 'showStores']);
 Route::post('/detailed-store', [TokoController::class, 'detailStore']);
@@ -107,7 +107,6 @@ Route::get('/whatsapp-form', function () {
 
 //batas andika
 
-// <<<<<<< HEAD
 
 Route::view('/home', 'home')->name('home');
 
@@ -192,8 +191,8 @@ Route::get('/dashboard', function () {
 // Route::get('/auth/redirect', [SocialiteController::class, 'redirect']);
 // Route::get('/auth/google/callback', [SocialiteController::class, 'callback']);
 
-Route::get('auth/google', [AuthenticatedSessionController::class, 'redirectToGoogle']);
-Route::get('auth/google/callback', [AuthenticatedSessionController::class, 'handleGoogleCallback']);
+Route::get('auth/google', [SocialiteController::class, 'redirectToGoogle']);
+Route::get('auth/google/callback', [SocialiteController::class, 'handleGoogleCallback']);
 
 // Route::group(['middleware' => ['guest']], function () {
 //     Route::get('auth/google', [AuthenticatedSessionController::class, 'redirectToGoogle']);
