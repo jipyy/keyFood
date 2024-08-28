@@ -17,8 +17,8 @@
 
 </head>
 
-<body>
-    <div class="max-w-md mx-auto my-20 max-lg:my-40 text-center bg-white px-4 sm:px-8 py-10 rounded-xl shadow">
+<body class="bg-cover bg-center" style="background-image: url('../img/otp-bg.jpg');">
+    <div class="max-w-md mx-auto my-20 max-lg:my-40 text-center bg-white bg-opacity-30 backdrop-blur-lg px-4 sm:px-8 py-10 rounded-xl shadow-lg">
         <header class="mb-8">
             <h1 class="text-2xl font-bold mb-1">Mobile Phone Verification</h1>
             <p class="text-[15px] text-slate-500">Enter the 6-digit verification code that was sent to your phone
@@ -26,13 +26,15 @@
         </header>
         <form id="otp-form" method="POST" action="{{ route('verify.wa.otp') }}">
             @csrf
-            <div class="flex items-center justify-center gap-3">
+            <div class="flex flex-wrap items-center justify-center gap-2 md:gap-3">
                 @for ($i = 0; $i < 6; $i++)
-                    <input type="text"
-                        class="w-14 h-14 text-center text-2xl font-extrabold text-slate-900 bg-slate-100 border border-transparent hover:border-slate-200 appearance-none rounded p-4 outline-none focus:bg-white focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100"
+                    <input type="number"
+                        class="w-12 h-12 text-center text-lg font-extrabold text-slate-900 bg-slate-100 border border-transparent hover:border-slate-200 appearance-none rounded p-2 outline-none focus:bg-white focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 
+                               sm:w-14 sm:h-14 sm:text-xl md:w-16 md:h-16 md:text-2xl"
                         pattern="\d*" maxlength="1" name="otp[]" required autofocus />
                 @endfor
             </div>
+
             @error('otp')
                 <span>{{ $message }}</span>
             @enderror
@@ -43,9 +45,7 @@
                 </button>
             </div>
         </form>
-        {{-- <div class="text-sm text-slate-500 mt-4">Didn't receive code? <a
-                class="font-medium text-indigo-500 hover:text-indigo-600" href="#0">Resend</a></div>
-    </div> --}}
+
         <div class="text-sm text-slate-500 mt-4">
             Didn't receive code?
             <span id="countdown"></span>
@@ -53,120 +53,122 @@
                 href="{{ route('resend.otp') }}">Resend</a>
         </div>
 
+    </div>
 
 
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                var countdownElement = document.getElementById('countdown');
-                var resendLink = document.getElementById('resend-link');
-                var countdownTime = 120; // 2 menit dalam detik
 
-                function updateCountdown() {
-                    var minutes = Math.floor(countdownTime / 60);
-                    var seconds = countdownTime % 60;
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var countdownElement = document.getElementById('countdown');
+            var resendLink = document.getElementById('resend-link');
+            var countdownTime = 120; // 2 menit dalam detik
 
-                    countdownElement.innerHTML = `Resend available in ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+            function updateCountdown() {
+                var minutes = Math.floor(countdownTime / 60);
+                var seconds = countdownTime % 60;
 
-                    if (countdownTime > 0) {
-                        countdownTime--;
-                    } else {
-                        resendLink.classList.remove('hidden');
-                        countdownElement.innerHTML =
-                            ''; // atau Anda bisa menampilkan pesan "Now you can resend the OTP."
-                        clearInterval(countdownInterval);
-                    }
+                countdownElement.innerHTML = `Resend available in ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+
+                if (countdownTime > 0) {
+                    countdownTime--;
+                } else {
+                    resendLink.classList.remove('hidden');
+                    countdownElement.innerHTML =
+                        ''; // atau Anda bisa menampilkan pesan "Now you can resend the OTP."
+                    clearInterval(countdownInterval);
+                }
+            }
+
+            var countdownInterval = setInterval(updateCountdown, 1000);
+
+            const form = document.getElementById('otp-form');
+            const inputs = [...form.querySelectorAll('input[type=number]')];
+            const submit = form.querySelector('button[type=submit]');
+
+            const handleKeyDown = (e) => {
+                if (!/^[0-9]{1}$/.test(e.key) && e.key !== 'Backspace' && e.key !== 'Delete' && e.key !==
+                    'Tab' && !e.metaKey) {
+                    e.preventDefault();
                 }
 
-                var countdownInterval = setInterval(updateCountdown, 1000);
-
-                const form = document.getElementById('otp-form');
-                const inputs = [...form.querySelectorAll('input[type=text]')];
-                const submit = form.querySelector('button[type=submit]');
-
-                const handleKeyDown = (e) => {
-                    if (!/^[0-9]{1}$/.test(e.key) && e.key !== 'Backspace' && e.key !== 'Delete' && e.key !==
-                        'Tab' && !e.metaKey) {
-                        e.preventDefault();
+                if (e.key === 'Delete' || e.key === 'Backspace') {
+                    const index = inputs.indexOf(e.target);
+                    if (index > 0) {
+                        inputs[index - 1].value = '';
+                        inputs[index - 1].focus();
                     }
+                }
+            };
 
-                    if (e.key === 'Delete' || e.key === 'Backspace') {
-                        const index = inputs.indexOf(e.target);
-                        if (index > 0) {
-                            inputs[index - 1].value = '';
-                            inputs[index - 1].focus();
-                        }
+            const handleInput = (e) => {
+                const {
+                    target
+                } = e;
+                const index = inputs.indexOf(target);
+                if (target.value) {
+                    if (index < inputs.length - 1) {
+                        inputs[index + 1].focus();
+                    } else {
+                        submit.focus();
                     }
-                };
+                }
+            };
 
-                const handleInput = (e) => {
-                    const {
-                        target
-                    } = e;
-                    const index = inputs.indexOf(target);
-                    if (target.value) {
-                        if (index < inputs.length - 1) {
-                            inputs[index + 1].focus();
-                        } else {
-                            submit.focus();
-                        }
-                    }
-                };
+            const handleFocus = (e) => {
+                e.target.select();
+            };
 
-                const handleFocus = (e) => {
-                    e.target.select();
-                };
+            const handlePaste = (e) => {
+                e.preventDefault();
+                const text = e.clipboardData.getData('number');
+                if (!new RegExp(`^[0-9]{${inputs.length}}$`).test(text)) {
+                    return;
+                }
+                const digits = text.split('');
+                inputs.forEach((input, index) => input.value = digits[index]);
+                submit.focus();
+            };
 
-                const handlePaste = (e) => {
-                    e.preventDefault();
-                    const text = e.clipboardData.getData('text');
-                    if (!new RegExp(`^[0-9]{${inputs.length}}$`).test(text)) {
-                        return;
-                    }
-                    const digits = text.split('');
-                    inputs.forEach((input, index) => input.value = digits[index]);
-                    submit.focus();
-                };
-
-                inputs.forEach((input) => {
-                    input.addEventListener('input', handleInput);
-                    input.addEventListener('keydown', handleKeyDown);
-                    input.addEventListener('focus', handleFocus);
-                    input.addEventListener('paste', handlePaste);
-                });
-
-                form.addEventListener('submit', async (e) => {
-                    e.preventDefault();
-                    const formData = new FormData(form);
-                    const otp = inputs.map(input => input.value).join('');
-                    if (otp.length !== inputs.length) {
-                        alert('Please enter the complete OTP.');
-                        return;
-                    }
-                    try {
-                        const response = await fetch(form.action, {
-                            method: 'POST',
-                            body: formData,
-                            headers: {
-                                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')
-                            }
-                        });
-                        if (response.ok) {
-                            //sumber masalah
-                            window.location.href = "{{ route('home') }}";
-                            // document.getElementById('otp-form').submit();
-                        } else {
-                            const errorData = await response.json();
-                            // console.error('Error:', errorData.message);
-                            alert(errorData.message);
-                        }
-                    } catch (error) {
-                        console.log();
-                        console.error('Error:', error);
-                        alert('An error occurred. Please try again.');
-                    }
-                });
+            inputs.forEach((input) => {
+                input.addEventListener('input', handleInput);
+                input.addEventListener('keydown', handleKeyDown);
+                input.addEventListener('focus', handleFocus);
+                input.addEventListener('paste', handlePaste);
             });
-        </script>
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const formData = new FormData(form);
+                const otp = inputs.map(input => input.value).join('');
+                if (otp.length !== inputs.length) {
+                    alert('Please enter the complete OTP.');
+                    return;
+                }
+                try {
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')
+                        }
+                    });
+                    if (response.ok) {
+                        //sumber masalah
+                        window.location.href = "{{ route('home') }}";
+                        // document.getElementById('otp-form').submit();
+                    } else {
+                        const errorData = await response.json();
+                        // console.error('Error:', errorData.message);
+                        alert(errorData.message);
+                    }
+                } catch (error) {
+                    console.log();
+                    console.error('Error:', error);
+                    alert('An error occurred. Please try again.');
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

@@ -5,6 +5,9 @@ use App\Http\Controllers\FaqController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\TokoController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\OtpWaController;
+use App\Http\Controllers\BackupController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
@@ -18,8 +21,6 @@ use App\Http\Controllers\Auth\SocialiteController;
 use App\Http\Controllers\OtpWaVerificationController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
-use App\Http\Controllers\OtpWaController;
-use App\Http\Controllers\PaymentController;
 
 
 
@@ -313,3 +314,11 @@ Route::get('/faq', [FaqController::class, 'showFaqPage'])->name('faq.page');
 
 
 Route::get('/admin/history', [AdminHistoryController::class, 'index'])->name('admin.history.index');
+
+Route::get('/coba', [BackupController::class, 'createBackup'])->name('backup.create');
+Route::get('/cobabutton', [BackupController::class, 'index'])->name('backup.index');
+
+
+// Route::get('/cobabutton', function () {
+//     return view('admin.dashboard-buttons');
+// });
