@@ -18,10 +18,9 @@ use App\Http\Controllers\Auth\SocialiteController;
 use App\Http\Controllers\OtpWaVerificationController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
-use App\Http\Controllers\OtpWaController;
 use App\Http\Controllers\PaymentController;
-
-
+use App\Livewire\LiveChat;
+use Twilio\Rest\Chat;
 
 Route::get('/', function () {
     return view('home');
@@ -314,3 +313,7 @@ Route::get('/faq', [FaqController::class, 'showFaqPage'])->name('faq.page');
 
 
 Route::get('/admin/history', [AdminHistoryController::class, 'index'])->name('admin.history.index');
+
+
+// Live Chat Livewire
+Route::get('/live-chat/{user}', LiveChat::class)->name('live-chat');
