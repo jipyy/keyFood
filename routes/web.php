@@ -7,8 +7,8 @@ use App\Http\Controllers\FaqController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\TokoController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\OtpWaController;
-use App\Http\Controllers\BackupController;
+
+
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
@@ -167,6 +167,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
 //     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
 //     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 // });
+
 require __DIR__ . '/auth.php';
 
 
