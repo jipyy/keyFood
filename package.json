@@ -19,6 +19,7 @@
     "dependencies": {
         "bootstrap": "^5.3.3",
         "boxicons": "^2.1.4",
-        "flowbite": "^2.4.1"
+        "flowbite": "^2.4.1",
+        "mysqldump": "^3.2.0"
     }
 }

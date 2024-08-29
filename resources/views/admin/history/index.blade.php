@@ -1,7 +1,7 @@
 @extends('admin.layouts.main-admin')
 @section('container-admin')
     <main class="h-screen overflow-y-auto">
-        <div class="max-w-full mx-7" style="margin-left: 30px; margin-right: 30px;">
+        <div class="container px-6 mx-auto grid overflow-y-hidden py-4 mb-8">
             <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
                 Admin History
             </h2>
@@ -24,7 +24,7 @@
             @endif
 
             <!-- New Table -->
-            <div class="w-full overflow-hidden rounded-lg shadow-xs">
+            <div class="w-full overflow-hidden rounded-lg shadow-xs mb-8">
                 <div class="w-full overflow-x-auto">
                     <table class="w-full whitespace-no-wrap">
                         <thead>

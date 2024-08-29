@@ -23,7 +23,7 @@
                     </button>
                 </a>
                 <div class="mt-6 text-center">
-                    <a href="/faq" class="text-sm text-purple-600 hover:text-purple-800 transition duration-300">Butuh Bantuan? Chat Kami</a>
+                    <a href="/faqc" class="text-sm text-purple-600 hover:text-purple-800 transition duration-300">Butuh Bantuan? Chat Kami</a>
                 </div>
             </div>
         </section>
@@ -109,7 +109,7 @@
                                         d="M14.0261 14.7259L25.5755 26.2753M14.0261 26.2753L25.5755 14.7259" stroke=""
                                         stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
-                                Hapus Riwayat
+                                <span style=></span> Hapus Riwayat
                             </button>
                             <p class="complete font-normal text-xl leading-8 text-gray-500 sm:pl-8">Pembelian Berhasil!</p>
                         </div>

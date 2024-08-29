@@ -1,7 +1,7 @@
 @extends('admin.layouts.main-admin')
 @section('container-admin')
     <main class="h-screen overflow-y-auto">
-        <div class="container px-6 mx-auto grid py-4 mb-8">
+        <div class="container px-6 mx-auto grid overflow-y-hidden py-4 mb-8">
             <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
                 Users
             </h2>
@@ -23,10 +23,10 @@
                 </div>
             @endif
 
-        <div class="flex justify-between mb-4">
+        <div class="flex justify-between">
             <!-- Add New User Button -->
             <a href="{{ route('admin.users.create') }}"
-                class="mb-6 inline-block px-4 py-2 bg-indigo-600 text-black rounded-lg dark:text-white">
+                class="inline-block px-4 bg-indigo-600 text-black rounded-lg dark:text-white">
                 Add New User
             </a>
 
@@ -109,7 +109,7 @@
                 </div>
 
                 <!-- Users Table -->
-                <div class="user-table w-full overflow-hidden rounded-lg shadow-xs">
+                <div class="user-table w-full overflow-hidden rounded-lg shadow-xs mb-8">
                     <div class="w-full overflow-x-auto">
                         <table class="w-full whitespace-no-wrap">
                             <thead>
@@ -117,6 +117,8 @@
                                     class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                                     <th class="px-4 py-3">Name</th>
                                     <th class="px-4 py-3">Email</th>
+                                    <th class="px-4 py-3">No. HP</th>
+
                                     <th class="px-4 py-3">Role</th>
                                     <th class="px-4 py-3">Actions</th>
                                 </tr>
@@ -142,6 +144,8 @@
                                             </div>
                                         </td>
                                         <td class="px-4 py-3 text-sm">{{ $user->email }}</td>
+                                        <td class="px-4 py-3 text-sm">{{ $user->phone }}</td>
+
                                         <td class="px-4 py-3 text-sm">
                                             @if ($user->roles->isEmpty())
                                                 buyer

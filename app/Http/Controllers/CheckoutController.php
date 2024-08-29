@@ -46,10 +46,17 @@ class CheckoutController extends Controller
 
         try {
             $totalOrderPrice = 0; // Untuk menyimpan total harga dari semua produk dalam satu order
+            $buyerId = auth()->id(); // Ambil ID pengguna yang sedang login
 
             // dd($products);
             foreach ($products as $product) {
                 $toko = Toko::where('id_toko', $product['store_id'])->with('user')->first();
+
+                  // Cek apakah seller mencoba membeli produk mereka sendiri
+            if ($toko && $toko->id_seller == $buyerId) {
+                return redirect()->back()->withErrors(['checkout' => 'Anda tidak dapat membeli produk Anda sendiri.']);
+            }
+
 
                 // dd($product);
                 // dd($)

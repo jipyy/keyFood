@@ -1,10 +1,15 @@
 <?php
 
+use Twilio\Rest\Chat;
+use App\Livewire\LiveChat;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\TokoController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\OtpWaController;
+use App\Http\Controllers\BackupController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
@@ -18,9 +23,8 @@ use App\Http\Controllers\Auth\SocialiteController;
 use App\Http\Controllers\OtpWaVerificationController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
-use App\Http\Controllers\PaymentController;
-use App\Livewire\LiveChat;
-use Twilio\Rest\Chat;
+
+
 
 Route::get('/', function () {
     return view('home');
@@ -64,7 +68,7 @@ Route::get('/edit-profile', function () {
     return view('edit-profile');
 });
 
-Route::get('/seller-page', [SellerEditController::class, 'index'])->name('seller-edit');
+Route::get('/seller-page', [SellerEditController::class, 'index'])->name('seller-page');
 
 Route::get('/stores', [TokoController::class, 'showStores']);
 Route::post('/detailed-store', [TokoController::class, 'detailStore']);
@@ -106,7 +110,6 @@ Route::get('/whatsapp-form', function () {
 
 //batas andika
 
-// <<<<<<< HEAD
 
 Route::view('/home', 'home')->name('home');
 
