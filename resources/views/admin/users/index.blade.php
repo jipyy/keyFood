@@ -137,7 +137,7 @@
                                                     </div>
                                                 </div>
                                                 <div>
-                                                    <p class="font-semibold">{{ $user->name }}</p>
+                                                    <a href="{{ route('live-chat', $user) }}"><p class="font-semibold">{{ $user->name }}</p></a>
                                                     <p class="text-xs text-gray-600 dark:text-gray-400">ID: {{ $user->id }}
                                                     </p>
                                                 </div>

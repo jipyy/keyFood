@@ -1,12 +1,14 @@
 <?php
 
+use Twilio\Rest\Chat;
+use App\Livewire\LiveChat;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\TokoController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\OtpWaController;
-use App\Http\Controllers\BackupController;
+
+
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
@@ -165,6 +167,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
 //     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
 //     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 // });
+
 require __DIR__ . '/auth.php';
 
 
@@ -315,10 +318,6 @@ Route::get('/faq', [FaqController::class, 'showFaqPage'])->name('faq.page');
 
 Route::get('/admin/history', [AdminHistoryController::class, 'index'])->name('admin.history.index');
 
-Route::get('/coba', [BackupController::class, 'createBackup'])->name('backup.create');
-Route::get('/cobabutton', [BackupController::class, 'index'])->name('backup.index');
 
-
-// Route::get('/cobabutton', function () {
-//     return view('admin.dashboard-buttons');
-// });
+// Live Chat Livewire
+Route::get('/live-chat/{user}', LiveChat::class)->name('live-chat');
