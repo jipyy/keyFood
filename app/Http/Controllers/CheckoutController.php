@@ -52,10 +52,10 @@ class CheckoutController extends Controller
             foreach ($products as $product) {
                 $toko = Toko::where('id_toko', $product['store_id'])->with('user')->first();
 
-                  // Cek apakah seller mencoba membeli produk mereka sendiri
-            if ($toko && $toko->id_seller == $buyerId) {
-                return redirect()->back()->withErrors(['checkout' => 'Anda tidak dapat membeli produk Anda sendiri.']);
-            }
+                // Cek apakah seller mencoba membeli produk mereka sendiri
+                if ($toko && $toko->id_seller == $buyerId) {
+                    return redirect('/home')->withErrors(['checkout' => 'Anda tidak dapat membeli produk Anda sendiri.']);
+                }
 
 
                 // dd($product);
@@ -171,4 +171,3 @@ class CheckoutController extends Controller
         }
     }
 }
-

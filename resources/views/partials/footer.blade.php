@@ -16,7 +16,7 @@
                             <a href="/contact-us" class="hover:underline">Contact Us</a>
                         </li>
                         <li class="mb-4">
-                            <a href="/contact-us" class="hover:underline">Customer Service</a>
+                            <a href="/live-chat/1" class="hover:underline">Customer Service</a>
                         </li>
                         <li class="mb-4">
                             <a href="/faq" class="hover:underline">FAQ</a>

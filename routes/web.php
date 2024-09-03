@@ -54,7 +54,7 @@ Route::get('/faq', function () {
 Route::get('/coba', function () {
     return view('coba_wa');
 });
-Route::get('/product-slider', [ProductController::class, 'showProductSlider']);
+Route::get('/product-slider', [ProductController::class, 'showProductSlider'])->name('Product');
 
 Route::get('/categories', function () {
     return view('categories');
@@ -70,8 +70,8 @@ Route::get('/edit-profile', function () {
 
 Route::get('/seller-page', [SellerEditController::class, 'index'])->name('seller-page');
 
-Route::get('/stores', [TokoController::class, 'showStores']);
-Route::post('/detailed-store', [TokoController::class, 'detailStore']);
+Route::get('/stores', [TokoController::class, 'showStores'])->name('Toko');
+Route::post('/detailed-store', [TokoController::class, 'detailStore'])->name('Detail Toko');
 
 Route::get('/profile-user', function () {
     return view('/profile-user');

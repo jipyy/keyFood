@@ -159,7 +159,6 @@ function sendCartDataToServer() {
     .then(response => {
         console.log(response.data);
         alert('Cart items saved successfully');
-        // localStorage.removeItem('cart'); // Optional: clear the cart from localStorage after successful save
         window.location = "/checkout"
     })
     .catch(error => {
