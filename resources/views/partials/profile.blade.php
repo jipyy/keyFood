@@ -152,8 +152,7 @@
                     </div>
                     <div class="content">
                         <span>Phone</span>
-                        <h5>{{ Auth::user()->phone === '0000000000' ? '' : (strlen(Auth::user()->phone) > 16 ? substr(Auth::user()->phone, 0, 16) . '...' : Auth::user()->phone) }}
-                        </h5> <!-- Assuming there is a phone attribute -->
+                        <h5>{{ Auth::user()->phone ?? 'Guest' }}</h5> <!-- Assuming there is a phone attribute -->
                     </div>
                 </div>
                 <div class="row">
