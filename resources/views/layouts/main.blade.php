@@ -51,6 +51,11 @@
 </head>
 
 <body>
+    @php
+        $admins = App\Models\User::whereHas('roles', function ($query) {
+            $query->where('name', 'admin');
+        })->get();
+    @endphp
     <div id="preloader">
         <dotlottie-player src="https://lottie.host/cfd42497-424b-4328-8abd-fddc7a43046c/RORTJFVPEA.json"
             background="transparent" speed="1" style="width: 300px; height: 300px;" loop
