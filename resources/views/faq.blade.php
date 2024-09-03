@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,15 +8,17 @@
     <title>FAQ</title>
     <link rel="stylesheet" href="{{ asset('css/faq.css') }}">
 </head>
+
 <body>
     <div class="accordion">
         <div class="title">
-            <h2>FAQ Section</h2>    
+            <h2>FAQ Section</h2>
         </div>
         @foreach ($faqs as $faq)
-            <ul>
-                <li>
-                    <input type="radio" name="accordion" id="faq-{{ $loop->index }}" {{ $loop->first ? 'checked' : '' }}>
+            <ul class="space-y-4 pl-4">
+                <li class="pl-2">
+                    <input type="radio" name="accordion" id="faq-{{ $loop->index }}"
+                        {{ $loop->first ? 'checked' : '' }}>
                     <label for="faq-{{ $loop->index }}">{{ $faq->title }}</label>
                     <div class="content">
                         <p>{{ $faq->content }}</p>
@@ -25,4 +28,5 @@
         @endforeach
     </div>
 </body>
+
 </html>

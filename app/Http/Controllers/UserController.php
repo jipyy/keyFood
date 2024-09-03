@@ -11,13 +11,23 @@ use Illuminate\Support\Facades\File; // Tambahkan ini jika Anda perlu menggunaka
 
 class UserController extends Controller
 {
+    public function home()
+    {
+        $admins = User::whereHas('roles', function ($query) {
+            $query->where('name', 'admin');
+        })->get();
+
+        return view('home', compact('admins'));
+    }
+
+
     public function index()
     {
         $users = User::with('roles')->get();
 
         // Return view with users data
         return view('admin.users.index', compact('users'));
-        
+
         $users = User::all();
         return view('admin.users.index', compact('users'));
     }

@@ -68,41 +68,25 @@
 
                     <!-- User List Section -->
                     <div class="flow-root w-full user-list">
-                        <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
-                            <!-- User Item 1 -->
-                            <li class="py-3 sm:py-4 ">
-                                <a href="" class="block">
-                                    <div class="list-users flex items-center gap-4 py-2 hover:bg-gray-50 hover:rounded-md">
-                                        <img class="w-10 h-10 rounded-full" src="/docs/images/people/profile-picture-1.jpg" alt="Neil image">
-                                        <div class="flex-1 min-w-0 identity">
-                                            <p class="text-sm md:text-base font-medium text-gray-900 truncate ">
-                                                Neil Sims
-                                            </p>
-                                            <p class="text-xs md:text-sm text-gray-500 truncate">
-                                                email@windster.com
-                                            </p>
+                        <ul>
+                            @foreach ($admins as $admin)
+                                <li class="py-3 sm:py-4">
+                                    <a href="{{ route('home', $admin->id) }}" class="block">
+                                        <div class="list-users flex items-center gap-4 py-2 hover:bg-gray-50 hover:rounded-md">
+                                            <img class="w-10 h-10 rounded-full" src="{{ $admin->profile_picture_url }}" alt="{{ $admin->name }} image">
+                                            <div class="flex-1 min-w-0 identity">
+                                                <p class="text-sm md:text-base font-medium text-gray-900 truncate">
+                                                    {{ $admin->name }}
+                                                </p>
+                                                <p class="text-xs md:text-sm text-gray-500 truncate">
+                                                    {{ $admin->email }}
+                                                </p>
+                                            </div>
                                         </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <!-- User Item 2 -->
-                            <li class="py-3 sm:py-4  ">
-                                <a href="" class="block">
-                                    <div class="list-users flex items-center py-2 gap-4 hover:bg-gray-50 hover:rounded-md">
-                                        <img class="w-10 h-10 rounded-full" src="/docs/images/people/profile-picture-2.jpg" alt="Another user image">
-                                        <div class="flex-1 min-w-0 identity">
-                                            <p class="text-sm md:text-base font-medium text-gray-900 truncate ">
-                                                Another User
-                                            </p>
-                                            <p class="text-xs md:text-sm text-gray-500 truncate ">
-                                                email@windster.com
-                                            </p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                        
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>                          
                     </div>
                 </div>
             </div>
