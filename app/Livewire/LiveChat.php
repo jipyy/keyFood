@@ -16,23 +16,19 @@ class LiveChat extends Component
     public function render()
     {
         return view('livewire.live-chat', [
-
-            // 'messages' => ModelsLiveChat::where('from_user_id', auth()->id())
-            // ->orwhere('from_user_id', $this->user->id)npm
-            // ->orwhere('to_user_id', auth()->id())
-            // ->orwhere('to_user_id', $this->user->id)
-            // ->get(),
-
             'messages' => ModelsLiveChat::where(function (Builder $query) {
                 $query->where('from_user_id', auth()->id())
-                ->where('to_user_id', $this->user->id);
-                })->orWhere(function (Builder $query) {
+                    ->where('to_user_id', $this->user->id);
+            })
+                ->orWhere(function (Builder $query) {
                     $query->where('from_user_id', $this->user->id)
-                    ->where('to_user_id', auth()->id());
+                        ->where('to_user_id', auth()->id());
                 })
-                ->get(),    
+                ->orderBy('created_at', 'asc')  // Urutkan berdasarkan waktu pengiriman
+                ->get(),
         ]);
     }
+
 
     public function SendMessage()
     {
@@ -45,4 +41,4 @@ class LiveChat extends Component
         ]);
         $this->reset('message');
     }
-}
+};
