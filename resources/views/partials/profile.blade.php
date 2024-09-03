@@ -35,16 +35,13 @@
                         <div class="text-xs text-slate-400">
                             {{ strlen(Auth::user()->email) > 16 ? substr(Auth::user()->email, 0, 16) . '...' : Auth::user()->email }}
                             {{ Auth::user()->phone === '0000000000' ? '' : (strlen(Auth::user()->phone) > 16 ? substr(Auth::user()->phone, 0, 16) . '...' : Auth::user()->phone) }}
-
-
                         </div>
                     </div>
                 </div>
                 <div class="border-t border-slate-500/30"></div>
 
                 <div class="flex flex-col lg:my-4">
-                    <button onclick="openProfile()"
-                        class="flex items-center gap-3 rounded-md py-2 px-3 but-prof" >
+                    <button onclick="openProfile()" class="flex items-center gap-3 rounded-md py-2 px-3 but-prof">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5">
                             <path fill-rule="evenodd"
                                 d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z"
@@ -54,14 +51,12 @@
                     </button>
 
                     @if (Auth::user()->hasRole('seller'))
-                        <a href="/seller-page"
-                            class="flex items-center gap-3 rounded-md py-2 px-3 but-sel">
+                        <a href="/seller-page" class="flex items-center gap-3 rounded-md py-2 px-3 but-sel">
                             <i class='bx bxs-store'></i>
                             <span class="body.dark{color:white}">Seller Page</span>
                         </a>
                     @else
-                        <a href="/history"
-                            class="lg:hidden flex items-center gap-3 rounded-md py-2 px-3 mb-2 but-his">
+                        <a href="/history" class="lg:hidden flex items-center gap-3 rounded-md py-2 px-3 mb-2 but-his">
                             <?xml version="1.0" ?><svg height="21px" version="1.1" viewBox="0 0 20 21" width="20px"
                                 xmlns="http://www.w3.org/2000/svg"
                                 xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
@@ -152,7 +147,10 @@
                     </div>
                     <div class="content">
                         <span>Phone</span>
-                        <h5>{{ Auth::user()->phone ?? 'Guest' }}</h5> <!-- Assuming there is a phone attribute -->
+                        <h5>{{ Auth::check() && (Auth::user()->phone === '0000000000' || Auth::user()->phone === null) ? 'Guest' : (Auth::check() ? Auth::user()->phone : 'Guest') }}
+
+                        </h5>
+                        <!-- Assuming there is a phone attribute -->
                     </div>
                 </div>
                 <div class="row">

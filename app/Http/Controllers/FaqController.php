@@ -24,12 +24,28 @@ class FaqController extends Controller
             'title' => 'required',
             'content' => 'required',
         ]);
-
-        Faq::create($request->all());
-
+    
+        // Mengambil hanya input yang diperlukan
+        Faq::create($request->only(['title', 'content']));
+    
         return redirect()->route('faqs.index')
             ->with('success', 'FAQ created successfully.');
     }
+    
+    public function update(Request $request, Faq $faq)
+    {
+        $request->validate([
+            'title' => 'required',
+            'content' => 'required',
+        ]);
+    
+        // Mengambil hanya input yang diperlukan
+        $faq->update($request->only(['title', 'content']));
+    
+        return redirect()->route('faqs.index')
+            ->with('success', 'FAQ updated successfully.');
+    }
+    
 
     public function show(Faq $faq)
     {
@@ -41,18 +57,6 @@ class FaqController extends Controller
         return view('faqs.edit', compact('faq'));
     }
 
-    public function update(Request $request, Faq $faq)
-    {
-        $request->validate([
-            'title' => 'required',
-            'content' => 'required',
-        ]);
-
-        $faq->update($request->all());
-
-        return redirect()->route('faqs.index')
-            ->with('success', 'FAQ updated successfully.');
-    }
 
     public function destroy(Faq $faq)
     {
