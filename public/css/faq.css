@@ -24,11 +24,16 @@ body {
 }
 
 .accordion ul {
-    padding: 0;
+    padding-left: 20px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
 .accordion li {
     list-style: none;
+    padding-left: 10px;
     width: 100%;
     margin: 20px 0;
     padding: 10px;

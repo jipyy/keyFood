@@ -325,3 +325,4 @@ Route::get('/admin/history', [AdminHistoryController::class, 'index'])->name('ad
 
 // Live Chat Livewire
 Route::get('/live-chat/{user}', LiveChat::class)->name('live-chat');
+Route::get('/home', [UserController::class, 'home'])->name('home');
