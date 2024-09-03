@@ -10,7 +10,8 @@
                                     <div class="chat-image avatar">
                                         <div class="w-10 rounded-full">
                                             <img alt="Tailwind CSS chat bubble component"
-                                                src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                                            src="{{ asset($message->fromUser->img ?? 'img/client-1.jpg') }}" />
+                                       
                                         </div>
                                     </div>
                                     <div class="chat-header text-gray-950">
@@ -52,6 +53,7 @@
         Livewire.emit('sendMessage'); // Emit event untuk Livewire
     });
 </script> --}}
+
 <script>
     // Ambil elemen textarea dan form
     const messageTextarea = document.getElementById('messageTextarea');
