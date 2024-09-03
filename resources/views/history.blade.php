@@ -1,6 +1,11 @@
 @extends('layouts.main')
 
 @section('container')
+    {{-- <style>
+        body.dark .empty-history{
+            background-color: #2f343a;
+        }
+    </style> --}}
     @if (session('success'))
         <script>
             // Hapus data cart dari localStorage setelah redirect
@@ -8,8 +13,8 @@
         </script>
     @endif
     @if ($orders->isEmpty())
-        <section class="bg-tranparent min-h-screen flex items-center justify-center p-4">
-            <div class="bg-white rounded-2xl shadow-xl p-8 max-w-md w-full">
+        <section class="bg-tranparent min-h-screen flex items-center justify-center p-4 lg:mt-10">
+            <div class="bg-white empty-history rounded-2xl shadow-xl p-8 max-w-md w-full">
                 <div class="relative mb-8">
                     <img src="{{ asset('../img/no-order.png') }}" alt="Empty box" class="w-40 h-40 mx-auto" />
                 </div>
@@ -23,7 +28,8 @@
                     </button>
                 </a>
                 <div class="mt-6 text-center">
-                    <a href="/faqc" class="text-sm text-purple-600 hover:text-purple-800 transition duration-300">Butuh Bantuan? Chat Kami</a>
+                    <a href="/live-chat/1" class="text-sm text-purple-600 hover:text-purple-800 transition duration-300">Butuh
+                        Bantuan? Chat Kami</a>
                 </div>
             </div>
         </section>
