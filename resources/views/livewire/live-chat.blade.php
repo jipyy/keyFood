@@ -13,10 +13,10 @@
                                                 src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
                                         </div>
                                     </div>
-                                    <div class="chat-header">
+                                    <div class="chat-header text-gray-950">
                                         {{ $message->fromUser->name }}
                                         <time
-                                            class="text-xs opacity-50">{{ $message->created_at->diffForHumans() }}</time>
+                                            class="text-xs opacity-50 text-gray">{{ $message->created_at->diffForHumans() }}</time>
                                     </div>
                                     <div class="chat-bubble">{{ $message->message }}</div>
                                     <div class="chat-footer opacity-50">Delivered</div>
@@ -25,10 +25,11 @@
                         @endif
                     </div>
                     <div class="form-control">
-                            <form action="POST" id="messageForm" wire:submit.prevent="SendMessage">
-                            <textarea id="messageTextarea" class="textarea textarea-bordered w-full" wire:model="message" placeholder="kirim pesang bang...">
+                        <form action="POST" id="messageForm" wire:submit.prevent="SendMessage">
+                            <textarea id="messageTextarea" class="textarea textarea-bordered w-full" wire:model="message"
+                                placeholder="kirim pesang bang..." required>
                         </textarea>
-                            <button type="submit" class="btn btn-primary">Kirim</button>
+                            <button type="submit" id="sumbitButton" class="btn btn-primary">Kirim</button>
                         </form>
                     </div>
                 </div>
@@ -51,13 +52,64 @@
         Livewire.emit('sendMessage'); // Emit event untuk Livewire
     });
 </script> --}}
-
 <script>
-    Livewire.on('messageSent', () => {
-        const textarea = document.getElementById('messageTextarea');
-        textarea.value = ''; // Ini sebenarnya tidak diperlukan karena Livewire sudah mereset message di server
+    // Ambil elemen textarea dan form
+    const messageTextarea = document.getElementById('messageTextarea');
+    const messageForm = document.getElementById('messageForm');
+
+    // Flag untuk menghindari pengiriman pesan kosong saat delay
+    let isSubmitting = false;
+
+    // Fungsi untuk mengecek apakah textarea memiliki konten valid
+    function isMessageValid() {
+        const value = messageTextarea.value.trim();
+        console.log(`Pesan yang dicek: "${value}"`); // Log isi pesan untuk debugging
+        return value.length > 0;
+    }
+
+    // Tambahkan event listener untuk menangani tombol yang ditekan
+    messageTextarea.addEventListener('keydown', function(event) {
+        // Cek apakah tombol Enter ditekan
+        if (event.key === 'Enter') {
+            // Cek apakah Shift juga ditekan
+            if (event.shiftKey) {
+                // Jika Shift + Enter ditekan, biarkan menambah baris baru
+                return; // Biarkan default behavior (tambahkan newline)
+            } else {
+                // Jika hanya Enter, cegah default behavior dan cek isian
+                event.preventDefault();
+
+                // Pastikan textarea tidak kosong dan belum dalam proses submit
+                if (isMessageValid() && !isSubmitting) {
+                    // Set flag submitting
+                    isSubmitting = true;
+                    // Tambahkan delay sebelum submit form
+                    setTimeout(() => {
+                        messageForm.requestSubmit(); // Submit form setelah delay 2 detik
+                        isSubmitting = false; // Reset flag setelah submit
+                    }, 1); // 2000 milidetik = 2 detik
+                } else {
+                    alert('Pesan tidak boleh kosong!'); // Pesan peringatan jika textarea kosong
+                }
+            }
+        }
     });
 
+    // Tambahkan event listener untuk mengosongkan textarea setelah submit
+    messageForm.addEventListener('submit', function(event) {
+        setTimeout(() => {
+            // Kosongkan textarea setelah pesan terkirim
+            messageTextarea.value = '';
+        }, 100); // Tambahkan sedikit delay agar pesan terkirim lebih dulu
+    });
+
+    // Mengatur event ketika pesan dikirim oleh Livewire
+    Livewire.on('messageSent', () => {
+        messageTextarea.value = ''; // Kosongkan textarea setelah pesan terkirim
+        isSubmitting = false; // Pastikan flag isSubmitting di-reset
+    });
+
+    // Mencegah pengiriman form default dan menggunakan Livewire untuk pengiriman pesan
     document.getElementById('messageForm').addEventListener('submit', function(event) {
         event.preventDefault(); // Cegah pengiriman default form
         Livewire.emit('sendMessage'); // Emit event untuk Livewire

@@ -37,8 +37,7 @@ class LiveChat extends Component
             'from_user_id' => auth()->id(),
             'to_user_id' => $this->user->id,
             'message' => $this->message,
-
         ]);
-        $this->reset('message');
+        $this->message = '';
     }
 };
