@@ -1,87 +1,136 @@
-<main class="h-screen flex flex-col">
-    <div class="container px-6 mx-auto py-4 mb-8 flex-1 flex flex-col">
-        <section class="live-chat flex flex-col flex-1 sm:mx-10 sm:my-5">
-            <!-- Chat area -->
-            <div class="flex-1 overflow-y-auto p-3 sm:p-4 space-y-3 sm:space-y-4">
-                <!-- Messages from first user -->
-                <div class="space-y-2">
-                    <div class="flex items-start space-x-2">
-                        <img src="{{ asset(Auth::user()->img ?? './img/client-1.jpg') }}" alt="User avatar"
-                            class="w-6 h-6 sm:w-8 sm:h-8 rounded-full flex-shrink-0">
-                        <div class="bg-white dark:bg-gray-800 rounded-lg p-2 sm:p-3 max-w-[75%] sm:max-w-md">
-                            <p class="font-semibold dark:text-white text-sm sm:text-base">Shanay Cruz</p>
-                            <p class="dark:text-gray-300 text-sm">Guts, I need a review of work. Are you ready?</p>
-                            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">05:14 PM</p>
-                        </div>
+<style>
+    .modal {
+        transition: opacity 0.25s ease;
+    }
+
+    body.modal-active {
+        overflow-x: hidden;
+        overflow-y: visible !important;
+    }
+
+    .opacity-95 {
+        opacity: 1;
+        /* Ubah transparansi menjadi solid */
+    }
+</style>
+
+@if (Auth::check())
+    <button
+        class="modal-open bg-transparent border border-gray-500 hover:border-indigo-500 text-gray-500 hover:text-indigo-500 font-bold py-2 px-4 rounded-full fixed bottom-4 right-4 mb-4 mr-4 max-sm:mb-20">
+        <i class='bx bxs-conversation text-2xl sm:text-3xl'></i> <!-- Use 'bxs-conversation' for a solid style -->
+    </button>
+
+
+    <!-- Modal -->
+    <div class="modal opacity-0 pointer-events-none fixed inset-0 flex items-end justify-end">
+        <div class="modal-overlay absolute inset-0 bg-black bg-opacity-50"></div>
+
+        <div
+            class="modal-container fixed z-50 bottom-0 mb-4 w-full max-w-lg md:max-w-md lg:max-w-sm h-3/4 md:h-2/3 lg:h-3/4 overflow-y-auto right-0 rounded-lg bg-white shadow-lg">
+            <div
+                class="modal-close absolute top-2 right-2 mr-3 cursor-pointer flex flex-col items-center text-black text-sm z-50">
+                <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                    viewBox="0 0 18 18">
+                    <path
+                        d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z">
+                    </path>
+                </svg>
+            </div>
+
+            <!-- Modal Content -->
+            <div class="modal-content h-full bg-white rounded-lg w-full text-left p-4 md:p-6 lg:p-8 overflow-auto">
+                <!-- Title -->
+                <div class="flex flex-col pb-4 gap-4">
+                    <!-- Title Section -->
+                    <div class="flex justify-between items-center">
+                        <ion-icon name="people-outline" class="text-2xl"></ion-icon>
+                        <span class="text-lg md:text-xl mr-12 max-sm:mr-24 font-semibold">Chat dengan admin</span>
                     </div>
 
-                    <div class="flex items-start space-x-2">
-                        <div class="w-6 sm:w-8 flex-shrink-0"></div> <!-- Spacer to align with avatar -->
-                        <div class="bg-white dark:bg-gray-800 rounded-lg p-2 sm:p-3 max-w-[75%] sm:max-w-md">
-                            <p class="dark:text-gray-300 text-sm">Let me know</p>
-                            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">05:14 PM</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Messages from second user -->
-                <div class="space-y-2 mt-4">
-                    <div class="flex items-start justify-end space-x-2">
-                        <div class="bg-blue-500 text-white rounded-lg p-2 sm:p-3 max-w-[75%] sm:max-w-md">
-                            <p class="text-sm">Yes, let's see, send your work here</p>
-                            <p class="text-xs text-blue-200 mt-1">05:14 PM</p>
-                        </div>
-                        <img src="{{ asset(Auth::user()->img ?? './img/client-1.jpg') }}" alt="Your avatar"
-                            class="w-6 h-6 sm:w-8 sm:h-8 rounded-full flex-shrink-0">
-                    </div>
-
-                    <div class="flex items-start justify-end space-x-2">
-                        <div class="bg-blue-500 text-white rounded-lg p-2 sm:p-3 max-w-[75%] sm:max-w-md">
-                            <p class="text-sm">Anyone on for lunch today</p>
-                            <p class="text-xs text-blue-200 mt-1">You</p>
-                        </div>
-                        <div class="w-6 sm:w-8 flex-shrink-0"></div> <!-- Spacer to align with avatar -->
+                    <!-- User List Section -->
+                    <div class="flow-root w-full">
+                        <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
+                            <!-- User Item 1 -->
+                            <li class="py-3 sm:py-4">
+                                <a href="" class="block">
+                                    <div class="flex items-center gap-4">
+                                        <img class="w-10 h-10 rounded-full" src="/docs/images/people/profile-picture-1.jpg" alt="Neil image">
+                                        <div class="flex-1 min-w-0">
+                                            <p class="text-sm md:text-base font-medium text-gray-900 truncate ">
+                                                Neil Sims
+                                            </p>
+                                            <p class="text-xs md:text-sm text-gray-500 truncate dark:text-gray-400">
+                                                email@windster.com
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <!-- User Item 2 -->
+                            <li class="py-3 sm:py-4">
+                                <a href="" class="block">
+                                    <div class="flex items-center gap-4">
+                                        <img class="w-10 h-10 rounded-full" src="/docs/images/people/profile-picture-2.jpg" alt="Another user image">
+                                        <div class="flex-1 min-w-0">
+                                            <p class="text-sm md:text-base font-medium text-gray-900 truncate ">
+                                                Another User
+                                            </p>
+                                            <p class="text-xs md:text-sm text-gray-500 truncate dark:text-gray-400">
+                                                email@windster.com
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                        
                     </div>
                 </div>
             </div>
-
-            <!-- Input area -->
-            <div class="mb-8">
-                <div
-                    class="sticky bottom-8 mb-8 bg-white dark:bg-gray-800 border-t-2 border-2 rounded-full dark:border-gray-700 p-2">
-                    <div class="flex items-center space-x-2 dark:bg-gray-700 rounded-full">
-                        <div class="pl-2 sm:pl-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:h-6 sm:w-6 text-gray-400"
-                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                            </svg>
-                        </div>
-                        <input type="text" placeholder="Type here..."
-                            class="flex-1 bg-transparent border-none rounded-full px-3 sm:px-4 py-1 sm:py-2 focus:outline-none dark:text-white placeholder-gray-400 text-sm sm:text-base">
-                        <div class="flex items-center pr-2 sm:pr-2 space-x-2">
-                            <button
-                                class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 focus:outline-none">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:h-6 sm:w-6" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
-                                </svg>
-                            </button>
-                            <button
-                                class="bg-blue-600 text-white rounded-full px-3 py-1 sm:px-4 sm:py-2 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 flex items-center text-sm sm:text-base">
-                                <span class="mr-2">Send</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
-                                    fill="currentColor">
-                                    <path fill-rule="evenodd"
-                                        d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                                        clip-rule="evenodd" />
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        </div>
     </div>
-</main>
+@endif
+
+<script>
+    // Add event listener to open modal button
+    var openmodal = document.querySelectorAll('.modal-open');
+    for (var i = 0; i < openmodal.length; i++) {
+        openmodal[i].addEventListener('click', function(event) {
+            event.preventDefault();
+            toggleModal();
+        });
+    }
+
+    // Add event listener to overlay to close the modal
+    const overlay = document.querySelector('.modal-overlay');
+    overlay.addEventListener('click', toggleModal);
+
+    // Add event listener to close modal button
+    var closemodal = document.querySelectorAll('.modal-close');
+    for (var i = 0; i < closemodal.length; i++) {
+        closemodal[i].addEventListener('click', toggleModal);
+    }
+
+    // Close modal on Escape key press
+    document.onkeydown = function(evt) {
+        evt = evt || window.event;
+        var isEscape = false;
+        if ("key" in evt) {
+            isEscape = (evt.key === "Escape" || evt.key === "Esc");
+        } else {
+            isEscape = (evt.keyCode === 27);
+        }
+        if (isEscape && document.body.classList.contains('modal-active')) {
+            toggleModal();
+        }
+    };
+
+    // Toggle modal visibility and body class
+    function toggleModal() {
+        const body = document.querySelector('body');
+        const modal = document.querySelector('.modal');
+        modal.classList.toggle('opacity-0');
+        modal.classList.toggle('pointer-events-none');
+        body.classList.toggle('modal-active');
+    }
+</script>

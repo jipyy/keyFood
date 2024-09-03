@@ -58,8 +58,10 @@
 
     <div class="container md:my-10" id="container">
         @include('partials.profile')
-        {{-- @include('partials.live-chat') --}}
+     
         @yield('container')
+
+        @include('partials.live-chat')
     </div>
     @include('partials.footer')
     @include('partials.bot-bar')

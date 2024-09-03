@@ -294,6 +294,10 @@ Route::get('/dashboard-toko', function () {
     return view('admin.dashboard-toko');
 });
 
+Route::get('/cobain', function () {
+    return view('cobain');
+});
+
 //OTP 
 Route::get('/otp', function () {
     return view('auth.otp-verif');
