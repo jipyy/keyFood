@@ -23,51 +23,55 @@
                 </div>
             @endif
 
-        <div class="flex justify-between">
-            <!-- Add New User Button -->
-            <a href="{{ route('admin.users.create') }}"
-                class="inline-block px-4 bg-indigo-600 text-black rounded-lg dark:text-white">
-                Add New User
-            </a>
+            <div class="flex justify-between">
+                <!-- Add New User Button -->
+                <a href="{{ route('admin.users.create') }}"
+                    class="inline-block px-4 bg-indigo-600 text-black rounded-lg dark:text-white">
+                    Add New User
+                </a>
 
-            <!-- Dropdown Menu Button -->
-            <div class="relative inline-flex justify-end mb-4">
-                <div>
-                    <button type="button"
-                        class="btn inline-flex justify-center gap-x-1.5 rounded-md bg-white px-2 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-                        id="menu-button" aria-expanded="false" aria-haspopup="true">
-                        Roles
-                        <svg class="-mr-1 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                            <path fill-rule="evenodd"
-                                d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                                clip-rule="evenodd" />
-                        </svg>
-                    </button>
-                </div>
+                <!-- Dropdown Menu Button -->
+                <div class="relative inline-flex justify-end mb-4">
+                    <div>
+                        <button type="button"
+                            class="btn inline-flex justify-center gap-x-1.5 rounded-md bg-white px-2 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+                            id="menu-button" aria-expanded="false" aria-haspopup="true">
+                            Roles
+                            <svg class="-mr-1 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor"
+                                aria-hidden="true">
+                                <path fill-rule="evenodd"
+                                    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                    </div>
 
-                <div id="dropdown-menu"
-                    class="hidden absolute right-0 z-10 mt-8 w-32 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
-                    role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
-                    <div class="py-1" role="none">
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
-                            data-roles="admin">Admin</a>
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
-                            data-roles="">Buyer</a>
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
-                            data-roles="seller">Seller</a>
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
-                            data-roles="all">All</a> <!-- Option to show all -->
+                    <div id="dropdown-menu"
+                        class="hidden absolute right-0 z-10 mt-8 w-32 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                        role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+                        <div class="py-1" role="none">
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
+                                data-roles="admin">Admin</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
+                                data-roles="">Buyer</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
+                                data-roles="seller">Seller</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
+                                data-roles="all">All</a> <!-- Option to show all -->
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
             {{-- ini cards --}}
             <div class="container-profile">
                 @forelse($users as $user)
                     <div class="card-profile card-table" data-roles="{{ $user->roles->pluck('name')->join(', ') }}">
                         <p><strong>ID:</strong> {{ $user->id }}</p>
-                        <img src="{{ asset($user->img) }}" alt="Profile Picture">
+                        <a href="{{ route('live-chat', $user) }}">
+                            <img src="{{ asset($user->img) ?? 'img/client-1.jpg' }}" alt="Profile Picture">
+                        </a>
+
                         <h2>{{ $user->name }}</h2>
                         <p><strong>Role:</strong>
                             @if ($user->roles->isEmpty())
@@ -137,7 +141,9 @@
                                                     </div>
                                                 </div>
                                                 <div>
-                                                    <a href="{{ route('live-chat', $user) }}"><p class="font-semibold">{{ $user->name }}</p></a>
+                                                    <a href="{{ route('live-chat', $user) }}">
+                                                        <p class="font-semibold">{{ $user->name }}</p>
+                                                    </a>
                                                     <p class="text-xs text-gray-600 dark:text-gray-400">ID: {{ $user->id }}
                                                     </p>
                                                 </div>

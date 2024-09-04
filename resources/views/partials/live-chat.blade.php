@@ -73,7 +73,7 @@
                                 <li class="py-3 sm:py-4">
                                     <a href="/live-chat/{{ $admin->id }}" class="block">
                                         <div class="list-users flex items-center gap-4 py-2 hover:bg-gray-50 hover:rounded-md">
-                                            <img class="w-10 h-10 rounded-full" src="{{ $admin->profile_picture_url }}" alt="{{ $admin->name }} image">
+                                            <img class="w-10 h-10 rounded-full" src="{{ $admin->profile_picture_url ?? 'img/client-1.jpg' }}" alt="{{ $admin->name }} image">
                                             <div class="flex-1 min-w-0 identity">
                                                 <p class="text-sm md:text-base font-medium text-gray-900 truncate">
                                                     {{ $admin->name }}
@@ -92,6 +92,13 @@
             </div>
         </div>
     </div>
+    @else
+    <a href="https://wa.me/6289661110584?text=Saya%20ingin%20bertanya%20tentang%20produk%20di%20website%20keyFood">
+        <button
+            class="bg-transparent border border-gray-500 hover:border-indigo-500 text-gray-500 hover:text-indigo-500 font-bold py-2 px-4 rounded-full fixed bottom-4 right-4 mb-4 mr-4 max-sm:mb-20">
+            <i class='bx bxs-conversation text-2xl sm:text-3xl'></i> <!-- Use 'bxs-conversation' for a solid style -->
+        </button>
+    </a>
 @endif
 
 <script>

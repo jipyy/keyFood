@@ -50,9 +50,7 @@
                             data-category-id="{{ $product->category_id }}" class="cart-btn">
                             <i class="fas fa-shopping-bag"></i> Tambah Ke Keranjang
                         </a>
-                        <a href="#" class="view-btn">
-                            <i class="far fa-eye"></i>
-                        </a>
+                        
                     </div>
                 @endforeach
             </div>
@@ -118,7 +116,7 @@
                                         <a href="javascript:void(0)" data-product-id="${product.id}" data-store-id="${product.store_id}" data-category-id="${product.category_id}" class="cart-btn">
                                             <i class="fas fa-shopping-bag"></i> Tambah Ke Keranjang
                                         </a>
-                                        <a href="#" class="view-btn"><i class="far fa-eye"></i></a>
+                                    
                                     </div>`;
                                 $('#product-list').append(productHtml); // Tambahkan produk ke daftar
                             });

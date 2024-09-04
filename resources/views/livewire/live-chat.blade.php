@@ -19,14 +19,14 @@
                                             class="text-xs opacity-50 text-gray">{{ $message->created_at->diffForHumans() }}</time>
                                     </div>
                                     <div class="chat-bubble">{{ $message->message }}</div>
-                                    <div class="chat-footer opacity-50">Delivered</div>
+                                    <div class="chat-footer opacity-50 text-gray-900">Delivered</div>
                                 </div>
                             @endforeach
                         @endif
                     </div>
                     <div class="form-control">
                         <form action="POST" id="messageForm" wire:submit.prevent="SendMessage">
-                            <textarea id="messageTextarea" class="textarea textarea-bordered w-full" wire:model="message"
+                            <textarea id="messageTextarea" class="textarea textarea-bordered text-green-500 w-full" wire:model="message"
                                 placeholder="kirim pesang bang..." required>
                         </textarea>
                             <button type="submit" id="sumbitButton" class="btn btn-primary">Kirim</button>

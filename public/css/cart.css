@@ -53,7 +53,7 @@ body.dark .bottom-sheet .sheet-overlay{
     width: 100%;
     position: relative;
     background: rgba(255, 255, 255, 0.6); /* Semi-transparent background */
-    max-height: 100vh;
+    max-height: 90vh;
     height: 50vh;
     max-width: 1150px;
     padding: 25px 30px;
@@ -196,6 +196,7 @@ body.dark .bottom-sheet .body p {
       height: 70vh; /* Increase height to better fit mobile screens */
       padding: 10px; /* Further reduce padding */
     }
+
   
     .bottom-sheet .body h2 {
       font-size: 1.2rem; /* Smaller heading size for mobile */
