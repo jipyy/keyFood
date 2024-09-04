@@ -11,7 +11,6 @@
                                         <div class="w-10 rounded-full">
                                             <img alt="Tailwind CSS chat bubble component"
                                             src="{{ asset($message->fromUser->img ?? 'img/client-1.jpg') }}" />
-                                       
                                         </div>
                                     </div>
                                     <div class="chat-header text-gray-950">
