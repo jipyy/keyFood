@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('from_user_id')->constrained('users');
             $table->foreignId('to_user_id')->constrained('users');
             $table->text('message');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }
