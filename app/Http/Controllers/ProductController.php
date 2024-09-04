@@ -255,4 +255,12 @@ class ProductController extends Controller
         // Return the paginated products as JSON
         return response()->json($products);
     }
+    public function rateProduct(Request $request, $id)
+    {
+        $product = Product::findOrFail($id);
+        $product->rating = $request->input('rating');
+        $product->save();
+
+        return redirect()->back()->with('success', 'Rating submitted successfully!');
+    }
 }

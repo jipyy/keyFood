@@ -119,7 +119,7 @@
             document.getElementById('hidden-total-price').value = totalPrice;
 
             // Menghapus data dari LocalStorage setelah checkout
-            localStorage.removeItem('cart');
+            // localStorage.removeItem('cart');
 
         });
 
