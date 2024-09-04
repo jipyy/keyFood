@@ -6,6 +6,7 @@
                 <form id="checkout-form" action="{{ route('checkout.store') }}" method="post">
                     @csrf
                     <h2 class="font-manrope font-extrabold text-3xl lead-10 text-black mb-9">Pesanan Anda</h2>
+
                     @if ($loginType === 'email')
                         <!-- Email Input -->
                         <div class="form-control">
@@ -17,10 +18,30 @@
                                     value="{{ old('checkout-email', $user->email ?? '') }}" required>
                             </div>
                         </div>
+                        <!-- Phone Input -->
+                        <div class="form-control">
+                            <label for="checkout-phone">Phone</label>
+                            <div>
+                                <span class="icon"><i class='bx bx-phone'></i></span>
+                                <input type="tel" name="checkout-phone" id="checkout-phone"
+                                    placeholder="Enter your phone..."
+                                    value="{{ old('checkout-phone', $user->phone ?? '') }}" required>
+                            </div>
+                        </div>
                     @endif
 
 
                     @if ($loginType === 'phone')
+                        <!-- Email Input -->
+                        <div class="form-control">
+                            <label for="checkout-email">E-mail</label>
+                            <div>
+                                <span class="icon"><i class='bx bx-envelope'></i></span>
+                                <input type="email" id="checkout-email" name="checkout-email"
+                                    placeholder="Enter your email.. (opsional)."
+                                    value="{{ old('checkout-email', $user->email ?? '') }}" required>
+                            </div>
+                        </div>
                         <!-- Phone Input -->
                         <div class="form-control">
                             <label for="checkout-phone">Phone</label>

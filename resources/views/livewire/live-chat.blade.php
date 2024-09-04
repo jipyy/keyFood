@@ -9,8 +9,8 @@
                                 <div class="chat @if ($message->from_user_id == auth()->id()) chat-end @else chat-start @endif">
                                     <div class="chat-image avatar">
                                         <div class="w-10 rounded-full">
-                                            <img alt="Tailwind CSS chat bubble component"
-                                            src="{{ asset($message->fromUser->img ?? 'img/client-1.jpg') }}" />
+                                            <img alt="User Avatar"
+                                                src="{{ asset($message->fromUser->img ?? 'img/client-1.jpg') }}" />
                                         </div>
                                     </div>
                                     <div class="chat-header text-gray-950">
@@ -18,18 +18,30 @@
                                         <time
                                             class="text-xs opacity-50 text-gray">{{ $message->created_at->diffForHumans() }}</time>
                                     </div>
-                                    <div class="chat-bubble">{{ $message->message }}</div>
+                                    <div class="chat-bubble sm:max-w-xs lg:max-w-lg p-2 break-words shadow-md">
+                                        @if ($message->message)
+                                            <p class="mb-2">{{ $message->message }}</p>
+                                        @endif
+                                        @if ($message->image)
+                                            <img src="{{ asset('storage/' . $message->image) }}" alt="Image"
+                                                class="max-w-full h-auto rounded-lg mt-2 overflow-hidden">
+                                        @endif
+                                    </div>
+
                                     <div class="chat-footer opacity-50 text-gray-900">Delivered</div>
                                 </div>
                             @endforeach
                         @endif
                     </div>
                     <div class="form-control">
-                        <form action="POST" id="messageForm" wire:submit.prevent="SendMessage">
+                        <form action="POST" id="messageForm" wire:submit.prevent="SendMessage"
+                            enctype="multipart/form-data">
                             <textarea id="messageTextarea" class="textarea textarea-bordered text-green-500 w-full" wire:model="message"
-                                placeholder="kirim pesang bang..." required>
-                        </textarea>
-                            <button type="submit" id="sumbitButton" class="btn btn-primary">Kirim</button>
+                                placeholder="Kirim pesan bang..." required></textarea>
+                            <input type="file" wire:model="image" class="hidden" id="imageInput" />
+                            <div id="imagePreview" class="mt-2 max-w-30" wire:ignore></div>
+                            <button type="button" id="chooseFileButton" class="btn btn-primary">Choose File</button>
+                            <button type="submit" id="submitButton" class="btn btn-primary">Kirim</button>
                         </form>
                     </div>
                 </div>
@@ -37,26 +49,59 @@
         </div>
     </div>
 </div>
-</div>
 
-
-{{-- <script>
-    // Menunggu Livewire selesai mengirimkan permintaan
-    Livewire.on('messageSent', () => {
-        const textarea = document.getElementById('messageTextarea');
-        textarea.value = '';
-    });
-
-    document.getElementById('messageForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Cegah pengiriman default form
-        Livewire.emit('sendMessage'); // Emit event untuk Livewire
-    });
-</script> --}}
 
 <script>
-    // Ambil elemen textarea dan form
+    document.addEventListener('DOMContentLoaded', function() {
+        const chooseFileButton = document.getElementById('chooseFileButton');
+        const imageInput = document.getElementById('imageInput');
+        const imagePreview = document.getElementById('imagePreview');
+        const messageForm = document.getElementById('messageForm');
+
+        // Open file dialog when "Choose File" button is clicked
+        chooseFileButton.addEventListener('click', function() {
+            imageInput.click();
+        });
+
+        // Handle file selection and preview
+        imageInput.addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    // Create an img element to display the preview
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    img.className = 'max-w-full h-auto'; // Adjust styles as needed
+
+                    // Clear previous previews and display new image
+                    imagePreview.innerHTML = '';
+                    imagePreview.appendChild(img);
+
+                    // Hide the choose file button
+                    chooseFileButton.style.display = 'none';
+                };
+
+                reader.readAsDataURL(file);
+            } else {
+                imagePreview.innerHTML = '';
+                chooseFileButton.style.display = 'inline-block';
+            }
+        });
+
+        // Clear image preview when form is submitted
+        messageForm.addEventListener('submit', function() {
+            imagePreview.innerHTML = '';
+            chooseFileButton.style.display = 'inline-block';
+            imageInput.value = ''; // Clear the file input
+        });
+    });
+
+    // Ambil elemen textarea, form, dan input file
     const messageTextarea = document.getElementById('messageTextarea');
     const messageForm = document.getElementById('messageForm');
+    const imageInput = document.querySelector('input[type="file"]');
 
     // Flag untuk menghindari pengiriman pesan kosong saat delay
     let isSubmitting = false;
@@ -65,7 +110,7 @@
     function isMessageValid() {
         const value = messageTextarea.value.trim();
         console.log(`Pesan yang dicek: "${value}"`); // Log isi pesan untuk debugging
-        return value.length > 0;
+        return value.length > 0 || imageInput.files.length > 0;
     }
 
     // Tambahkan event listener untuk menangani tombol yang ditekan
@@ -80,7 +125,7 @@
                 // Jika hanya Enter, cegah default behavior dan cek isian
                 event.preventDefault();
 
-                // Pastikan textarea tidak kosong dan belum dalam proses submit
+                // Pastikan textarea tidak kosong atau ada file yang diupload dan belum dalam proses submit
                 if (isMessageValid() && !isSubmitting) {
                     // Set flag submitting
                     isSubmitting = true;
@@ -90,29 +135,27 @@
                         isSubmitting = false; // Reset flag setelah submit
                     }, 1); // 2000 milidetik = 2 detik
                 } else {
-                    alert('Pesan tidak boleh kosong!'); // Pesan peringatan jika textarea kosong
+                    alert(
+                        'Pesan tidak boleh kosong atau file belum dipilih!'
+                    ); // Pesan peringatan jika textarea kosong
                 }
             }
         }
     });
 
-    // Tambahkan event listener untuk mengosongkan textarea setelah submit
+    // Tambahkan event listener untuk mengosongkan textarea dan input file setelah submit
     messageForm.addEventListener('submit', function(event) {
         setTimeout(() => {
-            // Kosongkan textarea setelah pesan terkirim
+            // Kosongkan textarea dan input file setelah pesan terkirim
             messageTextarea.value = '';
+            imageInput.value = '';
         }, 100); // Tambahkan sedikit delay agar pesan terkirim lebih dulu
     });
 
     // Mengatur event ketika pesan dikirim oleh Livewire
     Livewire.on('messageSent', () => {
         messageTextarea.value = ''; // Kosongkan textarea setelah pesan terkirim
+        imageInput.value = ''; // Kosongkan input file setelah pesan terkirim
         isSubmitting = false; // Pastikan flag isSubmitting di-reset
-    });
-
-    // Mencegah pengiriman form default dan menggunakan Livewire untuk pengiriman pesan
-    document.getElementById('messageForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Cegah pengiriman default form
-        Livewire.emit('sendMessage'); // Emit event untuk Livewire
     });
 </script>

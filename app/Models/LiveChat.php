@@ -9,6 +9,7 @@ class LiveChat extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['from_user_id', 'to_user_id', 'message', 'image']; // Add 'image' here
 
     public function fromUser()
     {

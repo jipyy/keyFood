@@ -23,10 +23,19 @@
                 </div>
             @endif
 
+
+
+
             <div class="flex justify-between">
+                <form action="{{ route('clear.chats') }}" method="POST">
+                    @csrf
+                    <button type="submit"
+                        class="inline-block px-4 py-2 bg-red-500 text-black rounded-lg hover:bg-red-600">Clear Chats</button>
+                </form>
+
                 <!-- Add New User Button -->
                 <a href="{{ route('admin.users.create') }}"
-                    class="inline-block px-4 bg-indigo-600 text-black rounded-lg dark:text-white">
+                    class="inline-block px-4 py-2 bg-indigo-600 text-black rounded-lg hover:bg-indigo-700">
                     Add New User
                 </a>
 

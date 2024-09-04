@@ -23,6 +23,10 @@ use App\Http\Controllers\Auth\SocialiteController;
 use App\Http\Controllers\OtpWaVerificationController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\ChatController;
+
+Route::post('/clear-chats', [ChatController::class, 'clearChats'])->name('clear.chats');
+
 
 
 

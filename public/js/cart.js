@@ -158,7 +158,7 @@ function sendCartDataToServer() {
     })
     .then(response => {
         console.log(response.data);
-        withErrors('Cart items saved successfully');
+        with('Cart items saved successfully');
         window.location = "/checkout"
     })
     .catch(error => {
