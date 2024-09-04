@@ -1,10 +1,10 @@
 @extends('layouts.main')
 @section('container')
-    <section id="home" class="">
+    <section id="home">
         <!-- Popular Bundle Pack Section -->
         <section id="popular-bundle-pack">
             <div class="product-heading">
-                <h3>Daftar Product</h3>
+                <h3>Daftar Produk</h3>
             </div>
             <div class="product-container">
                 @foreach ($products as $product)
@@ -13,6 +13,7 @@
                         <span hidden>{{ $product->store_id }}</span>
                         <img alt="{{ $product->name }}" src="{{ asset($product->photo) }}">
                         <strong>{{ $product->name }}</strong>
+                        <p>Rating: {{ $product->rating ?? 'Belum ada rating' }}</p>
                         <span class="quantity"></span>
                         <span class="price">Rp {{ number_format($product->price, 0, ',', '.') }}</span>
                         <a href="javascript:void(0)" 

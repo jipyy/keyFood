@@ -1,11 +1,6 @@
 @extends('layouts.main')
 
 @section('container')
-    {{-- <style>
-        body.dark .empty-history{
-            background-color: #2f343a;
-        }
-    </style> --}}
     @if (session('success'))
         <script>
             // Hapus data cart dari localStorage setelah redirect
@@ -13,8 +8,9 @@
         </script>
     @endif
     @if ($orders->isEmpty())
-        <section class="bg-tranparent min-h-screen flex items-center justify-center p-4 lg:mt-10">
-            <div class="bg-white empty-history rounded-2xl shadow-xl p-8 max-w-md w-full">
+        <!-- Section ketika tidak ada order -->
+        <section class="bg-tranparent min-h-screen flex items-center justify-center p-4">
+            <div class="bg-white rounded-2xl shadow-xl p-8 max-w-md w-full">
                 <div class="relative mb-8">
                     <img src="{{ asset('../img/no-order.png') }}" alt="Empty box" class="w-40 h-40 mx-auto" />
                 </div>
@@ -28,8 +24,7 @@
                     </button>
                 </a>
                 <div class="mt-6 text-center">
-                    <a href="/live-chat/1" class="text-sm text-purple-600 hover:text-purple-800 transition duration-300">Butuh
-                        Bantuan? Chat Kami</a>
+                    <a href="/faqc" class="text-sm text-purple-600 hover:text-purple-800 transition duration-300">Butuh Bantuan? Chat Kami</a>
                 </div>
             </div>
         </section>
@@ -96,6 +91,20 @@
                                             Rp. {{ number_format($order->products->price, 0, ',', '.') }}</p>
                                     </div>
                                 </div>
+                            </div>
+                            
+                            <!-- Form untuk memberikan rating -->
+                            <div class="flex justify-center my-4">
+                                <form action="{{ route('rate.product', $orderDetail->products->id) }}" method="POST" class="w-full md:w-1/2">
+                                    @csrf
+                                    <label for="rating" class="block text-lg font-semibold mb-2 text-gray-700">Beri Rating:</label>
+                                    <input type="number" name="rating" id="rating" min="1" max="5" step="0.1" required
+                                        class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                                    <button type="submit"
+                                        class="mt-3 w-full bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-indigo-700 transition duration-300">
+                                        Submit Rating
+                                    </button>
+                                </form>
                             </div>
                             <svg class="mt-9 max-md:mt-3 w-full" xmlns="http://www.w3.org/2000/svg" width="1216"
                                 height="2" viewBox="0 0 1216 2" fill="none">
