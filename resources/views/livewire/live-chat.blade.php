@@ -16,7 +16,7 @@
 
                     @if ($secondUser)
                         <!-- Profile Box for the Second User -->
-                        <div class="flex items-center p-4 mb-4 border rounded-lg shadow-md bg-gray-100">
+                        <div class="flex items-center p-2 px-10 mb-4 border rounded-lg shadow-md bg-gray-100">
                             <div class="w-12 h-12 mr-4">
                                 <img src="{{ asset($secondUser->img ?? 'img/client-1.jpg') }}" alt="User Avatar"
                                     class="w-full h-full rounded-full">

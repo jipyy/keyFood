@@ -86,7 +86,7 @@ function getData() {
     const iconCart = document.querySelector('.icon-cart');
     let cart = JSON.parse(localStorage.getItem('cart')) || {};
     if (Object.keys(cart).length === 0) {
-        document.getElementById('cart').innerHTML = '<p>Your cart is empty.</p>';
+        document.getElementById('cart').innerHTML = '<p>Keranjang Anda Kosong</p>';
         document.getElementById('count-cart').innerHTML = 0;
         document.getElementById('total-price').innerHTML = 'Rp.0';
         iconCart.style.display = 'none'; // Hide the cart icon
@@ -141,8 +141,9 @@ function getData() {
                                     </button>
                                 </a>
                             </div>
-                            <h6 class="price text-indigo-600 font-manrope font-bold text-2xl leading-9 text-right">Rp ${itemTotal.toLocaleString('id-ID')}</h6>
                         </div>
+                            <h6 class="price text-indigo-600 font-manrope font-bold text-lg leading-9 text-right">Rp ${itemTotal.toLocaleString('id-ID')}</h6>
+
                     </div>
                 </div>`;
         }
@@ -243,17 +244,15 @@ $(document).ready(function() {
         getData();
     });
 });
-function clearCartData() {
-    localStorage.removeItem('cart');
-    console.log('Cart data cleared.');
-}
 
-// Panggil fungsi ini ketika pengguna logout
-clearCartData();
 
-document.getElementById('Log Out').addEventListener('click', function() {
+document.getElementById('logout').addEventListener('click', function(event) {
+    event.preventDefault();
+    function clearCartData() {
+        localStorage.removeItem('cart');
+        console.log('Cart data cleared.');
+    }
+    
     clearCartData();
-
-    // Lanjutkan dengan proses logout, misalnya mengarahkan pengguna ke halaman logout
     window.location.href = '/logout';
 });
