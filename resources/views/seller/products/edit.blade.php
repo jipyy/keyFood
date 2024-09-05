@@ -26,7 +26,7 @@
                     <h1 class="text-indigo-950 text-3xl font-bold">Edit Product</h1>
 
                     <div class="mt-4">
-                        <x-input-label for="photo" :value="('Existing Photo')" />
+                        <x-input-label for="photo" :value="__('Existing Photo')" />
                         <img src="{{ asset($product->photo) }}" class="h-[100px] w-auto" alt="{{ $product->name }}">
                         <x-text-input id="photo" class="block mt-1 w-full" type="file" name="photo" />
                         <x-input-error :messages="$errors->get('photo')" class="mt-2" />
@@ -34,19 +34,20 @@
 
                     <!-- Name -->
                     <div class="mt-4">
-                        <x-input-label for="name" :value="('Name')" />
+                        <x-input-label for="name" :value="__('Name')" />
                         <x-text-input value="{{ $product->name }}" id="name" class="block mt-1 w-full" type="text" name="name" required autofocus autocomplete="name" />
                         <x-input-error :messages="$errors->get('name')" class="mt-2" />
                     </div>
 
                     <div class="mt-4">
-                        <x-input-label for="price" :value="('Price')" />
+                        <x-input-label for="price" :value="__('Price')" />
                         <x-text-input value="{{ $product->price }}" id="price" class="block mt-1 w-full" type="number" name="price" required autofocus autocomplete="price" />
                         <x-input-error :messages="$errors->get('price')" class="mt-2" />
                     </div>
 
+                    <!-- Category -->
                     <div class="mt-4">
-                        <x-input-label for="category" :value="('Category')" />
+                        <x-input-label for="category" :value="__('Category')" />
                         <select name="category_id" id="category" class="w-full py-3 pl-5 border">
                             <option value="{{ $product->category->id }}" selected>{{ $product->category->name }}</option>
                             @forelse($categories as $category)
@@ -58,8 +59,22 @@
                         <x-input-error :messages="$errors->get('category_id')" class="mt-2" />
                     </div>
 
+                    <!-- Store -->
                     <div class="mt-4">
-                        <x-input-label for="slug" :value="('Slug')" />
+                        <x-input-label for="store" :value="__('Store')" />
+                        <select name="store_id" id="store" class="w-full py-3 pl-5 border">
+                            <option value="{{ $product->store_id }}" selected>{{ $product->store->nama_toko }}</option>
+                            @forelse($stores as $store)
+                            <option value="{{ $store->id_toko }}">{{ $store->nama_toko }}</option>
+                            @empty
+                            <option value="">No Stores Available</option>
+                            @endforelse
+                        </select>
+                        <x-input-error :messages="$errors->get('store_id')" class="mt-2" />
+                    </div>
+
+                    <div class="mt-4">
+                        <x-input-label for="slug" :value="__('Slug')" />
                         <textarea name="slug" id="slug" class="w-full py-3 pl-5 border">{{ $product->slug }}</textarea>
                         <x-input-error :messages="$errors->get('slug')" class="mt-2" />
                     </div>
