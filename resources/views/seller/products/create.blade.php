@@ -54,7 +54,7 @@
                 <div>
                     <label class="text-white dark:text-gray-200" for="price">Harga Produk</label>
                     <input id="price" type="number" name="price" value="{{ old('price') }}"
-                        class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
+                        class="no-spinner block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
                         required>
                     @error('price')
                         <div class="text-red-500">{{ $message }}</div>
@@ -83,12 +83,11 @@
                 </div>
 
                 {{-- Store --}}
-                <div>
+                <div class="hidden">
                     <label class="text-white dark:text-gray-200" for="store_id">Toko</label>
                     <select name="store_id" id="store_id"
                         class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
-                        required>
-                        <option value="">Pilih Toko</option>
+                        required hidden>
                         @foreach ($stores as $store)
                             <option value="{{ $store->id_toko }}"
                                 {{ old('store_id') == $store->id_toko ? 'selected' : '' }}>

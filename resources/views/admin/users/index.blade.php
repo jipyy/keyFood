@@ -95,6 +95,8 @@
                         </p>
                         <div class="info text-sm text-gray-700 dark:text-gray-300 mt-2 break-words">
                             <p><strong>Email:</strong> {{ $user->email }}</p>
+                            <p><strong>Phone:</strong> {{ $user->phone }}</p>
+
                         </div>
 
 

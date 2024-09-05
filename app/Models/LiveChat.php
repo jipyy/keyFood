@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class LiveChat extends Model
 {
     use HasFactory;
-
-    protected $fillable = ['from_user_id', 'to_user_id', 'message', 'image']; // Add 'image' here
+    
+    protected $fillable = ['from_user_id', 'to_user_id', 'message', 'image', 'is_read'];
 
     public function fromUser()
     {
@@ -19,5 +19,10 @@ class LiveChat extends Model
     public function toUser()
     {
         return $this->belongsTo(User::class, 'to_user_id');
+    }
+
+    public function markAsRead()
+    {
+        $this->update(['is_read' => true]);
     }
 }

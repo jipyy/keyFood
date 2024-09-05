@@ -71,25 +71,35 @@
                     <div class="flow-root w-full user-list">
                         <ul>
                             @foreach ($admins as $admin)
+                                <?php
+                                // Calculate unread message count for the current admin
+                                $unreadMessagesCount = \App\Models\LiveChat::where('from_user_id', $admin->id)
+                                    ->where('to_user_id', auth()->id())
+                                    ->where('is_read', false)
+                                    ->count();
+                                ?>
                                 <li class="py-3 sm:py-4">
                                     <a href="/live-chat/{{ $admin->id }}" class="block">
                                         <div
-                                            class="list-users flex items-center gap-4 py-2 hover:bg-gray-50 hover:rounded-md">
+                                            class="list-users flex items-center gap-4 py-2 hover:bg-gray-50 hover:rounded-md relative">
                                             <img class="w-10 h-10 rounded-full"
                                                 src="{{ $admin->profile_picture_url ?? 'img/client-1.jpg' }}"
                                                 alt="{{ $admin->name }} image">
                                             <div class="flex-1 min-w-0 identity">
                                                 <p class="text-sm md:text-base font-medium text-gray-900 truncate">
-                                                    {{ $admin->name }}
-
-                                                </p>
-                                                <p class="text-xs md:text-sm text-gray-500 truncate">
-                                                    {{ $admin->email }}
+                                                    {{ $admin->name }}</p>
+                                                <p class="text-xs md:text-sm text-gray-500 truncate">{{ $admin->email }}
                                                 </p>
                                                 @if ($admin->is_online)
-                                                    <span class="text-green-500">Online</span>
+                                                    <span class="text-green-500 text-sm">Online</span>
                                                 @else
                                                     <span class="text-gray-500">Offline</span>
+                                                @endif
+                                                @if ($unreadMessagesCount > 0)
+                                                    <span
+                                                        class="absolute top-0 right-0 w-5 h-5 rounded-full bg-red-500 text-white text-xs font-bold flex items-center justify-center">
+                                                        {{ $unreadMessagesCount }}
+                                                    </span>
                                                 @endif
                                             </div>
                                         </div>
