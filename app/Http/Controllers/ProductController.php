@@ -260,7 +260,7 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
         $product->rating = $request->input('rating');
         $product->save();
-
+    
         return redirect()->back()->with('success', 'Rating submitted successfully!');
     }
 }
