@@ -34,7 +34,8 @@
                         </div>
                         <div class="text-xs text-slate-400">
                             {{ strlen(Auth::user()->email) > 16 ? substr(Auth::user()->email, 0, 16) . '...' : Auth::user()->email }}
-                            {{ Auth::user()->phone === '0000000000' ? '' : (strlen(Auth::user()->phone) > 16 ? substr(Auth::user()->phone, 0, 16) . '...' : Auth::user()->phone) }} <br>
+                            {{ Auth::user()->phone === '0000000000' ? '' : (strlen(Auth::user()->phone) > 16 ? substr(Auth::user()->phone, 0, 16) . '...' : Auth::user()->phone) }}
+                            <br>
                             @if (Auth::check() && Auth::user()->is_online)
                                 <span class="text-green-500">Online</span>
                             @else
@@ -88,7 +89,7 @@
                     @csrf
                     <a href="/logout" onclick="event.preventDefault();
             this.closest('form').submit();">
-                        <button
+                        <button id="logout"
                             class="flex justify-center gap-3 rounded-md bg-red-600 py-2 px-3 font-semibold hover:bg-red-500 focus:ring-2 focus:ring-red-400">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                                 class="h-6 w-6">

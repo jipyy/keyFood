@@ -20,7 +20,7 @@
                         </div>
                         <!-- Phone Input -->
                         <div class="form-control">
-                            <label for="checkout-phone">Phone</label>
+                            <label for="checkout-phone">No. Telepon</label>
                             <div>
                                 <span class="icon"><i class='bx bx-phone'></i></span>
                                 <input type="tel" name="checkout-phone" id="checkout-phone"
@@ -44,7 +44,7 @@
                         </div>
                         <!-- Phone Input -->
                         <div class="form-control">
-                            <label for="checkout-phone">Phone</label>
+                            <label for="checkout-phone">No. Telepon</label>
                             <div>
                                 <span class="icon"><i class='bx bx-phone'></i></span>
                                 <input type="tel" name="checkout-phone" id="checkout-phone"
@@ -56,9 +56,9 @@
 
                     <br>
                     <!-- Shipping Address -->
-                    <h3>Shipping address</h3>
+                    <h3>Alamat Pengiriman</h3>
                     <div class="form-control">
-                        <label for="checkout-name">Full name</label>
+                        <label for="checkout-name">Nama Lengkap</label>
                         <div>
                             <span class="icon"><i class='bx bx-user-circle'></i></span>
                             <input type="text" id="checkout-name" name="checkout-name" placeholder="Enter your name..."

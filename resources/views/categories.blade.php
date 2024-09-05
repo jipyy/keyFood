@@ -121,7 +121,7 @@
                                 $('#product-list').append(productHtml); // Tambahkan produk ke daftar
                             });
                         } else {
-                            $('#product-list').append('<p class="text-gray-500">No products found</p>'); // Tampilkan pesan jika tidak ada produk
+                            $('#product-list').append('<p class="text-gray-500">Produk Kosong</p>'); // Tampilkan pesan jika tidak ada produk
                         }
                     },
                     error: function(xhr, status, error) {
