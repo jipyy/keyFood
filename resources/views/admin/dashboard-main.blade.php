@@ -124,7 +124,7 @@
                                         </div>
                                     </td>
                                     <td class="px-4 py-3 text-sm">
-                                        {{ $order->harga }}
+                                       Rp. {{ $order->harga }}
                                     </td>
                                     <td class="px-4 py-3 text-sm">
                                         {{ $order->tanggal_order }}
@@ -153,15 +153,15 @@
                             <!-- Chart legend -->
                             <div class="flex items-center">
                                 <span class="inline-block w-3 h-3 mr-1 bg-blue-500 rounded-full"></span>
-                                <span>Shirts</span>
+                                <span>Makanan Manis</span>
                             </div>
                             <div class="flex items-center">
                                 <span class="inline-block w-3 h-3 mr-1 bg-teal-600 rounded-full"></span>
-                                <span>Shoes</span>
+                                <span>Makanan Asin</span>
                             </div>
                             <div class="flex items-center">
                                 <span class="inline-block w-3 h-3 mr-1 bg-purple-600 rounded-full"></span>
-                                <span>Bags</span>
+                                <span>Minuman</span>
                             </div>
                         </div>
                     </div>
@@ -174,11 +174,11 @@
                             <!-- Chart legend -->
                             <div class="flex items-center">
                                 <span class="inline-block w-3 h-3 mr-1 bg-teal-600 rounded-full"></span>
-                                <span>Organic</span>
+                                <span>Sayur-sayuran</span>
                             </div>
                             <div class="flex items-center">
                                 <span class="inline-block w-3 h-3 mr-1 bg-purple-600 rounded-full"></span>
-                                <span>Paid</span>
+                                <span>Buah-buahan</span>
                             </div>
                         </div>
                     </div>

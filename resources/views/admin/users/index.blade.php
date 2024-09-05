@@ -30,12 +30,13 @@
                 <form action="{{ route('clear.chats') }}" method="POST">
                     @csrf
                     <button type="submit"
-                        class="inline-block px-4 py-2 bg-red-500 text-black rounded-lg hover:bg-red-600">Clear Chats</button>
+                        class="inline-block px-4 py-2 bg-orange-500 text-black rounded-lg hover:bg-orange-600">Clear
+                        Chats</button>
                 </form>
 
                 <!-- Add New User Button -->
                 <a href="{{ route('admin.users.create') }}"
-                    class="inline-block px-4 py-2 bg-indigo-600 text-black rounded-lg hover:bg-indigo-700">
+                    class="inline-block px-4 py-2 bg-blue-600 text-black rounded-lg hover:bg-blue-700">
                     Add New User
                 </a>
 
@@ -80,7 +81,6 @@
                         <a href="{{ route('live-chat', $user) }}">
                             <img src="{{ asset($user->img) ?? 'img/client-1.jpg' }}" alt="Profile Picture">
                         </a>
-
                         <h2>{{ $user->name }}</h2>
                         <p><strong>Role:</strong>
                             @if ($user->roles->isEmpty())
@@ -93,9 +93,11 @@
                                 @endforeach
                             @endif
                         </p>
-                        <div class="info">
+                        <div class="info text-sm text-gray-700 dark:text-gray-300 mt-2 break-words">
                             <p><strong>Email:</strong> {{ $user->email }}</p>
                         </div>
+
+
                         <button id="dropdownButton1" class="dropdown-button dark:text-gray-200">
                             <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -131,7 +133,6 @@
                                     <th class="px-4 py-3">Name</th>
                                     <th class="px-4 py-3">Email</th>
                                     <th class="px-4 py-3">No. HP</th>
-
                                     <th class="px-4 py-3">Role</th>
                                     <th class="px-4 py-3">Actions</th>
                                 </tr>
@@ -144,22 +145,29 @@
                                             <div class="flex items-center text-sm">
                                                 <!-- Avatar with inset shadow -->
                                                 <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
-                                                    <img class="object-cover w-full h-full rounded-full"
-                                                        src="{{ asset($user->img) }}" alt="user" loading="lazy" />
-                                                    <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true">
-                                                    </div>
+                                                    @if ($user->is_online)
+                                                        <img class="object-cover w-full h-full rounded-full  ring-blue-500"
+                                                            src="{{ asset($user->img ?? './img/client-1.jpg') }}"
+                                                            alt="User" loading="lazy">
+                                                    @else
+                                                        <img class="object-cover w-full h-full rounded-full"
+                                                            src="{{ asset($user->img) }}" alt="user" loading="lazy">
+                                                    @endif
                                                 </div>
                                                 <div>
                                                     <a href="{{ route('live-chat', $user) }}">
                                                         <p class="font-semibold">{{ $user->name }}</p>
                                                     </a>
-                                                    <p class="text-xs text-gray-600 dark:text-gray-400">ID: {{ $user->id }}
+                                                    <p class="text-xs text-gray-600 dark:text-gray-400">ID:
+                                                        {{ $user->id }}
                                                     </p>
                                                 </div>
                                             </div>
                                         </td>
                                         <td class="px-4 py-3 text-sm">{{ $user->email }}</td>
                                         <td class="px-4 py-3 text-sm">{{ $user->phone }}</td>
+
+
 
                                         <td class="px-4 py-3 text-sm">
                                             @if ($user->roles->isEmpty())

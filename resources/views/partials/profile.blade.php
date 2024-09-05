@@ -34,7 +34,12 @@
                         </div>
                         <div class="text-xs text-slate-400">
                             {{ strlen(Auth::user()->email) > 16 ? substr(Auth::user()->email, 0, 16) . '...' : Auth::user()->email }}
-                            {{ Auth::user()->phone === '0000000000' ? '' : (strlen(Auth::user()->phone) > 16 ? substr(Auth::user()->phone, 0, 16) . '...' : Auth::user()->phone) }}
+                            {{ Auth::user()->phone === '0000000000' ? '' : (strlen(Auth::user()->phone) > 16 ? substr(Auth::user()->phone, 0, 16) . '...' : Auth::user()->phone) }} <br>
+                            @if (Auth::check() && Auth::user()->is_online)
+                                <span class="text-green-500">Online</span>
+                            @else
+                                <span class="text-gray-500">Offline</span>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -78,7 +83,6 @@
                             <span>Riwayat Belanja</span>
                         </a>
                     @endif
-
                 </div>
                 <form method="POST" action="{{ route('logout') }}" style="display: flex">
                     @csrf

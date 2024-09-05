@@ -3,6 +3,38 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-100">
+                    @php
+                        // Loop through messages to find the second user (not auth user)
+                        $secondUser = null;
+                        foreach ($messages as $message) {
+                            if ($message->from_user_id != auth()->id()) {
+                                $secondUser = $message->fromUser;
+                                break;
+                            }
+                        }
+                    @endphp
+
+                    @if ($secondUser)
+                        <!-- Profile Box for the Second User -->
+                        <div class="flex items-center p-4 mb-4 border rounded-lg shadow-md bg-gray-100">
+                            <div class="w-12 h-12 mr-4">
+                                <img src="{{ asset($secondUser->img ?? 'img/client-1.jpg') }}" alt="User Avatar"
+                                    class="w-full h-full rounded-full">
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-950">{{ $secondUser->name }}</h3>
+                                <span class="text-sm text-gray-600">
+                                    @if ($secondUser->is_online)
+                                        <p class="text-sm text-green-600">Online</p>
+                                    @else
+                                        <p class="text-sm text-gray-600">Offline</p>
+                                    @endif
+
+                                </span>
+                            </div>
+                        </div>
+                    @endif
+
                     <div wire:poll>
                         @if (isset($messages) && $messages->isNotEmpty())
                             @foreach ($messages as $message)
@@ -27,12 +59,12 @@
                                                 class="max-w-full h-auto rounded-lg mt-2 overflow-hidden">
                                         @endif
                                     </div>
-
                                     <div class="chat-footer opacity-50 text-gray-900">Delivered</div>
                                 </div>
                             @endforeach
                         @endif
                     </div>
+
                     <div class="form-control">
                         <form action="POST" id="messageForm" wire:submit.prevent="SendMessage"
                             enctype="multipart/form-data">
@@ -45,6 +77,7 @@
                         </form>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>

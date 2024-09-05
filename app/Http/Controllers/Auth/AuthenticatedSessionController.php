@@ -75,30 +75,26 @@ class AuthenticatedSessionController extends Controller
         ]);
 
         if ($validator->fails()) {
-            // Jika validasi email atau password gagal
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
-        // Cek apakah phone ada di database
-        // $user = User::where('email', $credentials['email'])->first();
         $user = User::where('phone', $credentials['phone'])->first();
 
         if (!$user) {
-            // Jika email tidak ditemukan
             return redirect()->back()->withErrors([
                 'phone' => 'Phone tidak ditemukan.',
             ])->withInput();
         }
 
         if (!Auth::attempt($credentials)) {
-            // Jika phone ditemukan tetapi password salah
             return redirect()->back()->withErrors([
                 'password' => 'Password salah.',
             ])->withInput();
         }
 
+        // Jika login berhasil, ubah status is_online menjadi true
+        $user->update(['is_online' => true]);
 
-        // Jika email dan password benar
         $request->session()->regenerate();
 
         // Redirect based on user role
@@ -110,16 +106,21 @@ class AuthenticatedSessionController extends Controller
             return redirect()->intended(route('seller-page'));
         }
 
-        // Default redirect if no roles match
         return redirect()->intended(route('home'));
     }
+
 
     /**
      * Destroy an authenticated session.
      */
     public function destroy(Request $request): RedirectResponse
     {
+        $user = Auth::user();
+
         Auth::guard('web')->logout();
+
+        // Ubah status is_online menjadi false saat logout
+        $user->update(['is_online' => false]);
 
         $request->session()->invalidate();
 
@@ -127,6 +128,7 @@ class AuthenticatedSessionController extends Controller
 
         return redirect('/');
     }
+
 
     // public function redirectToGoogle()
     // {
