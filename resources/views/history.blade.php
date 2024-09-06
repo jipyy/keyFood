@@ -104,7 +104,7 @@
                                     <form action="{{ route('rate.product', $orderDetail->product_id) }}" method="POST" class="w-full md:w-1/2">
                                         @csrf
                                         <label for="rating" class="block text-lg font-semibold mb-2 text-gray-700">Beri Rating:</label>
-                                        <input type="number" name="rating" id="rating" min="1" max="5" step="0.1" required
+                                        <input type="number" name="rating" id="rating" min="1" max="100" step="0.1" required
                                             class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
                                         <button type="submit" class="mt-3 w-full bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-indigo-700 transition duration-300">
                                             Submit Rating
