@@ -93,7 +93,7 @@
                                     <a href="/live-chat/{{ $admin->id }}" class="block">
                                         <div
                                             class="list-users flex items-center gap-4 py-2 hover:bg-gray-50 hover:rounded-md relative">
-                                            <img class="w-10 h-10 rounded-full"
+                                            <img class="w-10 h-10 mx-2 rounded-full"
                                                 src="{{ $admin->profile_picture_url ?? 'img/client-1.jpg' }}"
                                                 alt="{{ $admin->name }} image">
                                             <div class="flex-1 min-w-0 identity">

@@ -176,13 +176,11 @@
                                                         @if ($user->is_online)
                                                             <span
                                                                 class="inline-flex items-center bg-green-100 text-green-500 text-xs font-medium ml-1 px-2 py-0.5 rounded-full">
-
                                                                 • Online
                                                             </span>
                                                         @else
                                                             <span
                                                                 class="inline-flex items-center bg-gray-100 text-gray-500 text-xs font-medium ml-1 px-2 py-0.5 rounded-full">
-
                                                                 • Offline
                                                             </span>
                                                         @endif
