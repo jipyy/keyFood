@@ -2,13 +2,25 @@
 
 @section('container')
     <section id="home">
+        <!-- Flash message untuk success -->
         @if (session('success'))
+            <div class="bg-green-500 text-white p-4 rounded mb-4">
+                {{ session('success') }}
+            </div>
             <script>
-                // Remove cart data from localStorage after redirect
+                // Menghapus data cart dari localStorage setelah redirect jika ada pesan success
                 localStorage.removeItem('cart');
             </script>
         @endif
 
+        <!-- Flash message untuk error -->
+        @if (session('error'))
+            <div class="bg-red-500 text-white p-4 rounded mb-4">
+                {{ session('error') }}
+            </div>
+        @endif
+
+        <!-- Cek apakah ada pesanan -->
         @if ($orders->isEmpty())
             <!-- Section ketika tidak ada order -->
             <section class="bg-transparent min-h-screen flex items-center justify-center p-4">
@@ -17,7 +29,7 @@
                         <img src="{{ asset('../img/no-order.png') }}" alt="Empty box" class="w-40 h-40 mx-auto" />
                     </div>
                     <h2 class="text-3xl font-bold mb-4 text-gray-800">Pesanan Masih Kosong:(</h2>
-                    <p class="text-gray-600 mb-8"> Anda belum memesan apa pun. Temukan produk-produk menarik kami dan tambahkan ke keranjang belanja Anda!</p>
+                    <p class="text-gray-600 mb-8">Anda belum memesan apa pun. Temukan produk-produk menarik kami dan tambahkan ke keranjang belanja Anda!</p>
                     <a href="/categories">
                         <button class="w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white font-semibold py-3 px-6 rounded-full hover:from-pink-600 hover:to-purple-700 transition duration-300 transform hover:scale-105">
                             Ayo Beli Sesuatu!
@@ -92,7 +104,7 @@
                                     <form action="{{ route('rate.product', $orderDetail->product_id) }}" method="POST" class="w-full md:w-1/2">
                                         @csrf
                                         <label for="rating" class="block text-lg font-semibold mb-2 text-gray-700">Beri Rating:</label>
-                                        <input type="number" name="rating" id="rating" min="1" max="5" step="0.1" required
+                                        <input type="number" name="rating" id="rating" min="1" max="100" step="0.1" required
                                             class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
                                         <button type="submit" class="mt-3 w-full bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-indigo-700 transition duration-300">
                                             Submit Rating
