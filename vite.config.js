@@ -12,7 +12,7 @@ export default defineConfig({
 
         // PORT UNTUK TES MELALUI IP WIFI MASING MASING UNTUK LIVE CHAT
 
-        host: '172.16.16.213', 
+        host: '192.168.100.16', 
         
         port: 8000, 
       },
