@@ -35,10 +35,21 @@
 </style>
 
 @if (Auth::check())
+    <?php
+    // Calculate the total unread message count from all admins for the authenticated user
+    $totalUnreadMessages = \App\Models\LiveChat::where('to_user_id', auth()->id())->where('is_read', false)->count();
+    ?>
     <button
         class="modal-open bg-transparent border border-gray-500 hover:border-indigo-500 text-gray-500 hover:text-indigo-500 font-bold py-2 px-4 rounded-full fixed bottom-4 right-4 mb-4 mr-4 max-sm:mb-20">
-        <i class='bx bxs-conversation text-2xl sm:text-3xl'></i> <!-- Use 'bxs-conversation' for a solid style -->
+        <i class='bx bxs-conversation text-2xl sm:text-3xl'></i>
+        @if ($totalUnreadMessages > 0)
+            <span
+                class="absolute top-0 right-0 w-5 h-5 rounded-full bg-red-500 text-white text-xs font-bold flex items-center justify-center">
+                {{ $totalUnreadMessages }}
+            </span>
+        @endif
     </button>
+
 
 
     <!-- Modal -->

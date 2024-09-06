@@ -26,7 +26,7 @@
 
 
 
-            <div class="flex justify-between">
+            <div class="flex justify-between mb-10">
                 <form action="{{ route('clear.chats') }}" method="POST">
                     @csrf
                     <button type="submit"
@@ -79,7 +79,7 @@
                     <div class="card-profile card-table" data-roles="{{ $user->roles->pluck('name')->join(', ') }}">
                         <p><strong>ID:</strong> {{ $user->id }}</p>
                         <a href="{{ route('live-chat', $user) }}">
-                            <img src="{{ asset($user->img) ?? 'img/client-1.jpg' }}" alt="Profile Picture">
+                            <img src="{{ asset($user->img ?? 'img/client-1.jpg') }}" alt="Profile Picture">
                         </a>
                         <h2>{{ $user->name }}</h2>
                         <p><strong>Role:</strong>
@@ -96,9 +96,20 @@
                         <div class="info text-sm text-gray-700 dark:text-gray-300 mt-2 break-words">
                             <p><strong>Email:</strong> {{ $user->email }}</p>
                             <p><strong>Phone:</strong> {{ $user->phone }}</p>
-
                         </div>
+                        @if ($user->is_online)
+                            <span
+                                class="inline-flex items-center bg-green-100 text-green-500 text-xs font-medium ml-1 px-2 py-0.5 rounded-full">
 
+                                • Online
+                            </span>
+                        @else
+                            <span
+                                class="inline-flex items-center bg-gray-100 text-gray-500 text-xs font-medium ml-1 px-2 py-0.5 rounded-full">
+
+                                • Offline
+                            </span>
+                        @endif
 
                         <button id="dropdownButton1" class="dropdown-button dark:text-gray-200">
                             <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16">
@@ -109,12 +120,17 @@
                         <div id="dropdown1" class="dropdown-menu">
                             <ul>
                                 <li>
-                                    <a href="#"
+                                    <a href="{{ route('admin.users.edit', $user) }}"
                                         class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit</a>
                                 </li>
                                 <li>
-                                    <a href="#"
-                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Delete</a>
+                                    <form method="POST" action="{{ route('admin.users.destroy', $user) }}"
+                                        onsubmit="return confirmDelete()">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit"
+                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Delete</button>
+                                    </form>
                                 </li>
                             </ul>
                         </div>
@@ -147,22 +163,30 @@
                                             <div class="flex items-center text-sm">
                                                 <!-- Avatar with inset shadow -->
                                                 <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
-                                                    @if ($user->is_online)
-                                                        <img class="object-cover w-full h-full rounded-full  ring-blue-500"
-                                                            src="{{ asset($user->img ?? './img/client-1.jpg') }}"
-                                                            alt="User" loading="lazy">
-                                                    @else
-                                                        <img class="object-cover w-full h-full rounded-full"
-                                                            src="{{ asset($user->img) }}" alt="user" loading="lazy">
-                                                    @endif
+                                                    <img class="object-cover w-full h-full rounded-full"
+                                                        src="{{ asset($user->img ?? 'img/client-1.jpg') }}" alt="user" loading="lazy">
+
                                                 </div>
                                                 <div>
                                                     <a href="{{ route('live-chat', $user) }}">
                                                         <p class="font-semibold">{{ $user->name }}</p>
+                                                        <p class="text-xs text-gray-600 dark:text-gray-400">ID:
+                                                            {{ $user->id }}
+                                                        </p>
+                                                        @if ($user->is_online)
+                                                            <span
+                                                                class="inline-flex items-center bg-green-100 text-green-500 text-xs font-medium ml-1 px-2 py-0.5 rounded-full">
+
+                                                                • Online
+                                                            </span>
+                                                        @else
+                                                            <span
+                                                                class="inline-flex items-center bg-gray-100 text-gray-500 text-xs font-medium ml-1 px-2 py-0.5 rounded-full">
+
+                                                                • Offline
+                                                            </span>
+                                                        @endif
                                                     </a>
-                                                    <p class="text-xs text-gray-600 dark:text-gray-400">ID:
-                                                        {{ $user->id }}
-                                                    </p>
                                                 </div>
                                             </div>
                                         </td>
