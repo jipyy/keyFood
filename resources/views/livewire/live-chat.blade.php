@@ -19,7 +19,8 @@
 
                     @if ($secondUser)
                         <!-- Profile Box for the Second User -->
-                        <div class="flex items-center p-2 px-10 mb-4 border rounded-lg shadow-md bg-gray-100">
+                        <div
+                            class="fixed top-4 left-0 px-10 right-0 mx-auto flex items-center p-2 mb-4 border rounded-lg shadow-md bg-gray-100 z-50 w-[90%] max-w-sm md:max-w-md lg:max-w-lg">
                             <div class="w-12 h-12 mr-4">
                                 <img src="{{ asset($secondUser->img ?? 'img/client-1.jpg') }}" alt="User Avatar"
                                     class="w-full h-full rounded-full">
@@ -28,14 +29,15 @@
                                 <h3 class="text-lg font-semibold text-gray-950">{{ $secondUser->name }}</h3>
                                 <span class="text-sm text-gray-600">
                                     @if ($secondUser->is_online)
-                                        <p class="text-sm text-green-600">Online</p>
+                                        <p class="text-sm text-green-600">• Online</p>
                                     @else
-                                        <p class="text-sm text-gray-600">Offline</p>
+                                        <p class="text-sm text-gray-600">• Offline</p>
                                     @endif
                                 </span>
                             </div>
                         </div>
                     @endif
+
 
                     <div wire:poll>
                         @if (isset($messages) && $messages->isNotEmpty())
@@ -53,13 +55,16 @@
                                             class="text-xs opacity-50 text-gray">{{ $message->created_at->diffForHumans() }}</time>
                                     </div>
                                     <div class="chat-bubble sm:max-w-xs lg:max-w-lg p-2 break-words shadow-md">
+                                        @if ($message->image)
+                                            <img src="{{ asset('storage/' . $message->image) }}" alt="Image"
+                                                class="max-w-24 h-auto rounded-lg mt-2 cursor-pointer" id="chatImage"
+                                                onclick="openModal('{{ asset('storage/' . $message->image) }}')">
+                                        @endif
+
                                         @if ($message->message)
                                             <p class="mb-2">{{ $message->message }}</p>
                                         @endif
-                                        @if ($message->image)
-                                            <img src="{{ asset('storage/' . $message->image) }}" alt="Image"
-                                                class="max-w-24 h-auto rounded-lg mt-2 overflow-hidden">
-                                        @endif
+
                                     </div>
                                     <div class="chat-footer opacity-50 text-gray-900">Delivered</div>
                                 </div>
@@ -67,6 +72,19 @@
                         @endif
                     </div>
 
+                    <div id="imageModal"
+                        class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 hidden" wire:ignore
+                        onclick="closeModal(event)">
+                        <div class="relative bg-white p-4 rounded-lg max-w-sm mx-4 cursor-default"
+                            onclick="event.stopPropagation()">
+                            <button onclick="closeModal()"
+                                class="absolute top-2 right-2 px-3 text-white bg-black rounded-full p-1">
+                                <span class="text-2xl">×</span>
+                            </button>
+                            <img id="modalImage" src="" alt="Large Image"
+                                class="w-full h-auto max-h-80 rounded-lg">
+                        </div>
+                    </div>
 
                     <div id="imagePreview" class="mt-2 max-w-20 mb-4 mx-9 rounded-lg relative" wire:ignore></div>
 
@@ -89,6 +107,26 @@
 
 
 <script>
+    function openModal(imageSrc) {
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        modalImage.src = imageSrc;
+        modal.classList.remove('hidden');
+    }
+
+    function closeModal(event) {
+        if (event) {
+            // Prevent closing the modal if the click was inside the modal content
+            if (event.target.id === 'imageModal') {
+                const modal = document.getElementById('imageModal');
+                modal.classList.add('hidden');
+            }
+        } else {
+            const modal = document.getElementById('imageModal');
+            modal.classList.add('hidden');
+        }
+    }
+
     document.addEventListener('DOMContentLoaded', function() {
         const chooseFileButton = document.getElementById('chooseFileButton');
         const imageInput = document.getElementById('imageInput');
@@ -125,51 +163,54 @@
         });
 
         // Tangani pemilihan file dan pratinjau
-        imageInput.addEventListener('change', function (event) {
-        const file = event.target.files[0];
-        if (file) {
-            const reader = new FileReader();
+        imageInput.addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
 
-            reader.onload = function (e) {
-                // Buat elemen img untuk menampilkan pratinjau
-                const img = document.createElement('img');
-                img.src = e.target.result;
-                img.className = 'max-w-[80px] h-[80px] rounded-lg'; // Atur ukuran gambar menjadi 80px dengan sudut melengkung
+                reader.onload = function(e) {
+                    // Buat elemen img untuk menampilkan pratinjau
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    img.className =
+                        'max-w-[80px] h-[80px] rounded-lg'; // Atur ukuran gambar menjadi 80px dengan sudut melengkung
 
-                // Buat tombol close (X) untuk menghapus gambar
-                const closeButton = document.createElement('button');
-                closeButton.innerHTML = '&times;'; // Simbol X
-                closeButton.className = 'absolute top-0 right-0 text-white bg-red-500 rounded-full w-6 h-6 flex items-center justify-center';
-                closeButton.style.cursor = 'pointer';
+                    // Buat tombol close (X) untuk menghapus gambar
+                    const closeButton = document.createElement('button');
+                    closeButton.innerHTML = '&times;'; // Simbol X
+                    closeButton.className =
+                        'absolute top-0 right-0 text-white bg-red-500 rounded-full w-6 h-6 flex items-center justify-center';
+                    closeButton.style.cursor = 'pointer';
 
-                // Event listener untuk menghapus gambar dan mereset input saat X diklik
-                closeButton.addEventListener('click', function () {
-                    // Hapus elemen gambar dan tombol
+                    // Event listener untuk menghapus gambar dan mereset input saat X diklik
+                    closeButton.addEventListener('click', function() {
+                        // Hapus elemen gambar dan tombol
+                        imagePreview.innerHTML = '';
+                        chooseFileButton.style.display = 'inline-block';
+
+                        // Reset input file agar data benar-benar dihapus
+                        imageInput.value = '';
+                        if (imageInput.files && imageInput.files.length > 0) {
+                            imageInput.files = new DataTransfer()
+                                .files; // Menghapus data file yang disimpan
+                        }
+                    });
+
+                    // Hapus pratinjau sebelumnya, tambahkan gambar dan tombol close
                     imagePreview.innerHTML = '';
-                    chooseFileButton.style.display = 'inline-block';
+                    imagePreview.appendChild(img);
+                    imagePreview.appendChild(closeButton);
 
-                    // Reset input file agar data benar-benar dihapus
-                    imageInput.value = '';
-                    if (imageInput.files && imageInput.files.length > 0) {
-                        imageInput.files = new DataTransfer().files; // Menghapus data file yang disimpan
-                    }
-                });
+                    // Sembunyikan tombol pilih file
+                    chooseFileButton.style.display = 'none';
+                };
 
-                // Hapus pratinjau sebelumnya, tambahkan gambar dan tombol close
+                reader.readAsDataURL(file);
+            } else {
                 imagePreview.innerHTML = '';
-                imagePreview.appendChild(img);
-                imagePreview.appendChild(closeButton);
-
-                // Sembunyikan tombol pilih file
-                chooseFileButton.style.display = 'none';
-            };
-
-            reader.readAsDataURL(file);
-        } else {
-            imagePreview.innerHTML = '';
-            chooseFileButton.style.display = 'inline-block';
-        }
-    });
+                chooseFileButton.style.display = 'inline-block';
+            }
+        });
 
         // Hapus pratinjau gambar saat formulir disubmit
         messageForm.addEventListener('submit', function() {

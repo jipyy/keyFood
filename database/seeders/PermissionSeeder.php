@@ -88,7 +88,7 @@ class PermissionSeeder extends Seeder
         $sellerRole->givePermissionTo($permission4);
 
         //Menmbahkan manual kepada id user role tertentu
-        // $user = User::find(113);
+        // $user = User::find(38);
         // $user->assignRole($adminRole);
     }
 }
