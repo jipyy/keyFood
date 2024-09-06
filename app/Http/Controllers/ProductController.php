@@ -257,10 +257,31 @@ class ProductController extends Controller
     }
     public function rateProduct(Request $request, $id)
     {
+        $user = Auth::user();
         $product = Product::findOrFail($id);
-        $product->rating = $request->input('rating');
-        $product->save();
     
-        return redirect()->back()->with('success', 'Rating submitted successfully!');
+        // Ambil user ID yang sudah memberikan rating (default kosong jika null)
+        $ratedBy = $product->rated_by ? json_decode($product->rated_by, true) : [];
+    
+        // Cek apakah user sudah memberikan rating
+        if (in_array($user->id, $ratedBy)) {
+            // Tambahkan flash message untuk alert
+            Session::flash('error', 'Anda sudah memberikan rating untuk produk ini.');
+            return redirect()->back();
+        }
+    
+        // Tambahkan user ID ke daftar rated_by
+        $ratedBy[] = $user->id;
+    
+        // Update produk dengan rating baru dan tambahkan user ke rated_by
+        $product->update([
+            'rating' => $request->input('rating'),
+            'rated_by' => json_encode($ratedBy),
+        ]);
+    
+        // Tambahkan flash message untuk sukses
+        Session::flash('success', 'Rating berhasil disimpan!');
+        return redirect()->back();
     }
+    
 }
