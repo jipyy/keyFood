@@ -38,7 +38,7 @@
         <div class="panels-container">
             <div class="panel left-panel">
                 <div class="content">
-                    <h3>New here ?</h3>
+                    <h3>Pendatang Baru?</h3>
                     <p>
                         Baru di sini? Selamat datang! Mari buat akun dan mulai perjalanan kuliner Anda.
                     </p>
@@ -50,7 +50,7 @@
             </div>
             <div class="panel right-panel">
                 <div class="content">
-                    <h3>Have an Account ?</h3>
+                    <h3>Sudah punya akun?</h3>
                     <p>
                         Sedang ingin sesuatu yang spesial? Login dan mari kita puaskan selera Anda!
                     </p>
