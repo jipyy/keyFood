@@ -24,6 +24,16 @@ use App\Http\Controllers\OtpWaVerificationController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\ChatController;
+// use App\Models\Orders;
+
+
+// Route::post('/orders/{id}/delete', function ($id) {
+//     $order = Orders::findOrFail($id);
+//     $order->delete();
+
+//     return redirect()->back()->with(['success' => 'Order deleted successfully.',]);
+// })->name('orders.delete');
+
 
 Route::post('/clear-chats', [ChatController::class, 'clearChats'])->name('clear.chats');
 
@@ -32,8 +42,7 @@ Route::post('/clear-chats', [ChatController::class, 'clearChats'])->name('clear.
 
 Route::get('/', function () {
     return view('home');
-});
-
+})->name('Home');
 
 
 // Custom login and registration form route

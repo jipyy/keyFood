@@ -260,31 +260,34 @@ class ProductController extends Controller
         $user = Auth::user();
         $product = Product::findOrFail($id);
 
-        // Validasi rating, nilai bisa di atas 5
+        // Validate the rating value
         $request->validate([
-            'rating' => 'required|integer|min:1|max:100', // Atur max sesuai kebutuhan (contohnya 10)
+            'rating' => 'required|numeric|min:1|max:100', // Adjust max value if needed
         ]);
 
-        // Ambil user ID yang sudah memberikan rating (default kosong jika null)
+        // Retrieve the list of user IDs who have rated the product
         $ratedBy = $product->rated_by ? json_decode($product->rated_by, true) : [];
 
-        // Cek apakah user sudah memberikan rating
+        // Check if the user has already rated the product
         if (in_array($user->id, $ratedBy)) {
-            Session::flash('error', 'Anda sudah memberikan rating untuk produk ini.');
-            return redirect()->back();
+            return redirect()->back()->with(['error' => 'Anda Sudah Memberi Rating',]);
         }
 
-        // Tambahkan user ID ke daftar rated_by
+        // Add the user ID to the list of users who have rated the product
         $ratedBy[] = $user->id;
 
-        // Update produk dengan rating baru dan tambahkan user ke rated_by
+        // Calculate new rating
+        $existingRating = $product->rating ?? 0; // Default to 0 if no rating exists
+        $newRating = $request->input('rating');
+
+        // Update the product with the new rating
         $product->update([
-            'rating' => $request->input('rating'),
+            'rating' => $existingRating + $newRating, // Add new rating to existing rating
             'rated_by' => json_encode($ratedBy),
         ]);
 
-        // Tambahkan flash message untuk sukses
-        Session::flash('success', 'Rating berhasil disimpan!');
-        return redirect()->back();
+        // Flash success message and redirect
+        return redirect()->back()->with(['success' => 'Terimakasih Sudah Memberikan Rating!',]);
+
     }
 }

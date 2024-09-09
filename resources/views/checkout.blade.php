@@ -15,7 +15,7 @@
                                 <span class="icon"><i class='bx bx-envelope'></i></span>
                                 <input type="email" id="checkout-email" name="checkout-email"
                                     placeholder="Enter your email.. (opsional)."
-                                    value="{{ old('checkout-email', $user->email ?? '') }}" required>
+                                    value="{{ old('checkout-email', $user->email ?? '') }}" >
                             </div>
                         </div>
                         <!-- Phone Input -->
@@ -39,7 +39,7 @@
                                 <span class="icon"><i class='bx bx-envelope'></i></span>
                                 <input type="email" id="checkout-email" name="checkout-email"
                                     placeholder="Enter your email.. (opsional)."
-                                    value="{{ old('checkout-email', $user->email ?? '') }}" required>
+                                    value="{{ old('checkout-email', $user->email ?? '') }}" >
                             </div>
                         </div>
                         <!-- Phone Input -->
@@ -92,7 +92,7 @@
                     <div class="form-control">
                         <label for="nomor-select">Pilih Nomor</label>
                         <div>
-                            <span class="fa"><i class='bx bx-home'></i></span>
+                            
                             <select name="nomor_id" id="nomor-select" required>
                                 <option value="" disabled selected>Pilih Nomor...</option>
                             </select>
