@@ -86,6 +86,6 @@ class CartController extends Controller
                 );
             }
     
-            return redirect()->route('checkout.details')->with('success', 'Cart successfully added.');
+            return redirect()->route('checkout.details')->withErrors('success', 'Cart successfully added.');
         }
 }

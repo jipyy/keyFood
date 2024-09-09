@@ -259,29 +259,32 @@ class ProductController extends Controller
     {
         $user = Auth::user();
         $product = Product::findOrFail($id);
-    
+
+        // Validasi rating, nilai bisa di atas 5
+        $request->validate([
+            'rating' => 'required|integer|min:1|max:100', // Atur max sesuai kebutuhan (contohnya 10)
+        ]);
+
         // Ambil user ID yang sudah memberikan rating (default kosong jika null)
         $ratedBy = $product->rated_by ? json_decode($product->rated_by, true) : [];
-    
+
         // Cek apakah user sudah memberikan rating
         if (in_array($user->id, $ratedBy)) {
-            // Tambahkan flash message untuk alert
             Session::flash('error', 'Anda sudah memberikan rating untuk produk ini.');
             return redirect()->back();
         }
-    
+
         // Tambahkan user ID ke daftar rated_by
         $ratedBy[] = $user->id;
-    
+
         // Update produk dengan rating baru dan tambahkan user ke rated_by
         $product->update([
             'rating' => $request->input('rating'),
             'rated_by' => json_encode($ratedBy),
         ]);
-    
+
         // Tambahkan flash message untuk sukses
         Session::flash('success', 'Rating berhasil disimpan!');
         return redirect()->back();
     }
-    
 }
