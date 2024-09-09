@@ -21,7 +21,7 @@ class ProductController extends Controller
     {
         if (auth()->user()->can('productCRUD')) {
             // Mengambil produk milik penjual yang login
-            $products = Product::where('id_seller', Auth::id())->paginate(5);
+            $products = Product::where('creator_id', Auth::id())->paginate(5);
 
             // Mengirim data produk ke view dengan pagination
             return view('seller-page', compact('products'));
@@ -44,6 +44,7 @@ class ProductController extends Controller
             'stores' => $stores, // Kirim data stores ke view
         ]);
     }
+
     /**
      * Store a newly created resource in storage.
      */
@@ -88,7 +89,6 @@ class ProductController extends Controller
         }
     }
 
-
     /**
      * Display the specified resource.
      */
@@ -103,15 +103,19 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        // Pastikan produk milik toko penjual yang login
-        if ($product->id_seller !== Auth::id()) {
+        // Pastikan produk milik penjual yang login
+        if ($product->creator_id !== Auth::id()) {
             return abort(403);
         }
 
         $categories = Category::all();
+        $storeId = Auth::id(); // Ambil ID seller yang sedang login
+        $stores = Toko::where('id_seller', $storeId)->get(); // Ambil toko yang sesuai dengan ID seller
+
         return view('seller.products.edit', [
             'product' => $product,
             'categories' => $categories,
+            'stores' => $stores, // Sertakan stores di sini
         ]);
     }
 
@@ -120,8 +124,8 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        // Pastikan produk milik toko penjual yang login
-        if ($product->id_seller !== Auth::id()) {
+        // Pastikan produk milik penjual yang login
+        if ($product->creator_id !== Auth::id()) {
             return abort(403);
         }
 
@@ -131,7 +135,6 @@ class ProductController extends Controller
             'category_id' => ['required', 'integer'],
             'price' => ['required', 'integer', 'min:0'],
             'slug' => ['required', 'string', 'max:65535'],
-            // Tidak perlu validasi store_id karena tidak boleh diubah
         ]);
 
         DB::beginTransaction();
@@ -160,8 +163,8 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        // Pastikan produk milik toko penjual yang login
-        if ($product->id_seller !== Auth::id()) {
+        // Pastikan produk milik penjual yang login
+        if ($product->creator_id !== Auth::id()) {
             return abort(403);
         }
 
@@ -255,39 +258,39 @@ class ProductController extends Controller
         // Return the paginated products as JSON
         return response()->json($products);
     }
+
     public function rateProduct(Request $request, $id)
     {
         $user = Auth::user();
         $product = Product::findOrFail($id);
-
-        // Validate the rating value
+    
+        // Validasi rating
         $request->validate([
-            'rating' => 'required|numeric|min:1|max:100', // Adjust max value if needed
+            'rating' => 'required|numeric|min:1|max:100',
         ]);
-
-        // Retrieve the list of user IDs who have rated the product
+    
+        // Ambil list user yang sudah memberikan rating
         $ratedBy = $product->rated_by ? json_decode($product->rated_by, true) : [];
-
-        // Check if the user has already rated the product
+    
+        // Cek apakah user sudah memberi rating
         if (in_array($user->id, $ratedBy)) {
-            return redirect()->back()->with(['error' => 'Anda Sudah Memberi Rating',]);
+            return redirect()->back()->with('error', 'Anda sudah memberikan rating untuk produk ini.');
         }
-
-        // Add the user ID to the list of users who have rated the product
+    
+        // Tambah user ID ke list yang sudah memberi rating
         $ratedBy[] = $user->id;
-
-        // Calculate new rating
-        $existingRating = $product->rating ?? 0; // Default to 0 if no rating exists
-        $newRating = $request->input('rating');
-
-        // Update the product with the new rating
+    
+        // Hitung rating baru dengan rata-rata berdasarkan jumlah user yang memberi rating
+        $totalRated = count($ratedBy); // Hitung jumlah user yang sudah memberi rating
+        $existingRating = $product->rating ?? 0; // Ambil rating yang ada
+        $newRating = (($existingRating * ($totalRated - 1)) + $request->rating) / $totalRated; // Hitung rating rata-rata
+    
+        // Update rating produk
         $product->update([
-            'rating' => $existingRating + $newRating, // Add new rating to existing rating
+            'rating' => $newRating,
             'rated_by' => json_encode($ratedBy),
         ]);
-
-        // Flash success message and redirect
-        return redirect()->back()->with(['success' => 'Terimakasih Sudah Memberikan Rating!',]);
-
-    }
+    
+        return redirect()->back()->with('success', 'Terima kasih sudah memberikan rating!');
+    }    
 }
