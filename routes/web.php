@@ -193,10 +193,10 @@ require __DIR__ . '/auth.php';
 //     Route::resource('users', UserController::class);
 // });
 
-Route::prefix('seller')->name('seller.')->group(function () {
-    Route::resource('products', ProductController::class);
-    Route::resource('products_orders', ProductOrderController::class);
-});
+// Route::prefix('seller')->name('seller.')->group(function () {
+//     Route::resource('products', ProductController::class);
+//     Route::resource('products_orders', ProductOrderController::class);
+// });
 
 Route::get('/dashboard', function () {
     return 'This is the dashboard route.';
