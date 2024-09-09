@@ -330,6 +330,7 @@ Route::get('/get-alamat-by-cluster/{id}', [CheckoutController::class, 'getAlamat
 Route::get('/get-nomor-by-blok/{blokId}', [CheckoutController::class, 'getNomorByBlok']);
 
 Route::resource('faqs', FaqController::class);
+
 Route::get('/faq', [FaqController::class, 'showFaqPage'])->name('faq.page');
 
 
