@@ -341,3 +341,4 @@ Route::get('/admin/history', [AdminHistoryController::class, 'index'])->name('ad
 Route::get('/live-chat/{user}', LiveChat::class)->name('live-chat');
 Route::get('/home', [UserController::class, 'home'])->name('home');
 Route::post('/rate-product/{id}', [ProductController::class, 'rateProduct'])->name('rate.product');
+Route::delete('/orders/{id}', [CheckoutController::class, 'destroyOrder'])->name('orders.destroy');

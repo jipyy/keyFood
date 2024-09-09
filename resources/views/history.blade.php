@@ -148,8 +148,9 @@
 
                         <div class="px-3 md:px-11 flex items-center justify-between flex-col-reverse sm:flex-row">
                             <div class="flex flex-col sm:flex-row items-center">
-                                <form action="{{ route('orders.delete', $order->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this order?');">
+                                <form action="{{ route('orders.destroy', $order->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this order?');">
                                     @csrf
+                                    @method('DELETE')
                                     <button type="submit" class="flex items-center gap-3 py-10 pr-8 sm:border-r border-gray-300 font-normal text-xl leading-8 text-gray-500 dark:text-gray-300 group transition-all duration-500 hover:text-red-600">
                                         <svg width="40" height="41" viewBox="0 0 40 41" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path class="stroke-gray-600 dark:stroke-gray-300 transition-all duration-500 group-hover:stroke-red-600" d="M14.0261 14.7259L25.5755 26.2753M14.0261 26.2753L25.5755 14.7259" stroke="" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
