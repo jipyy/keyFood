@@ -31,7 +31,7 @@
                         <div class="row50">
                             <div class="inputBox">
                                 <span>Email</span>
-                                <input type="text" placeholder="yourgmail@gmail.com">
+                                <input type="text" placeholder="...@gmail.com">
                             </div>
                             <div class="inputBox">
                                 <span>NO Handphome</span>

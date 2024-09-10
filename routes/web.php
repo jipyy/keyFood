@@ -35,6 +35,11 @@ Route::get('/', function () {
 });
 
 
+Route::get('/tutorial', function () {
+    return view('tutorial');
+});
+
+
 
 // Custom login and registration form route
 Route::get('/log-reg', function () {
@@ -302,7 +307,7 @@ Route::get('/cobain', function () {
     return view('cobain');
 });
 
-//OTP 
+//OTP
 Route::get('/otp', function () {
     return view('auth.otp-verif');
 });
