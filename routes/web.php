@@ -24,6 +24,16 @@ use App\Http\Controllers\OtpWaVerificationController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\ChatController;
+// use App\Models\Orders;
+
+
+// Route::post('/orders/{id}/delete', function ($id) {
+//     $order = Orders::findOrFail($id);
+//     $order->delete();
+
+//     return redirect()->back()->with(['success' => 'Order deleted successfully.',]);
+// })->name('orders.delete');
+
 
 Route::post('/clear-chats', [ChatController::class, 'clearChats'])->name('clear.chats');
 
@@ -189,10 +199,10 @@ require __DIR__ . '/auth.php';
 //     Route::resource('users', UserController::class);
 // });
 
-Route::prefix('seller')->name('seller.')->group(function () {
-    Route::resource('products', ProductController::class);
-    Route::resource('products_orders', ProductOrderController::class);
-});
+// Route::prefix('seller')->name('seller.')->group(function () {
+//     Route::resource('products', ProductController::class);
+//     Route::resource('products_orders', ProductOrderController::class);
+// });
 
 Route::get('/dashboard', function () {
     return 'This is the dashboard route.';
@@ -326,6 +336,7 @@ Route::get('/get-alamat-by-cluster/{id}', [CheckoutController::class, 'getAlamat
 Route::get('/get-nomor-by-blok/{blokId}', [CheckoutController::class, 'getNomorByBlok']);
 
 Route::resource('faqs', FaqController::class);
+
 Route::get('/faq', [FaqController::class, 'showFaqPage'])->name('faq.page');
 
 

@@ -14,26 +14,17 @@
 
     <div class="input-field">
       <i class="fas fa-phone"></i>
-      <input type="number" id="phone" placeholder="Phone" name="phone" value="{{ old('phone') }}" style="background: transparent" required />
+      <input type="number" id="phone" placeholder="No. HP" name="phone" value="{{ old('phone') }}" style="background: transparent" required />
     </div>
     <div class="input-field">
       <i class="fas fa-lock"></i>
       <input type="password" id="password" placeholder="Password" name="password" style="background: transparent" required />
     </div>
     <input type="submit" value="Login" class="btn solid" />
-    <p class="social-text">Or Sign in with social platforms</p>
+    <p class="social-text">Atau Login Dengan Google</p>
     <div class="social-media">
-      <a href="#" class="social-icon">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-      <a href="#" class="social-icon">
-        <i class="fab fa-twitter"></i>
-      </a>
       <a href="{{ url('auth/google') }}" class="social-icon">
         <i class="fab fa-google"></i>
-      </a>
-      <a href="#" class="social-icon">
-        <i class="fab fa-linkedin-in"></i>
       </a>
     </div>
 </form>

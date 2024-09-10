@@ -63,15 +63,22 @@
                     <div class="mt-4">
                         <x-input-label for="store" :value="__('Store')" />
                         <select name="store_id" id="store" class="w-full py-3 pl-5 border">
-                            <option value="{{ $product->store_id }}" selected>{{ $product->store->nama_toko }}</option>
+                            <!-- Display the currently selected store -->
+                            <option value="{{ $product->store_id }}" selected>
+                                {{ $product->toko->nama_toko }}
+                            </option>
+                    
+                            <!-- Display other stores available -->
                             @forelse($stores as $store)
-                            <option value="{{ $store->id_toko }}">{{ $store->nama_toko }}</option>
+                                <option value="{{ $store->id_toko }}">
+                                    {{ $store->nama_toko }}
+                                </option>
                             @empty
-                            <option value="">No Stores Available</option>
+                                <option value="">No Stores Available</option>
                             @endforelse
                         </select>
                         <x-input-error :messages="$errors->get('store_id')" class="mt-2" />
-                    </div>
+                    </div>                    
 
                     <div class="mt-4">
                         <x-input-label for="slug" :value="__('Slug')" />

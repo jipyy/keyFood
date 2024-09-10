@@ -15,19 +15,11 @@
       <input type="password" placeholder="Password" name="password" />
     </div>
     <input type="submit" class="btn" value="Sign up" />
-    <p class="social-text">Or Sign up with social platforms</p>
+    <p class="social-text">Atau Daftar Dengan Google</p>
     <div class="social-media">
-      <a href="#" class="social-icon">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-      <a href="#" class="social-icon">
-        <i class="fab fa-twitter"></i>
-      </a>
       <a href="#" class="social-icon">
         <i class="fab fa-google"></i>
       </a>
-      <a href="#" class="social-icon">
-        <i class="fab fa-linkedin-in"></i>
-      </a>
+
     </div>
   </form>

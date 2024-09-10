@@ -47,8 +47,8 @@ class Orders extends Model
         return $this->belongsTo(Category::class, 'category_id');
     }
 
-    public function orderDetails()
+    public function OrderDetails()
     {
-        return $this->hasMany(OrderDetail::class, 'order_id');
+        return $this->hasMany(OrderDetail::class, 'order_id'); // Adjust 'order_id' to match your foreign key
     }
 }

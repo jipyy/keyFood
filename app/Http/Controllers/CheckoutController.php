@@ -54,7 +54,7 @@ class CheckoutController extends Controller
 
                 // Cek apakah seller mencoba membeli produk mereka sendiri
                 if ($toko && $toko->id_seller == $buyerId) {
-                    return redirect('/home')->withErrors(['checkout' => 'Anda tidak dapat membeli produk Anda sendiri.']);
+                    return redirect('/seller-page')->withErrors(['checkout' => 'Anda tidak dapat membeli produk Anda sendiri.']);
                 }
 
 
@@ -64,16 +64,16 @@ class CheckoutController extends Controller
 
                 // dd($request->request);
 
-                Http::post('https://wa.ponpesalgaz.online/send-message', [
+                Http::withoutVerifying()->post('https://wa.ponpesalgaz.online/send-message', [
                     'number' => $request['checkout-phone'],
                     'message' => "Yth. Pelanggan KeyFood,\n\nIni adalah konfirmasi pesanan Anda. Anda telah membeli:\n\n* *" . $product['name'] . " sebanyak " . $product['quantity'] . " buah, dari toko " . $toko['nama_toko'] . "*.\n\nTotal pembayaran: Rp " . number_format($product['quantity'] * $product['price']) . ".\nSilahkan hubungi penjual: "  . $toko['user']['phone'] .  ".\n\nTerima kasih atas kepercayaan Anda. Tim KeyFood akan segera memproses pesanan Anda.\n\nHormat kami,\nTim KeyFood",
                 ]);
-
-                Http::post('https://wa.ponpesalgaz.online/send-message', [
+                
+                Http::withoutVerifying()->post('https://wa.ponpesalgaz.online/send-message', [
                     'number' => $toko['user']['phone'],
                     'message' => "Yth. Penjual,\n\nKami informasikan bahwa produk Anda, *" . $product['name'] . "* (x" . $product['quantity'] . "), telah dipesan oleh *" . $request['checkout-name'] . "*. \n\nDetail pesanan:\n* *Jumlah:* " . $product['quantity'] . " buah/pcs\n* *Total harga:* Rp " . $product['quantity'] * $product['price'] . "\n* *Alamat pengiriman:* " . $request['checkout-address'] . "\n* *Nomor telepon pembeli:* " . $request['checkout-phone'] . "\n\nMohon segera proses pesanan ini dan informasikan kepada pembeli mengenai status pengiriman. Terima kasih atas kerjasama Anda.\n\nHormat kami,\nTim KeyFood",
                 ]);
-
+                
                 // dd('masuk');
 
                 // Check if the required keys exist in the product array
@@ -168,6 +168,20 @@ class CheckoutController extends Controller
             return response()->json($nomors);
         } else {
             return response()->json(['error' => 'Blok tidak ditemukan.'], 404);
+        }
+    }
+
+    public function destroyOrder($id)
+    {
+        try {
+            // Cari order berdasarkan ID dan hapus
+            $order = Orders::where('id', $id)->where('id_user', auth()->id())->firstOrFail();
+            $order->delete();
+
+            return redirect()->back()->with('success', 'Order berhasil dihapus.');
+        } catch (\Exception $e) {
+            Log::error('Gagal menghapus order: ' . $e->getMessage());
+            return redirect()->back()->withErrors(['order' => 'Gagal menghapus order.']);
         }
     }
 }

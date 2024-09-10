@@ -119,9 +119,7 @@ function getData() {
                             </a>
                         </div>
                         <p class="font-normal text-base leading-7 text-gray-500 mb-6">
-                            Introducing our sleek round white portable speaker, the epitome of style and sound!
-                            Elevate your auditory experience with this compact yet powerful device that delivers
-                            crystal-clear audio wherever you go. <a href="javascript:;" class="text-indigo-600">More....</a>
+                            ${cart[key].slug} <a href="javascript:;" class="text-indigo-600"></a>
                         </p>
                         <div class="flex justify-between items-center">
                             <div class="flex items-center gap-4">

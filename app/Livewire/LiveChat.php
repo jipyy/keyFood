@@ -18,17 +18,24 @@ class LiveChat extends Component
 
     public function render()
     {
+        $messages = ModelsLiveChat::where(function (Builder $query) {
+            $query->where('from_user_id', auth()->id())
+                ->where('to_user_id', $this->user->id);
+        })
+        ->orWhere(function (Builder $query) {
+            $query->where('from_user_id', $this->user->id)
+                ->where('to_user_id', auth()->id());
+        })
+        ->orderBy('created_at', 'asc')
+        ->get();
+
+        // Mark messages as read
+        $messages->where('from_user_id', $this->user->id)
+                 ->where('is_read', false)
+                 ->each->markAsRead();
+
         return view('livewire.live-chat', [
-            'messages' => ModelsLiveChat::where(function (Builder $query) {
-                $query->where('from_user_id', auth()->id())
-                    ->where('to_user_id', $this->user->id);
-            })
-                ->orWhere(function (Builder $query) {
-                    $query->where('from_user_id', $this->user->id)
-                        ->where('to_user_id', auth()->id());
-                })
-                ->orderBy('created_at', 'asc')  // Urutkan berdasarkan waktu pengiriman
-                ->get(),
+            'messages' => $messages,
         ]);
     }
 
@@ -37,14 +44,11 @@ class LiveChat extends Component
         $path = null;
 
         $this->validate([
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validate file type and size
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,mp4|max:10000',
         ]);
 
         if ($this->image) {
-            // Periksa apakah gambar diunggah dengan benar
-            
-          $path = $this->image->storeAs('img/chats', $this->image->getClientOriginalName(), 'public');
-
+            $path = $this->image->storeAs('img/chats', $this->image->getClientOriginalName(), 'public');
         }
 
         ModelsLiveChat::create([
@@ -55,6 +59,6 @@ class LiveChat extends Component
         ]);
 
         $this->message = '';
-        $this->image = null; // Reset image setelah mengirim
+        $this->image = null;
     }
 }

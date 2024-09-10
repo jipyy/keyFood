@@ -43,11 +43,20 @@
     <link rel="stylesheet" href="{{ asset('../../css/nav.css') }}">
 
     <link rel="icon" type="image/x-icon" href="{{ asset('../img/logos.svg') }}">
-    <title>KeyFood | {{ Route::currentRouteName() }} </title>
+    <title>KeyFood || {{ Route::currentRouteName() }} </title>
     {{-- ini diatas, disebelah dikasih title statis --}}
 
     <!-- SweetAlert CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.0/dist/sweetalert2.min.css">
+
+    <style>
+        /* Hide spinner for Chrome, Safari, and newer versions of Edge */
+        .no-spinner::-webkit-inner-spin-button,
+        .no-spinner::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    </style>
 </head>
 
 <body>
@@ -98,9 +107,9 @@
 <script src="{{ asset('../js/nav.js') }}"></script>
 
 <!-- SweetAlert Integration -->
-@if ($errors->any())
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        @if ($errors->any())
             setTimeout(function() {
                 Swal.fire({
                     icon: 'error',
@@ -110,8 +119,21 @@
                     showConfirmButton: false
                 });
             }, 1000); // Penundaan dalam milidetik (1 detik)
-        });
-    </script>
-@endif
+        @endif
+
+        @if (session('success'))
+            setTimeout(function() {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success!',
+                    text: '{{ session('success') }}',
+                    timer: 3000, // Durasi tampilan alert dalam milidetik
+                    showConfirmButton: false
+                });
+            }, 1000); // Penundaan dalam milidetik (1 detik)
+        @endif
+    });
+</script>
+
 
 </html>
