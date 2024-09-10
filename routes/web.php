@@ -5,15 +5,17 @@ use App\Livewire\LiveChat;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\TokoController;
+
+
 use App\Http\Controllers\UserController;
-
-
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\TutorialController;
 use App\Http\Controllers\SellerEditController;
 use App\Http\Controllers\RoleRequestController;
 use App\Http\Controllers\UserProfileController;
@@ -23,7 +25,6 @@ use App\Http\Controllers\Auth\SocialiteController;
 use App\Http\Controllers\OtpWaVerificationController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
-use App\Http\Controllers\ChatController;
 // use App\Models\Orders;
 
 
@@ -45,9 +46,7 @@ Route::get('/', function () {
 });
 
 
-Route::get('/tutorial', function () {
-    return view('tutorial');
-});
+Route::get('/tutorial', [TutorialController::class, 'index'])->name('tutorial.index');
 
 
 
