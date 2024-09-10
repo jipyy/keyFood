@@ -148,7 +148,7 @@
 
                         <div class="px-3 md:px-11 flex items-center justify-between flex-col-reverse sm:flex-row">
                             <div class="flex flex-col sm:flex-row items-center">
-                                <form action="{{ route('orders.destroy', $order->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this order?');">
+                                <form action="{{ route('orders.destroy', $order->id) }}" method="POST" onsubmit="return confirm('Kamu yakin menghapus orderan ini?');">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="flex items-center gap-3 py-10 pr-8 sm:border-r border-gray-300 font-normal text-xl leading-8 text-gray-500 dark:text-gray-300 group transition-all duration-500 hover:text-red-600">
