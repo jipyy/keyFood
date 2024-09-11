@@ -21,6 +21,9 @@
                         <li class="mb-4">
                             <a href="/faq" class="hover:underline">FAQ</a>
                         </li>
+                        <li class="mb-4">
+                            <a href="/tutorial" class="hover:underline">Tutorial</a>
+                        </li>
                         <li>
                             <a href="/term-condition" class="hover:underline">Terms &amp; Conditions</a>
                         </li>

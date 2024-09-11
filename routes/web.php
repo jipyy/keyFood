@@ -5,15 +5,17 @@ use App\Livewire\LiveChat;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\TokoController;
+
+
 use App\Http\Controllers\UserController;
-
-
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\TutorialController;
 use App\Http\Controllers\SellerEditController;
 use App\Http\Controllers\RoleRequestController;
 use App\Http\Controllers\UserProfileController;
@@ -34,6 +36,9 @@ Route::post('/clear-chats', [ChatController::class, 'clearChats'])->name('clear.
 Route::get('/', function () {
     return view('home');
 });
+
+
+Route::get('/tutorial', [TutorialController::class, 'index'])->name('tutorial.index');
 
 
 
@@ -188,10 +193,10 @@ require __DIR__ . '/auth.php';
 //     Route::resource('users', UserController::class);
 // });
 
-Route::prefix('seller')->name('seller.')->group(function () {
-    Route::resource('products', ProductController::class);
-    Route::resource('products_orders', ProductOrderController::class);
-});
+// Route::prefix('seller')->name('seller.')->group(function () {
+//     Route::resource('products', ProductController::class);
+//     Route::resource('products_orders', ProductOrderController::class);
+// });
 
 Route::get('/dashboard', function () {
     return 'This is the dashboard route.';
@@ -306,7 +311,7 @@ Route::get('/cobain', function () {
     return view('cobain');
 });
 
-//OTP 
+//OTP
 Route::get('/otp', function () {
     return view('auth.otp-verif');
 });
@@ -338,3 +343,5 @@ Route::get('/home', [UserController::class, 'home'])->name('home');
 Route::post('/rate-product/{id}', [ProductController::class, 'rateProduct'])->name('rate.product');
 
 // Route::resource('backup', BackupController::class);
+
+Route::delete('/orders/{id}', [CheckoutController::class, 'destroyOrder'])->name('orders.destroy');
