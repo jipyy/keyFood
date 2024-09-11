@@ -41,7 +41,7 @@
                         href="/admin/users">
 
                         <i class='bx bx-user bx-sm'></i>
-                        <span class="ml-4">User</span>
+                        <span class="ml-4">Users</span>
                     </a>
                 </li>
             </ul>
@@ -54,7 +54,7 @@
                     <a class="{{ Request::is('admin/stores') ? 'inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100' : 'inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200' }}"
                         href="/admin/stores">
                         <i class='bx bx-store bx-sm'></i>
-                        <span class="ml-4">Toko</span>
+                        <span class="ml-4">Stores</span>
                     </a>
                 </li>
             </ul>
@@ -94,7 +94,7 @@
                     <a class="{{ Request::is('admin/history') ? 'inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100' : 'inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200' }}"
                         href="{{ route('admin.history.index') }}">
                         <i class='bx bx-history bx-sm'></i>
-                        <span class="ml-4">History</span>
+                        <span class="ml-4">Historys</span>
                     </a>
                 </li>
             </ul>
@@ -108,6 +108,19 @@
                         href="{{ route('faqs.index') }}">
                         <i class='bx bx-question-mark bx-sm'></i>
                         <span class="ml-4">FAQ</span>
+                    </a>
+                </li>
+            </ul>
+            <ul class="list-none">
+                <li class="relative px-6 py-3">
+                    @if (Request::is('admin/backups'))
+                        <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
+                            aria-hidden="true"></span>
+                    @endif
+                    <a class="{{ Request::is('admin/backups') ? 'inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100' : 'inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200' }}"
+                        href="/admin/backups">
+                        <i class='bx bx-memory-card bx-sm'></i>
+                        <span class="ml-4">Backups</span>
                     </a>
                 </li>
             </ul>
@@ -173,7 +186,7 @@
                         href="/admin/users">
 
                         <i class='bx bx-user bx-sm'></i>
-                        <span class="ml-4">User</span>
+                        <span class="ml-4">Users</span>
                     </a>
                 </li>
             </ul>
@@ -186,7 +199,7 @@
                     <a class="{{ Request::is('admin/stores') ? 'inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100' : 'inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200' }}"
                         href="/admin/stores">
                         <i class='bx bx-store bx-sm'></i>
-                        <span class="ml-4">Toko</span>
+                        <span class="ml-4">Stores</span>
                     </a>
                 </li>
             </ul>
@@ -226,7 +239,7 @@
                     <a class="{{ Request::is('admin/history') ? 'inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100' : 'inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200' }}"
                         href="{{ route('admin.history.index') }}">
                         <i class='bx bx-history bx-sm'></i>
-                        <span class="ml-4">History</span>
+                        <span class="ml-4">Historys</span>
                     </a>
                 </li>
             </ul>
@@ -242,6 +255,19 @@
                         <span class="ml-4">FAQ</span>
                     </a>
                 </li>
+                <ul class="list-none">
+                    <li class="relative px-6 py-3">
+                        @if (Request::is('admin/backups'))
+                            <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
+                                aria-hidden="true"></span>
+                        @endif
+                        <a class="{{ Request::is('admin/backups') ? 'inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100' : 'inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200' }}"
+                            href="/admin/backups">
+                            <i class='bx bx-memory-card bx-sm'></i>
+                            <span class="ml-4">Backups</span>
+                        </a>
+                    </li>
+                </ul>
             </ul>
             <div class="px-6 my-6">
                 <button

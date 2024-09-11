@@ -5,13 +5,19 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Process\Exception\ProcessFailedException;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Log;
+
 
 class BackupController extends Controller
 {
     public function index()
     {
-        return view('admin.dashboard-buttons');
+        return view('admin.backups.index');
     }
+
+
+
 
     public function createBackup()
     {
@@ -39,5 +45,21 @@ class BackupController extends Controller
 
         // Kembalikan file backup sebagai download
         return response()->download($backupFilePath);
+    }
+
+    public function manualBackup()
+    {
+        try {
+            // Backup database
+            Artisan::call('backup:run --only-db');
+
+            // Backup files
+            Artisan::call('backup:run --only-files');
+
+            return response()->json(['success' => 'Backup berhasil dilakukan!']);
+        } catch (\Exception $e) {
+            Log::error('Backup gagal: ' . $e->getMessage());
+            return response()->json(['error' => 'Backup gagal dilakukan!'], 500);
+        }
     }
 }

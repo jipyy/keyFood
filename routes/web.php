@@ -23,6 +23,7 @@ use App\Http\Controllers\Auth\SocialiteController;
 use App\Http\Controllers\OtpWaVerificationController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\BackupController;
 use App\Http\Controllers\ChatController;
 
 Route::post('/clear-chats', [ChatController::class, 'clearChats'])->name('clear.chats');
@@ -161,8 +162,11 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
     Route::resource('categories', CategoryController::class)->middleware('role:admin');
 
+    // Route::resource('backups', CategoryController::class)->middleware('permission:backups');
 
 
+    Route::get('backups', [BackupController::class, 'index'])->middleware('permission:backups');
+    Route::post('backups/manual', [BackupController::class, 'manualBackup'])->name('backups.manual')->middleware('permission:backups');
 });
 
 
@@ -332,3 +336,5 @@ Route::get('/admin/history', [AdminHistoryController::class, 'index'])->name('ad
 Route::get('/live-chat/{user}', LiveChat::class)->name('live-chat');
 Route::get('/home', [UserController::class, 'home'])->name('home');
 Route::post('/rate-product/{id}', [ProductController::class, 'rateProduct'])->name('rate.product');
+
+// Route::resource('backup', BackupController::class);

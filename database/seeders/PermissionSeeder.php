@@ -73,6 +73,10 @@ class PermissionSeeder extends Seeder
             ['name' => 'role-requests',],
             ['name' => 'role-requests']
         );
+        $permission11 = Permission::updateOrCreate(
+            ['name' => 'backups',],
+            ['name' => 'backups']
+        );
 
         //new
         $adminRole->givePermissionTo($permission5);
@@ -80,6 +84,7 @@ class PermissionSeeder extends Seeder
         $adminRole->givePermissionTo($permission7);
         $adminRole->givePermissionTo($permission8);
         $adminRole->givePermissionTo($permission9);
+        $adminRole->givePermissionTo($permission11);
 
         //old
         $adminRole->givePermissionTo($permission);
