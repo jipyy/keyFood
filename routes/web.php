@@ -342,3 +342,7 @@ Route::post('/rate-product/{id}', [ProductController::class, 'rateProduct'])->na
 // Route::resource('backup', BackupController::class);
 
 Route::delete('/orders/{id}', [CheckoutController::class, 'destroyOrder'])->name('orders.destroy');
+
+Route::delete('/admin/backups/{filename}', [BackupController::class, 'deleteBackup'])->name('admin.backups.delete');
+
+Route::get('/admin/backups/download/{filename}', [BackupController::class, 'downloadBackup'])->name('admin.backups.download');

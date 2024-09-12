@@ -57,6 +57,13 @@ return [
             'options' => extension_loaded('pdo_mysql') ? array_filter([
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
+            'dump' => [
+                'dump_binary_path' => 'C:/laragon/bin/mysql/mysql-8.0.30-winx64/bin/', // Path ke mysqldump
+                // 'dump_binary_path' => 'C:/laragon/bin/mysql/mysql-8.0.30-winx64/bin/mysqldump.exe',
+                'use_single_transaction' => true, // Menjalankan dump dalam satu transaksi
+                'timeout' => 60 * 5, // Timeout 5 menit
+                'exclude_tables' => ['log_table'], // Jika ada tabel yang ingin dikecualikan
+            ],
         ],
 
         'mariadb' => [
