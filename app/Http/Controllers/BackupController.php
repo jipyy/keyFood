@@ -111,11 +111,6 @@ class BackupController extends Controller
         return null;
     }
 
-    // public function getBackupHistory()
-    // {
-    //     $backups = Storage::disk('local')->files('Laravel');
-    //     return array_reverse($backups); // Yang terbaru dulu
-    // }
 
     public function getBackupHistory()
     {
@@ -144,12 +139,12 @@ class BackupController extends Controller
 
     public function downloadBackup($filename)
     {
-        $path = storage_path('app/Laravel/' . $filename);
+        $path = storage_path('app/backups/Laravel/' . $filename);
 
         if (file_exists($path)) {
             return response()->download($path);
         }
-
-        return redirect()->back()->with('error', 'File tidak ditemukan.');
+    
+        return back()->with('error', 'File not found.');
     }
 }

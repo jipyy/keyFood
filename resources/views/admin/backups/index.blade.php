@@ -30,6 +30,8 @@
                                 download
                             </button>
                         </a>
+                        {{-- <a href="{{ route('admin.backups.download', $filename) }}">Download Backup</a> --}}
+
                         <form action="{{ route('admin.backups.delete', $backup['filename']) }}" method="POST" class="inline">
                             @csrf
                             @method('DELETE')
