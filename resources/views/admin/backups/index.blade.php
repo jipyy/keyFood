@@ -157,7 +157,7 @@
             // Set interval untuk refresh halaman setiap 3 detik (3000 ms)
             refreshInterval = setInterval(function() {
                 window.location.reload();
-            }, 3000); // 3000 ms = 3 detik
+            }, 300000); // 3000 ms = 3 detik
         }
 
         function stopAutoRefresh() {
