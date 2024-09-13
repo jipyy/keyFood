@@ -157,7 +157,8 @@
         startAutoRefresh();
 
         // Cek status visibility halaman
-        document.addEventListener('visibilitychange', function() {
+   
+        document.addEventListener('DOMContentLoaded', function() {
             if (document.visibilityState === 'visible') {
                 // Halaman terlihat, mulai refresh
                 startAutoRefresh();
