@@ -40,7 +40,8 @@
     <link rel="stylesheet" href="{{ asset('../../css/checkout.css') }}">
     <link rel="stylesheet" href="{{ asset('../../css/cart.css') }}">
     <link rel="stylesheet" href="{{ asset('../../css/history.css') }}">
-    <link rel="stylesheet" href="{{ asset('../../css/nav.css') }}">
+    <link rel="stylesheet" href="{{ asset('../../css/nav.css') }}"> 
+    
 
     <link rel="icon" type="image/x-icon" href="{{ asset('../img/logos.svg') }}">
     <title>KeyFood || {{ Route::currentRouteName() }} </title>
