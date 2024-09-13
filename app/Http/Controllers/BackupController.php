@@ -72,30 +72,33 @@ class BackupController extends Controller
     public function manualBackup()
     {
         try {
-            // Menampilkan pesan "Mohon tunggu"
+            Log::info('Memulai proses backup manual');
+
             session()->flash('backup_started', true);
 
-            // Lakukan backup lengkap (database dan files)
-            Artisan::call('backup:run'); // Ini akan membackup seluruh project, termasuk database dan files
+            Log::info('Menjalankan perintah backup:run');
+            $output = Artisan::call('backup:run');
+            Log::info('Output dari backup:run: ' . $output);
 
-            // Mendapatkan file backup terbaru
             $backupPath = $this->getLatestBackupFile();
 
             if ($backupPath) {
-                // Menyiapkan file untuk diunduh
+                Log::info('File backup ditemukan: ' . $backupPath);
                 $fileName = basename($backupPath);
                 $headers = [
                     'Content-Type' => 'application/zip',
                 ];
 
-                // Memulai unduhan
+                Log::info('Memulai unduhan file backup');
                 return response()->download($backupPath, $fileName, $headers)->deleteFileAfterSend(true);
+            } else {
+                Log::warning('File backup tidak ditemukan setelah proses selesai');
+                return response()->json(['error' => 'File backup tidak ditemukan'], 404);
             }
-
-            return response()->json(['success' => 'Backup berhasil dilakukan!']);
         } catch (\Exception $e) {
             Log::error('Backup gagal: ' . $e->getMessage());
-            return response()->json(['error' => 'Backup gagal dilakukan!'], 500);
+            Log::error('Stack trace: ' . $e->getTraceAsString());
+            return response()->json(['error' => 'Backup gagal dilakukan: ' . $e->getMessage()], 500);
         }
     }
 
@@ -103,6 +106,9 @@ class BackupController extends Controller
     {
         $backupPath = storage_path('app/backup-temp');
         $files = glob($backupPath . '/*.zip');
+
+        Log::info('Mencari file backup terbaru di: ' . $backupPath);
+        Log::info('File yang ditemukan: ' . json_encode($files));
 
         if (!empty($files)) {
             return end($files);
@@ -114,14 +120,14 @@ class BackupController extends Controller
 
     public function getBackupHistory()
     {
-        $backups = Storage::disk('backup')->files('Laravel');
+        $backups = Storage::disk('local')->files('Laravel');
         $backupInfo = [];
 
         foreach ($backups as $backup) {
             $backupInfo[] = [
                 'filename' => basename($backup),
-                'size' => Storage::disk('backup')->size($backup),
-                'date' => Storage::disk('backup')->lastModified($backup)
+                'size' => Storage::disk('local')->size($backup),
+                'date' => Storage::disk('local')->lastModified($backup)
             ];
         }
 
@@ -130,7 +136,7 @@ class BackupController extends Controller
 
     public function deleteBackup($filename)
     {
-        if (Storage::disk('backup')->delete('Laravel/' . $filename)) {
+        if (Storage::disk('local')->delete('Laravel/' . $filename)) {
             return redirect()->back()->with('success', 'Backup berhasil dihapus');
         }
         return redirect()->back()->with('error', 'Gagal menghapus backup');
@@ -139,12 +145,12 @@ class BackupController extends Controller
 
     public function downloadBackup($filename)
     {
-        $path = storage_path('app/backups/Laravel/' . $filename);
+        $path = storage_path('app/Laravel/Laravel/' . $filename);
 
         if (file_exists($path)) {
             return response()->download($path);
         }
-    
+
         return back()->with('error', 'File not found.');
     }
 }

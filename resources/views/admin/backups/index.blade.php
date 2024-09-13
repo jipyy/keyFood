@@ -108,30 +108,43 @@
                         if (matches != null && matches[1]) filename = matches[1].replace(/['"]/g, '');
                     }
 
-                    var a = document.createElement('a');
-                    var url = window.URL.createObjectURL(response);
-                    a.href = url;
-                    a.download = filename;
-                    document.body.append(a);
-                    a.click();
-                    window.URL.revokeObjectURL(url);
-                    a.remove();
+                    // Cek jika response adalah blob dan bukan JSON error
+                    if (response instanceof Blob && response.type !== 'application/json') {
+                        var a = document.createElement('a');
+                        var url = window.URL.createObjectURL(response);
+                        a.href = url;
+                        a.download = filename;
+                        document.body.append(a);
+                        a.click();
+                        window.URL.revokeObjectURL(url);
+                        a.remove();
 
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Backup Berhasil',
-                        text: 'Backup berhasil dilakukan dan diunduh!'
-                    }).then(() => {
-                        location
-                            .reload(); // Menyegarkan halaman untuk memperbarui riwayat backup
-                    });
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Backup Berhasil',
+                            text: 'Backup berhasil dilakukan dan diunduh!'
+                        }).then(() => {
+                            location.reload();
+                        });
+                    } else {
+                        // Jika response adalah JSON error
+                        response.text().then(function(text) {
+                            var error = JSON.parse(text);
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Backup Gagal',
+                                text: error.error ||
+                                    'Terjadi kesalahan yang tidak diketahui.'
+                            });
+                        });
+                    }
                 },
                 error: function(xhr) {
                     Swal.close();
                     Swal.fire({
                         icon: 'error',
                         title: 'Backup Gagal',
-                        text: xhr.responseJSON ? xhr.responseJSON.error : 'Terjadi kesalahan.'
+                        text: 'Terjadi kesalahan saat melakukan backup. Silakan coba lagi nanti.'
                     });
                 }
             });
@@ -157,7 +170,7 @@
         startAutoRefresh();
 
         // Cek status visibility halaman
-   
+
         document.addEventListener('DOMContentLoaded', function() {
             if (document.visibilityState === 'visible') {
                 // Halaman terlihat, mulai refresh
