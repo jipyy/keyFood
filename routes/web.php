@@ -152,7 +152,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
     //route admin new
     Route::get('/main-admin', [PaymentController::class, 'index'])->name('dashboard-main')->middleware('permission:main-admin');
 
-      Route::get('/dashboard-cms', function () {
+    Route::get('/dashboard-cms', function () {
         return view('admin.dashboard-cms');
     })->middleware('permission:dasboard-cms');
 

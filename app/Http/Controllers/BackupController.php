@@ -90,10 +90,10 @@ class BackupController extends Controller
                 ];
 
                 Log::info('Memulai unduhan file backup');
-                return response()->download($backupPath, $fileName, $headers)->deleteFileAfterSend(true);
+                // return response()->download($backupPath, $fileName, $headers)->deleteFileAfterSend(true);
             } else {
                 Log::warning('File backup tidak ditemukan setelah proses selesai');
-                return response()->json(['error' => 'File backup tidak ditemukan'], 404);
+                return response()->json(['error' => 'File backup tidak ditemukan'], 500);
             }
         } catch (\Exception $e) {
             Log::error('Backup gagal: ' . $e->getMessage());
@@ -102,9 +102,9 @@ class BackupController extends Controller
         }
     }
 
-    private function getLatestBackupFile()
+    public function getLatestBackupFile()
     {
-        $backupPath = storage_path('app/backup-temp');
+        $backupPath = storage_path('app/Laravel/Laravel');
         $files = glob($backupPath . '/*.zip');
 
         Log::info('Mencari file backup terbaru di: ' . $backupPath);

@@ -47,13 +47,13 @@
     </table>
     {{-- <script>
         $('#backup-btn').click(function() {
-            //     Swal.fire({
-            //     title: 'Proses Backup Dimulai',
-            //     text: 'Mohon tunggu, proses backup sedang berlangsung...',
-            //     icon: 'info',
-            //     allowOutsideClick: false,
-            //     showConfirmButton: false
-            // });
+                Swal.fire({
+                title: 'Proses Backup Dimulai',
+                text: 'Mohon tunggu, proses backup sedang berlangsung...',
+                icon: 'info',
+                allowOutsideClick: false,
+                showConfirmButton: false
+            });
             $.ajax({
                 url: '{{ route('admin.backups.manual') }}',
                 method: 'POST',
@@ -94,6 +94,7 @@
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
+                
                 xhrFields: {
                     responseType: 'blob'
                 },
