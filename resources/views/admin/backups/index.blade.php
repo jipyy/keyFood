@@ -9,42 +9,54 @@
         <h1><B>HALAMAN INI REFRESH OTOMATIS INTERVAL 5 DETIK!</B></h1>
     </center>
     <h2 class="mt-8">Riwayat Backup</h2>
-    <table class="w-full mt-4">
-        <thead>
-            <tr>
-                <th>Nama File</th>
-                <th>Ukuran</th>
-                <th>Tanggal</th>
-                <th>Aksi</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($backups as $backup)
+    <div class="overflow-x-auto">
+        <table class="w-full mt-4 table-auto text-center">
+            <thead>
                 <tr>
-                    <td>{{ $backup['filename'] }}</td>
-                    <td>{{ number_format($backup['size'] / 1048576, 2) }} MB</td>
-                    <td>{{ date('Y-m-d H:i:s', $backup['date']) }}</td>
-                    <td>
-                        <a href="{{ route('admin.backups.download', $backup['filename']) }}">
-                            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg mr-2">
-                                download
-                            </button>
-                        </a>
-                        {{-- <a href="{{ route('admin.backups.download', $filename) }}">Download Backup</a> --}}
-
-                        <form action="{{ route('admin.backups.delete', $backup['filename']) }}" method="POST" class="inline">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="bg-red-600 text-white px-4 py-2 rounded-lg"
-                                onclick="return confirm('Apakah Anda yakin ingin menghapus backup ini?')">
-                                Hapus
-                            </button>
-                        </form>
-                    </td>
+                    <th class="px-4 py-2">Nama File</th>
+                    <th class="px-4 py-2">Ukuran</th>
+                    <th class="px-4 py-2">Tanggal</th>
+                    <th class="px-4 py-2">Aksi</th>
                 </tr>
-            @endforeach
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach ($backups as $backup)
+                    <tr class="border-b">
+                        <td class="px-4 py-2">{{ $backup['filename'] }}</td>
+                        <td class="px-4 py-2">{{ number_format($backup['size'] / 1048576, 2) }} MB</td>
+                        <td class="px-4 py-2">{{ date('Y-m-d H:i:s', $backup['date']) }}</td>
+                        <td class="px-4 py-2 text-sm">
+                            <div class="flex justify-center gap-2">
+                                <a href="{{ route('admin.backups.download', $backup['filename']) }}"
+                                    class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray">
+                                    <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M3 12a1 1 0 011-1h2V6a1 1 0 112 0v5h2V6a1 1 0 112 0v5h2a1 1 0 110 2H4a1 1 0 01-1-1zm12.707 3.293l-3-3a1 1 0 10-1.414 1.414L13 14.586V3a1 1 0 112 0v11.586l1.707-1.707a1 1 0 001.414 1.414l-3 3a1 1 0 01-1.414 0z"></path>
+                                    </svg>
+                                    
+                                    Download
+                                </a>
+                                <form method="POST" action="{{ route('admin.backups.delete', $backup['filename']) }}"
+                                    onclick="return confirm('Apakah Anda yakin ingin menghapus backup ini?')">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit"
+                                        class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray">
+                                        <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd"
+                                                d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                                                clip-rule="evenodd"></path>
+                                        </svg>
+                                        Delete
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+    
     {{-- <script>
         $('#backup-btn').click(function() {
                 Swal.fire({

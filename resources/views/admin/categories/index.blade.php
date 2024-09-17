@@ -33,7 +33,7 @@
             </div>
 
             <!-- New Table -->
-            {{-- <div class="w-full overflow-hidden rounded-lg shadow-xs mb-8">
+             <div class="w-full overflow-hidden rounded-lg shadow-xs mb-8">
                 <div class="w-full overflow-x-auto">
                     <table class="w-full whitespace-no-wrap">
                         <thead>
@@ -95,7 +95,7 @@
                         </tbody>
                     </table>
                 </div>
-            </div> --}}
+            </div>
         </div>
 
         <script>
