@@ -141,6 +141,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
     Route::get('/history', [AdminHistoryController::class, 'index'])->name('history.index')->middleware('permission:histories');
 
+    Route::resource('faqs', FaqController::class)->middleware('permission:faqs');
+
 
     Route::get('backups', [BackupController::class, 'index'])->middleware('permission:backups');
     Route::post('backups/manual', [BackupController::class, 'manualBackup'])->name('backups.manual')->middleware('permission:backups');
@@ -237,11 +239,6 @@ Route::get('/admin-profile', function () {
 });
 
 
-// Route::get('/history', function () {
-//     return view('history');
-// });
-
-
 Route::get('/card', function () {
     return view('cards');
 });
@@ -283,7 +280,6 @@ Route::get('/live-chat/{user}', LiveChat::class)->name('live-chat');
 Route::get('/home', [UserController::class, 'home'])->name('home');
 Route::post('/rate-product/{id}', [ProductController::class, 'rateProduct'])->name('rate.product');
 
-// Route::resource('backup', BackupController::class);
 
 Route::delete('/orders/{id}', [CheckoutController::class, 'destroyOrder'])->name('orders.destroy');
 

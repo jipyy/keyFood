@@ -10,12 +10,12 @@ class FaqController extends Controller
     public function index()
     {
         $faqs = Faq::all();
-        return view('faqs.index', compact('faqs'));
+        return view('admin.faqs.index', compact('faqs'));
     }
 
     public function create()
     {
-        return view('faqs.create');
+        return view('admin.faqs.create');
     }
 
     public function store(Request $request)
@@ -28,7 +28,7 @@ class FaqController extends Controller
         // Mengambil hanya input yang diperlukan
         Faq::create($request->only(['title', 'content']));
     
-        return redirect()->route('faqs.index')
+        return redirect()->route('admin.faqs.index')
             ->with('success', 'FAQ created successfully.');
     }
     
@@ -42,7 +42,7 @@ class FaqController extends Controller
         // Mengambil hanya input yang diperlukan
         $faq->update($request->only(['title', 'content']));
     
-        return redirect()->route('faqs.index')
+        return redirect()->route('admin.faqs.index')
             ->with('success', 'FAQ updated successfully.');
     }
     
@@ -54,7 +54,7 @@ class FaqController extends Controller
 
     public function edit(Faq $faq)
     {
-        return view('faqs.edit', compact('faq'));
+        return view('admin.faqs.edit', compact('faq'));
     }
 
 
@@ -62,7 +62,7 @@ class FaqController extends Controller
     {
         $faq->delete();
 
-        return redirect()->route('faqs.index')
+        return redirect()->route('admin.faqs.index')
             ->with('success', 'FAQ deleted successfully.');
     }
 
