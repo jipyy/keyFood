@@ -134,7 +134,7 @@
 
                                         <!-- Display average rating -->
                                         <span class="text-slate-400 font-medium">
-                                            {{ number_format($orderDetail->products->rating / max(count(json_decode($orderDetail->products->rated_by ?? '[]')), 1), 1) }}
+                                            {{ isset($orderDetail->products) ? number_format($orderDetail->products->rating / max(count(json_decode($orderDetail->products->rated_by ?? '[]')), 1), 1) : 'N/A' }}
                                             out of 5 stars
                                         </span>
                                     </div>

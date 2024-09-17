@@ -37,15 +37,24 @@ class UserProfileController extends Controller
         $user->location = $request->input('location');
         $user->img = $request->input('img');
 
+    
         if ($request->filled('password')) {
             $user->password = Hash::make($request->input('password'));
         }
+
+    
 
         if ($request->hasFile('img')) {
             $file = $request->file('img');
             $filename = time() . '_' . $file->getClientOriginalName();
             $file->move(public_path('img'), $filename);
             $user->img = 'img/' . $filename;
+        } elseif (!$request->hasFile('img') && $user->img) {
+            // Jika tidak ada file baru diupload dan user sudah memiliki gambar, pertahankan gambar yang ada
+            $user->img = $user->img;
+        } else {
+            // Jika tidak ada file baru diupload dan user tidak memiliki gambar, set img menjadi null
+            $user->img = null;
         }
 
         $user->save();
