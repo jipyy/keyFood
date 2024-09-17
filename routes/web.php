@@ -1,6 +1,5 @@
 <?php
 
-use Twilio\Rest\Chat;
 use App\Livewire\LiveChat;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FaqController;
@@ -9,7 +8,6 @@ use App\Http\Controllers\TokoController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\TutorialController;
@@ -113,23 +111,7 @@ Route::get('/whatsapp-form', function () {
     return view('auth/send_whatsapp');
 });
 
-
-
-//batas andika
-
-
 Route::view('/home', 'home')->name('home');
-
-
-//ABAIKAN COMENT TP JGN DI HAPUS
-
-// Route::view('/B-login-register', 'B-login-register')->name('B-login-register');
-// Route::get('/home', function () {
-//     return view('home');
-// })->middleware(['auth', 'verified'])->name('home');
-// Route::get('/', function () {
-//     return view('');
-// })->middleware(['auth', 'verified'])->name('');
 
 
 // ROUTE SELLER PAGE
@@ -143,13 +125,8 @@ Route::prefix('seller')->name('seller.')->group(function () {
 // ROUTE ADMIN  PAGE
 Route::prefix('admin')->name('admin.')->group(function () {
 
-    //route admin old
-
-    // Route::resource('categories', CategoryController::class)->middleware('role:admin');
-    // Route::resource('products', ProductController::class);
-    // Route::resource('products_orders', ProductOrderController::class);
-
     //route admin new
+
     Route::get('/main-admin', [PaymentController::class, 'index'])->name('dashboard-main')->middleware('permission:main-admin');
 
     Route::get('/dashboard-cms', function () {
@@ -164,36 +141,13 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
     Route::resource('categories', CategoryController::class)->middleware('role:admin');
 
-    // Route::resource('backups', CategoryController::class)->middleware('permission:backups');
-
-
     Route::get('backups', [BackupController::class, 'index'])->middleware('permission:backups');
     Route::post('backups/manual', [BackupController::class, 'manualBackup'])->name('backups.manual')->middleware('permission:backups');
 });
 
 
-// Route::middleware('auth')->group(function () {
-//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-// });
-
 require __DIR__ . '/auth.php';
 
-
-//JAGAN DI HAPUS
-
-// Route::prefix('admin')->name('admin.')->group(function(){
-//     Route::resource('products', ProductController::class);
-//     Route::resource('products_orders', ProductOrderController::class);
-//     Route::resource('categories', CategoryController::class);
-//     Route::resource('users', UserController::class);
-// });
-
-// Route::prefix('seller')->name('seller.')->group(function () {
-//     Route::resource('products', ProductController::class);
-//     Route::resource('products_orders', ProductOrderController::class);
-// });
 
 Route::get('/dashboard', function () {
     return 'This is the dashboard route.';
@@ -202,16 +156,8 @@ Route::get('/dashboard', function () {
 
 // ROUTES GOOGLE
 
-// Route::get('/auth/redirect', [SocialiteController::class, 'redirect']);
-// Route::get('/auth/google/callback', [SocialiteController::class, 'callback']);
-
 Route::get('auth/google', [SocialiteController::class, 'redirectToGoogle']);
 Route::get('auth/google/callback', [SocialiteController::class, 'handleGoogleCallback']);
-
-// Route::group(['middleware' => ['guest']], function () {
-//     Route::get('auth/google', [AuthenticatedSessionController::class, 'redirectToGoogle']);
-//     Route::get('auth/google/callback', [AuthenticatedSessionController::class, 'handleGoogleCallback']);
-// });
 
 
 //  ruote untuk memeriksa sesi
