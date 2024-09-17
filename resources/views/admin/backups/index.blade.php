@@ -32,7 +32,9 @@
                                     <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
                                         <path d="M3 12a1 1 0 011-1h2V6a1 1 0 112 0v5h2V6a1 1 0 112 0v5h2a1 1 0 110 2H4a1 1 0 01-1-1zm12.707 3.293l-3-3a1 1 0 10-1.414 1.414L13 14.586V3a1 1 0 112 0v11.586l1.707-1.707a1 1 0 001.414 1.414l-3 3a1 1 0 01-1.414 0z"></path>
                                     </svg>
-                                    
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                                      </svg>     
                                     Download
                                 </a>
                                 <form method="POST" action="{{ route('admin.backups.delete', $backup['filename']) }}"
