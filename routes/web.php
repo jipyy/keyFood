@@ -125,8 +125,6 @@ Route::prefix('seller')->name('seller.')->group(function () {
 // ROUTE ADMIN  PAGE
 Route::prefix('admin')->name('admin.')->group(function () {
 
-    //route admin new
-
     Route::get('/main-admin', [PaymentController::class, 'index'])->name('dashboard-main')->middleware('permission:main-admin');
 
     Route::get('/dashboard-cms', function () {
@@ -140,6 +138,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/role-requests', [RoleRequestController::class, 'index'])->name('role-requests.index')->middleware('permission:role-requests');
 
     Route::resource('categories', CategoryController::class)->middleware('role:admin');
+
+    Route::get('/history', [AdminHistoryController::class, 'index'])->name('history.index')->middleware('permission:histories');
+
 
     Route::get('backups', [BackupController::class, 'index'])->middleware('permission:backups');
     Route::post('backups/manual', [BackupController::class, 'manualBackup'])->name('backups.manual')->middleware('permission:backups');
@@ -275,9 +276,6 @@ Route::get('/get-nomor-by-blok/{blokId}', [CheckoutController::class, 'getNomorB
 Route::resource('faqs', FaqController::class);
 
 Route::get('/faq', [FaqController::class, 'showFaqPage'])->name('faq.page');
-
-
-Route::get('/admin/history', [AdminHistoryController::class, 'index'])->name('admin.history.index');
 
 
 // Live Chat Livewire

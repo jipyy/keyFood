@@ -73,24 +73,29 @@ class PermissionSeeder extends Seeder
             ['name' => 'role-requests',],
             ['name' => 'role-requests']
         );
+        $permission10 = Permission::updateOrCreate(
+            ['name' => 'histories',],
+            ['name' => 'histories']
+        );
         $permission11 = Permission::updateOrCreate(
             ['name' => 'backups',],
             ['name' => 'backups']
         );
 
-        //new
+        //new   
+        $adminRole->givePermissionTo($permission);
+        $adminRole->givePermissionTo($permission2);
+        $sellerRole->givePermissionTo($permission3);
+        $sellerRole->givePermissionTo($permission4);
         $adminRole->givePermissionTo($permission5);
         $adminRole->givePermissionTo($permission6);
         $adminRole->givePermissionTo($permission7);
         $adminRole->givePermissionTo($permission8);
         $adminRole->givePermissionTo($permission9);
+        $adminRole->givePermissionTo($permission10);
         $adminRole->givePermissionTo($permission11);
 
-        //old
-        $adminRole->givePermissionTo($permission);
-        $adminRole->givePermissionTo($permission2);
-        $sellerRole->givePermissionTo($permission3);
-        $sellerRole->givePermissionTo($permission4);
+   
 
         //Menmbahkan manual kepada id user role tertentu
         // $user = User::find(38);
