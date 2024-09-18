@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Toko;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class TokoController extends Controller
 {
@@ -32,11 +34,21 @@ class TokoController extends Controller
         $store->nama_toko = $request->input('nama_toko');
         $store->alamat_toko = $request->input('alamat_toko');
 
+        // if ($request->hasFile('foto_profile_toko')) {
+        //     $image = $request->file('foto_profile_toko');
+        //     $imagePath = $image->store('public/store_images');
+        //     $store->foto_profile_toko = basename($imagePath);
+        // }
         if ($request->hasFile('foto_profile_toko')) {
             $image = $request->file('foto_profile_toko');
-            $imagePath = $image->store('public/store_images');
+            
+            // Simpan gambar di folder 'public/img' dalam storage
+            $imagePath = $image->store('public/products_photo');
+            
+            // Simpan hanya nama file, bukan seluruh path
             $store->foto_profile_toko = basename($imagePath);
         }
+        
 
         $store->save();
 
@@ -45,32 +57,73 @@ class TokoController extends Controller
 
     public function edit($id)
     {
-        $store = Toko::findOrFail($id);
-        return view('admin.stores.edit', compact('store'));
+        // Cari toko berdasarkan ID
+        $toko = Toko::findOrFail($id);
+        
+        // Pastikan toko milik seller yang login
+        if ($toko->id_seller !== Auth::id()) {
+            return abort(403);
+        }
+        
+        // Tidak perlu mengambil toko lagi karena sudah ada di $toko
+        return view('seller.edit_toko.index', compact('toko'));
     }
+
 
     public function update(Request $request, $id)
     {
+        // dd($request);
+        // Cari toko berdasarkan ID
+        $toko = Toko::findOrFail($id);
+    
+        // Pastikan toko milik seller yang login
+        if ($toko->id_seller !== Auth::id()) {
+            return abort(403);
+        }
+    
+        // Validasi input
         $request->validate([
             'nama_toko' => 'required|string|max:255',
             'alamat_toko' => 'required|string|max:255',
+            'deskripsi_toko' => 'required|string|max:255',
             'foto_profile_toko' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
-
-        $store = Toko::findOrFail($id);
-        $store->nama_toko = $request->input('nama_toko');
-        $store->alamat_toko = $request->input('alamat_toko');
-
+    
+        // Update informasi toko
+        $toko->nama_toko = $request->input('nama_toko');
+        $toko->alamat_toko = $request->input('alamat_toko');
+        $toko->deskripsi_toko = $request->input('deskripsi_toko');
+    
+        // Jika ada file foto yang di-upload, proses penyimpanan
         if ($request->hasFile('foto_profile_toko')) {
             $image = $request->file('foto_profile_toko');
-            $imagePath = $image->store('public/store_images');
-            $store->foto_profile_toko = basename($imagePath);
+            $imagePath = $image->store('public/storage_images');
+            $toko->foto_profile_toko = basename($imagePath);
         }
 
-        $store->save();
-
-        return redirect()->route('admin.stores.index')->with('success', 'Toko updated successfully');
+        if ($request->hasFile('foto_profile_toko')) {
+            // Hapus gambar lama jika ada
+            if ($toko->foto_profile_toko) {
+                Storage::delete('public/store_images/' . $toko->foto_profile_toko);
+            }
+        
+            // Simpan gambar baru
+            $image = $request->file('foto_profile_toko');
+            $imagePath = $image->store('public/store_images');
+            $toko->foto_profile_toko = basename($imagePath);
+        }
+        
+        
+    
+        // Simpan perubahan
+        $toko->save();
+    
+        // Redirect kembali ke dashboard seller dengan pesan sukses
+        return redirect()->route('seller-page')->with('success', 'Toko berhasil diperbarui.');
     }
+    
+
+
 
     public function destroy($id)
     {

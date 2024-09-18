@@ -120,6 +120,10 @@ Route::prefix('seller')->name('seller.')->group(function () {
 
     // Route::resource('products', ProductController::class)->middleware('role:seller');
     Route::resource('products_orders', ProductOrderController::class);
+
+    Route::put('/edit_toko/{id}', [TokoController::class, 'update'])->name('toko.update')->middleware('permission:edit-toko');
+    Route::get('/edit_toko/{id}', [TokoController::class, 'edit'])->name('toko.edit')->middleware('permission:edit-toko');
+    
 });
 
 // ROUTE ADMIN  PAGE

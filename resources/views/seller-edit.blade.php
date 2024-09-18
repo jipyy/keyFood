@@ -5,25 +5,23 @@
         @if (Auth::check())
             @if (Auth::user()->hasRole('seller'))
                 <div class="store-header">
-        <div class="store-info">
-            <img src="{{ $toko->foto_profile_toko }}" alt="logo toko" class="store-logo">
-            <div class="store-text">
-                <h1>{{ $toko->nama_toko }}</h1>
-                <h2>{{ $toko->alamat_toko }}</h2>
-            </div>
-            <div class="edit-button-container">
-                <button type="button"
-                    class="text-white bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 shadow-lg shadow-teal-500/50 dark:shadow-lg dark:shadow-teal-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Edit
-                    Toko</button>
-
-            </div>
-        </div>
+                    <div class="store-info">
+                        <img src="{{ asset('storage/img/' . $toko->foto_profile_toko) }}" alt="logo toko" class="store-logo">
+                        <div class="store-text">
+                            <h1>{{ $toko->nama_toko }}</h1>
+                            <h2>{{ $toko->alamat_toko }}</h2>
+                        </div>
+                        <div class="edit-button-container">
+                            <a href="/seller/edit_toko/{{ $toko->id_toko }}">
+                                <button type="button" class="text-white bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 shadow-lg shadow-teal-500/50 dark:shadow-lg dark:shadow-teal-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Edit
+                                    Toko
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                    
         <div class="store-description">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga quasi maiores praesentium aliquam
-                repellat
-                incidunt eveniet illo dolorum, vel optio officia libero, exercitationem amet dolorem accusantium
-                beatae
-                consequuntur consequatur soluta?</p>
+            <p>{{ $toko->deskripsi_toko }}</p>
         </div>
         </div>
         <!-- produk produk -->

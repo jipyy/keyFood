@@ -29,9 +29,10 @@ class Toko extends Model
 
     // Optionally, you can define relationships if needed
     // Example: relationship with Seller
+    // Di model Toko
     public function user()
     {
-        return $this->belongsTo(user::class, 'id_seller');
+        return $this->belongsTo(User::class, 'id_seller', 'id');
     }
 
     public function products()
