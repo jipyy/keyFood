@@ -93,78 +93,56 @@
     </script> --}}
 
     <script>
-        $('#backup-btn').click(function() {
-            Swal.fire({
-                title: 'Proses Backup Dimulai',
-                text: 'Mohon tunggu, proses backup sedang berlangsung...',
-                icon: 'info',
-                allowOutsideClick: false,
-                showConfirmButton: false
-            });
+        $('#backup-btn').click(function () {
+        Swal.fire({
+            title: 'Proses Backup Dimulai',
+            text: 'Mohon tunggu, proses backup sedang berlangsung...',
+            icon: 'info',
+            allowOutsideClick: false,
+            showConfirmButton: false
+        });
 
-            $.ajax({
-                url: '{{ route('admin.backups.manual') }}',
-                method: 'POST',
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                
-                xhrFields: {
-                    responseType: 'blob'
-                },
-                success: function(response, status, xhr) {
-                    Swal.close();
+        $.ajax({
+            url: '{{ route('admin.backups.manual') }}',
+            method: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function (response) {
+                Swal.close();
 
-                    var filename = "";
-                    var disposition = xhr.getResponseHeader('Content-Disposition');
-                    if (disposition && disposition.indexOf('attachment') !== -1) {
-                        var filenameRegex = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/;
-                        var matches = filenameRegex.exec(disposition);
-                        if (matches != null && matches[1]) filename = matches[1].replace(/['"]/g, '');
-                    }
+                // Menampilkan data dari respons JSON
+                console.log('Response:', response);
 
-                    // Cek jika response adalah blob dan bukan JSON error
-                    if (response instanceof Blob && response.type !== 'application/json') {
-                        var a = document.createElement('a');
-                        var url = window.URL.createObjectURL(response);
-                        a.href = url;
-                        a.download = filename;
-                        document.body.append(a);
-                        a.click();
-                        window.URL.revokeObjectURL(url);
-                        a.remove();
-
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Backup Berhasil',
-                            text: 'Backup berhasil dilakukan dan diunduh!'
-                        }).then(() => {
-                            location.reload();
-                        });
-                    } else {
-                        // Jika response adalah JSON error
-                        response.text().then(function(text) {
-                            var error = JSON.parse(text);
-                            Swal.fire({
-                                icon: 'error',
-                                title: 'Backup Gagal',
-                                text: error.error ||
-                                    'Terjadi kesalahan yang tidak diketahui.'
-                            });
-                        });
-                    }
-                },
-                error: function(xhr) {
-                    Swal.close();
+                if (response.status === 'success') {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Backup Berhasil',
+                        text: response.message
+                    }).then(() => {
+                        // Jika perlu, muat ulang halaman
+                        location.reload();
+                    });
+                } else {
+                    // Menampilkan pesan error jika status bukan success
                     Swal.fire({
                         icon: 'error',
                         title: 'Backup Gagal',
-                        text: 'Terjadi kesalahan saat melakukan backup. Silakan coba lagi nanti.'
+                        text: response.message || 'Terjadi kesalahan yang tidak diketahui.'
                     });
                 }
-            });
+            },
+            error: function (xhr) {
+                Swal.close();
+                console.log('AJAX Error:', xhr);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Backup Gagal',
+                    text: 'Terjadi kesalahan saat melakukan backup. Silakan coba lagi nanti.'
+                });
+            }
         });
-
+    });
         // Set interval untuk refresh halaman setiap 5 detik
         let refreshInterval;
 
@@ -172,7 +150,7 @@
             // Set interval untuk refresh halaman setiap 3 detik (3000 ms)
             refreshInterval = setInterval(function() {
                 window.location.reload();
-            }, 300000); // 3000 ms = 3 detik
+            }, 5000); // 3000 ms = 3 detik
         }
 
         function stopAutoRefresh() {

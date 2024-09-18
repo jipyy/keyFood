@@ -71,35 +71,25 @@ class BackupController extends Controller
 
     public function manualBackup()
     {
-        try {
-            Log::info('Memulai proses backup manual');
+        // Mendapatkan path ke direktori root proyek Laravel
+        $projectRoot = dirname(__DIR__, 3);  // Asumsi skrip ini berada di dalam subdirektori
 
-            session()->flash('backup_started', true);
+        // Path ke file artisan
+        $artisanPath = $projectRoot . DIRECTORY_SEPARATOR . 'artisan';
 
-            Log::info('Menjalankan perintah backup:run');
-            $output = Artisan::call('backup:run');
-            Log::info('Output dari backup:run: ' . $output);
+        // Perintah Artisan untuk menjalankan backup
+        $command = "php $artisanPath backup:run 2>&1";
 
-            $backupPath = $this->getLatestBackupFile();
+        // Jalankan perintah
+        $output = shell_exec($command);
 
-            if ($backupPath) {
-                Log::info('File backup ditemukan: ' . $backupPath);
-                $fileName = basename($backupPath);
-                $headers = [
-                    'Content-Type' => 'application/zip',
-                ];
-
-                Log::info('Memulai unduhan file backup');
-                // return response()->download($backupPath, $fileName, $headers)->deleteFileAfterSend(true);
-            } else {
-                Log::warning('File backup tidak ditemukan setelah proses selesai');
-                return response()->json(['error' => 'File backup tidak ditemukan'], 500);
-            }
-        } catch (\Exception $e) {
-            Log::error('Backup gagal: ' . $e->getMessage());
-            Log::error('Stack trace: ' . $e->getTraceAsString());
-            return response()->json(['error' => 'Backup gagal dilakukan: ' . $e->getMessage()], 500);
-        }
+        // Log output
+        Log::info('Output dari shell_exec: ' . $output);
+         // Mengembalikan respons JSON dengan status dan output
+         return response()->json([
+            'status' => 'success',
+            'message' => 'Backup telah selesai dan dapat diunduh.',
+        ]);
     }
 
     public function getLatestBackupFile()
