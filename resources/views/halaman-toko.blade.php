@@ -11,11 +11,7 @@
                     </div>
                 </div>
                 <div class="store-description">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga quasi maiores praesentium aliquam
-                        repellat
-                        incidunt eveniet illo dolorum, vel optio officia libero, exercitationem amet dolorem accusantium
-                        beatae
-                        consequuntur consequatur soluta?</p>
+                    <p>{{ $detail->deskripsi_toko }}</p>
                 </div>
         </div>
         @endforeach
