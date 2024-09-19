@@ -54,7 +54,7 @@ class CheckoutController extends Controller
 
                 // Cek apakah seller mencoba membeli produk mereka sendiri
                 if ($toko && $toko->id_seller == $buyerId) {
-                    return redirect('/seller-edit')->withErrors(['checkout' => 'Anda tidak dapat membeli produk Anda sendiri.']);
+                    return redirect('/seller/seller-edit')->withErrors(['checkout' => 'Anda tidak dapat membeli produk Anda sendiri.']);
                 }
 
 
