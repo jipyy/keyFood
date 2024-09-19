@@ -119,7 +119,7 @@ class TokoController extends Controller
         $toko->save();
     
         // Redirect kembali ke dashboard seller dengan pesan sukses
-        return redirect()->route('seller-page')->with('success', 'Toko berhasil diperbarui.');
+        return redirect()->route('seller-edit')->with('success', 'Toko berhasil diperbarui.');
     }
     
 
