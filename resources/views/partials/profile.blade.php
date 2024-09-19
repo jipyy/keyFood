@@ -57,7 +57,7 @@
                     </button>
 
                     @if (Auth::user()->hasRole('seller'))
-                        <a href="/seller-page" class="flex items-center gap-3 rounded-md py-2 px-3 but-sel">
+                        <a href="/seller/seller-edit" class="flex items-center gap-3 rounded-md py-2 px-3 but-sel">
                             <i class='bx bxs-store'></i>
                             <span class="body.dark{color:white}">Seller Page</span>
                         </a>

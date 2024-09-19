@@ -71,7 +71,7 @@
                         </li>
                     @elseif (Auth::user()->hasRole('seller'))
                         <li class="{{ Request::is('store-sell') ? 'nav-link active' : 'nav-link' }}">
-                            <a href="/seller-page">
+                            <a href="/seller/seller-edit">
                                 <i class='bx bx-store icon'></i>
                                 <span class="text nav-text">Toko</span>
                             </a>

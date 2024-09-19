@@ -51,7 +51,7 @@ Route::get('/contact-us', function () {
     return view('contact-us');
 });
 
-Route::get('/seller-page', [SellerEditController::class, 'index']);
+Route::get('/seller/seller-edit', [SellerEditController::class, 'index']);
 
 Route::get('/faq', function () {
     return view('faq');
@@ -73,7 +73,7 @@ Route::get('/edit-profile', function () {
     return view('edit-profile');
 });
 
-Route::get('/seller-page', [SellerEditController::class, 'index'])->name('seller-page');
+Route::get('/seller/seller-edit', [SellerEditController::class, 'index'])->name('seller-edit');
 
 Route::get('/stores', [TokoController::class, 'showStores'])->name('Toko');
 Route::post('/detailed-store', [TokoController::class, 'detailStore'])->name('Detail Toko');
@@ -117,13 +117,11 @@ Route::view('/home', 'home')->name('home');
 // ROUTE SELLER PAGE
 Route::prefix('seller')->name('seller.')->group(function () {
     Route::resource('products', ProductController::class)->middleware('role:seller');
-
-    // Route::resource('products', ProductController::class)->middleware('role:seller');
     Route::resource('products_orders', ProductOrderController::class);
-
     Route::put('/edit_toko/{id}', [TokoController::class, 'update'])->name('toko.update')->middleware('permission:edit-toko');
     Route::get('/edit_toko/{id}', [TokoController::class, 'edit'])->name('toko.edit')->middleware('permission:edit-toko');
-    
+    Route::resource('/seller/seller-edit', ProductController::class)->middleware('role:seller');
+    // Route::resource('seller-edit', ProductController::class)->middleware('role:seller');
 });
 
 // ROUTE ADMIN  PAGE

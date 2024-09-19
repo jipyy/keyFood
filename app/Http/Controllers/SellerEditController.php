@@ -12,6 +12,6 @@ class SellerEditController extends Controller
     {
         $toko = Toko::where('id_seller', auth()->id())->get()->first();
         $product = Product::where('store_id', $toko->id_toko)->get();
-        return view('seller-edit', ['toko' => $toko, 'product' => $product]);
+        return view('seller.seller-edit', ['toko' => $toko, 'product' => $product]);
     }
 }
