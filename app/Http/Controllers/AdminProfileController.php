@@ -63,7 +63,7 @@ class AdminProfileController extends Controller
 
         // Jika tidak ada gambar baru diunggah dan tidak ada gambar sebelumnya, set img ke null
         if (!$request->hasFile('img') && !$user->img) {
-            $user->img = null;
+        
         }
 
         // Simpan perubahan pada user

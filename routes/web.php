@@ -22,6 +22,7 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\BackupController;
 use App\Http\Controllers\ChatController;
+use App\Http\Controllers\AdminProfileController;
 
 Route::post('/clear-chats', [ChatController::class, 'clearChats'])->name('clear.chats');
 
