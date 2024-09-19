@@ -194,6 +194,20 @@ class ProductController extends Controller
         }
     }
 
+    public function destroyOrder($id)
+    {
+        try {
+            // Cari order berdasarkan ID dan hapus
+            $order = Orders::where('id', $id)->where('id_user', auth()->id())->firstOrFail();
+            $order->delete();
+
+            return redirect()->back()->with('success', 'Order berhasil dihapus.');
+        } catch (\Exception $e) {
+            Log::error('Gagal menghapus order: ' . $e->getMessage());
+            return redirect()->back()->withErrors(['order' => 'Gagal menghapus order.']);
+        }
+    }
+
     public function cart()
     {
         return view('partials.cart');
