@@ -149,6 +149,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
     Route::get('backups', [BackupController::class, 'index'])->middleware('permission:backups');
     Route::post('backups/manual', [BackupController::class, 'manualBackup'])->name('backups.manual')->middleware('permission:backups');
+
+    Route::get('/profile', [AdminProfileController::class, 'index'])->name('profile.index');
+    Route::get('/profile/edit', [AdminProfileController::class, 'edit'])->name('edit.profile');
+    Route::post('/profile/edit', [AdminProfileController::class, 'update'])->name('update.profile');
 });
 
 
