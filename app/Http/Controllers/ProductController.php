@@ -136,6 +136,7 @@ class ProductController extends Controller
             'photo' => ['sometimes', 'image', 'mimes:png,jpg,jpeg'],
             'category_id' => ['required', 'integer'],
             'price' => ['required', 'integer', 'min:0'],
+            'quantity' => ['required', 'integer', 'min:0'],
             'slug' => ['required', 'string', 'max:65535'],
         ]);
 
