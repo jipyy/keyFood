@@ -1,9 +1,10 @@
 <div class="flex h-full bg-gray-50 dark:bg-gray-900" :class="{ 'overflow-hidden': isSideMenuOpen }">
     <!-- Desktop sidebar -->
+     @foreach($cms as $company)
     <aside class="z-20 hidden w-64 overflow-y-hidden bg-white dark:bg-gray-800 md:block flex-shrink-0 sticky top-0">
         <div class="py-4 text-gray-500 dark:text-gray-400">
             <a class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200" href="#">
-                KeyFood
+            {{$company->company_name}}
             </a>
             <ul class="mt-6">
                 <li class="relative px-6 py-3">
@@ -20,12 +21,12 @@
             </ul>
             <ul class="list-none">
                 <li class="relative px-6 py-3">
-                    @if (Request::is('admin/dashboard-cms'))
+                    @if (Request::is('admin/company'))
                         <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
                             aria-hidden="true"></span>
                     @endif
-                    <a class="{{ Request::is('admin/dashboard-cms') ? 'inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100' : 'inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200' }}"
-                        href="/admin/dashboard-cms">
+                    <a class="{{ Request::is('admin/company') ? 'inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100' : 'inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200' }}"
+                        href="/admin/company">
                         <i class='bx bx-building-house bx-sm'></i>
                         <span class="ml-4">Company Info</span>
                     </a>
@@ -148,7 +149,7 @@
         @keydown.escape="closeSideMenu">
         <div class="py-4 text-gray-500 dark:text-gray-400">
             <a class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200" href="#">
-                KeyFood
+            {{$company->company_name}}
             </a>
             <ul class="mt-6">
                 <li class="relative px-6 py-3">
@@ -165,12 +166,12 @@
             </ul>
             <ul class="list-none">
                 <li class="relative px-6 py-3">
-                    @if (Request::is('admin/dashboard-cms'))
+                    @if (Request::is('admin/company'))
                         <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
                             aria-hidden="true"></span>
                     @endif
-                    <a class="{{ Request::is('admin/dashboard-cms') ? 'inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100' : 'inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200' }}"
-                        href="/admin/dashboard-cms">
+                    <a class="{{ Request::is('admin/company') ? 'inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100' : 'inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200' }}"
+                        href="/admin/company">
                         <i class='bx bx-building-house bx-sm'></i>
                         <span class="ml-4">Company Info</span>
                     </a>
@@ -418,3 +419,4 @@
                 </ul>
             </div>
         </header>
+@endforeach

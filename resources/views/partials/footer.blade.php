@@ -3,9 +3,10 @@
     <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div class="md:flex md:justify-between">
             <div class="mb-6 md:mb-0">
+            @foreach($cms as $company)
                 <a href="/home" class="flex items-center">
-                    <span class="self-center text-2xl font-semibold whitespace-nowrap text-gray-500">KeyFood</span>
-                    <img src="{{ asset('img/logos.svg') }}" class="h-8 me-2" alt="KeyFood Logo" />
+                    <span class="self-center text-2xl font-semibold whitespace-nowrap text-gray-500">{{$company->company_name}}</span>
+                    <img src="{{ asset($company->logo) }}" class="h-8 me-2" alt="KeyFood Logo" />
                 </a>
             </div>
             <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-2">
@@ -33,14 +34,14 @@
                     <h2 class="mb-6 text-sm font-semibold text-gray-400 uppercase">Our Company</h2>
                     <ul class="text-gray-500 font-medium">
                         <li class="mb-4">
-                            <a href="https://maps.app.goo.gl/jPYA3x3XgB3pXWSYA" class="hover:underline ">KeyFood
+                            <a href="https://maps.app.goo.gl/jPYA3x3XgB3pXWSYA" class="hover:underline ">{{$company->company_name}}
                                 Company, <br> Keandra Regency, Cirebon,<br> Jawa Barat, Indonesia<br> 45611</a>
                         </li>
                         <li class="mb-4">
-                            <a href="mailto:andikasupriyadi27@gmail.com" class="hover:underline">keyfood @gmail.com</a>
+                            <a href="mailto:andikasupriyadi27@gmail.com" class="hover:underline">{{$company->email}}</a>
                         </li>
                         <li>
-                            <a href="https://wa.me/6281224265685" class="hover:underline">+62-812-3456-7890</a>
+                            <a href="https://wa.me/{{$company->phone}}" class="hover:underline">+62{{$company->phone}}</a>
                         </li>
                     </ul>
                 </div>
@@ -49,7 +50,7 @@
         <hr class="my-6 border-gray-200 sm:mx-auto lg:my-8" />
         <div class="sm:flex sm:items-center sm:justify-between">
             <span class="text-sm text-gray-500 sm:text-center">© 2024 <a href="#"
-                    class="hover:underline">KeyFood™</a>. All Rights Reserved.
+                    class="hover:underline">{{$company->company_name}}™</a>. All Rights Reserved.
             </span>
             <div class="flex mt-4 sm:justify-center sm:mt-0">
                 <a href="#" class="text-gray-500 hover:text-gray-500">
@@ -99,4 +100,5 @@
             </div>
         </div>
     </div>
+    @endforeach
 </footer>

@@ -23,6 +23,7 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\BackupController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\AdminProfileController;
+use App\Http\Controllers\CmsController;
 
 Route::post('/clear-chats', [ChatController::class, 'clearChats'])->name('clear.chats');
 
@@ -154,6 +155,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/profile', [AdminProfileController::class, 'index'])->name('profile.index');
     Route::get('/profile/edit', [AdminProfileController::class, 'edit'])->name('edit.profile');
     Route::post('/profile/edit', [AdminProfileController::class, 'update'])->name('update.profile');
+
+    Route::get('/company', [CmsController::class, 'index'])->name('company.index');
+    Route::get('/company/edit/{id}', [CmsController::class, 'edit'])->name('company.edit');
+    Route::post('/company/edit/{id}', [CmsController::class, 'update'])->name('company.update');
 });
 
 

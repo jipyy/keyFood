@@ -2,7 +2,9 @@
     <nav class="nav container-nav">
         <div class="nav__data">
             <a href="#" class="nav__logo">
-                <img src="{{ asset('img/logos.svg') }}" class="h-8 me-2" alt="KeyFood Logo" /> KeyFood
+                @foreach($cms as $company)
+                    <img src="{{ asset($company->logo) }}" class="h-8 me-2" alt="KeyFood Logo" /> {{$company->company_name}}
+                @endforeach
             </a>
 
 
@@ -17,7 +19,8 @@
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
                     <li class="list">
-                        <a href="/home" class="{{ Request::is('/') || Request::is('home') ? 'nav__link active' : 'nav__link' }}">Home</a>
+                        <a href="/home"
+                            class="{{ Request::is('/') || Request::is('home') ? 'nav__link active' : 'nav__link' }}">Home</a>
                     </li>
                     <li class="list">
                         <a href="/product-slider"

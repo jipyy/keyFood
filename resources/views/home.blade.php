@@ -39,12 +39,13 @@
                 </div>
             </div>
         </div>
+@foreach ($cms as $company )
 
         <div class="box-container" id="rounded-rect">
             <div class="content">
                 <section class="section__container header__container" id="home">
                     <div class="header__image">
-                        <img src="{{ asset('../img/5.png') }}" alt="header " class="header-img" />
+                        <img src="{{ asset($company->gambar_home_1) }}" alt="header " class="header-img" />
                     </div>
                     <div class="header__content">
                         <h1>Beli, Makan & Nikmati <span>Makanan Terbaik</span>.</h1>
@@ -133,7 +134,7 @@
 
                 <section class="section__container explore__container">
                     <div class="explore__image">
-                        <img src="{{ asset('../img/explore.png') }}" alt="explore" class="header-img" />
+                        <img src="{{ asset($company->gambar_home_2) }}" alt="explore" class="header-img" />
                     </div>
                     <div class="explore__content">
                         <h1 class="section__header">Nikmati Lezatnya Hidup Sehat!</h1>
@@ -194,7 +195,7 @@
                     <img src="{{ asset('../img/topping.png') }}" alt="topping" class="chef__bg" />
                     <div class="section__container chef__container">
                         <div class="chef__image">
-                            <img src="{{ asset('../img/avatar.png') }}" alt="chef" class="header-img" />
+                            <img src="{{ asset($company->gambar_home_3) }}" alt="chef" class="header-img" />
                         </div>
                         <div class="chef__content">
                             <h2 class="section__header">Siap Diantar Di Mana Saja & Kapan Saja!</h2>
@@ -279,6 +280,7 @@
 
     </section>
 
+    @endforeach
 
     <script>
         document.addEventListener('scroll', () => {
