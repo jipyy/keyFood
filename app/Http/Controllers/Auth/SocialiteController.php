@@ -26,6 +26,8 @@ class SocialiteController extends Controller
             if ($existingUser) {
                 // Jika pengguna ada, login
                 Auth::login($existingUser);
+                 $existingUser->update(['is_online' => true]);
+
                 return redirect()->intended('/home');
             } else {
                 // dd($user);
@@ -41,6 +43,8 @@ class SocialiteController extends Controller
                     // 'phone_verified_at' => now(),
                     // Tambahkan kolom lain yang diperlukan
                 ]);
+
+                $newUser->update(['is_online' => true]);
 
                 Auth::login($newUser);
 

@@ -65,7 +65,7 @@ class RegisteredUserController extends Controller
 
     private function sendWhatsAppOTP($phone, $otp)
     {
-        $url = "https://wa.ponpesalgaz.online/send-message";
+        $url = "https://wakbk.grageweb.online/send-message";
         $data = [
             'number' => $phone,
             'message' => "Kode OTP telah dikirimkan ke nomor ponsel Anda. \n\nKode: $otp  \n\nKode ini berlaku selama 2 menit. Mohon masukkan kode ini untuk Proses Registrasi. \n\nJangan bagikan kode ini kepada siapa pun."
