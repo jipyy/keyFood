@@ -1,5 +1,22 @@
 @extends('admin.layouts.main-admin')
 @section('container-admin')
+@if (session('success'))
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Success!',
+            text: '{{ session('success') }}',
+            timer: 2000, // Durasi tampilan alert dalam milidetik
+            showConfirmButton: false
+        });
+
+        setTimeout(function() {
+            window.location.reload();
+        }, 2000);
+
+    </script>
+@endif
+
 <main class="h-screen pb-16 overflow-y-auto">
     <div class="container px-6 mx-auto grid py-4 mb-8">
         <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">

@@ -1,5 +1,17 @@
 @extends('admin.layouts.main-admin')
 @section('container-admin')
+
+@if (session('info'))
+    <script>
+        Swal.fire({
+            icon: 'info',
+            title: 'info!',
+            text: '{{ session('info') }}',
+            timer: 2000, // Durasi tampilan alert dalam milidetik
+            showConfirmButton: false
+        });
+    </script>
+@endif
 <main class="h-screen overflow-y-auto">
     <div class="container px-6 mx-auto grid py-4 mb-8 max-w-4xl">
         <!-- Judul Form -->

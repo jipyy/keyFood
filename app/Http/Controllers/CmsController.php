@@ -39,15 +39,22 @@ class CmsController extends Controller
         // Mengambil data perusahaan berdasarkan ID
         $company = Cms::findOrFail($id);
 
+        // Menyimpan data sebelum diupdate untuk perbandingan
+        $originalCompany = clone $company;
+
         // Mengupdate data perusahaan (input non-file)
         $company->company_name = $request->input('company_name');
         $company->phone = $request->input('phone');
         $company->email = $request->input('email');
         $company->lokasi = $request->input('lokasi');
 
+        // Flag untuk mengecek apakah ada perubahan
+        $hasChanges = false;
+
         // Mengupdate gambar jika ada file yang diupload
         foreach (['logo', 'gambar_home_1', 'gambar_home_2', 'gambar_home_3'] as $imageField) {
             if ($request->hasFile($imageField)) {
+                $hasChanges = true;
                 $file = $request->file($imageField);
                 $filename = time() . '_' . $file->getClientOriginalName();
 
@@ -74,14 +81,20 @@ class CmsController extends Controller
             }
         }
 
-        // Menyimpan perubahan
-        $company->save();
-        Log::info('Company updated: ' . $company->id);
+        // Cek apakah ada perubahan
+        if ($company != $originalCompany || $hasChanges) {
+            // Menyimpan perubahan
+            $company->save();
+            Log::info('Company updated: ' . $company->id);
 
-        // Redirect ke halaman yang diinginkan dengan pesan sukses
-        return redirect()->route('admin.company.index')->with('success', 'Data perusahaan berhasil diperbarui.');
-
+            // Redirect ke halaman yang diinginkan dengan pesan sukses
+            return redirect()->route('admin.company.index')->with('success', 'Data perusahaan berhasil diperbarui.');
+        } else {
+            // Jika tidak ada perubahan, kirim sesi dan tetap di halaman edit
+            return redirect()->back()->with('info', 'Tidak ada perubahan yang disimpan.')->withInput();
+        }
     }
+
 
 
 
