@@ -34,7 +34,35 @@ class AdminProfileController extends Controller
         // Ambil user yang sedang login
         $user = Auth::user();
 
-        // Update data user selain password dan img
+        // Check jika tidak ada perubahan data
+        $isChanged = false;
+
+        // Cek setiap field untuk perubahan
+        if (
+            $user->name !== $request->input('name') ||
+            $user->email !== $request->input('email') ||
+            $user->first_name !== $request->input('first_name') ||
+            $user->last_name !== $request->input('last_name') ||
+            $user->phone !== $request->input('phone') ||
+            $user->location !== $request->input('location')
+        ) {
+            $isChanged = true;
+        }
+
+        if ($request->filled('password') && !Hash::check($request->input('password'), $user->password)) {
+            $isChanged = true;
+        }
+
+        if ($request->hasFile('img')) {
+            $isChanged = true;
+        }
+
+        // Jika tidak ada perubahan, kirim respons ke frontend
+        if (!$isChanged) {
+            return redirect('/admin/profile/edit')->with('info', 'Tidak ada perubahan yang diubah.');
+        }
+
+        // Lakukan penyimpanan jika ada perubahan
         $user->name = $request->input('name');
         $user->email = $request->input('email');
         $user->first_name = $request->input('first_name');
@@ -42,34 +70,23 @@ class AdminProfileController extends Controller
         $user->phone = $request->input('phone');
         $user->location = $request->input('location');
 
-        // Jika ada input password, update password
         if ($request->filled('password')) {
             $user->password = Hash::make($request->input('password'));
         }
 
-        // Jika ada file img yang diunggah, proses penggantian gambar
         if ($request->hasFile('img')) {
-            // Hapus gambar lama jika ada
-            if ($user->img && file_exists(public_path($user->img))) {
-                unlink(public_path($user->img)); // Hapus file gambar lama dari direktori public/img
-            }
-
-            // Simpan gambar baru
             $file = $request->file('img');
             $filename = time() . '_' . $file->getClientOriginalName();
             $file->move(public_path('img'), $filename);
-            $user->img = 'img/' . $filename; // Update kolom img dengan nama file baru
+            $user->img = 'img/' . $filename;
+        } else {
+            // Jika tidak ada file baru diupload dan user sudah memiliki gambar, pertahankan gambar yang ada
         }
 
-        // Jika tidak ada gambar baru diunggah dan tidak ada gambar sebelumnya, set img ke null
-        if (!$request->hasFile('img') && !$user->img) {
-        
-        }
-
-        // Simpan perubahan pada user
         $user->save();
 
-        return redirect('/admin/profile')->with('success', 'Profile updated successfully.');
+        return redirect('/admin/profile')->with('success', 'Profile Berhasil di Ubah.');
+
     }
 
 

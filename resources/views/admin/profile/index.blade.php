@@ -1,6 +1,17 @@
 @extends('admin.layouts.main-admin')
 @section('container-admin')
 @if (Auth::check())
+@if(session('success'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Success',
+                text: '{{ session('success') }}',
+                timer: 2000, // 3000 ms = 3 detik
+                showConfirmButton: false,
+            });
+        </script>
+    @endif
 <main class="h-screen pb-16 overflow-y-auto flex items-center justify-center">
     <div class="container grid px-6 mx-auto py-4 mb-8">
         <div class="h-full flex items-center justify-center ">
