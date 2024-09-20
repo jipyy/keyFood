@@ -75,7 +75,12 @@ class AdminProfileController extends Controller
         }
 
         if ($request->hasFile('img')) {
-            // Proses penggantian gambar
+            $file = $request->file('img');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('img'), $filename);
+            $user->img = 'img/' . $filename;
+        } else {
+            // Jika tidak ada file baru diupload dan user sudah memiliki gambar, pertahankan gambar yang ada
         }
 
         $user->save();
