@@ -41,14 +41,14 @@ class TokoController extends Controller
         // }
         if ($request->hasFile('foto_profile_toko')) {
             $image = $request->file('foto_profile_toko');
-            
+
             // Simpan gambar di folder 'public/img' dalam storage
             $imagePath = $image->store('public/products_photo');
-            
+
             // Simpan hanya nama file, bukan seluruh path
             $store->foto_profile_toko = basename($imagePath);
         }
-        
+
 
         $store->save();
 
@@ -59,12 +59,12 @@ class TokoController extends Controller
     {
         // Cari toko berdasarkan ID
         $toko = Toko::findOrFail($id);
-        
+
         // Pastikan toko milik seller yang login
         if ($toko->id_seller !== Auth::id()) {
             return abort(403);
         }
-        
+
         // Tidak perlu mengambil toko lagi karena sudah ada di $toko
         return view('seller.edit_toko.index', compact('toko'));
     }
@@ -73,14 +73,14 @@ class TokoController extends Controller
     public function update(Request $request, $id)
     {
         // dd($request);
-        // Cari toko berdasarkan ID
+// Cari toko berdasarkan ID
         $toko = Toko::findOrFail($id);
-    
+
         // Pastikan toko milik seller yang login
         if ($toko->id_seller !== Auth::id()) {
             return abort(403);
         }
-    
+
         // Validasi input
         $request->validate([
             'nama_toko' => 'required|string|max:255',
@@ -88,40 +88,37 @@ class TokoController extends Controller
             'deskripsi_toko' => 'required|string|max:255',
             'foto_profile_toko' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
-    
+
         // Update informasi toko
         $toko->nama_toko = $request->input('nama_toko');
         $toko->alamat_toko = $request->input('alamat_toko');
         $toko->deskripsi_toko = $request->input('deskripsi_toko');
-    
-        // Jika ada file foto yang di-upload, proses penyimpanan
-        if ($request->hasFile('foto_profile_toko')) {
-            $image = $request->file('foto_profile_toko');
-            $imagePath = $image->store('public/storage_images');
-            $toko->foto_profile_toko = basename($imagePath);
-        }
 
+        // Jika ada file foto yang di-upload, proses penyimpanan
         if ($request->hasFile('foto_profile_toko')) {
             // Hapus gambar lama jika ada
             if ($toko->foto_profile_toko) {
-                Storage::delete('public/store_images/' . $toko->foto_profile_toko);
+                // Hapus gambar lama dari public/store_image
+                $oldImagePath = public_path('store_image/' . $toko->foto_profile_toko);
+                if (file_exists($oldImagePath)) {
+                    unlink($oldImagePath); // Hapus file jika ada
+                }
             }
-        
-            // Simpan gambar baru
+
+            // Simpan gambar baru di public/store_image
             $image = $request->file('foto_profile_toko');
-            $imagePath = $image->store('public/store_images');
-            $toko->foto_profile_toko = basename($imagePath);
+            $imagePath = $image->move(public_path('store_image'), $image->getClientOriginalName());
+            $toko->foto_profile_toko = $image->getClientOriginalName();
         }
-        
-        
-    
+
         // Simpan perubahan
         $toko->save();
-    
+
         // Redirect kembali ke dashboard seller dengan pesan sukses
         return redirect()->route('seller-edit')->with('success', 'Toko berhasil diperbarui.');
+
     }
-    
+
 
 
 
@@ -166,14 +163,14 @@ class TokoController extends Controller
         return view('halaman-toko', compact('storeDetails', 'products'));
     }
 
-    
+
     public function search(Request $request)
     {
         $query = $request->input('query');
 
         // Lakukan pencarian toko
         $stores = Toko::where('nama_toko', 'LIKE', "%{$query}%")->get();
-    
+
         return response()->json([
             'data' => $stores
         ]);

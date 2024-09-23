@@ -4,7 +4,7 @@
         <div class="store-header">
             @foreach ($storeDetails as $detail)
                 <div class="store-info">
-                    <img src="{{ asset($detail->foto_profile_toko) }}" alt="logo toko" class="store-logo">
+                    <img src="{{ asset('store_image/'. $detail->foto_profile_toko) }}" alt="logo toko" class="store-logo">
                     <div class="store-text">
                         <h1>{{ $detail->nama_toko }}</h1>
                         <h2>{{ $detail->alamat_toko }}</h2>
