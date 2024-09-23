@@ -53,7 +53,6 @@ Route::get('/contact-us', function () {
     return view('contact-us');
 });
 
-Route::get('/seller/seller-edit', [SellerEditController::class, 'index']);
 
 Route::get('/faq', function () {
     return view('faq');

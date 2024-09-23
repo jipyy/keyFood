@@ -103,7 +103,7 @@ class AuthenticatedSessionController extends Controller
         }
 
         if (Auth::user()->hasRole('seller')) {
-            return redirect()->intended(route('seller.seller-edit'));
+            return redirect()->intended(route('seller-edit'));
         }
 
         return redirect()->intended(route('home'));
