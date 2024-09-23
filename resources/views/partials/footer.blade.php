@@ -35,7 +35,7 @@
                     <ul class="text-gray-500 font-medium">
                         <li class="mb-4">
                             <a href="https://maps.app.goo.gl/jPYA3x3XgB3pXWSYA" class="hover:underline ">{{$company->company_name}}
-                                Company, <br> Keandra Regency, Cirebon,<br> Jawa Barat, Indonesia<br> 45611</a>
+                            {{$company->lokasi}}</a>
                         </li>
                         <li class="mb-4">
                             <a href="mailto:andikasupriyadi27@gmail.com" class="hover:underline">{{$company->email}}</a>
