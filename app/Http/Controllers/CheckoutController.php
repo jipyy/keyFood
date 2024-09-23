@@ -149,7 +149,7 @@ class CheckoutController extends Controller
 
     public function showOrderHistory()
     {
-        $orders = Orders::orderBy('id', 'desc')->with('orderDetails.products')->where('id_user', auth()->id())->get();
+        $orders = Orders::orderBy('id', 'desc')->with(['orderDetails.products', 'orderDetails.products.toko', 'orderDetails.products.category'])->where('id_user', auth()->id())->get();
         return view('history', compact('orders'));
     }
 
