@@ -165,4 +165,17 @@ class TokoController extends Controller
         // Tampilkan detail toko di view
         return view('halaman-toko', compact('storeDetails', 'products'));
     }
+
+    
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+
+        // Lakukan pencarian toko
+        $stores = Toko::where('nama_toko', 'LIKE', "%{$query}%")->get();
+    
+        return response()->json([
+            'data' => $stores
+        ]);
+    }
 }

@@ -78,6 +78,7 @@ Route::get('/edit-profile', function () {
 Route::get('/seller/seller-edit', [SellerEditController::class, 'index'])->name('seller-edit');
 
 Route::get('/stores', [TokoController::class, 'showStores'])->name('Toko');
+Route::get('/search-toko', [TokoController::class,'search']);
 Route::post('/detailed-store', [TokoController::class, 'detailStore'])->name('Detail Toko');
 
 Route::get('/profile-user', function () {
