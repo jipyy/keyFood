@@ -4,7 +4,7 @@
     <section id="home">
         <!-- Flash message untuk success -->
         @if (session('success'))
-            <div class="bg-green-500 text-white p-4 rounded mb-4">
+            <div class="bg-green-500 text-white p-4 rounded mb-4 mt-12">
                 {{ session('success') }}
             </div>
             <script>
@@ -15,7 +15,7 @@
 
         <!-- Flash message untuk error -->
         @if (session('error'))
-            <div class="bg-red-500 text-white p-4 rounded mb-4">
+            <div class="bg-red-500 text-white p-4 rounded mb-4 mt-12">
                 {{ session('error') }}
             </div>
         @endif
