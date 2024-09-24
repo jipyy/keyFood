@@ -11,6 +11,7 @@
                     <div class="product-box">
                         <span hidden>{{ $product->id }}</span>
                         <span hidden>{{ $product->store_id }}</span>
+                        <span hidden>{{ $product->slug }}</span>
                         <img alt="{{ $product->name }}" src="{{ asset($product->photo) }}">
                         <strong>{{ $product->name }}</strong>
                         <p>Rating: {{ $product->rating ?? 'Belum ada rating' }}</p>
@@ -19,7 +20,8 @@
                         <a href="javascript:void(0)" 
                            data-product-id="{{ $product->id }}" 
                            data-store-id="{{ $product->store_id }}" 
-                           data-category-id="{{ $product->category_id }}" 
+                           data-category-id="{{ $product->category_id }}"
+                           data-slug="{{ $product->slug }}" 
                            class="cart-btn">
                             <i class="fas fa-shopping-bag"></i> Tambah Ke Keranjang
                         </a>
