@@ -21,9 +21,9 @@
             required />
     </div>
     <input type="submit" value="Login" class="btn solid" />
-    <a href="{{ route('forgot.password') }}">
-        <p class="social-text">Forgot Password</p>
-    </a>
+    <a href="{{ route('forgot.password') }}" class="inline-flex items-center px-4 py-2  bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-200">
+        <p class="social-text">Lupa Password</p>
+    </a>    
     <p class="social-text">Atau Login Dengan Google</p>
     <div class="social-media">
         <a href="{{ url('auth/google') }}" class="social-icon">
