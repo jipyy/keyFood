@@ -1,43 +1,4 @@
-<x-guest-layout>
-    <div class="mb-4 text-sm text-gray-600 dark:text-gray-400">
-        {{ __('Lupa kata sandi? Masukkan nomor WhatsApp yang terdaftar, dan kami akan mengirimkan kode OTP untuk reset password.') }}
-    </div>
-
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
-
-    <!-- Form untuk input nomor telepon -->
-    <form method="POST" action="{{ route('forgot.password.otp') }}">
-        @csrf
-        <label for="phone">Nomor WhatsApp:</label>
-        <input type="number" min="0" id="phone" name="phone" required>
-
-        <!-- Menampilkan pesan error jika nomor tidak ditemukan -->
-        @error('phone')
-            <div class="text-red-500 mt-2 text-sm">
-                {{ $message }}
-            </div>
-        @enderror
-
-        <div class="flex items-center justify-end mt-4">
-            <x-primary-button>
-                {{ __('Kirim OTP') }}
-            </x-primary-button>
-        </div>
-    </form>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-@if($errors->any())
-    <script>
-        Swal.fire({
-            icon: 'error',
-            title: 'No Whatsapp Anda Tidak Ditemukan.',
-            text: '{{ $errors->first('phone') }}',
-        });
-    </script>
-@endif
-
-{{-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -48,6 +9,7 @@
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <style>
         /* Custom styles for glassmorphism effect */
@@ -56,6 +18,21 @@
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.18);
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+         /* Hide the number input spinners */
+         input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+
+        input[type=number]:focus {
+            outline: none;
         }
     </style>
 </head>
@@ -69,12 +46,13 @@
                 Gunakan</h1>
 
             <!-- Form starts here -->
-            <form id="phoneForm" action="#" method="POST">
+            <form id="phoneForm" method="POST" action="{{ route('forgot.password.otp') }}">
+                @csrf
                 <div class="w-full">
-                    <label class="block mb-1 text-sm text-slate-600">
+                    <label class="block mb-1 text-sm text-slate-600" for="phone">
                         No. Telepon
                     </label>
-                    <input required id="contactNumber"
+                    <input type="number`" required id="phone" name="phone"
                         class="w-full bg-transparent placeholder:text-gray-400 text-gray-500 text-sm border border-gray-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-indigo-500 hover:border-gray-300 shadow-sm focus:shadow"
                         placeholder="e.g., 0812345678901" maxlength="13" title="Phone number format: 081224964214" />
 
@@ -87,7 +65,7 @@
                 <div class="mt-6">
                     <button type="submit"
                         class="w-full px-4 py-2 bg-indigo-500 hover:bg-indigo-600 text-white font-semibold text-sm rounded-md shadow focus:outline-none focus:ring-2 focus:ring-indigo-300">
-                        Submit
+                        Kirim OTP
                     </button>
                 </div>
             </form>
@@ -96,7 +74,7 @@
 
     <!-- JavaScript for real-time phone validation -->
     <script>
-        const contactInput = document.getElementById('contactNumber');
+        const contactInput = document.getElementById('phone');
         const messageElement = document.getElementById('phone-message');
         const form = document.getElementById('phoneForm');
 
@@ -108,7 +86,7 @@
         }
 
         // Event listener untuk memvalidasi input secara real-time
-        contactInput.addEventListener('input', function (e) {
+        contactInput.addEventListener('input', function(e) {
             // Hanya izinkan angka
             e.target.value = e.target.value.replace(/[^0-9]/g, '');
 
@@ -125,16 +103,22 @@
         });
 
         // Prevent form submission if phone number is invalid
-        form.addEventListener('submit', function (e) {
+        form.addEventListener('submit', function(e) {
             if (!validatePhoneNumber(contactInput.value)) {
                 e.preventDefault(); // Stop form submission
                 alert('Please enter a valid phone number in the correct format.');
             }
         });
+
+        @if ($errors->any())
+            Swal.fire({
+                icon: 'error',
+                title: 'No Whatsapp Anda Tidak Ditemukan.',
+                text: '{{ $errors->first('phone') }}',
+            });
+        @endif
     </script>
 
 </body>
 
-</html> --}}
-
-</x-guest-layout>
+</html>
