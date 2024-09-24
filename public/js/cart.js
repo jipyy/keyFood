@@ -176,6 +176,7 @@ $(document).ready(function() {
         let productId = $(this).data('product-id');
         let storeId = $(this).data('store-id'); // Ambil store_id dari data atribut
         let categoryId = $(this).data('category-id'); // Ambil category_id dari data atribut
+        let slug = $(this).data('slug'); // Ambil slug dari data atribut
         
         let cart = JSON.parse(localStorage.getItem('cart')) || {};
         
@@ -189,7 +190,8 @@ $(document).ready(function() {
                 name: $(this).siblings('strong').text(),
                 price: parseFloat($(this).siblings('.price').text().replace('Rp ', '').replace(/\./g, '')),
                 photo: $(this).siblings('img').attr('src'),
-                quantity: 1
+                quantity: 1,
+                slug:slug,
             };
         }
         
