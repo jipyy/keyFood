@@ -17,6 +17,7 @@ use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\AdminHistoryController;
 use App\Http\Controllers\ProductOrderController;
 use App\Http\Controllers\Auth\SocialiteController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\OtpWaVerificationController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
@@ -24,6 +25,7 @@ use App\Http\Controllers\BackupController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\AdminProfileController;
 use App\Http\Controllers\CmsController;
+
 
 Route::post('/clear-chats', [ChatController::class, 'clearChats'])->name('clear.chats');
 
@@ -77,7 +79,7 @@ Route::get('/edit-profile', function () {
 Route::get('/seller/seller-edit', [SellerEditController::class, 'index'])->name('seller-edit');
 
 Route::get('/stores', [TokoController::class, 'showStores'])->name('Toko');
-Route::get('/search-toko', [TokoController::class,'search']);
+Route::get('/search-toko', [TokoController::class, 'search']);
 Route::post('/detailed-store', [TokoController::class, 'detailStore'])->name('Detail Toko');
 
 Route::get('/profile-user', function () {
@@ -123,7 +125,6 @@ Route::prefix('seller')->name('seller.')->group(function () {
     Route::put('/edit_toko/{id}', [TokoController::class, 'update'])->name('toko.update')->middleware('permission:edit-toko');
     Route::get('/edit_toko/{id}', [TokoController::class, 'edit'])->name('toko.edit')->middleware('permission:edit-toko');
     Route::resource('/seller/seller-edit', ProductController::class);
-
     Route::delete('/seller-edit/{product}', [ProductController::class, 'destroy'])->name('toko.delete')->middleware('role:seller');
 });
 
@@ -160,6 +161,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/company/edit/{id}', [CmsController::class, 'edit'])->name('company.edit');
     Route::post('/company/edit/{id}', [CmsController::class, 'update'])->name('company.update');
 });
+
+// Biarkan ini di luar prefix admin
+Route::get('/admin/backups/download/{filename}', [BackupController::class, 'downloadBackup'])->name('admin.backups.download');
+
 
 
 require __DIR__ . '/auth.php';
@@ -298,4 +303,20 @@ Route::delete('/orders/{id}', [CheckoutController::class, 'destroyOrder'])->name
 
 Route::delete('/admin/backups/{filename}', [BackupController::class, 'deleteBackup'])->name('admin.backups.delete');
 
-Route::get('/admin/backups/download/{filename}', [BackupController::class, 'downloadBackup'])->name('admin.backups.download');
+
+//FORGOT PASSWORD
+Route::get('/forgot-password', [ForgotPasswordController::class, 'index'])->name('forgot.password');
+Route::get('/otp-forgot', function () {
+    return view('auth.verify-otp-forgot');
+});
+Route::get('/reset-password-forgot', function () {
+    return view('auth.reset-password-forgot');
+})->name('reset-password-forgot');
+//1
+Route::post('/verify-forgot-otp', [ForgotPasswordController::class, 'verify'])->name('verify.forgot.otp');
+//2
+Route::get('/resend-otp-forgot', [ForgotPasswordController::class, 'resendOtp'])->name('resend.otp.forgot');
+
+Route::post('/forgot-password-otp', [ForgotPasswordController::class, 'sendOtp'])->name('forgot.password.otp');
+Route::post('/reset-password', [ForgotPasswordController::class, 'resetPassword'])->name('reset.password');
+

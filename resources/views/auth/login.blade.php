@@ -1,9 +1,7 @@
-
-
-  <form method="POST" action="{{ route('login') }}" class="sign-in-form">
+<form method="POST" action="{{ route('login') }}" class="sign-in-form">
     @csrf
     <h2 class="title">
-      <img src="img/login.svg" style="width: 150px; align-items: center;" alt="">
+        <img src="img/login.svg" style="width: 150px; align-items: center;" alt="">
     </h2>
 
     {{-- email --}}
@@ -13,26 +11,31 @@
     </div> --}}
 
     <div class="input-field">
-      <i class="fas fa-phone"></i>
-      <input type="number" id="phone" placeholder="No. HP" name="phone" value="{{ old('phone') }}" style="background: transparent" required />
+        <i class="fas fa-phone"></i>
+        <input type="number" id="phone" placeholder="No. HP" name="phone" value="{{ old('phone') }}"
+            style="background: transparent" required />
     </div>
     <div class="input-field">
-      <i class="fas fa-lock"></i>
-      <input type="password" id="password" placeholder="Password" name="password" style="background: transparent" required />
+        <i class="fas fa-lock"></i>
+        <input type="password" id="password" placeholder="Password" name="password" style="background: transparent"
+            required />
     </div>
     <input type="submit" value="Login" class="btn solid" />
+    <a href="{{ route('forgot.password') }}">
+        <p class="social-text">Forgot Password</p>
+    </a>
     <p class="social-text">Atau Login Dengan Google</p>
     <div class="social-media">
-      <a href="{{ url('auth/google') }}" class="social-icon">
-        <i class="fab fa-google"></i>
-      </a>
+        <a href="{{ url('auth/google') }}" class="social-icon">
+            <i class="fab fa-google"></i>
+        </a>
     </div>
 </form>
 
 <!-- SweetAlert Integration -->
 @if ($errors->any())
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             setTimeout(function() {
                 Swal.fire({
                     icon: 'error',
