@@ -15,6 +15,22 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('../img/logos.svg') }}">
 
     <title>Sign in / Sign up</title>
+    <style>
+         /* Hide the number input spinners */
+         input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+
+        input[type=number]:focus {
+            outline: none;
+        }
+    </style>
 </head>
 
 <body>
