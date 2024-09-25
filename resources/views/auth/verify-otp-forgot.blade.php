@@ -171,7 +171,7 @@
                         Swal.fire({
                             icon: 'success',
                             title: 'Verifikasi Berhasil',
-                            text: 'OTP telah diverifikasi. Anda akan dialihkan.',
+                            text: 'OTP telah diverifikasi. Anda akan dialihkan ke halaman reset password, tekan OK untuk melanjutkan.',
                             confirmButtonColor: '#3085d6', // Mengubah warna tombol menjadi biru
                         }).then(() => {
                             // window.location.href = "{{ route('home') }}";//sementara
