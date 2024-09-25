@@ -13,6 +13,7 @@
     <!-- SweetAlert CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.0/dist/sweetalert2.min.css">
     <link rel="icon" type="image/x-icon" href="{{ asset('../img/logos.svg') }}">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <title>Sign in / Sign up</title>
     <style>
@@ -80,6 +81,21 @@
     </div>
 
     <script src="{{ asset('../js/login.js') }}"></script>
+
+    <!-- SweetAlert untuk notifikasi sukses mengubah password -->
+@if (session('sweet_alert'))
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        Swal.fire({
+            icon: '{{ session('sweet_alert.icon') }}',
+            title: '{{ session('sweet_alert.title') }}',
+            text: '{{ session('sweet_alert.text') }}',
+            timer: 8000,
+            showConfirmButton: true
+        });
+    });
+</script>
+@endif
 </body>
 
 </html>

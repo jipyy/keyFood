@@ -40,8 +40,8 @@
     <link rel="stylesheet" href="{{ asset('../../css/checkout.css') }}">
     <link rel="stylesheet" href="{{ asset('../../css/cart.css') }}">
     <link rel="stylesheet" href="{{ asset('../../css/history.css') }}">
-    <link rel="stylesheet" href="{{ asset('../../css/nav.css') }}"> 
-    
+    <link rel="stylesheet" href="{{ asset('../../css/nav.css') }}">
+
 
     <link rel="icon" type="image/x-icon" href="{{ asset('../img/logos.svg') }}">
     <title>KeyFood || {{ Route::currentRouteName() }} </title>
@@ -106,6 +106,46 @@
 <script src="{{ asset('../js/product.js') }}"></script>
 <script src="{{ asset('../js/home-container.js') }}"></script>
 <script src="{{ asset('../js/nav.js') }}"></script>
+
+
+<script>
+    let timer;
+    const countdown = 10 * 60 * 1000; // 10 menit dalam milidetik
+
+    function resetTimer() {
+        clearTimeout(timer);
+        timer = setTimeout(logoutUser, countdown);
+    }
+
+    function logoutUser() {
+        // Mengirim permintaan logout menggunakan AJAX
+        fetch('{{ route('logout') }}', {
+            method: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                _method: 'POST'
+            })
+        }).then(response => {
+            if (response.ok) {
+                window.location.href = '/'; // Redirect ke homepage
+            }
+        }).catch(error => {
+            console.error('Error:', error);
+        });
+    }
+
+    // Reset timer setiap ada aktivitas di halaman
+    window.onload = resetTimer;
+    window.onmousemove = resetTimer;
+    window.onmousedown = resetTimer;
+    window.ontouchstart = resetTimer;
+    window.onclick = resetTimer;
+    window.onkeypress = resetTimer;
+    window.addEventListener('scroll', resetTimer, true);
+</script>
 
 <!-- SweetAlert Integration -->
 <script>

@@ -1,20 +1,4 @@
-{{-- 
-<form method="POST" action="{{ route('reset.password') }}">
-    @csrf
-    <div>
-        <label for="password">Password Baru</label>
-        <input id="password" type="password" name="password" required>
-    </div>
-    <div>
-        <label for="password_confirmation">Konfirmasi Password</label>
-        <input id="password_confirmation" type="password" name="password_confirmation" required>
-    </div>
-    <div>
-        <button type="submit">
-            Reset Password
-        </button>
-    </div>
-</form> --}}
+
 
 <!DOCTYPE html>
 <html lang="en">

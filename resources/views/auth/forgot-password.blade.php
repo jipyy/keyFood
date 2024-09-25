@@ -54,10 +54,10 @@
                     </label>
                     <input type="number`" required id="phone" name="phone"
                         class="w-full bg-transparent placeholder:text-gray-400 text-gray-500 text-sm border border-gray-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-indigo-500 hover:border-gray-300 shadow-sm focus:shadow"
-                        placeholder="cth, 0812345678901" maxlength="13" title="Phone number format: 081224964214" />
+                        placeholder="contoh, 0812345678901" maxlength="15" title="Phone number format: 081224964214" />
 
                     <p id="phone-message" class="flex items-center mt-2 text-xs text-gray-400">
-                        Tolong Masukkan No Telp Anda Dengan Format 0812345678901 (11-13 digits)
+                        Tolong Masukkan No Telp Anda Dengan Format 0812345678901 (11-15 digits)
                     </p>
                 </div>
 
@@ -96,7 +96,7 @@
                 messageElement.classList.remove('text-red-400');
                 messageElement.classList.add('text-green-400');
             } else {
-                messageElement.textContent = "Masukkan Nomor Telepon dengan Format: 081224964214 (11-13 digits)";
+                messageElement.textContent = "Masukkan Nomor Telepon dengan Format: 081224964214 (11-15 digits)";
                 messageElement.classList.remove('text-green-400');
                 messageElement.classList.add('text-red-400');
             }

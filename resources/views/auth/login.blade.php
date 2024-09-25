@@ -21,7 +21,7 @@
             required />
     </div>
     <input type="submit" value="Login" class="btn solid" />
-    <a href="{{ route('forgot.password') }}" class="inline-flex items-center px-4 py-2  bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-200">
+    <a href="{{ route('forgot.password') }}" style="text-decoration: none;" class="inline-flex items-center px-4 py-2  bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-200">
         <p class="social-text">Lupa Password</p>
     </a>    
     <p class="social-text">Atau Login Dengan Google</p>
@@ -31,6 +31,8 @@
         </a>
     </div>
 </form>
+
+
 
 <!-- SweetAlert Integration -->
 @if ($errors->any())
@@ -48,3 +50,5 @@
         });
     </script>
 @endif
+
+

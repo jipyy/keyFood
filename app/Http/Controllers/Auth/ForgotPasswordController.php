@@ -119,7 +119,6 @@ class ForgotPasswordController extends Controller
 
     public function resetPassword(Request $request)
     {
-        // dd($request);
         // Validasi password baru
         $request->validate([
             'password' => 'nullable|string|min:8|confirmed',
@@ -136,9 +135,6 @@ class ForgotPasswordController extends Controller
         if ($request->filled('password')) {
             $user->password = Hash::make($request->input('password'));
         }
-    
-        // Update password user
-        // $user->password = Hash::make($request->password);
 
          // Hapus informasi reset dari session
          Session::forget(['temp_user']);
@@ -147,7 +143,13 @@ class ForgotPasswordController extends Controller
     
        
     
-        return redirect('/login')->with('status', 'Password berhasil direset.');
+        // return redirect('/login')->with('status', 'Password berhasil direset.');
+
+        return redirect('/login')->with('sweet_alert', [
+            'icon' => 'success',
+            'title' => 'Berhasil!',
+            'text' => 'Password Anda berhasil diubah.'
+        ]);
 
     }
     
