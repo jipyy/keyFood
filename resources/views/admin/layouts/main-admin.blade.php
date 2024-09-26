@@ -8,17 +8,31 @@
 
     <title>Admin Page</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="{{ asset('./assets/css/tailwind.output.css') }}" />
-    <link rel="stylesheet" href="{{ asset('./assets/css/card.css') }}" />
+    <link rel="stylesheet"
+        href="https://rawcdn.githack.com/jipyy/keyFood/94e3005f001914148945e309f555715db94e24f6/public/assets/css/tailwind.output.css">
+    <link rel="stylesheet"
+        href="https://rawcdn.githack.com/jipyy/keyFood/94e3005f001914148945e309f555715db94e24f6/public/assets/css/card.css">
+
 
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-    <script src="{{ asset('./assets/js/init-alpine.js') }}"></script>
+    <script defer
+        src="https://rawcdn.githack.com/jipyy/keyFood/94e3005f001914148945e309f555715db94e24f6/public/assets/js/init-alpine.js">
+    </script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" defer></script>
-    <script src="{{ asset('./assets/js/charts-lines.js') }}" defer></script>
-    <script src="{{ asset('./assets/js/charts-pie.js') }}" defer></script>
-    <script src="{{ asset('./assets/js/card.js') }}" defer></script>
+    <script defer src="https://github.com/jipyy/keyFood/blob/main/public/assets/js/charts-lines.js"></script>
+
+    <script defer
+        src="https://rawcdn.githack.com/jipyy/keyFood/94e3005f001914148945e309f555715db94e24f6/public/assets/js/charts-pie.js">
+    </script>
+
+    <script defer
+        src="https://rawcdn.githack.com/jipyy/keyFood/94e3005f001914148945e309f555715db94e24f6/public/assets/js/card.js">
+    </script>
+
+    <link rel="icon" type="image/x-icon" href="{{ asset('../img/logos.svg') }}">
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

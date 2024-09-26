@@ -26,21 +26,22 @@
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 
-    <link rel="stylesheet" href="{{ asset('../css/profile.css') }}">
-    <link rel="stylesheet" href="{{ asset('../css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('../css/home.css') }}">
-    <link rel="stylesheet" href="{{ asset('../css/load.css') }}">
-    <link rel="stylesheet" href="{{ asset('../../css/app.css') }}">
-    <link rel="stylesheet" href="{{ asset('../../css/clock.css') }}">
-    <link rel="stylesheet" href="{{ asset('../../css/halaman-toko.css') }}">
-    <link rel="stylesheet" href="{{ asset('../../css/product-slider.css') }}">
-    <link rel="stylesheet" href="{{ asset('../../css/stores.css') }}">
-    <link rel="stylesheet" href="{{ asset('../../css/home-container.css') }}">
-    <link rel="stylesheet" href="{{ asset('../../css/categories.css') }}">
-    <link rel="stylesheet" href="{{ asset('../../css/checkout.css') }}">
-    <link rel="stylesheet" href="{{ asset('../../css/cart.css') }}">
-    <link rel="stylesheet" href="{{ asset('../../css/history.css') }}">
-    <link rel="stylesheet" href="{{ asset('../../css/nav.css') }}">
+    <link rel="stylesheet" href="https://rawcdn.githack.com/jipyy/keyFood/94e3005f001914148945e309f555715db94e24f6/public/css/profile.css">
+    <link rel="stylesheet" href="https://rawcdn.githack.com/jipyy/keyFood/94e3005f001914148945e309f555715db94e24f6/public/css/style.css">
+    <link rel="stylesheet" href="https://rawcdn.githack.com/jipyy/keyFood/94e3005f001914148945e309f555715db94e24f6/public/css/home.css">
+    <link rel="stylesheet" href="https://rawcdn.githack.com/jipyy/keyFood/94e3005f001914148945e309f555715db94e24f6/public/css/load.css">
+    <link rel="stylesheet" href="https://rawcdn.githack.com/jipyy/keyFood/94e3005f001914148945e309f555715db94e24f6/public/css/app.css">
+    <link rel="stylesheet" href="https://rawcdn.githack.com/jipyy/keyFood/94e3005f001914148945e309f555715db94e24f6/public/css/clock.css">
+    <link rel="stylesheet" href="https://rawcdn.githack.com/jipyy/keyFood/94e3005f001914148945e309f555715db94e24f6/public/css/halaman-toko.css">
+    <link rel="stylesheet" href="https://rawcdn.githack.com/jipyy/keyFood/94e3005f001914148945e309f555715db94e24f6/public/css/product-slider.css">
+    <link rel="stylesheet" href="https://rawcdn.githack.com/jipyy/keyFood/94e3005f001914148945e309f555715db94e24f6/public/css/stores.css">
+    <link rel="stylesheet" href="https://rawcdn.githack.com/jipyy/keyFood/94e3005f001914148945e309f555715db94e24f6/public/css/home-container.css">
+    <link rel="stylesheet" href="https://rawcdn.githack.com/jipyy/keyFood/94e3005f001914148945e309f555715db94e24f6/public/css/categories.css">
+    <link rel="stylesheet" href="https://rawcdn.githack.com/jipyy/keyFood/94e3005f001914148945e309f555715db94e24f6/public/css/checkout.css">
+    <link rel="stylesheet" href="https://rawcdn.githack.com/jipyy/keyFood/94e3005f001914148945e309f555715db94e24f6/public/css/cart.css">
+    <link rel="stylesheet" href="https://rawcdn.githack.com/jipyy/keyFood/94e3005f001914148945e309f555715db94e24f6/public/css/history.css">
+    <link rel="stylesheet" href="https://rawcdn.githack.com/jipyy/keyFood/94e3005f001914148945e309f555715db94e24f6/public/css/nav.css">
+
 
 
     <link rel="icon" type="image/x-icon" href="{{ asset('../img/logos.svg') }}">
@@ -95,17 +96,17 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 
-<script src="{{ asset('../js/cart.js') }}"></script>
-<script src="{{ asset('../js/checkout.js') }}"></script>
-<script src="{{ asset('../js/stores.js') }}"></script>
-<script src="{{ asset('../js/categories.js') }}"></script>
-{{-- <script src="{{ asset('../js/sidebar.js') }}"></script> --}}
-<script src="{{ asset('../js/home.js') }}"></script>
-<script src="{{ asset('../js/load.js') }}"></script>
-<script src="{{ asset('../js/clock.js') }}"></script>
-<script src="{{ asset('../js/product.js') }}"></script>
-<script src="{{ asset('../js/home-container.js') }}"></script>
-<script src="{{ asset('../js/nav.js') }}"></script>
+<script defer src="https://rawcdn.githack.com/jipyy/keyFood/94e3005f001914148945e309f555715db94e24f6/public/js/cart.js"></script>
+<script defer src="https://rawcdn.githack.com/jipyy/keyFood/94e3005f001914148945e309f555715db94e24f6/public/js/checkout.js"></script>
+<script defer src="https://rawcdn.githack.com/jipyy/keyFood/94e3005f001914148945e309f555715db94e24f6/public/js/stores.js"></script>
+<script defer src="https://rawcdn.githack.com/jipyy/keyFood/94e3005f001914148945e309f555715db94e24f6/public/js/categories.js"></script>
+<script defer src="https://rawcdn.githack.com/jipyy/keyFood/94e3005f001914148945e309f555715db94e24f6/public/js/home.js"></script>
+<script defer src="https://rawcdn.githack.com/jipyy/keyFood/94e3005f001914148945e309f555715db94e24f6/public/js/load.js"></script>
+<script defer src="https://rawcdn.githack.com/jipyy/keyFood/94e3005f001914148945e309f555715db94e24f6/public/js/clock.js"></script>
+<script defer src="https://rawcdn.githack.com/jipyy/keyFood/94e3005f001914148945e309f555715db94e24f6/public/js/product.js"></script>
+<script defer src="https://rawcdn.githack.com/jipyy/keyFood/94e3005f001914148945e309f555715db94e24f6/public/js/home-container.js"></script>
+<script defer src="https://rawcdn.githack.com/jipyy/keyFood/94e3005f001914148945e309f555715db94e24f6/public/js/nav.js"></script>
+
 
 
 <script>

@@ -288,6 +288,7 @@ class ProductController extends Controller
     
         // Ambil list user yang sudah memberikan rating
         $ratedBy = $product->rated_by ? json_decode($product->rated_by, true) : [];
+        dd($ratedBy);
     
         // Cek apakah user sudah memberi rating
         if (in_array($user->id, $ratedBy)) {
