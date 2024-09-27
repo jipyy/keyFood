@@ -12,7 +12,7 @@
                         <span hidden>{{ $product->id }}</span>
                         <span hidden>{{ $product->store_id }}</span>
                         <span hidden>{{ $product->slug }}</span>
-                        <img alt="{{ $product->name }}" src="{{ asset($product->photo) }}">
+                        <img alt="{{ $product->name }}" src="{{ $product->photo }}">
                         <strong>{{ $product->name }}</strong>
                         <p>Rating: {{ $product->rating ?? 'Belum ada rating' }}</p>
                         <span class="quantity"></span>
