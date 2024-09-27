@@ -109,7 +109,7 @@
                                 console.log(product.category_id);
                                 var productHtml = `
                                     <div class="product-box" data-category="${product.category_id ? product.category.name : 'gaada id'}">
-                                        <img alt="${product.name}" src="{{ '') }}${product.photo}">
+                                        <img alt="${product.name}" src="{{ ('') }}${product.photo}">
                                         <strong>${product.name}</strong>
                                         <span class="quantity">Store: ${product.toko ? product.toko.nama_toko : 'Unknown'}</span>
                                         <span class="price">Rp ${new Intl.NumberFormat('id-ID').format(product.price)}</span>
