@@ -72,7 +72,7 @@
                     </p>
                     <div class="special__grid">
                         <div class="special__card">
-                            <img src="{{ '../img/special-1.png' }}" alt="special" class="header-img" />
+                            <img src="../img/special-1.png" alt="special" class="header-img" />
                             <h4>Chicken Veg Curry</h4>
                             <p>
                                 Diced chicken simmered in aromatic curry sauce with mixed veggies
@@ -91,7 +91,7 @@
                             </div>
                         </div>
                         <div class="special__card">
-                            <img src="{{ '../img/special-2.png' }}" alt="special" class="header-img" />
+                            <img src="../img/special-2.png" alt="special" class="header-img" />
                             <h4>Chicken Veg Stir-Fry</h4>
                             <p>
                                 Tender chicken strips wok-tossed with a colorful array of fresh
@@ -110,7 +110,7 @@
                             </div>
                         </div>
                         <div class="special__card">
-                            <img src="{{ '../img/special-3.png' }}" alt="special" class="header-img" />
+                            <img src="../img/special-3.png" alt="special" class="header-img" />
                             <h4>Chicken Veg Pasta</h4>
                             <p>
                                 Al dente pasta tossed with chicken strips and a mix of vibrant
@@ -192,7 +192,7 @@
                 </section>
 
                 <section class="chef" id="chef">
-                    <img src="{{ '../img/topping.png' }}" alt="topping" class="chef__bg" />
+                    <img src="../img/topping.png" alt="topping" class="chef__bg" />
                     <div class="section__container chef__container">
                         <div class="chef__image">
                             <img src="{{ $company->gambar_home_3 }}" alt="chef" class="header-img" />
