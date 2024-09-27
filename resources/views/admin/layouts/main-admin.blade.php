@@ -32,7 +32,7 @@
         src="https://rawcdn.githack.com/jipyy/keyFood/94e3005f001914148945e309f555715db94e24f6/public/assets/js/card.js">
     </script>
 
-    <link rel="icon" type="image/x-icon" href="{{ asset('../img/logos.svg') }}">
+    <link rel="icon" type="image/x-icon" href="../img/logos.svg">
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

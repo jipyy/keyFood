@@ -14,7 +14,7 @@
 
     <!-- SweetAlert CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.0/dist/sweetalert2.min.css">
-    <link rel="icon" type="image/x-icon" href="{{ asset('../img/logos.svg') }}">
+    <link rel="icon" type="image/x-icon" href="../img/logos.svg">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <title>Sign in / Sign up</title>

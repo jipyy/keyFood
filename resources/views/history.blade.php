@@ -26,7 +26,7 @@
             <section class="bg-transparent min-h-screen flex items-center justify-center p-4">
                 <div class="bg-white rounded-2xl shadow-xl p-8 max-w-md w-full">
                     <div class="relative mb-8">
-                        <img src="{{ asset('../img/no-order.png') }}" alt="Empty box" class="w-40 h-40 mx-auto" />
+                        <img src="../img/no-order.png" alt="Empty box" class="w-40 h-40 mx-auto" />
                     </div>
                     <h2 class="text-3xl font-bold mb-4 text-gray-800">Pesanan Masih Kosong:(</h2>
                     <p class="text-gray-600 mb-8">Anda belum memesan apa pun. Temukan produk-produk menarik kami dan

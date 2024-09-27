@@ -11,7 +11,7 @@
                 @forelse($stores as $store)
                     <div class="card-profile">
                         <p><strong>ID:</strong> {{ $store->id_toko }}</p>
-                        <img src="{{ asset($store->foto_profile_toko) }}" alt="Profile Picture">
+                        <img src="{{ $store->foto_profile_toko }}" alt="Profile Picture">
                         <h2>{{ $store->nama_toko }}</h2>
 
                         <div class="info">

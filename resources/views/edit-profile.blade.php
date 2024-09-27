@@ -15,7 +15,8 @@
 
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <link rel="stylesheet" href="{{ asset('./css/edit-p.css') }}">
+    <link rel="stylesheet" href="https://rawcdn.githack.com/jipyy/keyFood/94e3005f001914148945e309f555715db94e24f6/public/css/edit-p.css">
+
     <title>Edit Profile</title>
 </head>
 
@@ -36,7 +37,7 @@
                 </div> --}}
                 <div class="input-image">
                     @if(Auth::user()->img)
-                        <img src="{{ asset(Auth::user()->img) }}" alt="Current profile picture" style="max-width: 200px; margin-bottom: 10px;">
+                        <img src="{{ Auth::user()->img }}" alt="Current profile picture" style="max-width: 200px; margin-bottom: 10px;">
                     @endif
                     <input type="file" id="file" name="img" hidden>
                     <div class="img-area" data-img="">
@@ -133,7 +134,7 @@
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.x.x/dist/alpine.min.js" defer></script>
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
-    <script src="{{ asset('./js/edit-p.js') }}"></script>
+    <script defer src="https://rawcdn.githack.com/jipyy/keyFood/94e3005f001914148945e309f555715db94e24f6/public/js/edit-p.js"></script>
 </body>
 
 </html>

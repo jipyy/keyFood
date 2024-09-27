@@ -17,7 +17,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link rel="icon" type="image/x-icon" href="{{ asset('../img/whatsapp.png') }}">
+    <link rel="icon" type="image/x-icon" href="../img/whatsapp.png">
 
     <style>
         /* Hide spinner for Chrome, Safari, and newer versions of Edge */

@@ -45,7 +45,7 @@
             <div class="content">
                 <section class="section__container header__container" id="home">
                     <div class="header__image">
-                        <img src="{{ asset($company->gambar_home_1) }}" alt="header " class="header-img" />
+                        <img src="{{ $company->gambar_home_1 }}" alt="header " class="header-img" />
                     </div>
                     <div class="header__content">
                         <h1>Beli, Makan & Nikmati <span>Makanan Terbaik</span>.</h1>
@@ -72,7 +72,7 @@
                     </p>
                     <div class="special__grid">
                         <div class="special__card">
-                            <img src="{{ asset('../img/special-1.png') }}" alt="special" class="header-img" />
+                            <img src="{{ '../img/special-1.png' }}" alt="special" class="header-img" />
                             <h4>Chicken Veg Curry</h4>
                             <p>
                                 Diced chicken simmered in aromatic curry sauce with mixed veggies
@@ -91,7 +91,7 @@
                             </div>
                         </div>
                         <div class="special__card">
-                            <img src="{{ asset('../img/special-2.png') }}" alt="special" class="header-img" />
+                            <img src="{{ '../img/special-2.png' }}" alt="special" class="header-img" />
                             <h4>Chicken Veg Stir-Fry</h4>
                             <p>
                                 Tender chicken strips wok-tossed with a colorful array of fresh
@@ -110,7 +110,7 @@
                             </div>
                         </div>
                         <div class="special__card">
-                            <img src="{{ asset('../img/special-3.png') }}" alt="special" class="header-img" />
+                            <img src="{{ '../img/special-3.png' }}" alt="special" class="header-img" />
                             <h4>Chicken Veg Pasta</h4>
                             <p>
                                 Al dente pasta tossed with chicken strips and a mix of vibrant
@@ -134,7 +134,7 @@
 
                 <section class="section__container explore__container">
                     <div class="explore__image">
-                        <img src="{{ asset($company->gambar_home_2) }}" alt="explore" class="header-img" />
+                        <img src="{{ $company->gambar_home_2 }}" alt="explore" class="header-img" />
                     </div>
                     <div class="explore__content">
                         <h1 class="section__header">Nikmati Lezatnya Hidup Sehat!</h1>
@@ -192,10 +192,10 @@
                 </section>
 
                 <section class="chef" id="chef">
-                    <img src="{{ asset('../img/topping.png') }}" alt="topping" class="chef__bg" />
+                    <img src="{{ '../img/topping.png' }}" alt="topping" class="chef__bg" />
                     <div class="section__container chef__container">
                         <div class="chef__image">
-                            <img src="{{ asset($company->gambar_home_3) }}" alt="chef" class="header-img" />
+                            <img src="{{ $company->gambar_home_3 }}" alt="chef" class="header-img" />
                         </div>
                         <div class="chef__content">
                             <h2 class="section__header">Siap Diantar Di Mana Saja & Kapan Saja!</h2>
@@ -242,7 +242,7 @@
                                             FoodMan's culinary expertise never fails to impress! Every
                                             dish is a masterpiece, bursting with flavor and freshness.
                                         </p>
-                                        <img src="{{ asset('../img/client-1.jpg') }}" alt="client"
+                                        <img src="../img/client-1.jpg" alt="client"
                                             class="header-img" />
                                         <h4>David Lee</h4>
                                         <h5>Business Executive</h5>
@@ -254,7 +254,7 @@
                                             I always turn to FoodMan for a quick and delicious meal. Their
                                             efficient service and mouthwatering options never disappoint!
                                         </p>
-                                        <img src="{{ asset('../img/client-2.jpg') }}" alt="client" />
+                                        <img src="../img/client-2.jpg" alt="client" />
                                         <h4>Emily Johnson</h4>
                                         <h5>Food Blogger</h5>
                                     </div>
@@ -266,7 +266,7 @@
                                             attention to detail and exceptional customer service make
                                             every event a success.
                                         </p>
-                                        <img src="{{ asset('../img/client-3.jpg') }}" alt="client" />
+                                        <img src="../img/client-3.jpg" alt="client" />
                                         <h4>Michael Thompson</h4>
                                         <h5>Event Planner</h5>
                                     </div>

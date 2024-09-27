@@ -4,8 +4,8 @@
     <section id="home" class="mt-11">
         <section id="search-banner">
             {{-- bg --}}
-            <img alt="bg" class="bg-1" src="{{ asset('img/bg-1.png') }}">
-            <img alt="bg-2" class="bg-2" src="{{ asset('img/topping.png') }}">
+            <img alt="bg" class="bg-1" src="img/bg-1.png">
+            <img alt="bg-2" class="bg-2" src="img/topping.png">
             {{-- text --}}
             <div class="search-banner-text">
                 <h1>Pesan Makananmu Sekarang!</h1>
@@ -28,7 +28,7 @@
             <div class="category-container">
                 @foreach ($categories as $category)
                     <a href="#" class="category-box" data-category="{{ $category->name }}">
-                        <img alt="Product" src="{{ asset($category->icon) }}">
+                        <img alt="Product" src="{{ $category->icon }}">
                         <span>{{ $category->name }}</span>
                     </a>
                 @endforeach
@@ -42,7 +42,7 @@
             <div class="product-container" id="product-list">
                 @foreach ($products as $product)
                     <div class="product-box" data-category="{{ $product->category->name }}">
-                        <img alt="{{ $product->name }}" src="{{ asset($product->photo) }}">
+                        <img alt="{{ $product->name }}" src="{{ $product->photo }}">
                         <strong>{{ $product->name }}</strong>
                         <span class="quantity">Store: {{ $product->toko ? $product->toko->nama_toko : 'Unknown' }}</span>
                         <span class="price">Rp {{ number_format($product->price, 0, ',', '.') }}</span>
@@ -109,7 +109,7 @@
                                 console.log(product.category_id);
                                 var productHtml = `
                                     <div class="product-box" data-category="${product.category_id ? product.category.name : 'gaada id'}">
-                                        <img alt="${product.name}" src="{{ asset('') }}${product.photo}">
+                                        <img alt="${product.name}" src="{{ '') }}${product.photo}">
                                         <strong>${product.name}</strong>
                                         <span class="quantity">Store: ${product.toko ? product.toko.nama_toko : 'Unknown'}</span>
                                         <span class="price">Rp ${new Intl.NumberFormat('id-ID').format(product.price)}</span>

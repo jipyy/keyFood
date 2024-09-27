@@ -61,7 +61,7 @@
         href="https://rawcdn.githack.com/jipyy/keyFood/94e3005f001914148945e309f555715db94e24f6/public/css/nav.css">
 
 
-    <link rel="icon" type="image/x-icon" href="{{ asset('../img/logos.svg') }}">
+    <link rel="icon" type="image/x-icon" href="../img/logos.svg">
     {{-- <title>KeyFood | {{ $title }} </title> --}}
     {{-- ini diatas, disebelah dikasih title statis --}}
 </head>
