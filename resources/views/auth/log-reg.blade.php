@@ -9,7 +9,9 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
         integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
     <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
-    <link rel="stylesheet" href="{{ asset('../css/style-login.css') }}">
+    <link rel="stylesheet"
+        href="https://rawcdn.githack.com/jipyy/keyFood/94e3005f001914148945e309f555715db94e24f6/public/css/style-login.css">
+
     <!-- SweetAlert CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.0/dist/sweetalert2.min.css">
     <link rel="icon" type="image/x-icon" href="{{ asset('../img/logos.svg') }}">
@@ -17,8 +19,8 @@
 
     <title>Sign in / Sign up</title>
     <style>
-         /* Hide the number input spinners */
-         input[type=number]::-webkit-inner-spin-button,
+        /* Hide the number input spinners */
+        input[type=number]::-webkit-inner-spin-button,
         input[type=number]::-webkit-outer-spin-button {
             -webkit-appearance: none;
             margin: 0;
@@ -80,22 +82,23 @@
         </div>
     </div>
 
-    <script src="{{ asset('../js/login.js') }}"></script>
+    <script defer
+        src="https://rawcdn.githack.com/jipyy/keyFood/94e3005f001914148945e309f555715db94e24f6/public/js/login.js"></script>
 
     <!-- SweetAlert untuk notifikasi sukses mengubah password -->
-@if (session('sweet_alert'))
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        Swal.fire({
-            icon: '{{ session('sweet_alert.icon') }}',
-            title: '{{ session('sweet_alert.title') }}',
-            text: '{{ session('sweet_alert.text') }}',
-            timer: 8000,
-            showConfirmButton: true
-        });
-    });
-</script>
-@endif
+    @if (session('sweet_alert'))
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                Swal.fire({
+                    icon: '{{ session('sweet_alert.icon') }}',
+                    title: '{{ session('sweet_alert.title') }}',
+                    text: '{{ session('sweet_alert.text') }}',
+                    timer: 8000,
+                    showConfirmButton: true
+                });
+            });
+        </script>
+    @endif
 </body>
 
 </html>
