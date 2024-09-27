@@ -177,7 +177,7 @@ Route::get('/dashboard', function () {
 
 // ROUTES GOOGLE
 
-Route::get('auth/google', [SocialiteController::class, 'redirectToGoogle']);
+Route::get('auth/google', [SocialiteController::class, 'redirectToGoogle'])->name('auth.google');
 Route::get('auth/google/callback', [SocialiteController::class, 'handleGoogleCallback']);
 
 

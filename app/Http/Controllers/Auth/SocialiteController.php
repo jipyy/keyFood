@@ -29,8 +29,9 @@ class SocialiteController extends Controller
                  $existingUser->update(['is_online' => true]);
 
                 return redirect()->intended('/home');
+                dd('masuk');
+
             } else {
-                // dd($user);
 
                 // Jika pengguna tidak ada, buat pengguna baru
                 $newUser = User::create([
