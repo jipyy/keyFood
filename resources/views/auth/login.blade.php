@@ -26,7 +26,7 @@
     </a>    
     <p class="social-text">Atau Login Dengan Google</p>
     <div class="social-media">
-        <a href="{{ url('auth/google') }}" class="social-icon">
+        <a href="{{ route('auth/google') }}" class="social-icon">
             <i class="fab fa-google"></i>
         </a>
     </div>

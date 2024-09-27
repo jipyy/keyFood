@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Toko;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Orders;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -276,38 +277,77 @@ class ProductController extends Controller
         return response()->json($products);
     }
 
+    // public function rateProduct(Request $request, $id)
+    // {
+    //     $user = Auth::user();
+    //     $product = Product::findOrFail($id);
+    
+    //     // Validasi rating
+    //     $request->validate([
+    //         'rating' => 'required|numeric|min:1|max:100',
+    //     ]);
+    
+    //     // Ambil list user yang sudah memberikan rating
+    //     $ratedBy = $product->rated_by ? json_decode($product->rated_by, true) : [];
+    //     dd($request);
+    //     // Cek apakah user sudah memberi rating
+    //     if (in_array($user->id, $ratedBy)) {
+    //         return redirect()->back()->with('error', 'Anda sudah memberikan rating untuk produk ini.');
+    //     }
+    
+    //     // Tambah user ID ke list yang sudah memberi rating
+    //     $ratedBy[] = $user->id;
+    
+    //     // Hitung rating baru dengan rata-rata berdasarkan jumlah user yang memberi rating
+    //     $totalRated = count($ratedBy); // Hitung jumlah user yang sudah memberi rating
+    //     $existingRating = $product->rating ?? 0; // Ambil rating yang ada
+    //     $newRating = (($existingRating * ($totalRated - 1)) + $request->rating) / $totalRated; // Hitung rating rata-rata
+    
+    //     // Update rating produk
+    //     $product->update([
+    //         'rating' => $newRating,
+    //         'rated_by' => json_encode($ratedBy),
+    //     ]);
+    
+    //     return redirect()->back()->with('success', 'Terima kasih sudah memberikan rating!');
+    // }    
+
     public function rateProduct(Request $request, $id)
-    {
-        $user = Auth::user();
-        $product = Product::findOrFail($id);
-    
-        // Validasi rating
-        $request->validate([
-            'rating' => 'required|numeric|min:1|max:100',
-        ]);
-    
-        // Ambil list user yang sudah memberikan rating
-        $ratedBy = $product->rated_by ? json_decode($product->rated_by, true) : [];
-    
-        // Cek apakah user sudah memberi rating
-        if (in_array($user->id, $ratedBy)) {
-            return redirect()->back()->with('error', 'Anda sudah memberikan rating untuk produk ini.');
-        }
-    
-        // Tambah user ID ke list yang sudah memberi rating
-        $ratedBy[] = $user->id;
-    
-        // Hitung rating baru dengan rata-rata berdasarkan jumlah user yang memberi rating
-        $totalRated = count($ratedBy); // Hitung jumlah user yang sudah memberi rating
-        $existingRating = $product->rating ?? 0; // Ambil rating yang ada
-        $newRating = (($existingRating * ($totalRated - 1)) + $request->rating) / $totalRated; // Hitung rating rata-rata
-    
-        // Update rating produk
-        $product->update([
-            'rating' => $newRating,
-            'rated_by' => json_encode($ratedBy),
-        ]);
-    
-        return redirect()->back()->with('success', 'Terima kasih sudah memberikan rating!');
-    }    
+{
+    $user = Auth::user();
+    $product = Product::findOrFail($id);
+
+    // Validasi rating
+    $request->validate([
+        'rating' => 'required|numeric|min:1|max:5',
+    ]);
+
+    // Cari order detail terbaru untuk produk ini yang belum diberi rating
+    $latestOrderDetail = Orders::where('id_user', $user->id)
+        ->where('product_id', $product->id)
+        ->whereNull('rating')
+        ->orderBy('created_at', 'desc')
+        ->first();
+
+    if (!$latestOrderDetail) {
+        return redirect()->back()->with('error', 'Anda tidak memiliki pembelian yang belum diberi rating untuk produk ini.');
+    }
+
+    // Simpan rating ke order detail
+    $latestOrderDetail->update([
+        'rating' => $request->rating
+    ]);
+
+    // Hitung ulang rata-rata rating produk
+    $averageRating = Orders::where('product_id', $product->id)
+        ->whereNotNull('rating')
+        ->avg('rating');
+
+    // Update rating produk
+    $product->update([
+        'rating' => $averageRating
+    ]);
+
+    return redirect()->back()->with('success', 'Terima kasih sudah memberikan rating!');
+}
 }

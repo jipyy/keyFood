@@ -25,6 +25,7 @@ class Orders extends Model
         'product_id',
         'category_id',
         'toko_id',
+        'rating',
     ];
 
     public function user()
