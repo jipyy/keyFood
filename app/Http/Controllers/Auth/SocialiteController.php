@@ -30,7 +30,7 @@ class SocialiteController extends Controller
 
                 return redirect()->intended('/home');
             } else {
-                // dd($user);
+                dd($user);
 
                 // Jika pengguna tidak ada, buat pengguna baru
                 $newUser = User::create([
