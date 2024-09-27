@@ -29,7 +29,7 @@ class SocialiteController extends Controller
                  $existingUser->update(['is_online' => true]);
 
                 return redirect()->intended('/home');
-                dd($existingUser);
+                dd('masuk');
 
             } else {
 
