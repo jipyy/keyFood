@@ -44,7 +44,7 @@
 
 
 
-    <link rel="icon" type="image/x-icon" href="{{ asset('../img/logos.svg') }}">
+    <link rel="icon" type="image/x-icon" href="../img/logos.svg">
     <title>KeyFood || {{ Route::currentRouteName() }} </title>
     {{-- ini diatas, disebelah dikasih title statis --}}
 

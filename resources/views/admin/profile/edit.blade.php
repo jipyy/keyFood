@@ -30,7 +30,7 @@
                             @csrf
                             <div class="flex items-center justify-center flex-col">
                                 @if(Auth::user()->img)
-                                    <img src="{{ asset(Auth::user()->img) }}" alt="Current profile picture"
+                                    <img src="{{ Auth::user()->img }}" alt="Current profile picture"
                                         style="max-width: 100px; margin-bottom: 10px;">
                                 @endif
 

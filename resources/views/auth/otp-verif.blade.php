@@ -13,7 +13,7 @@
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
-    <link rel="icon" type="image/x-icon" href="{{ asset('../img/whatsapp.png') }}">
+    <link rel="icon" type="image/x-icon" href="../img/whatsapp.png">
 
     <style>
         /* Hide spinner for Chrome, Safari, and newer versions of Edge */
