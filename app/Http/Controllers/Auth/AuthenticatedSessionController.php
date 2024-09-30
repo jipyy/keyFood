@@ -80,6 +80,8 @@ class AuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request): RedirectResponse
     {
+        dd(url('/')); 
+        
         $user = Auth::user();
 
         Auth::guard('web')->logout();
