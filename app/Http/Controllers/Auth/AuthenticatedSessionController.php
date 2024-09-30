@@ -91,7 +91,10 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('https://lapakkbk.online');
+        // return redirect('https://lapakkbk.online');
+
+        return redirect()->route('home');
+
     }
 
 
