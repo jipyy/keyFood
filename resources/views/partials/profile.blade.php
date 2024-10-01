@@ -85,7 +85,7 @@
                         </a>
                     @endif
             </div>
-                <form method="POST" action="{{ route('logout') }}" style="display: flex">
+                <form method="POST" action="/logout" style="display: flex">
                     @csrf
                     <button id="logout"
                         class="flex justify-center gap-3 rounded-md bg-red-600 py-2 px-3 font-semibold hover:bg-red-500 focus:ring-2 focus:ring-red-400"
