@@ -29,12 +29,6 @@
     <div class="input-field">
         <i class="fas fa-lock"></i>
 
-
-    </div>
-
-    <div class="input-field">
-        <i class="fas fa-lock"></i>
-
         <input type="password" id="password" placeholder="Password" name="password" style="background: transparent"
             required />
 

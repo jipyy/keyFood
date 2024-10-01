@@ -131,15 +131,13 @@
         </script>
     @endif
 
-
     <script>
-        // Ambil elemen input password dan icon
-        const passwordField = document.getElementById('password');
-        const showEye = document.getElementById('show-eye');
-        const hideEye = document.getElementById('hide-eye');
-
         // Fungsi untuk toggle password visibility
-        function togglePassword() {
+        function togglePassword(inputId, showEyeId, hideEyeId) {
+            const passwordField = document.getElementById(inputId);
+            const showEye = document.getElementById(showEyeId);
+            const hideEye = document.getElementById(hideEyeId);
+
             if (passwordField.type === 'password') {
                 passwordField.type = 'text'; // Ubah menjadi teks (password terlihat)
                 showEye.style.display = 'none'; // Sembunyikan ikon mata terbuka
@@ -151,11 +149,24 @@
             }
         }
 
-        // Event listener untuk ikon
-        showEye.addEventListener('click', togglePassword);
-        hideEye.addEventListener('click', togglePassword);
-    </script>
+        // Event listener untuk input password
+        document.getElementById('show-eye-password').addEventListener('click', function() {
+            togglePassword('password', 'show-eye-password', 'hide-eye-password');
+        });
+        document.getElementById('hide-eye-password').addEventListener('click', function() {
+            togglePassword('password', 'show-eye-password', 'hide-eye-password');
+        });
 
+        // Event listener untuk input password confirmation
+        document.getElementById('show-eye-password-confirmation').addEventListener('click', function() {
+            togglePassword('password_confirmation', 'show-eye-password-confirmation',
+                'hide-eye-password-confirmation');
+        });
+        document.getElementById('hide-eye-password-confirmation').addEventListener('click', function() {
+            togglePassword('password_confirmation', 'show-eye-password-confirmation',
+                'hide-eye-password-confirmation');
+        });
+    </script>
 </body>
 
 </html>
