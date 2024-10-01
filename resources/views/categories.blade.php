@@ -93,7 +93,8 @@
     
             function performSearch(query = '', category = '') {
                 $.ajax({
-                    url: "{{ route('search') }}",
+                    // url: "{{ route('search') }}",
+                    url: "/categories/search",
                     type: "GET",
                     data: {
                         'query': query,
