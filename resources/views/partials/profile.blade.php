@@ -84,7 +84,7 @@
                             <span>Riwayat Belanja</span>
                         </a>
                     @endif
-                </div>
+            </div>
                 <form method="POST" action="{{ route('logout') }}" style="display: flex">
                     @csrf
                     <button id="logout"
@@ -97,7 +97,7 @@
                         </svg>
                         <span>Logout</span>
                     </button>
-                </form>                
+                </form>
             </div>
         @else
             <p>You Haven't Login,</p>
