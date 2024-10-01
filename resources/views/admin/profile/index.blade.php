@@ -42,7 +42,7 @@
                 </p>
                 @endif
                 <div class="flex justify-center mt-4">
-                    <a href="{{route('admin.edit.profile')}}">
+                    <a href="/admin/profile/edit">
                         <button type="button" class="text-white bg-purple-600 hover:bg-purple-700 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-4 py-2">
                             Edit Profile
                         </button>
