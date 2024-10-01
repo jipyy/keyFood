@@ -1,3 +1,33 @@
+<style>
+    .input-field {
+        position: relative;
+        width: 100%;
+    }
+
+    /* Style untuk input password */
+    .input-field input {
+        width: 100%;
+        padding: 10px 40px 10px 10px;
+        /* Tambahkan padding untuk memberi ruang pada ikon */
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background: transparent;
+    }
+
+    /* Style untuk ikon */
+    .input-field ion-icon {
+        position: absolute;
+        right: 10px;
+        /* Posisi di sebelah kanan input field */
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        font-size: 20px;
+    }
+</style>
+
+
 <form method="POST" action="{{ route('login') }}" class="sign-in-form">
     @csrf
     <h2 class="title">
@@ -11,12 +41,12 @@
     </div>
     <div class="input-field">
         <i class="fas fa-lock"></i>
-        <input type="password" id="password" placeholder="Password" name="password" style="background: transparent"
-            required />
 
-        <!-- Icon mata untuk show dan hide -->
-        <ion-icon id="show-eye" name="eye-outline" style="cursor: pointer;"></ion-icon>
-        <ion-icon id="hide-eye" name="eye-off-outline" style="display: none; cursor: pointer;"></ion-icon>
+        <input type="password" id="password" placeholder="Password" name="password" required />
+
+        <!-- Icon show/hide password berada di dalam input -->
+        <ion-icon id="show-eye" name="eye-outline" style="display: inline;"></ion-icon>
+        <ion-icon id="hide-eye" name="eye-off-outline" style="display: none;"></ion-icon>
     </div>
     <input type="submit" value="Login" class="btn solid" />
     <a href="/forgot-passwordw" style="text-decoration: none;"
@@ -34,8 +64,8 @@
 
 
 <!-- SweetAlert Integration -->
-<script>
-    @if ($errors->any())
+@if ($errors->any())
+    <script>
         document.addEventListener('DOMContentLoaded', function() {
             setTimeout(function() {
                 Swal.fire({
@@ -47,28 +77,29 @@
                 });
             }, 1000); // Penundaan dalam milidetik (1 detik)
         });
+    </script>
+@endif
 
+<script>
+    // Ambil elemen input password dan icon
+    const passwordField = document.getElementById('password');
+    const showEye = document.getElementById('show-eye');
+    const hideEye = document.getElementById('hide-eye');
 
-        // Ambil elemen input password dan icon
-        const passwordField = document.getElementById('password');
-        const showEye = document.getElementById('show-eye');
-        const hideEye = document.getElementById('hide-eye');
-
-        // Fungsi untuk toggle password visibility
-        function togglePassword() {
-            if (passwordField.type === 'password') {
-                passwordField.type = 'text'; // Ubah menjadi teks (password terlihat)
-                showEye.style.display = 'none'; // Sembunyikan ikon mata terbuka
-                hideEye.style.display = 'inline'; // Tampilkan ikon mata tertutup
-            } else {
-                passwordField.type = 'password'; // Ubah kembali menjadi password (tersembunyi)
-                showEye.style.display = 'inline'; // Tampilkan ikon mata terbuka
-                hideEye.style.display = 'none'; // Sembunyikan ikon mata tertutup
-            }
+    // Fungsi untuk toggle password visibility
+    function togglePassword() {
+        if (passwordField.type === 'password') {
+            passwordField.type = 'text'; // Ubah menjadi teks (password terlihat)
+            showEye.style.display = 'none'; // Sembunyikan ikon mata terbuka
+            hideEye.style.display = 'inline'; // Tampilkan ikon mata tertutup
+        } else {
+            passwordField.type = 'password'; // Ubah kembali menjadi password (tersembunyi)
+            showEye.style.display = 'inline'; // Tampilkan ikon mata terbuka
+            hideEye.style.display = 'none'; // Sembunyikan ikon mata tertutup
         }
+    }
 
-        // Event listener untuk ikon
-        showEye.addEventListener('click', togglePassword);
-        hideEye.addEventListener('click', togglePassword);
-    @endif
+    // Event listener untuk ikon
+    showEye.addEventListener('click', togglePassword);
+    hideEye.addEventListener('click', togglePassword);
 </script>
