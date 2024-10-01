@@ -93,7 +93,7 @@
                             aria-hidden="true"></span>
                     @endif
                     <a class="{{ Request::is('admin/history') ? 'inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100' : 'inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200' }}"
-                        href="{{ route('admin.history.index') }}">
+                        href="/admin.history.index">
                         <i class='bx bx-history bx-sm'></i>
                         <span class="ml-4">Histories</span>
                     </a>
@@ -106,7 +106,7 @@
                             aria-hidden="true"></span>
                     @endif
                     <a class="{{ Request::is('admin/faqs') ? 'inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100' : 'inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200' }}"
-                        href="{{ route('admin.faqs.index') }}">
+                        href="/admin.faqs.index">
                         <i class='bx bx-question-mark bx-sm'></i>
                         <span class="ml-4">FAQ</span>
                     </a>
@@ -126,7 +126,7 @@
                 </li>
             </ul>
             <div class="px-6 my-6">
-                <a href="{{ route('admin.users.create') }}"
+                <a href="/admin.users.create"
                     class="flex items-center justify-between w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
                     Create account
                     <span class="ml-2" aria-hidden="true">+</span>
@@ -251,7 +251,7 @@
                             aria-hidden="true"></span>
                     @endif
                     <a class="{{ Request::is('faqs') ? 'inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100' : 'inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200' }}"
-                        href="{{ route('faqs.index') }}">
+                        href="/faqs.index">
                         <i class='bx bx-question-mark bx-sm'></i>
                         <span class="ml-4">FAQ</span>
                     </a>
