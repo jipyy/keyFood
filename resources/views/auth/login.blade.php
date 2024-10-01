@@ -49,7 +49,7 @@
         <ion-icon id="hide-eye" name="eye-off-outline" style="display: none;"></ion-icon>
     </div>
     <input type="submit" value="Login" class="btn solid" />
-    <a href="/forgot-passwordw" style="text-decoration: none;"
+    <a href="/forgot-password" style="text-decoration: none;"
         class="inline-flex items-center px-4 py-2  bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-200">
         <p class="social-text">Lupa Password</p>
     </a>
