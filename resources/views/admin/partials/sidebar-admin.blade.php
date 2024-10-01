@@ -385,7 +385,7 @@
                                     </a>
                                 </li>
 
-                                <form method="POST" action="{{ route('logout') }}">
+                                <form method="POST" action="/logout">
                                     <li class="flex">
                                         @csrf
                                         <a href="/logout"
