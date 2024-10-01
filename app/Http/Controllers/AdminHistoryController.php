@@ -12,14 +12,4 @@ class AdminHistoryController extends Controller
         $histories = AdminHistory::with('admin')->latest()->paginate(10);
         return view('admin.history.index', compact('histories'));
     }
-
-    // public function index()
-    // {
-    //     $histories = AdminHistory::all();
-    //     if (auth()->user()->can('histories')) {
-    //         return view('admin.history.index', compact('histories'));
-    //     }
-
-    //     return abort(403);
-    // }
 }
