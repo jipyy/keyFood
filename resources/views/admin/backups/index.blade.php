@@ -9,7 +9,7 @@
                 Sekarang</button>
         </div>
         <center>
-            <h1 class="dark:text-gray-200"><B>HALAMAN INI REFRESH OTOMATIS INTERVAL 5 DETIK!</B></h1>
+            {{-- <h1 class="dark:text-gray-200"><B>HALAMAN INI REFRESH OTOMATIS INTERVAL 5 DETIK!</B></h1> --}}
         </center>
         <h2 class="my-6 text-xl font-semibold text-gray-700 dark:text-gray-200">
             Riwayat Backups
