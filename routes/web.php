@@ -147,7 +147,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
     // Route::get('/admin/history', [AdminHistoryController::class, 'index'])->name('admin.history.index')->middleware('permission:histories');
 
-    Route::resource('history', AdminHistoryController::class)->middleware('role:admin');
+    Route::resource('history', AdminHistoryController::class)->middleware('permission:histories');
 
     Route::resource('faqs', FaqController::class)->middleware('permission:faqs');
 
