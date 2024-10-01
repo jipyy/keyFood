@@ -46,7 +46,8 @@
                 Gunakan</h1>
 
             <!-- Form starts here -->
-            <form id="phoneForm" method="POST" action="{{ route('forgot.password.otp') }}">
+            {{-- <form id="phoneForm" method="POST" action="{{ route('forgot.password.otp') }}"> --}}
+            <form id="phoneForm" method="POST" action="/forgot-password-otp">
                 @csrf
                 <div class="w-full">
                     <label class="block mb-1 text-sm text-slate-600" for="phone">
