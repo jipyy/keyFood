@@ -80,7 +80,6 @@ class AuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request): RedirectResponse
     {
-        dd(url('/')); 
         
         $user = Auth::user();
 
@@ -93,9 +92,9 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        // return redirect('https://lapakkbk.online');
+        return redirect('https://lapakkbk.online');
 
-        return redirect('/');
+        // return redirect('/');
 
 
 
