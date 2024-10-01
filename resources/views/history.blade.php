@@ -116,7 +116,8 @@
                                     <div class="flex justify-end gap-4">
                                         <!-- Star rating form -->
 
-                                        {{-- <form action="{{ route('rate.product', $orderDetail->product_id) }}" method="POST"
+                                        <!-- {{-- <form action="{{ route('rate.product', $orderDetail->product_id) }}" method="POST" -->
+                                        {{-- <form action="/rate-product/{{$orderDetail->product_id }}" method="POST"
                                             id="ratingForm">
                                             @csrf
                                             <input type="hidden" name="rating" id="ratingInput">
@@ -134,7 +135,8 @@
                                         </form> --}}
 
                                         @if ($orderDetail->rating === null)
-    <form action="{{ route('rate.product', $orderDetail->product_id) }}" method="POST" id="ratingForm">
+    <!-- <form action="{{ route('rate.product', $orderDetail->product_id) }}" method="POST" id="ratingForm"> -->
+    <form action="/rate-product/{{$orderDetail->product_id }}" method="POST" id="ratingForm">
         @csrf
         <input type="hidden" name="rating" id="ratingInput">
         <div class="flex">
@@ -168,7 +170,8 @@
 
                         <div class="px-3 md:px-11 flex items-center justify-between flex-col-reverse sm:flex-row">
                             <div class="flex flex-col sm:flex-row items-center">
-                                <form action="{{ route('orders.destroy', $order->id) }}" method="POST" onsubmit="return confirm('Kamu yakin menghapus orderan ini?');">
+                                <!-- <form action="{{ route('orders.destroy', $order->id) }}" method="POST" onsubmit="return confirm('Kamu yakin menghapus orderan ini?');"> -->
+                                <form action="/orders/{{ $order->id }}" method="POST" onsubmit="return confirm('Kamu yakin menghapus orderan ini?');">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="flex items-center gap-3 py-10 pr-8 sm:border-r border-gray-300 font-normal text-xl leading-8 text-gray-500 dark:text-gray-300 group transition-all duration-500 hover:text-red-600">
