@@ -28,7 +28,7 @@
 </style>
 
 
-<form method="POST" action="{{ route('login') }}" class="sign-in-form">
+<form method="POST" action="/login" class="sign-in-form">
     @csrf
     <h2 class="title">
         <img src="img/login.svg" style="width: 150px; align-items: center;" alt="">

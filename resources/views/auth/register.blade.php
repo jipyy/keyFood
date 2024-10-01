@@ -1,4 +1,4 @@
-<form method="POST" action="{{ route('register') }}" class="sign-up-form">
+<form method="POST" action="/register" class="sign-up-form">
     @csrf
     <h2 class="title">
         <img src="img/regis.svg" style="max-width: 150px; align-items: center;" alt="">
