@@ -17,6 +17,9 @@
     <link rel="icon" type="image/x-icon" href="../img/logos.svg">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
     <title>Sign in / Sign up</title>
     <style>
         /* Hide the number input spinners */
