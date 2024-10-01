@@ -3,7 +3,7 @@
     <section id="home">
         <main class="mt-10">
             <section class="checkout-form">
-                <form id="checkout-form" action="{{ route('checkout.store') }}" method="post">
+                <form id="checkout-form" action="/checkout" method="post">
                     @csrf
                     <h2 class="font-manrope font-extrabold text-3xl lead-10 text-black mb-9">Pesanan Anda</h2>
 
