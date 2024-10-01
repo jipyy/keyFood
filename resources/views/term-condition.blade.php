@@ -99,7 +99,7 @@
                     <button class="accept" onclick="window.history.back();">
                         Accept
                     </button>
-                    <form method="POST" action="{{ route('logout') }}" style="display: inline-flex">
+                    <form method="POST" action="/logout" style="display: inline-flex">
                         @csrf
                         <a href="/logout" onclick="event.preventDefault();
 this.closest('form').submit();">

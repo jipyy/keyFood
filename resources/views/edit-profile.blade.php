@@ -23,7 +23,7 @@
 <body>
     @if (Auth::check())
         <div class="container">
-            <form action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data" class="mx-auto"
+            <form action="/profile.update" method="POST" enctype="multipart/form-data" class="mx-auto"
                 style="width: 90%;">
                 @csrf
                 {{-- <div class="input-image">
