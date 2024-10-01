@@ -145,7 +145,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
     Route::resource('categories', CategoryController::class)->middleware('role:admin');
 
-    Route::get('/history', [AdminHistoryController::class, 'index'])->name('history.index')->middleware('permission:histories');
+    // Route::get('/history', [AdminHistoryController::class, 'index'])->name('history.index')->middleware('permission:histories');
+
+    Route::resource('history', AdminHistoryController::class)->middleware('permission:histories');
 
     Route::resource('faqs', FaqController::class)->middleware('permission:faqs');
 
