@@ -36,7 +36,35 @@
         input[type=number]:focus {
             outline: none;
         }
+
+        .input-field {
+            position: relative;
+            width: 100%;
+        }
+
+        /* Style untuk input password */
+        .input-field input {
+            width: 100%;
+            padding: 10px 40px 10px 10px;
+            /* Tambahkan padding untuk memberi ruang pada ikon */
+            font-size: 16px;
+            border: 1px solid transparent;
+            border-radius: 5px;
+            background: transparent;
+        }
+
+        /* Style untuk ikon */
+        .input-field ion-icon {
+            position: absolute;
+            right: 10px;
+            /* Posisi di sebelah kanan input field */
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            font-size: 20px;
+        }
     </style>
+
 </head>
 
 <body>
@@ -102,6 +130,32 @@
             });
         </script>
     @endif
+
+
+    <script>
+        // Ambil elemen input password dan icon
+        const passwordField = document.getElementById('password');
+        const showEye = document.getElementById('show-eye');
+        const hideEye = document.getElementById('hide-eye');
+
+        // Fungsi untuk toggle password visibility
+        function togglePassword() {
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text'; // Ubah menjadi teks (password terlihat)
+                showEye.style.display = 'none'; // Sembunyikan ikon mata terbuka
+                hideEye.style.display = 'inline'; // Tampilkan ikon mata tertutup
+            } else {
+                passwordField.type = 'password'; // Ubah kembali menjadi password (tersembunyi)
+                showEye.style.display = 'inline'; // Tampilkan ikon mata terbuka
+                hideEye.style.display = 'none'; // Sembunyikan ikon mata tertutup
+            }
+        }
+
+        // Event listener untuk ikon
+        showEye.addEventListener('click', togglePassword);
+        hideEye.addEventListener('click', togglePassword);
+    </script>
+
 </body>
 
 </html>
