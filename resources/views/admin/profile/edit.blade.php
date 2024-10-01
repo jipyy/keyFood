@@ -26,7 +26,7 @@
                             class=" ml-4 lg:text-3xl md:text-2xl sm:text-xl xs:text-xl font-serif font-extrabold mb-2 dark:text-white">
                             Edit Profile
                         </h1>
-                        <form action="{{route('admin.update.profile')}}" enctype="multipart/form-data" method="POST">
+                        <form action="/admin/profile/edit" enctype="multipart/form-data" method="POST">
                             @csrf
                             <div class="flex items-center justify-center flex-col">
                                 @if(Auth::user()->img)
