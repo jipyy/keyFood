@@ -34,8 +34,8 @@
 
 
 <!-- SweetAlert Integration -->
-@if ($errors->any())
-    <script>
+<script>
+    @if ($errors->any())
         document.addEventListener('DOMContentLoaded', function() {
             setTimeout(function() {
                 Swal.fire({
@@ -70,5 +70,5 @@
         // Event listener untuk ikon
         showEye.addEventListener('click', togglePassword);
         hideEye.addEventListener('click', togglePassword);
-    </script>
-@endif
+    @endif
+</script>
