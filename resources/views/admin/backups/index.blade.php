@@ -32,8 +32,8 @@
                             <td class="px-4 py-2">{{ date('Y-m-d H:i:s', $backup['date']) }}</td>
                             <td class="px-4 py-2 text-sm">
                                 <div class="flex justify-center gap-2">
-                                    {{-- <a href="{{ route('admin.backups.download', $backup['filename']) }}" --}}
-                                    <a href="/admin/backups/download/{{ $backup['filename'] }}"
+                                    <a href="{{ route('admin.backups.download', $backup['filename']) }}"
+                                    {{-- <a href="/admin/backups/download/{{ $backup['filename'] }}" --}}
                                         class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-100 focus:outline-none focus:shadow-outline-gray">
                                         <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
                                             <path
@@ -47,8 +47,8 @@
                                         </svg>
                                         Download
                                     </a>
-                                    {{-- <form method="POST" action="{{ route('admin.backups.delete', $backup['filename'] }}" --}}
-                                    <form method="POST" action="/admin/backups/{{ $backup['filename'] }}"
+                                    <form method="POST" action="{{ route('admin.backups.delete', $backup['filename'] }}"
+                                    // <form method="POST" action="/admin/backups/{{ $backup['filename'] }}"
                                         onclick="return confirm('Apakah Anda yakin ingin menghapus backup ini?')">
                                         @csrf
                                         @method('DELETE')
@@ -117,8 +117,8 @@
         });
 
         $.ajax({
-            // url: '{{ route('admin.backups.manual') }}',
-            url: '/admin/backups/manual',
+            url: '{{ route('admin.backups.manual') }}',
+            // url: '/admin/backups/manual',
             method: 'POST',
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

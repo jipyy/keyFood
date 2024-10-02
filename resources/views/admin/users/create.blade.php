@@ -17,8 +17,8 @@
             @endif
 
             <!-- Create User Form -->
-            {{-- <form action="{{ route('admin.users.store') }}" method="POST" class="space-y-4"> --}}
-            <form action="/admin/users" method="POST" class="space-y-4">
+            <form action="{{ route('admin.users.store') }}" method="POST" class="space-y-4">
+            {{-- <form action="/admin/users" method="POST" class="space-y-4"> --}}
                 @csrf
 
                 <!-- Name Field -->
