@@ -8,7 +8,8 @@
 
             <div class="w-full overflow-hidden rounded-lg shadow-xs">
                 <div class="w-full overflow-hidden rounded-lg shadow-xs">
-                    <form method="POST" action="{{ route('admin.stores.update', $store->id_toko) }}" enctype="multipart/form-data">
+                    {{-- <form method="POST" action="admin.stores.update', $store->id_toko) }}" enctype="multipart/form-data"> --}}
+                    <form method="POST" action="/admin/stores/{{ $store->id_toko }}" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="grid gap-6 mb-6 md:grid-cols-2">

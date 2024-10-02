@@ -17,7 +17,8 @@
             @endif
 
                 <!-- Edit User Form -->
-                <form action="{{ route('admin.users.update', $user) }}" method="POST">
+                {{-- <form action="{{ route('admin.users.update', $user) }}" method="POST"> --}}
+                <form action="/admin/users/update/]{{ $user }}" method="POST">
                     @csrf
                     @method('PUT')
 

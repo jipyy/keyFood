@@ -9,7 +9,8 @@
 
             <div class="w-full overflow-hidden rounded-lg shadow-xs">
                 <div class="w-full overflow-x-auto">
-                    <form action="{{ route('admin.stores.store') }}" method="POST" enctype="multipart/form-data">
+                    {{-- <form action="{{ route('admin.stores.store') }}" method="POST" enctype="multipart/form-data"> --}}
+                    <form action="/admin/stores" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="grid grid-cols-1 gap-6 p-6 bg-white rounded-md shadow-md dark:bg-gray-800">
                             <!-- ID Seller -->
