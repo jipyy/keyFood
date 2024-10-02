@@ -47,7 +47,7 @@
                                         </svg>
                                         Download
                                     </a>
-                                    <form method="POST" action="{{ route('admin.backups.delete', $backup['filename'] }}"
+                                    <form method="POST" action="{{ route('admin.backups.delete', $backup['filename']) }}"
                                     // <form method="POST" action="/admin/backups/{{ $backup['filename'] }}"
                                         onclick="return confirm('Apakah Anda yakin ingin menghapus backup ini?')">
                                         @csrf
