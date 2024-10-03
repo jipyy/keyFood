@@ -109,6 +109,7 @@ class UserController extends Controller
 
     public function destroy(User $user)
     {
+        dd($user);
         // Hapus gambar jika ada
         if ($user->img && File::exists(public_path('images/users/' . $user->img))) {
             File::delete(public_path('images/users/' . $user->img));
