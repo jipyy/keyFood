@@ -51,7 +51,7 @@
                                         <!-- Avatar with inset shadow -->
                                         <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
                                             <img class="object-cover w-full h-full rounded-full"
-                                                src="{{ $company->gambar_home_1 }}"
+                                                src="{{ asset($company->gambar_home_1) }}"
                                                 alt="" loading="lazy" />
                                             <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true">
                                             </div>
