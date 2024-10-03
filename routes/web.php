@@ -137,7 +137,11 @@ Route::prefix('admin')->name('admin.')->group(function () {
         return view('admin.dashboard-cms');
     })->middleware('permission:dasboard-cms');
 
-    Route::resource('users', UserController::class)->middleware('permission:users');
+    // Route::resource('users', UserController::class)->middleware('permission:users');
+
+    Route::get('/users', [UserController::class, 'index'])->name('users.index');
+    Route::get('/users/edit/{id}', [UserController::class, 'edit'])->name('users.edit');
+    Route::post('/users/edit/{id}', [UserController::class, 'update'])->name('users.update');
 
     Route::resource('stores', TokoController::class)->middleware('permission:stores');
 
