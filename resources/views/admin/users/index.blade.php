@@ -81,7 +81,7 @@
                     <div class="card-profile card-table" data-roles="{{ $user->roles->pluck('name')->join(', ') }}">
                         <p><strong>ID:</strong> {{ $user->id }}</p>
                         {{-- <a href="{{ route('live-chat', $user) }}"> --}}
-                        <a href="/live-chat/{{ $user }}">
+                        <a href="/live-chat/{{ $user->id }}">
                             <img src="{{ $user->img ?? 'img/client-1.jpg' }}" alt="Profile Picture">
                         </a>
                         <h2>{{ $user->name }}</h2>
@@ -124,7 +124,7 @@
                             <ul>
                                 <li>
                                     {{-- <a href="{{ route('admin.users.edit', $user) }}" --}}
-                                    <a href="/admin/users/edit/{{ $user }}"
+                                    <a href="/admin/users/edit/{{ $user->id }}"
                                         class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit</a>
                                 </li>
                                 <li>
@@ -174,7 +174,7 @@
                                                 </div>
                                                 <div>
                                                     {{-- <a href="{{ route('live-chat', $user) }}"> --}}
-                                                    <a href="/live-chat/{{ $user }}">
+                                                    <a href="/live-chat/{{ $user->id }}">
                                                         <p class="font-semibold">{{ $user->name }}</p>
                                                         <p class="text-xs text-gray-600 dark:text-gray-400">ID:
                                                             {{ $user->id }}
@@ -223,8 +223,8 @@
                                                     </svg>
                                                     Edit
                                                 </a>
-                                                <form method="POST" action="{{ route('admin.users.destroy', $user) }}"
-                                                {{-- <form method="POST" action="/admin/users/destroy/{{ $user }}" --}}
+                                                {{-- <form method="POST" action="{{ route('admin.users.destroy', $user) }}" --}}
+                                                <form method="POST" action="/admin/users/destroy/{{ $user->id }}"
                                                     onsubmit="return confirmDelete()">
                                                     @csrf
                                                     @method('DELETE')
