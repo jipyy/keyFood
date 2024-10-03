@@ -166,7 +166,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
     Route::get('/company', [CmsController::class, 'index'])->name('company.index');
     Route::get('/company/edit/{id}', [CmsController::class, 'edit'])->name('company.edit');
-    Route::post('/company/edit/{id}', [CmsController::class, 'update'])->name('company.update');
+    Route::post('/company/update/{id}', [CmsController::class, 'update'])->name('company.update');
 });
 
 // Biarkan ini di luar prefix admin
