@@ -20,8 +20,9 @@
             <!-- Notifikasi Error -->
 
             <!-- Form Edit Perusahaan -->
-            <form action="{{ route('admin.company.update', $data->id) }}" method="POST" enctype="multipart/form-data">
-            {{-- <form action="/admin/company/{{ $data->id }}" method="POST" enctype="multipart/form-data"> --}}
+            {{-- <form action="{{ route('admin.company.update', $data->id) }}" method="POST" enctype="multipart/form-data"> --}}
+
+            <form action="/admin/company/update{{ $data->id }}" method="POST" enctype="multipart/form-data">
                 @csrf
 
                 <!-- Field Logo -->
