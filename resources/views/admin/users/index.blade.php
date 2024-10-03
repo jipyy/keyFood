@@ -27,8 +27,8 @@
 
 
             <div class="flex justify-between mb-10">
-                <form action="{{ route('clear.chats') }}" method="POST">
-                {{-- <form action="/clear-chats" method="POST"> --}}
+                {{-- <form action="{{ route('clear.chats') }}" method="POST"> --}}
+                <form action="/clear-chats" method="POST">
                     @csrf
                     <button type="submit"
                         class="inline-block px-4 py-2 bg-orange-500 text-black rounded-lg hover:bg-orange-600">Clear
@@ -128,8 +128,8 @@
                                         class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit</a>
                                 </li>
                                 <li>
-                                    <form method="POST" action="{{ route('admin.users.destroy', $user) }}"
-                                    {{-- <form method="POST" action="/admin/users/destroy/{{ $user }}" --}}
+                                    {{-- <form method="POST" action="{{ route('admin.users.destroy', $user) }}" --}}
+                                    <form method="POST" action="/admin/users/destroy/{{ $user }}"
                                         onsubmit="return confirmDelete()">
                                         @csrf
                                         @method('DELETE')
