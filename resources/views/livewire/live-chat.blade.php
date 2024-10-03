@@ -58,7 +58,7 @@
                                         @if ($message->image)
                                             <img src="{{ 'storage/' . $message->image }}" alt="Image"
                                                 class="max-w-24 h-auto rounded-lg mt-2 cursor-pointer" id="chatImage"
-                                                onclick="openModal('{{ 'storage/' . $message->image) }}')">
+                                                onclick="openModal('{{ ('storage/' . $message->image) }}')">
                                         @endif
 
                                         @if ($message->message)
