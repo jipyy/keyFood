@@ -44,21 +44,24 @@
                 @if (Auth::check())
                     @if (Auth::user()->hasRole('admin'))
                         <li class="{{ Request::is('admin.products.index') ? 'nav-link active' : 'nav-link' }}">
-                            <a href="{{ route('admin.products.index') }}">
+                            {{-- <a href="{{ route('admin.products.index') }}"> --}}
+                            <a href="/admin/products/index">
                                 <i class='bx bx-restaurant icon'></i>
                                 <span class="text nav-text">Produk</span>
                             </a>
                         </li>
 
                         <li class="{{ Request::is('admin.products_orders.index') ? 'nav-link active' : 'nav-link' }}">
-                            <a href="{{ route('admin.products_orders.index') }}">
+                            {{-- <a href="{{ route('admin.products_orders.index') }}"> --}}
+                            <a href="/admin/products_orders/index">
                                 <i class='bx bx-store icon'></i>
                                 <span class="text nav-text">Toko</span>
                             </a>
                         </li>
 
                         <li class="{{ Request::is('admin.categories.index') ? 'nav-link active' : 'nav-link' }}">
-                            <a href="{{ route('admin.categories.index') }}">
+                            {{-- <a href="{{ route('admin.categories.index') }}"> --}}
+                            <a href="/admin/categories/index">
                                 <i class='bx bx-bowl-hot icon'></i>
                                 <span class="text nav-text">Kategori</span>
                             </a>

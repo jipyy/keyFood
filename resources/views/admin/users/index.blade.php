@@ -36,8 +36,8 @@
                 </form>
 
                 <!-- Add New User Button -->
-                <a href="{{ route('admin.users.create') }}"
-                {{-- <a href="/admin/users/create" --}}
+                {{-- <a href="{{ route('admin.users.create') }}" --}}
+                <a href="/admin/users/create"
                     class="inline-block px-4 py-2 bg-blue-600 text-black rounded-lg hover:bg-blue-700">
                     Add New User
                 </a>
@@ -80,8 +80,8 @@
                 @forelse($users as $user)
                     <div class="card-profile card-table" data-roles="{{ $user->roles->pluck('name')->join(', ') }}">
                         <p><strong>ID:</strong> {{ $user->id }}</p>
-                        <a href="{{ route('live-chat', $user) }}">
-                        {{-- <a href="/live-chat/{{ $user }}"> --}}
+                        {{-- <a href="{{ route('live-chat', $user) }}"> --}}
+                        <a href="/live-chat/{{ $user }}">
                             <img src="{{ $user->img ?? 'img/client-1.jpg' }}" alt="Profile Picture">
                         </a>
                         <h2>{{ $user->name }}</h2>
@@ -123,8 +123,8 @@
                         <div id="dropdown1" class="dropdown-menu">
                             <ul>
                                 <li>
-                                    <a href="{{ route('admin.users.edit', $user) }}"
-                                    {{-- <a href="/admin/users/edit/{{ $user }}" --}}
+                                    {{-- <a href="{{ route('admin.users.edit', $user) }}" --}}
+                                    <a href="/admin/users/edit/{{ $user }}"
                                         class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit</a>
                                 </li>
                                 <li>
@@ -173,8 +173,8 @@
 
                                                 </div>
                                                 <div>
-                                                    <a href="{{ route('live-chat', $user) }}">
-                                                    {{-- <a href="/live-chat/{{ $user }}"> --}}
+                                                    {{-- <a href="{{ route('live-chat', $user) }}"> --}}
+                                                    <a href="/live-chat/{{ $user }}">
                                                         <p class="font-semibold">{{ $user->name }}</p>
                                                         <p class="text-xs text-gray-600 dark:text-gray-400">ID:
                                                             {{ $user->id }}
@@ -212,8 +212,8 @@
                                         </td>
                                         <td class="px-4 py-3 text-sm">
                                             <div class="flex gap-2">
-                                                <a href="{{ route('admin.users.edit', $user) }}"
-                                                {{-- <a href="/admin/users/edit/{{ $user }}" --}}
+                                                {{-- <a href="{{ route('admin.users.edit', $user) }}" --}}
+                                                <a href="/admin/users/edit/{{ $user }}"
                                                     class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray">
                                                     <svg class="w-5 h-5" aria-hidden="true" fill="currentColor"
                                                         viewBox="0 0 20 20">

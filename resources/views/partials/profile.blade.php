@@ -175,7 +175,8 @@
                     </div>
                 </div>
             </div>
-            <a href="{{ route('profile.edit') }}">
+            {{-- <a href="{{ route('profile.edit') }}"> --}}
+            <a href="/edit-profile">
                 <button class="download-btn"><i class="fa fa-edit"></i> Edit Profile</button>
             </a>
             <button type="button" data-modal-target="popup-modal" data-modal-toggle="popup-modal"

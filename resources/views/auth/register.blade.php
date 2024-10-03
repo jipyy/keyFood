@@ -51,7 +51,8 @@
     <p class="social-text">Atau Daftar Dengan Google</p>
     <div class="social-media">
 
-        <a href="{{ url('auth/google') }}" class="social-icon">
+        {{-- <a href="{{ url('auth/google') }}" class="social-icon"> --}}
+        <a href="auth/google" class="social-icon">
             <i class="fab fa-google"></i>
         </a>
 

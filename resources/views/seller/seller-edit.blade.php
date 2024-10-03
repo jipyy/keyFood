@@ -26,7 +26,8 @@
                 </div>
                 <!-- produk produk -->
                 <section id="popular-bundle-pack">
-                    <a href="{{ route('seller.products.create') }}">
+                    {{-- <a href="{{ route('seller.products.create') }}"> --}}
+                    <a href="/seller/products/create">
                         <button type="button"
                             class="text-white bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 shadow-lg shadow-teal-500/50 dark:shadow-lg dark:shadow-teal-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Tambah
                             Produk</button>
@@ -50,7 +51,8 @@
                                     <span class="quantity">Jumlah: {{ $p->quantity }}</span>
                                     <span class="price">Harga: Rp.{{ $p->price }}</span>
                                     <!--cart-btn------->
-                                    <a href="{{ route('seller.products.edit', $p) }}" class="cart-btn">
+                                    {{-- <a href="{{ route('seller.products.edit', $p) }}" class="cart-btn"> --}}
+                                    <a href="/seller/products/edit/{{ $p }}" class="cart-btn">
                                         <i class="fas fa-edit"></i> Edit Produk
                                     </a>
                                     {{-- trigger delete --}}

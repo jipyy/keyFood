@@ -26,7 +26,8 @@
                 </div>
                 @endif
 
-                <a href="{{ route('seller.products.create') }}" class="border rounded-xl w-fit py-3 px-5 bg-indigo-950 text-white">
+                {{-- <a href="{{ route('seller.products.create') }}" class="border rounded-xl w-fit py-3 px-5 bg-indigo-950 text-white"> --}}
+                <a href="/seller/products/create" class="border rounded-xl w-fit py-3 px-5 bg-indigo-950 text-white">
                     Add New Product
                 </a>
 
@@ -42,7 +43,8 @@
                         <p>Rp {{ number_format($product->price, 0, ',', '.') }}</p>
                     </div>
                     <div class="flex flex-row gap-x-3">
-                        <a href="{{ route('seller.products.edit', $product) }}" class="py-3 px-5 border rounded-xl bg-indigo-500 text-white">
+                        {{-- <a href="{{ route('seller.products.edit', $product) }}" class="py-3 px-5 border rounded-xl bg-indigo-500 text-white"> --}}
+                        <a href="/seller/products/edit/{{ $product }}" class="py-3 px-5 border rounded-xl bg-indigo-500 text-white">
                             Edit
                         </a>
                         <form method="POST" action="{{ route('seller.products.destroy', $product) }}" onsubmit="return confirmDelete()">

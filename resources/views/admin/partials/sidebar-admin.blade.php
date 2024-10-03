@@ -406,8 +406,8 @@
                                 </form>
                             @else
                                 <div class="mb-4 pt-5 flex justify-start">
-                                    <a href="{{ route('log-reg') }}"
-                                    {{-- <a href="/log-reg" --}}
+                                    {{-- <a href="{{ route('log-reg') }}" --}}
+                                    <a href="/log-reg"
                                         class="px-4 py-2 bg-blue-500 text-white rounded-lg dark:bg-gray-700 dark:text-white">
                                         Login
                                     </a>

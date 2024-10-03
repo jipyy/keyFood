@@ -65,7 +65,8 @@
                 Didn't receive code?
                 <span id="countdown"></span>
                 <a id="resend-link" class="font-medium text-indigo-500 hover:text-indigo-600 hidden"
-                    href="{{ route('resend.otp.forgot') }}">Resend</a>
+                    {{-- href="{{ route('resend.otp.forgot') }}">Resend</a> --}}
+                    href="/resend-otp-forgot">Resend</a>
             </div>
 
         </div>
