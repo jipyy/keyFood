@@ -139,9 +139,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
     // Route::resource('users', UserController::class)->middleware('permission:users');
 
-    Route::get('/users', [UserController::class, 'index'])->name('users.index');
-    Route::get('/users/edit/{id}', [UserController::class, 'edit'])->name('users.edit');
-    Route::post('/users/edit/{id}', [UserController::class, 'update'])->name('users.update');
+    Route::get('/users', [UserController::class, 'index'])->name('users.index')->middleware('permission:users');
+    Route::get('/users/edit/{id}', [UserController::class, 'edit'])->name('users.edit')->middleware('permission:users');
+    Route::post('/users/edit/{id}', [UserController::class, 'update'])->name('users.update')->middleware('permission:users');
 
     Route::resource('stores', TokoController::class)->middleware('permission:stores');
 
