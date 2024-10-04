@@ -150,7 +150,7 @@
                         title: 'Berhasil!',
                         text: '{{ session('success') }}',
                         timer: 3000,
-                        showConfirmButton: false,
+                        showConfirmButton: true,
                     });
                 @endif
             
@@ -160,7 +160,7 @@
                         title: 'Gagal!',
                         text: '{{ session('error') }}',
                         timer: 3000,
-                        showConfirmButton: false,
+                        showConfirmButton: true,
                     });
                 @endif
             </script>
