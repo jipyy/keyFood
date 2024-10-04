@@ -16,8 +16,8 @@
                 </div>
                 @endif
                 
-                <form method="POST" action="{{ route('admin.categories.store') }}" enctype="multipart/form-data">
-                {{-- <form method="POST" action="/admin/categories" enctype="multipart/form-data"> --}}
+                {{-- <form method="POST" action="{{ route('admin.categories.store') }}" enctype="multipart/form-data"> --}}
+                <form method="POST" action="/admin/categories" enctype="multipart/form-data">
                     @csrf
 
                     <div class="mb-4">
