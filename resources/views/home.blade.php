@@ -299,7 +299,7 @@
                 icon: 'success',
                 title: 'Berhasil!',
                 text: '{{ session('success') }}',
-                timer: 3000,
+                timer: 30000000,
                 showConfirmButton: true,
             });
         @endif
@@ -309,7 +309,7 @@
                 icon: 'error',
                 title: 'Gagal!',
                 text: '{{ session('error') }}',
-                timer: 3000,
+                timer: 30000000,
                 showConfirmButton: true,
             });
         @endif
