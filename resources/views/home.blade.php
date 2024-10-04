@@ -291,4 +291,27 @@
             clock.style.top = scrollValue + 'px';
         })
     </script>
+
+     <!-- Sweet Alert Script -->
+    <script>
+        @if (session('success'))
+            Swal.fire({
+                icon: 'success',
+                title: 'Berhasil!',
+                text: '{{ session('success') }}',
+                timer: 3000,
+                showConfirmButton: true,
+            });
+        @endif
+    
+        @if (session('error'))
+            Swal.fire({
+                icon: 'error',
+                title: 'Gagal!',
+                text: '{{ session('error') }}',
+                timer: 3000,
+                showConfirmButton: true,
+            });
+        @endif
+    </script>
 @endsection
