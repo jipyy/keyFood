@@ -179,7 +179,7 @@
     });
 </script>
 
-     <!-- Sweet Alert Script -->
+     {{-- <!-- Sweet Alert Script -->
      <script>
         @if (session('success'))
             Swal.fire({
@@ -200,7 +200,7 @@
                 showConfirmButton: true,
             });
         @endif
-    </script>
+    </script> --}}
 
 
 </html>
