@@ -7,6 +7,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\File; // Tambahkan ini jika Anda perlu menggunakan File
 
 class UserController extends Controller
@@ -23,6 +24,9 @@ class UserController extends Controller
 
     public function index()
     {
+
+        $users = User::all(); // Mengambil semua user tanpa soft delete
+
         $users = User::with('roles')->get();
 
         // Return view with users data
@@ -109,6 +113,8 @@ class UserController extends Controller
 
     public function destroy(User $user)
     {
+
+        Log::info('Deleting user with ID: ' . $user->id);
         // Hapus gambar jika ada
         if ($user->img && File::exists(public_path('images/users/' . $user->img))) {
             File::delete(public_path('images/users/' . $user->img));
