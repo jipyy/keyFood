@@ -162,7 +162,13 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
     Route::resource('history', AdminHistoryController::class)->middleware('role:admin');
 
-    Route::resource('faqs', FaqController::class)->middleware('permission:faqs');
+    // Route::resource('faqs', FaqController::class)->middleware('permission:faqs');
+    Route::get('/faqs', [FaqController::class, 'index'])->name('faqs.index')->middleware('permission:faqs');
+    Route::post('/faqs/store', [FaqController::class, 'store'])->name('faqs.store')->middleware('permission:faqs');
+    Route::get('/faqs/create', [FaqController::class, 'create'])->name('faqs.create')->middleware('permission:faqs');
+    Route::get('/faqs/edit/{faq}', [FaqController::class, 'edit'])->name('faqs.edit')->middleware('permission:faqs');
+    Route::put('/faqs/update/{category}', [FaqController::class, 'update'])->name('faqs.update')->middleware('permission:faqs');
+    Route::delete('/faqs/destroy/{category}', [FaqController::class, 'destroy'])->name('faqs.destroy')->middleware('permission:faqs');
 
 
     Route::get('backups', [BackupController::class, 'index'])->middleware('permission:backups');

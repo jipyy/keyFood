@@ -4,7 +4,7 @@
         <div class="container px-6 mx-auto py-4 mb-8">
             <div class="container mx-auto px-4 py-6">
                 <h1 class="text-2xl font-bold mb-6">FAQs</h1>
-                <a href="/admin.faqs.create"
+                <a href="/admin/faqs/create"
                     class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-4 inline-block">Create New
                     FAQ</a>
                 <div class="overflow-x-auto">
@@ -36,9 +36,9 @@
                                         </p>
                                     </td>
                                     <td class="px-6 py-4 border-b border-gray-300">
-                                        <a href="/admin.faqs.edit', $faq->id"
+                                        <a href="/admin/faqs/edit/{{ $faq->id }}"
                                             class="bg-yellow-500 hover:bg-yellow-700 text-gray-900 font-bold py-1 px-3 rounded">Edit</a>
-                                        <form action="/faqs.destroy', $faq->id" method="POST"
+                                        <form action="/admin/faqs/destroy/{{ $faq->id }}" method="POST"
                                             class="inline-block">
                                             @csrf
                                             @method('DELETE')
