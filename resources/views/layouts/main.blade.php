@@ -159,8 +159,8 @@
                     icon: 'error',
                     title: 'Oops...',
                     text: @json($errors->first()),
-                    timer: 3000, // Durasi tampilan alert dalam milidetik
-                    showConfirmButton: false
+                    timer: 5000, // Durasi tampilan alert dalam milidetik
+                    showConfirmButton: true
                 });
             }, 1000); // Penundaan dalam milidetik (1 detik)
         @endif
@@ -171,15 +171,15 @@
                     icon: 'success',
                     title: 'Success!',
                     text: '{{ session('success') }}',
-                    timer: 3000, // Durasi tampilan alert dalam milidetik
-                    showConfirmButton: false
+                    timer: 5000, // Durasi tampilan alert dalam milidetik
+                    showConfirmButton: true
                 });
-            }, 1000); // Penundaan dalam milidetik (1 detik)
+            }, 5000); // Penundaan dalam milidetik (1 detik)
         @endif
     });
 </script>
 
-    <!-- Sweet Alert Script -->
+    {{-- <!-- Sweet Alert Script -->
     <script>
         @if (session('success'))
             Swal.fire({
@@ -200,7 +200,7 @@
                 showConfirmButton: true,
             });
         @endif
-    </script>
+    </script> --}}
 
 
 </html>
