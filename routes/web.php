@@ -167,7 +167,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::post('/faqs/store', [FaqController::class, 'store'])->name('faqs.store')->middleware('permission:faqs');
     Route::get('/faqs/create', [FaqController::class, 'create'])->name('faqs.create')->middleware('permission:faqs');
     Route::get('/faqs/edit/{faq}', [FaqController::class, 'edit'])->name('faqs.edit')->middleware('permission:faqs');
-    Route::put('/faqs/update/{request}', [FaqController::class, 'update'])->name('faqs.update')->middleware('permission:faqs');
+    Route::put('/faqs/update/{faq}', [FaqController::class, 'update'])->name('faqs.update')->middleware('permission:faqs');
     Route::delete('/faqs/destroy/{faq}', [FaqController::class, 'destroy'])->name('faqs.destroy')->middleware('permission:faqs');
 
 
