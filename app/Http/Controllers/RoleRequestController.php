@@ -78,7 +78,7 @@ class RoleRequestController extends Controller
             ->first();
 
         if ($existingRequest) {
-            return redirect()->back()->with('error', 'Permintaan perubahan role untuk pengguna ini sudah ada.');
+            return redirect()->back()->with('error', 'Anda telah menggajukan permintaan sebagai penjual.');
         }
 
         // Simpan data ke database
@@ -89,6 +89,6 @@ class RoleRequestController extends Controller
             'updated_at' => now(),
         ]);
 
-        return redirect()->back()->with('success', 'Permintaan perubahan role berhasil dikirim.');
+        return redirect()->back()->with('success', 'Permintaan pengajuan menjadi penjual telah di kirim.');
     }
 }
