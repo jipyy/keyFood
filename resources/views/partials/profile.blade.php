@@ -133,15 +133,38 @@
                                 @csrf
                                 <input type="hidden" name="user_id" value="{{ Auth::id() }}">
                                 <input type="hidden" name="requested_role" value="seller">
-                                <button type="submit" class="btn btn-primary">Mengajuka Permintaan Menjadi Penjual</button>
+                                <button type="submit" class="btn btn-primary">Mengajukan Permintaan Menjadi Penjual</button>
                             </form>
                         @else
                             <p>User is not authenticated.</p>
                         @endif
                     @endif
                 @endif
-
             </div>
+            
+            <!-- Sweet Alert Script -->
+            <script>
+                @if (session('success'))
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Berhasil!',
+                        text: '{{ session('success') }}',
+                        timer: 3000,
+                        showConfirmButton: false,
+                    });
+                @endif
+            
+                @if (session('error'))
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Gagal!',
+                        text: '{{ session('error') }}',
+                        timer: 3000,
+                        showConfirmButton: false,
+                    });
+                @endif
+            </script>
+            
             <div class="contact-info">
                 <div class="row">
                     <div class="icon">
