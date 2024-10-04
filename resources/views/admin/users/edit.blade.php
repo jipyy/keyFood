@@ -35,10 +35,10 @@
                 </div>
 
                 <!-- Email Field -->
-                <div>
+                {{-- <div>
                     <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Email</label>
                     <input type="email" name="email" id="email" placeholder="write an email..." class="mt-1 block w-full sm:w-10/12 md:w-9/12 lg:w-8/12 mx-auto border border-gray-300 dark:border-gray-600 rounded-md shadow-sm py-2 px-3 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" value="{{ old('email') }}">
-                </div>
+                </div> --}}
 
                 <!-- Password Field -->
                 <div>
