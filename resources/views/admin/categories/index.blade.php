@@ -26,7 +26,7 @@
 
             <!-- Add Category Button -->
             <div class="mb-4 flex justify-start">
-                <a href="/admin.categories.create"
+                <a href="/admin/categories/create"
                     class="px-4 py-2 bg-blue-500 text-white rounded-lg dark:bg-gray-700 dark:text-white">
                     Add Category
                 </a>
