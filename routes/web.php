@@ -137,14 +137,18 @@ Route::prefix('admin')->name('admin.')->group(function () {
         return view('admin.dashboard-cms');
     })->middleware('permission:dasboard-cms');
 
+    
     // Route::resource('users', UserController::class)->middleware('permission:users');
-
     Route::get('/users', [UserController::class, 'index'])->name('users.index')->middleware('permission:users');
     Route::get('/users/edit/{user}', [UserController::class, 'edit'])->name('users.edit')->middleware('permission:users');
     Route::post('/users/update/{user}', [UserController::class, 'update'])->name('users.update')->middleware('permission:users');
     Route::delete('/users/destroy/{user}', [UserController::class, 'destroy'])->name('users.destroy')->middleware('permission:users');
 
-    Route::resource('stores', TokoController::class)->middleware('permission:stores');
+    // Route::resource('stores', TokoController::class)->middleware('permission:stores');
+    Route::get('/stores', [TokoController::class, 'index'])->name('stores.index')->middleware('permission:stores');
+    Route::get('/stores/edit/{id}', [TokoController::class, 'edit'])->name('stores.edit')->middleware('permission:stores');
+    Route::post('/stores/update/{id}', [TokoController::class, 'update'])->name('stores.update')->middleware('permission:stores');
+    Route::delete('/stores/destroy/{id}', [TokoController::class, 'destroy'])->name('stores.destroy')->middleware('permission:stores');
 
     Route::get('/role-requests', [RoleRequestController::class, 'index'])->name('role-requests.index')->middleware('permission:role-requests');
 
