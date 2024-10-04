@@ -27,7 +27,7 @@
                             </h5>
 
                             {{-- <form action="{{ route('role-request.approve', $request->id) }}" method="POST" --}}
-                            <form action="admin/role-request/approve/{{ $id }}" method="POST"
+                            <form action="admin/role-request/approve/{{ $id->user_id }}" method="POST"
                                 style="display: inline;">
                                 @csrf
                                 <button
@@ -44,7 +44,7 @@
                             </form>
 
                             {{-- <form action="{{ route('role-request.cancel', $request->id) }}" method="POST" --}}
-                            <form action="/admin/role-request/cancel/{{ $id }}" method="POST"
+                            <form action="/admin/role-request/cancel/{{ $id->user_id }}" method="POST"
                                 style="display: inline;">
                                 @csrf
                                 <button
@@ -134,7 +134,7 @@
                                         <td class="px-4 py-3">
                                             <div class="flex items-center text-sm">
                                                 {{-- <form action="{{ route('role-request.approve', $request->id) }}" --}}
-                                                <form action="admin/role-request/approve/{{ $id }}" method="POST"
+                                                <form action="admin/role-request/approve/{{ $id->user_id }}" method="POST"
                                                     method="POST" style="display: inline;">
                                                     @csrf
                                                     <button
@@ -151,7 +151,7 @@
                                                 </form>
 
                                                 {{-- <form action="{{ route('role-request.cancel', $request->id) }}" --}}
-                                               <form action="/admin/role-request/cancel/{{ $id }}" method="POST"
+                                               <form action="/admin/role-request/cancel/{{ $id->user_id }}" method="POST"
                                                     method="POST" style="display: inline;">
                                                     @csrf
                                                     <button
