@@ -155,7 +155,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::post('/categories/store', [CategoryController::class, 'store'])->name('categories.store')->middleware('permission:categories');
     Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create')->middleware('permission:categories');
     Route::get('/categories/edit/{category}', [CategoryController::class, 'edit'])->name('categories.edit')->middleware('permission:categories');
-    Route::post('/categories/update/{category}', [CategoryController::class, 'update'])->name('categories.update')->middleware('permission:categories');
+    Route::put('/categories/update/{category}', [CategoryController::class, 'update'])->name('categories.update')->middleware('permission:categories');
     Route::delete('/categories/destroy/{category}', [CategoryController::class, 'destroy'])->name('categories.destroy')->middleware('permission:categories');
 
     // Route::get('/admin/history', [AdminHistoryController::class, 'index'])->name('admin.history.index')->middleware('permission:histories');
