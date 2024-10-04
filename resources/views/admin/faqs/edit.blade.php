@@ -3,7 +3,7 @@
     <div class="container mx-auto px-4 py-6">
         <h1 class="text-2xl font-bold mb-6">{{ isset($faq) ? 'Edit FAQ' : 'Create FAQ' }}</h1>
         
-        <form action="/admin/faqs/udpate/{{ $faq->id }}" method="POST" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <form action="/admin/faqs/udpate/{{ $faq }}" method="POST" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
             @csrf
             @if(isset($faq))
                 @method('PUT')
