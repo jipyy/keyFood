@@ -171,10 +171,10 @@
                     icon: 'success',
                     title: 'Success!',
                     text: '{{ session('success') }}',
-                    timer: 5000, // Durasi tampilan alert dalam milidetik
+                    timer: 500000, // Durasi tampilan alert dalam milidetik
                     showConfirmButton: true
                 });
-            }, 5000); // Penundaan dalam milidetik (1 detik)
+            }, 500000); // Penundaan dalam milidetik (1 detik)
         @endif
     });
 </script>
