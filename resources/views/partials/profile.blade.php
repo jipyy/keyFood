@@ -133,7 +133,7 @@
                                 @csrf
                                 <input type="hidden" name="user_id" value="{{ Auth::id() }}">
                                 <input type="hidden" name="requested_role" value="seller">
-                                <button type="submit" class="btn btn-primary">Request Role Change to Seller</button>
+                                <button type="submit" class="btn btn-primary">Mengajuka Permintaan Menjadi Penjual</button>
                             </form>
                         @else
                             <p>User is not authenticated.</p>
