@@ -140,9 +140,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
     // Route::resource('users', UserController::class)->middleware('permission:users');
 
     Route::get('/users', [UserController::class, 'index'])->name('users.index')->middleware('permission:users');
-    Route::get('/users/edit/{id}', [UserController::class, 'edit'])->name('users.edit')->middleware('permission:users');
-    Route::post('/users/update/{id}', [UserController::class, 'update'])->name('users.update')->middleware('permission:users');
-    Route::delete('/users/destroy/{id}', [UserController::class, 'destroy'])->name('users.destroy')->middleware('permission:users');
+    Route::get('/users/edit/{user}', [UserController::class, 'edit'])->name('users.edit')->middleware('permission:users');
+    Route::post('/users/update/{user}', [UserController::class, 'update'])->name('users.update')->middleware('permission:users');
+    Route::delete('/users/destroy/{user}', [UserController::class, 'destroy'])->name('users.destroy')->middleware('permission:users');
 
     Route::resource('stores', TokoController::class)->middleware('permission:stores');
 
