@@ -129,7 +129,7 @@
                     @else
                         <h4>Buyer</h4>
                         @if (Auth::check())
-                            <form action="{{ route('role-request.store') }}" class="mb-5" method="POST">
+                            <form action="/role-request/store" class="mb-5" method="POST">
                                 @csrf
                                 <input type="hidden" name="user_id" value="{{ Auth::id() }}">
                                 <input type="hidden" name="requested_role" value="seller">
