@@ -147,7 +147,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
     // Route::resource('stores', TokoController::class)->middleware('permission:stores');
     Route::get('/stores', [TokoController::class, 'index'])->name('stores.index')->middleware('permission:stores');
     Route::get('/stores/edit/{id}', [TokoController::class, 'edit'])->name('stores.edit')->middleware('permission:stores');
-    Route::post('/stores/update/{id}', [TokoController::class, 'update'])->name('stores.update')->middleware('permission:stores');
+    Route::put('/stores/update/{id}', [TokoController::class, 'update'])->name('stores.update')->middleware('permission:stores');
     Route::delete('/stores/destroy/{id}', [TokoController::class, 'destroy'])->name('stores.destroy')->middleware('permission:stores');
 
     Route::get('/role-requests', [RoleRequestController::class, 'index'])->name('role-requests.index')->middleware('permission:role-requests');
@@ -170,7 +170,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
     Route::get('/company', [CmsController::class, 'index'])->name('company.index');
     Route::get('/company/edit/{id}', [CmsController::class, 'edit'])->name('company.edit');
-    Route::post('/company/update/{id}', [CmsController::class, 'update'])->name('company.update');
+    Route::put('/company/update/{id}', [CmsController::class, 'update'])->name('company.update');
 });
 
 // Biarkan ini di luar prefix admin
