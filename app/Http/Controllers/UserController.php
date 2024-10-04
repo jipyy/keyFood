@@ -86,12 +86,16 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required',
             // 'email' => 'required|email|unique:users,email,' . $user->id,
-            'phone' => 'required|phone|unique:users,phone,' . $user->id,
+            'phone' => 'required|unique:users,phone,' . $user->id,
             'password' => 'nullable|min:6',
             'img' => 'nullable|image|mimes:jpg,png,jpeg|max:2048',
         ]);
 
         $data = $request->only(['name',  'phone']);
+
+        if (!preg_match('/^[0-9]{10,15}$/', $request->phone)) {
+            return back()->withErrors(['phone' => 'Nomor telepon harus 10-15 digit.']);
+        }
 
         if ($request->filled('password')) {
             $data['password'] = Hash::make($request->password);
