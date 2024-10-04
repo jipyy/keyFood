@@ -26,8 +26,8 @@
                                 Approved
                             </h5>
 
-                            <form action="{{ route('role-request.approve', $request->id) }}" method="POST"
-                            {{-- <form action="admin/role-request/approve/{{ $request->id }}" method="POST" --}}
+                            {{-- <form action="{{ route('role-request.approve', $request->id) }}" method="POST" --}}
+                            <form action="admin/role-request/approve/{{ $request->id }}" method="POST"
                                 style="display: inline;">
                                 @csrf
                                 <button
@@ -150,8 +150,8 @@
                                                     </button>
                                                 </form>
 
-                                                <form action="{{ route('role-request.cancel', $request->id) }}"
-                                               {{-- <form action="/admin/role-request/cancel/{{ $request->id }}" method="POST" --}}
+                                                {{-- <form action="{{ route('role-request.cancel', $request->id) }}" --}}
+                                               <form action="/admin/role-request/cancel/{{ $request->id }}" method="POST"
                                                     method="POST" style="display: inline;">
                                                     @csrf
                                                     <button
