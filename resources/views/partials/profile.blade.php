@@ -3,7 +3,7 @@
     <button
         class="fixed-button flex h-12 w-12 items-center justify-center rounded-lg bg-slate-900 text-slate-100 ring-slate-100 transition hover:shadow-md hover:ring-2 overflow-hidden"
         @click="isOpen = !isOpen">
-        <img class="w-full object-cover" src="{{ (Auth::user()->img ?? './img/client-1.png') }}" alt="Profile">
+        <img class="w-full object-cover" src="{{ Auth::user()->img ?? './img/client-1.png' }}" alt="Profile">
     </button>
 
     <!-- Dropdown Menu -->
@@ -15,7 +15,7 @@
                 <div class="flex gap-3 items-center">
                     <div
                         class="flex items-center justify-center rounded-lg h-12 w-12 overflow-hidden border-2 border-slate-600">
-                        <img class="w-full object-cover" src="{{ (Auth::user()->img ?? './img/client-1.png') }}"
+                        <img class="w-full object-cover" src="{{ Auth::user()->img ?? './img/client-1.png' }}"
                             alt="Profile">
                     </div>
                     <div style="width: 100%">
@@ -32,16 +32,22 @@
                                 </svg>
                             </span>
                         </div>
-                        <div class="text-xs text-slate-400">
-                            {{ strlen(Auth::user()->email) > 16 ? substr(Auth::user()->email, 0, 16) . '...' : Auth::user()->email }} <br>
-                            {{ Auth::user()->phone === '0000000000' ? '' : (strlen(Auth::user()->phone) > 16 ? substr(Auth::user()->phone, 0, 16) . '...' : Auth::user()->phone) }}
-                            <br>
-                            @if (Auth::check() && Auth::user()->is_online)
-                                <span class="text-green-500">Online</span>
-                            @else
-                                <span class="text-gray-500">Offline</span>
-                            @endif
+                        <div class="text-xs text-slate-400 space-y-1">
+                            <div>
+                                {{ strlen(Auth::user()->email) > 16 ? substr(Auth::user()->email, 0, 16) . '...' : Auth::user()->email }}
+                            </div>
+                            <div>
+                                {{ Auth::user()->phone === '0000000000' ? '' : (strlen(Auth::user()->phone) > 16 ? substr(Auth::user()->phone, 0, 16) . '...' : Auth::user()->phone) }}
+                            </div>
+                            <div>
+                                @if (Auth::check() && Auth::user()->is_online)
+                                    <span class="text-green-500">Online</span>
+                                @else
+                                    <span class="text-gray-500">Offline</span>
+                                @endif
+                            </div>
                         </div>
+
                     </div>
                 </div>
                 <div class="border-t border-slate-500/30"></div>
@@ -84,7 +90,7 @@
                             <span>Riwayat Belanja</span>
                         </a>
                     @endif
-            </div>
+                </div>
                 <form method="POST" action="/logout" style="display: flex">
                     @csrf
                     <button id="logout"
@@ -116,7 +122,7 @@
             <i class="fa-solid fa-arrow-left back"></i>
         </button>
         <div class="profile-pic">
-        <img src="{{ (Auth::user()->img ?? './img/client-1.png') }}" alt="user avatar">
+            <img src="{{ Auth::user()->img ?? './img/client-1.png' }}" alt="user avatar">
         </div>
         <div class="profile-details">
             <div class="intro">
@@ -133,7 +139,8 @@
                                 @csrf
                                 <input type="hidden" name="user_id" value="{{ Auth::id() }}">
                                 <input type="hidden" name="requested_role" value="seller">
-                                <button type="submit" class="btn btn-primary">Mengajukan Permintaan Menjadi Penjual</button>
+                                <button type="submit" class="btn btn-primary">Mengajukan Permintaan Menjadi
+                                    Penjual</button>
                             </form>
                         @else
                             <p>User is not authenticated.</p>
@@ -226,4 +233,3 @@
         </div>
     </div>
 </div>
-
