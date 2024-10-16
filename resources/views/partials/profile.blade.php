@@ -33,7 +33,7 @@
                             </span>
                         </div>
                         <div class="text-xs text-slate-400">
-                            {{ strlen(Auth::user()->email) > 16 ? substr(Auth::user()->email, 0, 16) . '...' : Auth::user()->email }}
+                            {{ strlen(Auth::user()->email) > 16 ? substr(Auth::user()->email, 0, 16) . '...' : Auth::user()->email }} <br>
                             {{ Auth::user()->phone === '0000000000' ? '' : (strlen(Auth::user()->phone) > 16 ? substr(Auth::user()->phone, 0, 16) . '...' : Auth::user()->phone) }}
                             <br>
                             @if (Auth::check() && Auth::user()->is_online)
@@ -141,9 +141,9 @@
                     @endif
                 @endif
             </div>
-            
-        
-            
+
+
+
             <div class="contact-info">
                 <div class="row">
                     <div class="icon">
